@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Jupyter
+*.ipynb_checkpoints
+
+# Data (do not commit large datasets)
+data/raw/*
+data/processed/*
+data/train/*
+data/validation/*
+data/test/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/train/.gitkeep
+!data/validation/.gitkeep
+!data/test/.gitkeep
+
+# Models and outputs (keep small, ignore large binaries if needed)
+models/*.onnx
+outputs/corrected_images/*
+outputs/masks/*
+!models/.gitkeep
+!outputs/.gitkeep
+!outputs/corrected_images/.gitkeep
+!outputs/masks/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Android / Gradle
+*.iml
+.gradle
+local.properties
+*.apk
+*.aab
+*.dex
+*.class
+build/
