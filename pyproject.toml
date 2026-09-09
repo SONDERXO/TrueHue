@@ -1,0 +1,16 @@
+# Optional – allows `pip install -e .` and IDE integration
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "truehue"
+version = "0.1.0"
+description = "Smartphone-based post-capture skin tone correction using ITA estimation and ML"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

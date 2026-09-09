@@ -7,16 +7,15 @@ __pycache__/
 venv/
 env/
 .venv/
-env/
 *.egg-info/
 dist/
 build/
 .pytest_cache/
 
 # Jupyter
-*.ipynb_checkpoints
+.ipynb_checkpoints/
 
-# Data (do not commit large datasets)
+# Data – do not commit large datasets
 data/raw/*
 data/processed/*
 data/train/*
@@ -28,16 +27,24 @@ data/test/*
 !data/validation/.gitkeep
 !data/test/.gitkeep
 
-# Models and outputs (keep small, ignore large binaries if needed)
+# Models – ignore binaries, keep structure
 models/*.onnx
+models/*.pkl
+models/*.joblib
+!models/.gitkeep
+
+# Outputs – ignore generated artefacts
 outputs/corrected_images/*
 outputs/masks/*
-!models/.gitkeep
+outputs/figures/*
+outputs/metrics/*
 !outputs/.gitkeep
 !outputs/corrected_images/.gitkeep
 !outputs/masks/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/metrics/.gitkeep
 
-# IDE
+# IDE / OS
 .idea/
 .vscode/
 *.swp
@@ -53,4 +60,3 @@ local.properties
 *.aab
 *.dex
 *.class
-build/
