@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App / screen titles -->
+    <string name="app_name">Skin Tone Correction</string>
+    <string name="app_title">Skin Tone Correction</string>
+
+    <!-- Home screen -->
+    <string name="home_description">Select a photo of a single face. The app will estimate your
+        skin tone (ITA) and apply a machine-learning-based correction, entirely on-device.</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="process_image">Process Image</string>
+    <string name="no_photo_selected">No photo selected yet</string>
+    <string name="selected_photo_preview">Selected photo preview</string>
+    <string name="photo_selected">Selected image: %1$s</string>
+
+    <!-- Processing screen -->
+    <string name="processing_title">Processing image…</string>
+    <string name="processing_hint">Simulated step — the real ML pipeline will be added here later.</string>
+    <string name="processing_done">Done! Preparing results…</string>
+
+    <!-- Result screen -->
+    <string name="result_before">Original</string>
+    <string name="result_after">Corrected</string>
+    <string name="result_hint">The corrected image is currently a placeholder (same as the original).
+        The decision-tree correction will be wired in later.</string>
+    <string name="reselect_photo">Re-select Photo</string>
+    <string name="save_corrected_image">Save Corrected Image</string>
+    <string name="save_not_implemented">Save not implemented yet</string>
+
+    <!-- Errors -->
+    <string name="error_no_image_found">No valid image found</string>
+    <string name="error_no_image_selected">No image selected</string>
+    <string name="error_processing_failed">Processing failed. Please try again.</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="go_back">Go Back</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        PERMISSIONS
+        This app deliberately declares NO storage permissions. Photos are chosen through the
+        Android Photo Picker (PickVisualMedia), which grants temporary per-URI read access
+        automatically. That avoids READ_EXTERNAL_STORAGE (API 24-32) and READ_MEDIA_IMAGES
+        (API 33+) entirely, so no runtime-permission flow is needed.
+
+        TODO(ml-pipeline): if you later scan/save the whole device gallery yourself, add
+        <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+        for API 33+ (and READ_EXTERNAL_STORAGE with maxSdkVersion=32 as fallback).
+    -->
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SkinToneCorrection">
+
+        <!--
+            Single-activity app: MainActivity is the only activity. It hosts the entire
+            Compose UI, and screen-to-screen navigation happens inside the NavHost
+            (see ui/AppNavHost.kt) - no extra activities are needed.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

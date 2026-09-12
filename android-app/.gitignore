@@ -1,0 +1,22 @@
+# Gradle / Android build output
+build/
+.gradle/
+*.apk
+*.aab
+*.dex
+*.class
+
+# Local machine config (contains machine-specific SDK paths - do not commit)
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Native build artifacts (not used yet, but standard)
+.cxx/

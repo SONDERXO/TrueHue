@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Base theme for the app (applied by Android before Compose takes over).
+        Parent is the platform theme - we do NOT depend on AppCompat because the UI
+        is 100% Jetpack Compose. Compose then applies the real colors via
+        ui/theme/Theme.kt (SkinToneCorrectionTheme).
+    -->
+    <style name="Theme.SkinToneCorrection" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
