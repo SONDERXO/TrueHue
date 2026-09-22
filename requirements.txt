@@ -2,8 +2,15 @@
 # Python 3.10+
 
 # Image processing
-opencv-python>=4.8.0
+# opencv-contrib-python is a superset of opencv-python and must be used
+# instead, because MediaPipe (below) pulls the contrib build in alongside it.
+opencv-contrib-python>=4.8.0
 Pillow>=10.0.0
+
+# Anatomical feature exclusion (skin-mask stage). Optional at import time: if
+# this package is not installed the skin-mask pipeline transparently falls back
+# to the V1 colour-only mask and reports landmarks_available=False.
+mediapipe>=1.0.0
 
 # Numerical
 numpy>=1.24.0

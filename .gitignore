@@ -32,6 +32,7 @@ models/*.onnx
 models/*.pkl
 models/*.joblib
 models/face_detector/
+models/face_landmarker/
 !models/.gitkeep
 
 # Outputs – ignore generated artefacts

@@ -35,6 +35,15 @@ class Config:
     )
     FACE_CONFIDENCE: float = 0.9
 
+    # Face Landmarker (MediaPipe task model, used for anatomical feature
+    # exclusion in the skin-mask stage)
+    FACE_LANDMARKER_MODEL_PATH: str = "models/face_landmarker/face_landmarker.task"
+    FACE_LANDMARKER_MODEL_URL: str = (
+        "https://storage.googleapis.com/mediapipe-models/face_landmarker/"
+        "face_landmarker/float16/latest/face_landmarker.task"
+    )
+    FACE_LANDMARKER_MIN_DETECTION_CONFIDENCE: float = 0.5
+
     # Image defaults
     IMAGE_SIZE: int = 256
 
