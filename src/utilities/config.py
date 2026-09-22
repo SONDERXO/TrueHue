@@ -27,6 +27,14 @@ class Config:
     DATA_VAL: str = "data/validation"
     DATA_TEST: str = "data/test"
 
+    # Face detector (YuNet ONNX model)
+    FACE_MODEL_PATH: str = "models/face_detector/face_detection_yunet_2023mar.onnx"
+    FACE_MODEL_URL: str = (
+        "https://github.com/opencv/opencv_zoo/raw/main/"
+        "models/face_detection_yunet/face_detection_yunet_2023mar.onnx"
+    )
+    FACE_CONFIDENCE: float = 0.9
+
     # Image defaults
     IMAGE_SIZE: int = 256
 

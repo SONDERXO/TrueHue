@@ -31,6 +31,7 @@ data/test/*
 models/*.onnx
 models/*.pkl
 models/*.joblib
+models/face_detector/
 !models/.gitkeep
 
 # Outputs – ignore generated artefacts
@@ -38,6 +39,9 @@ outputs/corrected_images/*
 outputs/masks/*
 outputs/figures/*
 outputs/metrics/*
+outputs/pilot_face_crops/
+outputs/pilot_masks/
+outputs/pilot_visualizations/
 !outputs/.gitkeep
 !outputs/corrected_images/.gitkeep
 !outputs/masks/.gitkeep
