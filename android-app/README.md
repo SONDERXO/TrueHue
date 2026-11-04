@@ -1,10 +1,19 @@
 # SkinToneCorrection — Android app (thesis)
 
 Android front-end for *"Smartphone-Based Post-Capture Skin Tone Correction Using ITA
-Estimation and Machine Learning"*. This is **Thesis 2** UI scaffolding: it compiles and
-runs, but the ML pipeline is **stubbed** (see [Implemented vs. stub](#implemented-vs-stub)).
+Estimation and Machine Learning"*. The local experimental pipeline is now wired
+through photo decode, YuNet, the original rule-based mask, ITA, experimental MST,
+the older Python-demo baseline5/fold1 and masked correction. Device behavior and
+full Python pixel parity still require verification; correction quality is not
+validated. No parser/beard or new correction-model training is included.
 
 ## Stack
+
+Current evidence: [31 October emulator reliability check](../docs/android-reliability-check-2026-10-31.md)
+records six native tests, eighteen JVM tests and fixed-example Python parity.
+Physical-phone and broad parity remain pending. FaceOcc and the newer Python
+whole-face/neck correction support are not part of this APK. See the
+[1 November delivery checkpoint](../docs/delivery-checkpoint-2026-11-01.md).
 
 | Concern      | Choice                                                                  |
 |--------------|-------------------------------------------------------------------------|
@@ -38,7 +47,7 @@ android-app/
         ├── AndroidManifest.xml
         ├── java/com/example/skintonecorrection/
         │   ├── MainActivity.kt                 # single entry point
-        │   ├── data/ImageRepository.kt         # STUB: future ML pipeline
+        │   ├── data/ImageRepository.kt         # local experimental decode/pipeline/results
         │   ├── util/Constants.kt               # routes + timing
         │   └── ui/
         │       ├── AppNavHost.kt               # navigation graph
@@ -88,21 +97,35 @@ android-app/
 |---------------|------------------------------------------------------------------------------|
 | Splash        | Shows the app title for 1.5 s, then Home. *(Optional — delete if unwanted.)* |
 | Home          | Tap *Select Photo* → Android Photo Picker. A preview + a Snackbar showing the picked `content://` URI appear. *Process Image* is enabled only after a photo is chosen. |
-| Processing    | *Process Image* starts a simulated **2 s** delay; then auto-navigates to Result. |
-| Result        | Shows the same image twice (Original / Corrected placeholder), *Re-select Photo* back to Home, *Save Corrected Image* → Snackbar "Save not implemented yet". |
+| Processing    | Runs the experimental image pipeline off the UI thread; failure gives an explanation and an exportable report. |
+| Result        | Shows photo used, selected skin and actual trial output; exports PNG/report through the system file picker. |
 
 ## Implemented vs. stub
 
-**Implemented:** app skeleton, navigation, Photo Picker, image previews, simulated
-processing, error state wiring, theming.
+**Implemented in code:** selection, bounded decode/EXIF orientation, square256
+OpenCV processing, YuNet, required MediaPipe landmarks, HSV/YCrCb and complete-mouth
+exclusions, Lab/ITA, experimental MST, five-feature tree, reciprocal-gamma masked
+output, result views, PNG/report export, explicit failure and stale-result handling.
+There is no fake processing delay or original-as-corrected fallback.
 
-**Stubbed (marked `TODO(ml-pipeline)`):**
-- `ImageRepository.runCorrection(...)` returns the input unchanged.
-- `SharedViewModel.startProcessing()` uses a fake delay, no real correction.
-- Saving the corrected image (`TODO(media-store)`).
+**Still pending:** native pipeline/device execution and pixel parity, usability
+on a physical phone, device timing, robust correction quality, final MST
+validation and neck coverage. Android subsampling and mean accumulation are
+declared port differences; the old Python measurement hash is provenance, not
+a claim that Android measurements are already validated as equivalent.
 
-The real pipeline (face detection → skin mask → ITA → MST → decision tree → correction)
-mirrors the Python repo (`src/` top level) and will replace those stubs.
+Before building from the existing local Python evidence:
+
+```powershell
+venv\Scripts\python.exe scripts/321_prepare_android_pipeline_assets.py
+```
+
+If assets already exist, use `--verify` instead. Model assets stay ignored and
+are unavailable in a new clone without the existing local artifacts. The original
+four-feature asset is retained for historical component tests; the app's image
+pipeline explicitly loads the separate five-feature demo baseline. No raw dataset
+photo is included in the main APK. The one local instrumentation photo is ignored
+and belongs only to the device-test APK.
 
 ## Troubleshooting
 
@@ -113,7 +136,7 @@ mirrors the Python repo (`src/` top level) and will replace those stubs.
   path. Ensure you're opening the project in Studio (not CLI first) so it can set it.
 - **Photo Picker says no image found**: that's the cancel path. On an emulator, push a
   test image first (`adb push pic.jpg /sdcard/Pictures/`).
-- **No ML model yet**: expected — the app deliberately does **not** bundle ONNX
-  Runtime/TensorFlow Lite in this milestone.
+- **Model checksum mismatch**: rerun the asset verifier; do not silently substitute
+  another tree or calibration. The experimental status must remain visible.
 - **JDK errors**: AGP 8.7 needs JDK 17+. Studio bundles one; make sure Gradle JVM in
   *Settings > Build Tools > Gradle* points to the Studio JBR.

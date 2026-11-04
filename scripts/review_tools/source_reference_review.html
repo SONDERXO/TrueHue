@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrueHue · three additional source leads</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui;background:#141923;color:#ecf1f8}body{max-width:1250px;margin:auto;padding:24px}h1{font-size:26px}p{line-height:1.5}section{border-top:1px solid #556175;margin:28px 0;padding-top:15px}.panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.panel{overflow:hidden;aspect-ratio:256/282}.panel img{width:400%;max-width:none}figure{margin:0}figcaption{font-size:14px;margin-bottom:6px}fieldset{margin:15px 0;padding:14px;border:1px solid #66758b}select,textarea,button{font:inherit;background:#253148;color:#fff;border:1px solid #8695ac;border-radius:5px;padding:9px}select{max-width:100%}textarea{display:block;width:95%;margin-top:10px;min-height:55px}button{cursor:pointer}a{color:#a8d2ff}.hold{color:#ffd39b}#status{position:sticky;top:0;background:#202c40;padding:14px;z-index:1}label{display:block;margin:8px 0}@media(max-width:850px){.panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<h1>Three additional source leads</h1>
+<p>These are new, unapproved sources. Judge the original reference, its mask and the displayed distorted mask separately. Green shows selected pixels. Use <b>Uncertain</b> when you cannot judge. An acceptance records only that judgment; it does not admit data or approve a model.</p>
+<p class="hold">All three displayed distortions contain clipping. They remain stress cases. We will not train a three-source model or repeat the completed 26-source comparison.</p>
+<div id="status" role="status"></div><div id="cases"></div>
+<button id="export">Export the nine judgments</button>
+<p>Export the JSON file when finished and share it in chat. No decisions are sent automatically. Keep a backup before closing; browser saving may be unavailable for local files.</p>
+<script id="spec" type="application/json">__SPEC__</script><script src="source_reference_review.js"></script></html>

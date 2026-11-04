@@ -5,17 +5,17 @@
     <string name="app_title">Skin Tone Correction</string>
 
     <!-- Home screen -->
-    <string name="home_description">Select a photo of a single face. The app will estimate your
-        skin tone (ITA) and apply a machine-learning-based correction, entirely on-device.</string>
+    <string name="home_description">Experimental demo using an older model that failed quality checks. Select one face for local ITA/MST measurement and trial correction. Results may be wrong.</string>
     <string name="select_photo">Select Photo</string>
     <string name="process_image">Process Image</string>
     <string name="no_photo_selected">No photo selected yet</string>
     <string name="selected_photo_preview">Selected photo preview</string>
-    <string name="photo_selected">Selected image: %1$s</string>
+    <string name="photo_selected">Photo selected.</string>
+    <string name="photo_selection_cancelled">Selection cancelled. Your current photo is unchanged.</string>
 
     <!-- Processing screen -->
     <string name="processing_title">Processing image…</string>
-    <string name="processing_hint">Simulated step — the real ML pipeline will be added here later.</string>
+    <string name="processing_hint">Detecting the face, selecting skin, estimating ITA/MST and applying the experimental tree locally.</string>
     <string name="processing_done">Done! Preparing results…</string>
 
     <!-- Result screen -->

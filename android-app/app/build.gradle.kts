@@ -21,6 +21,7 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -47,9 +48,13 @@ android {
         // Enable Compose UI.
         compose = true
     }
+    sourceSets.getByName("test").resources.srcDir("src/main/assets")
 }
 
 dependencies {
+    implementation("org.opencv:opencv:5.0.0")
+    implementation("com.google.mediapipe:tasks-vision:0.10.35")
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
     // Compose BOM: one version catalog entry that aligns a compatible set of
     // all androidx.compose.* libraries.
     implementation(platform(libs.androidx.compose.bom))
@@ -77,4 +82,9 @@ dependencies {
 
     // Tooling available only in debug builds (e.g., layout inspector preview).
     debugImplementation(libs.androidx.ui.tooling)
+    testImplementation("junit:junit:4.13.2")
+    // Real parser for local JVM tests; Android supplies org.json on devices.
+    testImplementation("org.json:json:20240303")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
 }

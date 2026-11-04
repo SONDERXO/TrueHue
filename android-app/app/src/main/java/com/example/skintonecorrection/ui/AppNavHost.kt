@@ -43,7 +43,7 @@ fun AppNavHost(sharedViewModel: SharedViewModel = viewModel()) {
             HomeScreen(
                 sharedViewModel = sharedViewModel,
                 onProcessClick = {
-                    // Kick off the (simulated) correction, then move to the working screen.
+                    // Start the local experimental pipeline, then show progress.
                     sharedViewModel.startProcessing()
                     navController.navigate(Routes.PROCESSING)
                 }

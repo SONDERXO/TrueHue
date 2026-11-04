@@ -28,11 +28,16 @@ import coil.compose.AsyncImage
 import com.example.skintonecorrection.R
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedViewModel
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 
 /**
  * "Working…" screen shown while the correction pipeline runs.
  *
- * Right now the pipeline is simulated with a delay inside [SharedViewModel.startProcessing].
+ * The local pipeline runs off the UI thread inside [SharedViewModel.startProcessing].
  * The screen simply waits: it shows a progress indicator, and as soon as the shared state
  * flips to [ProcessingState.SUCCESS] it asks the nav host to open the Result screen.
  */
@@ -43,6 +48,12 @@ fun ProcessingScreen(
     onBackToHome: () -> Unit,
 ) {
     val uiState by sharedViewModel.uiState.collectAsStateWithLifecycle()
+    var savedMessage by remember { mutableStateOf("") }
+    val saveReport=rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/json")){destination ->
+        val source=uiState.reportUri
+        if(destination!=null && source!=null)sharedViewModel.export(source,destination){savedMessage=it}
+        else if(destination==null)savedMessage="Save cancelled. Your report is unchanged."
+    }
 
     // Trigger navigation exactly once when the run completes (state changes will not
     // re-fire because LaunchedEffect keys on the state value).
@@ -103,12 +114,14 @@ fun ProcessingScreen(
 
                 ProcessingState.ERROR -> {
                     Text(
-                        text = stringResource(uiState.errorMessageRes ?: R.string.error_processing_failed),
+                        text = uiState.message.ifEmpty { stringResource(R.string.error_processing_failed) },
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.error,
                         textAlign = TextAlign.Center,
                     )
                     Spacer(modifier = Modifier.height(16.dp))
+                    if(uiState.reportUri!=null)Button(onClick={saveReport.launch("truehue_failure_report.json")}){Text("Save failure report")}
+                    if(savedMessage.isNotEmpty())Text(savedMessage)
                     Button(onClick = onBackToHome) {
                         Text(text = stringResource(R.string.back_to_home))
                     }

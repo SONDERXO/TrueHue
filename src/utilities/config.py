@@ -44,6 +44,14 @@ class Config:
     )
     FACE_LANDMARKER_MIN_DETECTION_CONFIDENCE: float = 0.5
 
+    # Isolated correction-mask experiment; not the production estimation mask.
+    SELFIE_SEGMENTER_MODEL_PATH: str = "models/selfie_segmenter/selfie_multiclass_256x256.tflite"
+    SELFIE_SEGMENTER_MODEL_URL: str = (
+        "https://storage.googleapis.com/mediapipe-models/image_segmenter/"
+        "selfie_multiclass_256x256/float32/1/selfie_multiclass_256x256.tflite"
+    )
+    CORRECTION_PROTOTYPE_MODEL_PATH: str = "models/correction_prototype_v1/decision_tree.joblib"
+
     # Image defaults
     IMAGE_SIZE: int = 256
 

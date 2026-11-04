@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrueHue facial boundary review</title>
+<style>
+body{font:16px system-ui;color:#182b39;background:#f4f6f8;max-width:1150px;margin:20px auto;padding:0 16px}
+header,section{background:white;padding:20px;border:1px solid #d3dce3;border-radius:8px;margin:16px 0}
+h1{margin-top:0}p,li{line-height:1.5}button,select,input,textarea{font:inherit;padding:9px}button{cursor:pointer;background:#fff;border:1px solid #8799a7;border-radius:5px}button[aria-pressed=true]{outline:3px solid #172d40}.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+#viewport{overflow:auto;max-height:76vh;border:1px solid #8295a4;background:#dde4ea}canvas{display:block;cursor:crosshair}#message{min-height:28px;font-weight:600;color:#153f65}textarea{box-sizing:border-box;width:100%;min-height:70px}#download{background:#164c80;color:white}.skin{color:#087343}.exclude{color:#b82424}.uncertain{color:#8d5a00}#polygon-list{max-height:160px;overflow:auto}#polygon-list li{margin:7px 0}summary{cursor:pointer;font-weight:600}
+</style></head><body>
+<header><h1>Mark the facial skin we should correct</h1>
+<p>Three reference images. Draw your own boundaries; no model mask is prefilled. This is a small development guide, not final thesis ground truth.</p>
+<ol><li>Choose <strong class="skin">Facial skin</strong>. Click around the visible face, then <strong>Finish polygon</strong>. Multiple skin polygons are allowed.</li>
+<li>Choose <strong class="exclude">Keep excluded</strong>. Draw separate polygons over eyes, eyebrows, lips/mouth and any hair, paint, clothing or background inside your outline. Include the missed cheek if it is actual skin.</li>
+<li>Use <strong class="uncertain">Uncertain</strong> where the boundary is unclear. Keep a little distance from a blurry edge if you cannot tell.</li>
+<li>Check your outlines, mark the image complete, then move to the next image. Download the JSON when finished.</li></ol>
+<details><summary>What about the neck and progress saving?</summary><p>This set focuses on facial coverage. Leave the person's neck unmarked for now; unmarked pixels are unknown, not rejected skin. The face-and-neck requirement remains. Exclusions take priority over uncertain regions, which take priority over skin. These labels do not change ITA measurements or training data automatically.</p><p>Only completed polygons are saved locally. Unfinished polygon points are not saved. Browser storage may be unavailable; download a draft before closing. You can import the JSON to continue.</p></details>
+<div class="controls"><button id="download">Download review JSON</button><label>Import saved draft <input id="import" type="file" accept=".json,application/json"></label><span id="progress"></span></div><p id="storage-status"></p>
+</header>
+<section><div class="controls"><button id="previous">Previous image</button><select id="image-select" aria-label="Reference image"></select><button id="next">Next image</button></div>
+<h2 id="image-title"></h2><p id="image-hint"></p><span id="image-size"></span>
+<div class="controls"><button class="skin" data-label="skin" aria-pressed="true">Facial skin</button><button class="exclude" data-label="exclude" aria-pressed="false">Keep excluded</button><button class="uncertain" data-label="uncertain" aria-pressed="false">Uncertain</button>
+<label>Zoom <select id="zoom"><option value="2">2x</option><option value="3" selected>3x</option><option value="4">4x</option></select></label><label><input type="checkbox" id="show-polygons" checked>Show saved outlines</label></div>
+<div style="position:sticky;top:0;z-index:2;background:white;padding:4px 0;border-bottom:1px solid #d3dce3"><div class="controls"><button id="finish">Finish / save polygon</button><button id="undo-point">Undo draft point</button><button id="cancel">Cancel draft polygon</button><span id="polygon-count"></span></div>
+<p id="message" role="status" aria-live="polite"></p><small>Click around the outline in order. Click the first point again to save, or use Finish / save polygon. Crossing edges must be undone before saving.</small></div><div id="viewport"><canvas id="drawing" aria-label="Click to trace skin or excluded regions"></canvas></div>
+<details><summary>Saved polygons (delete to redraw)</summary><ul id="polygon-list"></ul></details>
+<label>Notes<textarea id="notes" placeholder="Describe uncertain edges or remaining concerns"></textarea></label>
+<p><label><input type="checkbox" id="complete">I have checked this image's facial outline and exclusions.</label></p>
+</section>
+<script type="application/json" id="review-data">__REVIEW_PAYLOAD__</script>
+<script>__REVIEW_APPLICATION__</script>
+</body></html>

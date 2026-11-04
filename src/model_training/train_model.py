@@ -2,7 +2,8 @@
 Model training (decision-tree regression).
 
 Trains a scikit-learn DecisionTreeRegressor to predict
-gamma, red_gain, and blue_gain from ITA + MST features.
+gamma, red_gain, and blue_gain from caller-supplied image features.
+The controlled prototype uses continuous ITA and mean Lab, with no MST label.
 """
 
 from __future__ import annotations

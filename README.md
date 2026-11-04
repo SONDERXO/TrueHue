@@ -1,91 +1,93 @@
-# Smartphone-Based Post-Capture Skin Tone Correction Using ITA Estimation and Machine Learning
+# TrueHue
 
-**Thesis 2 – Implementation Project**  
-Department of Computer, Information Sciences, and Mathematics  
-University of San Carlos  
-Bachelor of Science in Computer Science
+Smartphone-based post-capture skin-tone correction using ITA estimation and
+machine learning. University of San Carlos thesis project.
 
-## Purpose
+**Development is ongoing. Reliable ITA-to-MST mapping and reliable automatic
+correction remain unfinished.** Software checks and target-aware diagnostic
+fits do not establish a validated correction model.
 
-This repository contains the implementation of a smartphone-based, post-capture skin tone correction application that:
+## Retained approach
 
-- Detects the face and isolates the facial skin region (HSV + YCrCb)
-- Estimates skin tone using the Individual Typology Angle (ITA)
-- Maps ITA to Monk Skin Tone (MST) categories
-- Uses a decision-tree model to predict gamma and red/blue correction gains
-- Runs entirely on-device on Android
+Face detection -> facial skin measurement -> ITA -> calibrated MST -> facial
+statistics and decision-tree gamma/red/blue correction -> corrected photograph.
+The written task is synthetic photographic restoration toward an original
+reference, rather than proof of recovery of intrinsic skin colour.
 
-## Repository Structure
+Correction development uses whole-face and visible-neck support with enclosed
+hole filling and inward edge blending. Measurement excludes internal features,
+hair and neck. FaceOcc is a preferred experimental measurement candidate.
+The Android/desktop demos still use their older experimental baseline.
+The fourth contrast control is a separate experiment, not an adopted output.
 
-```text
-skin-tone-correction/
-├── README.md
-├── docs/
-│   ├── implementation-plan.md
-│   ├── experiment-log.md
-│   ├── test-cases.md
-│   └── decision-log.md
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── train/
-│   ├── validation/
-│   └── test/
-├── notebooks/
-├── src/
-│   ├── data_preparation/
-│   ├── face_detection/
-│   ├── skin_masking/
-│   ├── ita_estimation/
-│   ├── distortion_generation/
-│   ├── model_training/
-│   ├── evaluation/
-│   └── utilities/
-├── models/
-├── outputs/
-│   ├── masks/
-│   ├── corrected_images/
-│   ├── metrics/
-│   └── figures/
-├── android-app/
-└── tests/
-```
+## Start here
 
-## Team Members & Roles
+- [Current session handoff](docs/session-handoff-2026-10-30.md) (latest entries first).
+- [Methods and interim results](docs/thesis-methods-results-draft-2026-11-03.md).
+- [Discussion, limitations and interim conclusion](docs/thesis-discussion-limitations-conclusion-draft-2026-11-03.md).
+- [Changes from the proposal](docs/panel-change-register.md).
+- [Integrated correction plan](docs/integrated-correction-development-plan-2026-11-03.md).
+- [FFHQ source preparation](docs/ffhq-source-preparation-results-2026-11-03.md).
+- [Android setup and current implementation](android-app/README.md).
+- [Repository maintenance record](docs/repository-maintenance-2026-11-04.md).
 
-| Name                | Primary Responsibilities                                     |
-|---------------------|--------------------------------------------------------------|
-| Nythan John Rivera  | Android app, on-device correction engine, integration, docs  |
-| Oceane Rim Dardare  | Data/ML pipeline, ITA/MST logic, model training, evaluation  |
+The FFHQ check acquired 12 fixed photographic candidates. Mask/support checks
+are next; ITA-to-MST work is deferred for this source-preparation phase. No
+full-method training or invented MST labels follow from that deferral.
+DAST has been dropped from active acquisition at the user's request.
 
-## Setup Instructions
+## Repository layout
 
-### Python Environment (ML Pipeline)
+| Folder | Contents |
+|---|---|
+| `src/` | Python implementation, imported using the `src.` namespace |
+| `tests/` | Python verification |
+| `scripts/` | Numbered experiment, acquisition and verification entry points |
+| `docs/` | Protocols, results, decisions and dated working thesis drafts |
+| `android-app/` | Kotlin/Compose app and Android/JVM tests |
+| `data/`, `models/`, `outputs/` | Local datasets, model weights and experiment evidence; ignored by Git |
+| `tmp/`, `output/` | Local build/render intermediates and generated reports; ignored by Git |
 
-```bash
+Historical scripts and results are retained for provenance. Do not treat every
+script as a current workflow. Follow its protocol and current handoff before
+running it; old approvals, lookups and mask contracts may be incompatible.
+
+## Python setup
+
+Run commands from the repository root. The current local environment uses
+Python 3.14; package metadata allows Python 3.10 and later.
+
+```powershell
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+venv\Scripts\python.exe -m pip install -r requirements.txt
+venv\Scripts\python.exe scripts/run_hello_world.py
+venv\Scripts\python.exe -m pytest tests/ -q
 ```
 
-### Android App
+The full suite includes desktop GUI checks requiring a working Tcl/Tk install.
+For this Windows environment, the documented broader check excludes that file:
 
-- Android Studio (latest stable)
-- Minimum SDK: API 24+ (adjust as needed)
-- Language: Kotlin (recommended) or Java
+```powershell
+venv\Scripts\python.exe -B -m pytest tests/ --ignore=tests/test_demo_desktop.py -q -p no:cacheprovider
+```
 
-## Datasets
+Some research scripts require separately acquired model weights and local saved
+artifacts. A fresh clone is the source/documentation checkout, not a complete
+copy of the research datasets or a turnkey reproduction of every experiment.
+FaceOcc inference uses its separate local environment; do not install its
+optional research stack into the main environment automatically.
 
-- **FairFace** – primary training dataset  
-- **SCIN** – secondary training dataset  
-- **MST-E** – evaluation benchmark only  
+## Local artifacts and data
 
-Access and usage must comply with each dataset’s license. Do not upload raw datasets to this repository.
+Raw photos, trained/downloaded model binaries, APKs, SDKs, virtual environments,
+private machine settings, generated galleries and experiment snapshots stay
+local. Removing them from Git consideration does not delete them from disk.
+Dataset licences and per-photo attribution still govern their use. Preserve
+saved failures, source hashes, user decisions, reserved roles and frozen evidence.
+The proposal PDF is an unchanged local reference and is excluded from Git;
+place it locally when reproducing checks that require its bytes. Dated Markdown
+files are working drafts and are not a submitted or approved replacement.
 
-## Branching Strategy
+## Team
 
-- `main` – stable, demonstrable versions only  
-- `develop` – integrated work in progress  
-- `ml-pipeline` – Python/ML development  
-- `android-ui` – Android application development  
-- `testing-documentation` – tests, docs, and evaluation scripts  
+Nythan John Rivera and Oceane Rim Dardare, University of San Carlos.

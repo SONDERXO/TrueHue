@@ -1,0 +1,36 @@
+"""Local ADB UI evidence helper; requires an explicitly named connected emulator."""
+import argparse
+from pathlib import Path
+import re
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
+ROOT=Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('name');parser.add_argument('--click');parser.add_argument('--back',action='store_true')
+    args=parser.parse_args();assert re.fullmatch(r'[a-z0-9_]+',args.name)
+    out=ROOT/'outputs/android_reliability_20261031_v1';out.mkdir(exist_ok=True)
+    adb=ROOT/'outputs/android_toolchain/sdk/platform-tools/adb.exe'
+    def call(*a):return subprocess.run([str(adb),'-s','emulator-5554',*a],capture_output=True,check=True)
+    def dump():
+        call('shell','uiautomator','dump','/sdcard/truehue_reliability_ui.xml')
+        return call('exec-out','cat','/sdcard/truehue_reliability_ui.xml').stdout
+    if args.click:
+        current=ET.fromstring(dump())
+        candidates=[n for n in current.iter('node') if n.get('text')==args.click or n.get('content-desc')==args.click]
+        assert len(candidates)==1,('Expected one visible matching label',args.click,len(candidates))
+        x1,y1,x2,y2=map(int,re.findall(r'\d+',candidates[0].get('bounds')))
+        assert x2>x1 and y2>y1
+        call('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2))
+    if args.back:call('shell','input','keyevent','4')
+    target=out/(args.name+'.xml');assert not target.exists(),target
+    raw=dump();target.write_bytes(raw)
+    (out/(args.name+'.png')).write_bytes(call('exec-out','screencap','-p').stdout)
+    sys.stdout.reconfigure(encoding='utf-8')
+    for n in ET.fromstring(raw).iter('node'):
+        if n.get('text') or n.get('content-desc'):print(n.get('text'),n.get('content-desc'),n.get('bounds'))
+
+
+if __name__=='__main__':main()

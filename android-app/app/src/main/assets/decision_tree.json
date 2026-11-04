@@ -1,0 +1,102 @@
+{
+  "schema_version": "truehue_regression_tree_v1",
+  "input_dtype": "float32",
+  "threshold_dtype": "float64",
+  "comparison": "<=",
+  "root": 0,
+  "feature_names": [
+    "input_mean_l_star",
+    "input_mean_a_star",
+    "input_mean_b_star",
+    "input_ita_degrees"
+  ],
+  "target_names": [
+    "target_gamma",
+    "target_red_gain",
+    "target_blue_gain"
+  ],
+  "nodes": [
+    {
+      "kind": "split",
+      "feature": 0,
+      "threshold": 25.174400329589844,
+      "left": 1,
+      "right": 2
+    },
+    {
+      "kind": "leaf",
+      "values": [
+        1.4285714285714286,
+        1.120486818952073,
+        1.0365576861237633
+      ]
+    },
+    {
+      "kind": "split",
+      "feature": 2,
+      "threshold": 23.441450119018555,
+      "left": 3,
+      "right": 6
+    },
+    {
+      "kind": "split",
+      "feature": 1,
+      "threshold": 9.979549884796143,
+      "left": 4,
+      "right": 5
+    },
+    {
+      "kind": "leaf",
+      "values": [
+        1.142857142857143,
+        1.157809331807554,
+        0.9252293736354574
+      ]
+    },
+    {
+      "kind": "leaf",
+      "values": [
+        0.8800000000000001,
+        1.0155569309205457,
+        0.9875561258912334
+      ]
+    },
+    {
+      "kind": "leaf",
+      "values": [
+        1.4285714285714286,
+        1.120486818952073,
+        1.0365576861237633
+      ]
+    }
+  ],
+  "provenance": {
+    "source_model_sha256": "04ddeb781ea106c6856c6724f061575da06496ef3f0449312cd9973272b1e518",
+    "source_metadata": {
+      "feature_columns": [
+        "input_mean_l_star",
+        "input_mean_a_star",
+        "input_mean_b_star",
+        "input_ita_degrees"
+      ],
+      "target_columns": [
+        "target_gamma",
+        "target_red_gain",
+        "target_blue_gain"
+      ],
+      "tree": {
+        "max_depth": 3,
+        "random_state": 42,
+        "fitted_depth": 3,
+        "leaves": 4,
+        "tuned_on_validation": false
+      },
+      "model_sha256": "04ddeb781ea106c6856c6724f061575da06496ef3f0449312cd9973272b1e518",
+      "mask_version": "v2_complete_mouth_v1",
+      "transform_version": "encoded_rgb_gamma_then_gain_v1",
+      "policy_version": "controlled_skin_mask_v1",
+      "warning": "Implementation check on one validation source and three fixed variant settings, not final thesis evaluation. Oracles use known targets and are not learned performance."
+    },
+    "status": "Frozen development prototype; software parity only; no MST lookup or final model adoption"
+  }
+}

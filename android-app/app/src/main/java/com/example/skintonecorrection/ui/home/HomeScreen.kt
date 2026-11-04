@@ -73,14 +73,14 @@ fun HomeScreen(
         when (uri) {
             // User cancelled, or the picker could not resolve an image.
             null -> scope.launch {
-                snackbarHostState.showSnackbar(context.getString(R.string.error_no_image_found))
+                snackbarHostState.showSnackbar(context.getString(R.string.photo_selection_cancelled))
             }
             else -> {
                 // Store the selection and confirm it (placeholder behaviour per the
                 // milestone: just report the URI, no processing yet).
                 sharedViewModel.selectImage(uri)
                 scope.launch {
-                    snackbarHostState.showSnackbar(context.getString(R.string.photo_selected, uri.toString()))
+                    snackbarHostState.showSnackbar(context.getString(R.string.photo_selected))
                 }
             }
         }
@@ -120,7 +120,7 @@ fun HomeScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(240.dp),
-                        contentScale = ContentScale.Crop,
+                        contentScale = ContentScale.Fit,
                     )
                 }
             } else {
@@ -155,7 +155,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(12.dp))
             Button(
                 onClick = onProcessClick,
-                enabled = selectedUri != null,
+                enabled = selectedUri != null && uiState.processingState != com.example.skintonecorrection.ui.ProcessingState.PROCESSING,
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(text = stringResource(R.string.process_image))
