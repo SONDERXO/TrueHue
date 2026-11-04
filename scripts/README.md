@@ -1,0 +1,453 @@
+# Experiment and helper script catalogue
+
+Run from the project root. Read the individual protocol and current [handoff](../docs/session-handoff-2026-10-30.md) before executing a script. Inclusion is not permission to rerun a stopped experiment.
+
+424 entries. Topic labels are navigation aids, not validation or activation status.
+
+## Data and references
+
+- [04_build_dataset_inventory](04_build_dataset_inventory.py) — `04_build_dataset_inventory.py`
+- [11b_select_scin_subset](11b_select_scin_subset.py) — `11b_select_scin_subset.py`
+- [11c_download_scin_candidates](11c_download_scin_candidates.py) — `11c_download_scin_candidates.py`
+- [Reconcile existing source evidence without processing images or fitting.](125_audit_core_source_readiness.py) — `125_audit_core_source_readiness.py`
+- [Independent record/count replay of the existing-source readiness audit.](126_verify_core_source_readiness.py) — `126_verify_core_source_readiness.py`
+- [12_select_fairface_candidates](12_select_fairface_candidates.py) — `12_select_fairface_candidates.py`
+- [13_fairface_smoke_test](13_fairface_smoke_test.py) — `13_fairface_smoke_test.py`
+- [14_prepare_fairface_candidate_pool](14_prepare_fairface_candidate_pool.py) — `14_prepare_fairface_candidate_pool.py`
+- [Frozen six-source Table2 capacity diagnostic, never training admission.](151_check_table2_known_sources.py) — `151_check_table2_known_sources.py`
+- [Verify saved diagnostic evidence and score oracle correction on fixed support.](152_verify_table2_known_sources.py) — `152_verify_table2_known_sources.py`
+- [Prepare local manual-review records and verified frozen-V2 review grids.](15_prepare_fairface_mask_review.py) — `15_prepare_fairface_mask_review.py`
+- [Freeze and process 24 new TRAIN development sources; no fitting or admission.](167_prepare_table2_source_expansion24.py) — `167_prepare_table2_source_expansion24.py`
+- [Independently verify fixed selection, exposure accounting and saved pairs.](168_verify_table2_source_expansion24.py) — `168_verify_table2_source_expansion24.py`
+- [Archive qualitative source screen separately from user decisions/admission.](169_record_table2_source_expansion_screen.py) — `169_record_table2_source_expansion_screen.py`
+- [Import exact shortlist decisions and evaluate fixed ten-source development folds.](170_evaluate_table2_reviewed_ten_sources.py) — `170_evaluate_table2_reviewed_ten_sources.py`
+- [Saved ten-fold replay, independent RGB reconstruction and review accounting.](171_verify_table2_reviewed_ten_sources.py) — `171_verify_table2_reviewed_ten_sources.py`
+- [Same20pair thesis-development comparison with per-output target MAE.](179_report_table2_same_cohort_results.py) — `179_report_table2_same_cohort_results.py`
+- [Local, presentation-blinded source review pages; no scores or network use.](184_prepare_photographer_reference_review.py) — `184_prepare_photographer_reference_review.py`
+- [Validate/archive two actual photographer exports; never change source eligibility.](185_import_photographer_reference_reviews.py) — `185_import_photographer_reference_reviews.py`
+- [Freeze and process 60 new TRAIN development sources; no fitting or admission.](191_prepare_table2_source_expansion60.py) — `191_prepare_table2_source_expansion60.py`
+- [Independently verify fixed selection, exposure accounting and saved pairs.](192_verify_table2_source_expansion60.py) — `192_verify_table2_source_expansion60.py`
+- [Freeze qualitative dispositions for all60attempts, preserving numerical failures.](193_record_table2_source60_screen.py) — `193_record_table2_source60_screen.py`
+- [Freeze exact five-source review; compare fixed5/9feature and clean-leaf recipes.](194_evaluate_table2_reviewed_fifteen_sources.py) — `194_evaluate_table2_reviewed_fifteen_sources.py`
+- [Independent feature/model/pixel replay, retained reviews and matched-old-cohort scores.](195_verify_table2_reviewed_fifteen_sources.py) — `195_verify_table2_reviewed_fifteen_sources.py`
+- [Declared computational duplicate audit; no quality or correction inspection.](209_audit_redesign_duplicates.py) — `209_audit_redesign_duplicates.py`
+- [Verify audit accounting and freeze a training-only queue after quarantine.](210_verify_duplicate_audit_queue.py) — `210_verify_duplicate_audit_queue.py`
+- [Apply exact-monochrome and explicit source rejection to existing train frames.](221_audit_training_reference_color.py) — `221_audit_training_reference_color.py`
+- [Prepare provisional source splits and failure audit; no pairs/model generated.](22_prepare_source_partitions.py) — `22_prepare_source_partitions.py`
+- [Prepare current-mask/reference-quality evidence for 35 provisional sources.](23_prepare_source_suitability_review.py) — `23_prepare_source_suitability_review.py`
+- [Record Codex's 35-source review and a controlled-development transform policy.](24_finalize_controlled_source_policy.py) — `24_finalize_controlled_source_policy.py`
+- [Metadata-only inventory; no image reads, admission, generation or training.](285_inventory_additional_training_sources.py) — `285_inventory_additional_training_sources.py`
+- [Inspect existing training derivatives only; no mask or model changes.](286_triage_source_planning24.py) — `286_triage_source_planning24.py`
+- [Preserve assistant observations of the six sheets; no human decisions.](287_record_source_planning24_observations.py) — `287_record_source_planning24_observations.py`
+- [Bind nine pending judgments to three exact saved training boards.](288_prepare_source_reference_review3.py) — `288_prepare_source_reference_review3.py`
+- [289 verify source reference review3](289_verify_source_reference_review3.cjs) — `289_verify_source_reference_review3.cjs`
+- [Import exact scoped judgments without admitting sources or fitting models.](290_import_source_reference_review3.py) — `290_import_source_reference_review3.py`
+- [Extend the existing hash-prefix inventory once, retaining prior failures.](291_freeze_broader_source_screen.py) — `291_freeze_broader_source_screen.py`
+- [Record new saved-board observations, preserving prior triage and user scope.](292_record_broader_source_screen.py) — `292_record_broader_source_screen.py`
+- [Reuse the scoped-review UI for only the four new bounded-screen leads.](294_prepare_broader_source_review4.py) — `294_prepare_broader_source_review4.py`
+- [Import the pending four-source review when its actual export is available.](295_import_broader_source_review4.py) — `295_import_broader_source_review4.py`
+- [Prepare six approved saved cases; no generation, optimizer or tree fitting.](296_prepare_reviewed_source_evidence.py) — `296_prepare_reviewed_source_evidence.py`
+- [Extend the existing registry using only the newly accepted exact cases.](297_extend_reviewed_source_evidence.py) — `297_extend_reviewed_source_evidence.py`
+- [One fixed new-source data preparation, never a correction-tree experiment.](298_prepare_additional_six_source_pairs.py) — `298_prepare_additional_six_source_pairs.py`
+- [Replay saved generation/targets/features, never rerun detection or fitting.](299_verify_additional_six_source_pairs.py) — `299_verify_additional_six_source_pairs.py`
+- [Review only the new primary input masks; reuse completed reference judgments.](300_prepare_additional_six_source_mask_review.py) — `300_prepare_additional_six_source_mask_review.py`
+- [Import actual pending-mask decisions; no inferred choices or model fitting.](301_import_additional_six_source_masks.py) — `301_import_additional_six_source_masks.py`
+- [Freeze conditional32-source design and exact historical reuse; never fit.](302_predeclare_broader_source_comparison.py) — `302_predeclare_broader_source_comparison.py`
+- [Resolve the predeclared comparison membership; no decoding or tree fitting.](314_finalize_broader_source_readiness.py) — `314_finalize_broader_source_readiness.py`
+- [Execute the single frozen32-source comparison; reuse old predictions verbatim.](315_run_broader_source_comparison.py) — `315_run_broader_source_comparison.py`
+- [Verify saved membership, leaf means, features and new image outputs; no refits.](316_verify_broader_source_comparison.py) — `316_verify_broader_source_comparison.py`
+- [Preserve all121 matched cases and the predeclared stopping decision.](317_report_broader_source_comparison.py) — `317_report_broader_source_comparison.py`
+- [Capture local emulator demonstration screens; no model changes or publishing.](324_capture_android_demo.py) — `324_capture_android_demo.py`
+- [Import the user's six new-mask decisions without training or auto-admission.](331_import_semantic_reference_masks.py) — `331_import_semantic_reference_masks.py`
+- [Freeze12additional sources, package development MST, prepare18region records.](338_prepare_preferred_support_cohort.py) — `338_prepare_preferred_support_cohort.py`
+- [Review new source/region judgments only, with exact file bindings.](340_prepare_preferred_reference_review.py) — `340_prepare_preferred_reference_review.py`
+- [Exact-bound reference judgments, without fitting or variant admission.](341_import_preferred_reference_review.py) — `341_import_preferred_reference_review.py`
+- [342 verify preferred reference page](342_verify_preferred_reference_page.cjs) — `342_verify_preferred_reference_page.cjs`
+- [Version the fixed reference cohort for correction supportv2, no inference.](345_refresh_peribrow_cohort.py) — `345_refresh_peribrow_cohort.py`
+- [Bind existing R1 artifacts and build a review; no inference or fitting.](356_prepare_reference_readiness_r1.py) — `356_prepare_reference_readiness_r1.py`
+- [Validate exact R1 decisions; preserve holds, never admit training rows.](357_import_reference_readiness_r1.py) — `357_import_reference_readiness_r1.py`
+- [Inspect all publisher DAST examples; no image features, inference or fitting.](389_audit_dast_public_examples.py) — `389_audit_dast_public_examples.py`
+- [Read-only STW metadata overlap/release audit; never opens photographs.](390_qualify_stw_metadata.py) — `390_qualify_stw_metadata.py`
+- [Bounded publisher PPR10K inspection, using ZIP byte ranges; no model fitting.](391_inspect_ppr10k_sample.py) — `391_inspect_ppr10k_sample.py`
+- [Frozen six-photo oracle operator diagnostic; no predictive model training.](392_ppr10k_operator_diagnostic.py) — `392_ppr10k_operator_diagnostic.py`
+- [Analyse saved oracle residuals without refitting or changing any controls.](393_ppr10k_residual_diagnosis.py) — `393_ppr10k_residual_diagnosis.py`
+- [One authorised fourth-control comparison; saved baseline remains immutable.](394_ppr10k_contrast_diagnostic.py) — `394_ppr10k_contrast_diagnostic.py`
+- [Frozen new-group extension of the authorised PPR10K operator comparison.](395_ppr10k_new_group_comparison.py) — `395_ppr10k_new_group_comparison.py`
+- [Run exactly two fixed operator fits on each retained new-group photograph.](396_run_ppr10k_new_group_fits.py) — `396_run_ppr10k_new_group_fits.py`
+- [Saved-output highlight/shadow audit; no fits, inference or mask changes.](397_ppr10k_clipping_detail_check.py) — `397_ppr10k_clipping_detail_check.py`
+- [One frozen smooth boundary experiment on saved parameters; no refitting.](398_ppr10k_smooth_boundary_check.py) — `398_ppr10k_smooth_boundary_check.py`
+- [Bounded FFHQ photographic source preparation; MST/calibration/training deferred.](408_prepare_ffhq_sources.py) — `408_prepare_ffhq_sources.py`
+- [Static source-only gallery; no new photo processing, models or review requests.](409_build_ffhq_source_gallery.py) — `409_build_ffhq_source_gallery.py`
+- [Record assistant contact-sheet observations, never human approval or MST labels.](410_record_ffhq_source_screen.py) — `410_record_ffhq_source_screen.py`
+- [Check20555's five fixed variants and screen the next18 unused TRAIN images.](66_continue_source_screening.py) — `66_continue_source_screening.py`
+- [Screen18 unused TRAIN sources across recorded brightness/color; never fit.](75_screen_brightness_color_sources.py) — `75_screen_brightness_color_sources.py`
+- [Execute the fixed60-source review plan; no variants, models or promotion.](79_screen_fixed60_sources.py) — `79_screen_fixed60_sources.py`
+- [Reconcile user review with immutable75-attempt exclusions; never fit/admit.](81_import_source60_user_review.py) — `81_import_source60_user_review.py`
+- [Regenerate ten isolated probes with fixed three-stage non-skin veto; no fitting.](84_regenerate_two_non_skin_sources.py) — `84_regenerate_two_non_skin_sources.py`
+- [Rasterize confirmed development polygons and score existing masks only.](90_score_face_boundary_references.py) — `90_score_face_boundary_references.py`
+- [Audit cached semantic classes against fixed references; no inference or masks.](94_audit_semantic_references.py) — `94_audit_semantic_references.py`
+- [source reference review](review_tools/source_reference_review.html) — `source_reference_review.html`
+- [source reference review](review_tools/source_reference_review.js) — `source_reference_review.js`
+
+## ITA and MST
+
+- [03_batch_ita_estimation](03_batch_ita_estimation.py) — `03_batch_ita_estimation.py`
+- [05_run_mst_e_ita_calibration](05_run_mst_e_ita_calibration.py) — `05_run_mst_e_ita_calibration.py`
+- [06_prepare_mst_e_review](06_prepare_mst_e_review.py) — `06_prepare_mst_e_review.py`
+- [07_build_clean_mst_e_calibration](07_build_clean_mst_e_calibration.py) — `07_build_clean_mst_e_calibration.py`
+- [08_analyze_ita_by_mst](08_analyze_ita_by_mst.py) — `08_analyze_ita_by_mst.py`
+- [09_diagnose_mst_e_ita_calibration](09_diagnose_mst_e_ita_calibration.py) — `09_diagnose_mst_e_ita_calibration.py`
+- [10_analyze_broad_mst_groups](10_analyze_broad_mst_groups.py) — `10_analyze_broad_mst_groups.py`
+- [Metadata-only MST support audit, preserving both SCIN annotator columns.](137_audit_mst_training_support.py) — `137_audit_mst_training_support.py`
+- [Reprocess exactly the fixed reviewed MST-E development cohort at square256.](138_measure_mst_square256.py) — `138_measure_mst_square256.py`
+- [Fixed subject-held-out calibration diagnostic; never export production lookup.](139_check_square256_calibration.py) — `139_check_square256_calibration.py`
+- [Descriptive saved-measurement diagnosis without new fitting or image access.](140_diagnose_mst_measurements.py) — `140_diagnose_mst_measurements.py`
+- [Prepare original-only face crops for the preselected12diagnostic frames.](141_prepare_mst_region_qa.py) — `141_prepare_mst_region_qa.py`
+- [Score frozen sparse provisional interiors against saved masks; no new estimator.](142_score_mst_region_qa.py) — `142_score_mst_region_qa.py`
+- [Verify reviewed sparse-patch replay and report same-subject photo contrasts.](143_verify_reviewed_mst_regions.py) — `143_verify_reviewed_mst_regions.py`
+- [Freeze exact subject folds, support and lighting denominators without fitting.](144_freeze_mst_evaluation_design.py) — `144_freeze_mst_evaluation_design.py`
+- [Prepare factual support tables for an adviser-review scope; no fit or admission.](145_prepare_limited_mst_scope.py) — `145_prepare_limited_mst_scope.py`
+- [Report fixed existing mapping evidence under the proposed limited scope.](146_report_limited_mst_evaluation.py) — `146_report_limited_mst_evaluation.py`
+- [One fixed subject-balanced monotone mapping evaluation, no correction fitting.](147_evaluate_monotone_mst.py) — `147_evaluate_monotone_mst.py`
+- [Package passed diagnostic recipe, retaining weak accuracy and development status.](148_package_development_mst.py) — `148_package_development_mst.py`
+- [Input-only square256→ITA→experimental MST feature report; no correction.](149_measure_development_mst.py) — `149_measure_development_mst.py`
+- [Explicit experimental MST runner; requires a chosen saved development fold.](180_run_development_mst_pipeline.py) — `180_run_development_mst_pipeline.py`
+- [Fresh detection-to-correction replay on saved held-source inputs, plus failure.](181_verify_development_mst_pipeline.py) — `181_verify_development_mst_pipeline.py`
+- [Fixed all-severity integrated replay of three saved ten-source methods.](182_stress_test_development_mst_pipeline.py) — `182_stress_test_development_mst_pipeline.py`
+- [Independent portable inference/pixel replay and matched stress denominators.](183_verify_development_mst_stress.py) — `183_verify_development_mst_stress.py`
+- [Fixed repeated local Python timing with exact saved-output parity on every call.](187_benchmark_development_mst_pipeline.py) — `187_benchmark_development_mst_pipeline.py`
+- [Independent warm-up/count/order/percentile/CSV and benchmark evidence checks.](188_verify_development_mst_benchmark.py) — `188_verify_development_mst_benchmark.py`
+- [Audit recovered historical MST-E measurements and exploratory subject CV.](26_audit_mst_mapping_feasibility.py) — `26_audit_mst_mapping_feasibility.py`
+- [Paired historical/current-V2/complete-mouth MST-E feasibility comparison.](27_compare_mst_mapping_mask_versions.py) — `27_compare_mst_mapping_mask_versions.py`
+- [Audit saved MST evidence and replay saved-knot predictions; no image access/fits.](318_audit_mst_evidence.py) — `318_audit_mst_evidence.py`
+- [One fixed semantic measurement pass on the already exposed MST-E cohort.](327_measure_semantic_mst.py) — `327_measure_semantic_mst.py`
+- [Fixed subject-balanced calibration and same-row comparison; no deployment.](328_evaluate_semantic_mst.py) — `328_evaluate_semantic_mst.py`
+- [Replay saved measurements/calibration; prepare a bounded diagnostic gallery.](329_verify_semantic_mst.py) — `329_verify_semantic_mst.py`
+- [One actual418-image pass, retaining all exclusion evidence and failures.](352_measure_nostril_mst.py) — `352_measure_nostril_mst.py`
+- [One frozen subject-held mapping evaluation; no all-row lookup or tree fit.](353_evaluate_nostril_mst.py) — `353_evaluate_nostril_mst.py`
+- [Saved-pixel/exclusion/refit verification; no new scientific candidate.](354_verify_nostril_mst.py) — `354_verify_nostril_mst.py`
+- [Frozen small stratified additional-subject screen; no calibration/fitting.](360_screen_additional_mst_eligibility.py) — `360_screen_additional_mst_eligibility.py`
+- [Replay saved screen evidence; record agent visual diagnostics, not approvals.](361_verify_additional_mst_screen.py) — `361_verify_additional_mst_screen.py`
+- [Bind actual user judgments to full-cycle qualitative findings; no adoption.](380_summarize_faceocc_qualitative_review.py) — `380_summarize_faceocc_qualitative_review.py`
+- [Count matching labels/subjects and prospective scope; never measure or fit.](383_decide_faceocc_mst_feasibility.py) — `383_decide_faceocc_mst_feasibility.py`
+- [Four exact saved MST masks for human inspection; never fits or admits rows.](385_prepare_mst_skin_check.py) — `385_prepare_mst_skin_check.py`
+
+## Masks and rendering
+
+- [01_face_and_skin_prototype](01_face_and_skin_prototype.py) — `01_face_and_skin_prototype.py`
+- [02_batch_face_and_skin_test](02_batch_face_and_skin_test.py) — `02_batch_face_and_skin_test.py`
+- [One fixed removal-only C2 follow-up, all core and historical cases.](100_test_material_boundary_guard.py) — `100_test_material_boundary_guard.py`
+- [Package fixed experiments, preserved reviews and explicit technical holds.](101_finalize_parser_material_review.py) — `101_finalize_parser_material_review.py`
+- [Inventory already exposed sources; prepare separately attributed region drafts.](102_prepare_protected_material_validation.py) — `102_prepare_protected_material_validation.py`
+- [Freeze original-image-only region QA before candidate inference.](103_freeze_protected_material_regions.py) — `103_freeze_protected_material_regions.py`
+- [Evaluate frozen mask candidates on known TRAIN diagnostic frames, no fitting.](104_test_protected_material_validation.py) — `104_test_protected_material_validation.py`
+- [Independent algebra, raster, transform and feature replay of saved diagnostics.](105_verify_protected_material_validation.py) — `105_verify_protected_material_validation.py`
+- [Package complete stage boards and a technical readiness decision.](106_report_protected_material_validation.py) — `106_report_protected_material_validation.py`
+- [Verify final local links/artifacts, export detailed counts, retain visual QA.](107_finalize_protected_material_validation.py) — `107_finalize_protected_material_validation.py`
+- [Explain cached protected-material failures without proposing a new mask.](108_audit_material_failures.py) — `108_audit_material_failures.py`
+- [Independently verify cached failure accounting and package diagnostic boards.](109_verify_material_failure_audit.py) — `109_verify_material_failure_audit.py`
+- [Compare preserved application policies; freeze measurements and fold predictions.](161_compare_table2_application_masks.py) — `161_compare_table2_application_masks.py`
+- [Independent saved-pixel replay, frozen prediction and mask-accounting checks.](162_verify_table2_application_masks.py) — `162_verify_table2_application_masks.py`
+- [Reference-informed capacity on fixed support, including detection failure.](166_check_table2_fixed_support_capacity.py) — `166_check_table2_fixed_support_capacity.py`
+- [Compare an experimental oval restriction on the 80 reviewed development images.](16_compare_face_outline.py) — `16_compare_face_outline.py`
+- [Trace crop-to-image landmark geometry for a local FairFace image.](17_diagnose_outline_landmarks.py) — `17_diagnose_outline_landmarks.py`
+- [Fixed fitting-only leaf-range abstention on five-feature development models.](197_check_table2_leaf_support.py) — `197_check_table2_leaf_support.py`
+- [Independent sklearn fitting ranges, float32 query tests and RGB reconstruction.](198_verify_table2_leaf_support.py) — `198_verify_table2_leaf_support.py`
+- [Apply frozen leaf-range guard to all24existing counterfactual probes; no tuning.](199_stress_check_leaf_support_guard.py) — `199_stress_check_leaf_support_guard.py`
+- [Compare complete-mouth exclusion against frozen V2 on 80 development images.](19_compare_complete_mouth.py) — `19_compare_complete_mouth.py`
+- [Regenerate the existing 650 candidates using explicit complete-mouth version.](20_regenerate_mouth_fixed_features.py) — `20_regenerate_mouth_fixed_features.py`
+- [Create one reproducible 24-source reference-only diagnostic review.](214_prepare_focused_mask_review.py) — `214_prepare_focused_mask_review.py`
+- [Validate and preserve reference-only annotations without training admission.](215_import_focused_mask_reviews.py) — `215_import_focused_mask_reviews.py`
+- [Run the frozen semantic candidate on reviewed references only.](216_compare_focused_semantic_masks.py) — `216_compare_focused_semantic_masks.py`
+- [Reconstruct candidate masks from saved categories and verify provenance.](217_verify_focused_semantic_masks.py) — `217_verify_focused_semantic_masks.py`
+- [Preserve candidate-only reviews and paired baseline transitions.](218_import_semantic_mask_reviews.py) — `218_import_semantic_mask_reviews.py`
+- [Paper-method diagnostic: constrain color components to face geometry first.](219_compare_rule_mask_ordering.py) — `219_compare_rule_mask_ordering.py`
+- [Reconstruct rule masks and verify color/geometry/exclusion invariants.](220_verify_rule_mask_ordering.py) — `220_verify_rule_mask_ordering.py`
+- [Reproduce source31367's detector failure without changing thresholds.](223_diagnose_reported_missing_mask.py) — `223_diagnose_reported_missing_mask.py`
+- [Fixed input-only rule-factor diagnostic on 20 reviewed development pairs.](227_compare_table2_input_mask_robustness.py) — `227_compare_table2_input_mask_robustness.py`
+- [Reconstruct every rule-factor mask and its support diagnostics.](228_verify_table2_input_mask_robustness.py) — `228_verify_table2_input_mask_robustness.py`
+- [Topology completion on exposed contour candidates; no model or label changes.](260_check_enclosed_mask_holes.py) — `260_check_enclosed_mask_holes.py`
+- [Review only missing distorted-mask approvals for eleven accepted references.](263_prepare_distorted_mask_review11.py) — `263_prepare_distorted_mask_review11.py`
+- [Preserve exact completed mask review and check six accepted pair additions.](264_import_distorted_mask_review11.py) — `264_import_distorted_mask_review11.py`
+- [Show worst mask agreement changes; overlap is not skin-label accuracy.](271_report_jpeg_mask_changes.py) — `271_report_jpeg_mask_changes.py`
+- [Attribute original-mask losses to the actual recomputed rule-mask stages.](272_trace_jpeg_mask_stages.py) — `272_trace_jpeg_mask_stages.py`
+- [Show coverage recovery and maximum outside-reference addition without labels.](274_report_cleanup_support_changes.py) — `274_report_cleanup_support_changes.py`
+- [Import exact primary-mask decisions and validate recipe-specific admissions.](282_import_primary_mask_review.py) — `282_import_primary_mask_review.py`
+- [Carry forward exported judgments; display only still-blank mask entries.](303_prepare_partial_mask_review_continuation.py) — `303_prepare_partial_mask_review_continuation.py`
+- [Preview complete geometric face support, preserving calibrated masks.](304_preview_anatomical_face_coverage.py) — `304_preview_anatomical_face_coverage.py`
+- [Run the explicitly authorized existing parser with complete-face support.](305_preview_semantic_face_coverage.py) — `305_preview_semantic_face_coverage.py`
+- [Preview the user-authorized full-face parser mask on a selected photo.](306_preview_face_mask.py) — `306_preview_face_mask.py`
+- [Replay saved semantic masks/exclusions; no parser or correction refitting.](307_verify_semantic_face_coverage.py) — `307_verify_semantic_face_coverage.py`
+- [Fetch one pinned skin parser whose upstream annotations exclude beard.](308_fetch_facial_hair_auxiliary.py) — `308_fetch_facial_hair_auxiliary.py`
+- [One fixed auxiliary check on exposed beard examples and clean controls.](309_check_facial_hair_suggestions.py) — `309_check_facial_hair_suggestions.py`
+- [Diagnose color gates and test input-only correction support, without refit.](30_compare_correction_support.py) — `30_compare_correction_support.py`
+- [One declared higher-capacity auxiliary check after the small model failed.](310_fetch_facial_hair_fpn.py) — `310_fetch_facial_hair_fpn.py`
+- [Same frozen twelve inputs/rule; compare one stronger auxiliary, no tuning.](311_check_facial_hair_fpn.py) — `311_check_facial_hair_fpn.py`
+- [Replay saved auxiliary diagnostics; preserve the decision without more tuning.](312_verify_facial_hair_checkpoint.py) — `312_verify_facial_hair_checkpoint.py`
+- [Metadata-only bounded audit. No photo upload, dataset download or inference.](313_inventory_explicit_facial_hair_models.py) — `313_inventory_explicit_facial_hair_models.py`
+- [Interior-only fill: fixed-model pair comparison and broader mask diagnostics.](31_guard_correction_support.py) — `31_guard_correction_support.py`
+- [Input-relative Lab material check; fixed-model exploratory comparison.](32_check_correction_materials.py) — `32_check_correction_materials.py`
+- [Compare identical successful cases; preserve material-check abstentions.](32b_summarize_material_check.py) — `32b_summarize_material_check.py`
+- [Bounded face/neck support demonstration, never a correction model trial.](335_preview_face_neck_support.py) — `335_preview_face_neck_support.py`
+- [Choose a photo and preview separate face-measurement/neck-correction support.](336_preview_face_neck_photo.py) — `336_preview_face_neck_photo.py`
+- [One correction-support comparison on saved pixels; no model inference/fits.](337_preview_brows_lips.py) — `337_preview_brows_lips.py`
+- [Combined-region candidate pairs for6anchors; never fitting admission.](339_rebuild_preferred_support_pairs.py) — `339_rebuild_preferred_support_pairs.py`
+- [Build a blind, unlabeled 24-point review and cache input-only observations.](33_prepare_material_point_review.py) — `33_prepare_material_point_review.py`
+- [Independent candidate-artifact checks; no new scientific experiment.](343_verify_preferred_support_preparation.py) — `343_verify_preferred_support_preparation.py`
+- [Fixed saved-pixel comparison of additional peribrow skin; no fitting.](344_preview_peribrow.py) — `344_preview_peribrow.py`
+- [Use fixed v2 support; reuse sources/MST and preserve all v1 artifacts.](346_prepare_preferred_support_v2.py) — `346_prepare_preferred_support_v2.py`
+- [Full brow-exclusion repair on staged references; no parser/MST/tree fit.](349_preview_complete_brow_area.py) — `349_preview_complete_brow_area.py`
+- [Score a completed human point review without fitting/tuning any model.](34_score_material_point_review.py) — `34_score_material_point_review.py`
+- [One fixed hard/soft edge comparison on saved support; no inference/fits.](351_verify_seamless_support.py) — `351_verify_seamless_support.py`
+- [Test fixed GrabCut initialization against frozen labels and prior mask runs.](35_test_graphcut_support.py) — `35_test_graphcut_support.py`
+- [One frozen saved-evidence replay, no inference, calibration or fitting.](362_evaluate_face_contained_measurement.py) — `362_evaluate_face_contained_measurement.py`
+- [Acquire public model/source metadata only; never photos or training data.](363_check_faceocc_readiness.py) — `363_check_faceocc_readiness.py`
+- [Pinned FaceOcc weights and inference evidence; no model execution.](364_acquire_faceocc_artifact.py) — `364_acquire_faceocc_artifact.py`
+- [Strict checkpoint load and synthetic forwards in isolated inference env.](365_verify_faceocc_loading.py) — `365_verify_faceocc_loading.py`
+- [Acquire the pinned alignment template only; no additional models/data.](366_acquire_faceocc_template.py) — `366_acquire_faceocc_template.py`
+- [One fixed bridge preview of saved inputs, without model inference.](367_prepare_faceocc_aligned_inputs.py) — `367_prepare_faceocc_aligned_inputs.py`
+- [Freeze/finalize a single FaceOcc comparison using saved logits.](368_faceocc_diagnostic.py) — `368_faceocc_diagnostic.py`
+- [Exactly one fixed CPU forward per available frozen aligned image.](369_run_faceocc_logits.py) — `369_run_faceocc_logits.py`
+- [Verify saved logits/masks/features without another model forward.](370_verify_faceocc_diagnostic.py) — `370_verify_faceocc_diagnostic.py`
+- [Package an auditable paired report from frozen evidence, without inference.](371_package_faceocc_comparison.py) — `371_package_faceocc_comparison.py`
+- [Freeze 24 existing-data attempts and prepare originals-only patch annotation.](372_prepare_faceocc_broader_review.py) — `372_prepare_faceocc_broader_review.py`
+- [Validate prediction-hidden patch evidence; no model inference or adoption.](373_import_faceocc_broader_patches.py) — `373_import_faceocc_broader_patches.py`
+- [374 verify faceocc patch review](374_verify_faceocc_patch_review.cjs) — `374_verify_faceocc_patch_review.cjs`
+- [Frozen lighter qualitative cycle; saved original set, no tuning or fits.](375_faceocc_light_comparison.py) — `375_faceocc_light_comparison.py`
+- [Reuse the frozen one-pass inference implementation for the new cycle.](376_run_faceocc_light_logits.py) — `376_run_faceocc_light_logits.py`
+- [Four fixed user judgments; preserve full comparison and old polygon page.](377_prepare_faceocc_four_review.py) — `377_prepare_faceocc_four_review.py`
+- [Saved-output verification and explicit assistant-only qualitative observations.](378_verify_faceocc_light_comparison.py) — `378_verify_faceocc_light_comparison.py`
+- [Exact-bound four-case qualitative decisions; no automatic model adoption.](379_import_faceocc_four_review.py) — `379_import_faceocc_four_review.py`
+- [Freeze known evidence/holds for the next method decision; no processing/fits.](381_freeze_faceocc_development_readiness.py) — `381_freeze_faceocc_development_readiness.py`
+- [Verify isolated service parity on all49saved attempts; no new inference.](382_replay_faceocc_development.py) — `382_replay_faceocc_development.py`
+- [Fixed 19-person eligibility page: reuse parents, one frozen FaceOcc pass, no fits.](386_prepare_subject_skin_study.py) — `386_prepare_subject_skin_study.py`
+- [Reuse fixed isolated CPU inference, changing output and plan paths only.](387_run_subject_skin_logits.py) — `387_run_subject_skin_logits.py`
+- [Import exact complete human answers; preserve failed/prior cases, never fit.](388_import_subject_skin_review.py) — `388_import_subject_skin_review.py`
+- [Matched-cohort diagnostics and compact before/after hair-filter review board.](38_summarize_semantic_support.py) — `38_summarize_semantic_support.py`
+- [Frozen factorial diagnostics: predicted/known parameters x current/source masks.](42_diagnose_mask_vs_parameters.py) — `42_diagnose_mask_vs_parameters.py`
+- [Freeze an exploratory support screen and audit every square development pair.](53_screen_square_mask_quality.py) — `53_screen_square_mask_quality.py`
+- [Fixed correction-only boundary trial on38 square pairs,48 point probes and83184.](58_test_lower_face_boundary.py) — `58_test_lower_face_boundary.py`
+- [Preserve baseline support and fence only new YCrCb additions; no fitting.](59_test_additions_only_boundary.py) — `59_test_additions_only_boundary.py`
+- [Frozen-model application-mask comparison on all38 square development attempts.](60_compare_corrected_mask_outputs.py) — `60_compare_corrected_mask_outputs.py`
+- [Audit seven accepted-note cases using explicit visual witness regions only.](82_inspect_accepted_mask_notes.py) — `82_inspect_accepted_mask_notes.py`
+- [Fixed removal-only material veto on saved75 inputs and labeled regressions.](83_compare_non_skin_veto.py) — `83_compare_non_skin_veto.py`
+- [Prepare three unlabeled reference frames and a standalone offline polygon UI.](89_prepare_face_boundary_review.py) — `89_prepare_face_boundary_review.py`
+- [Execute the fixed two-arm mask ablation on saved development inputs only.](91_test_anatomical_contour.py) — `91_test_anatomical_contour.py`
+- [Independent morphology replay of script91 outputs and feature checks.](92_verify_anatomical_contour.py) — `92_verify_anatomical_contour.py`
+- [Fixed full-image versus saved crop-landmark E/EC ablation; no fitting.](93_compare_landmark_framing.py) — `93_compare_landmark_framing.py`
+- [Fetch one published ONNX asset and pinned author sources; never execute them.](95_download_face_parser.py) — `95_download_face_parser.py`
+- [Fixed dense-parser versus removal-only veto on known saved cases; no fitting.](96_test_dense_face_parser.py) — `96_test_dense_face_parser.py`
+- [Replay dense/veto masks and independent Lab/feature/reference calculations.](97_verify_dense_face_parser.py) — `97_verify_dense_face_parser.py`
+- [Fixed parser/anatomy/material arms, core then historical cohorts separately.](98_test_parser_material_combination.py) — `98_test_parser_material_combination.py`
+- [Independent replay of both fixed parser/material cohorts and statistics.](99_verify_parser_material.py) — `99_verify_parser_material.py`
+- [face boundary annotation](review_tools/face_boundary_annotation.js) — `face_boundary_annotation.js`
+- [face boundary review](review_tools/face_boundary_review.html) — `face_boundary_review.html`
+- [faceocc patch review](review_tools/faceocc_patch_review.js) — `faceocc_patch_review.js`
+- [test face boundary annotation](review_tools/test_face_boundary_annotation.cjs) — `test_face_boundary_annotation.cjs`
+- [material point review](templates/material_point_review.html) — `material_point_review.html`
+
+## Android and demos
+
+- [Run exported tree parameters with only the Python standard library.](114_predict_portable_tree.py) — `114_predict_portable_tree.py`
+- [Compile the Android tree core on a real JVM and compare frozen Python vectors.](128_verify_android_tree.py) — `128_verify_android_tree.py`
+- [Download official pinned command-line tools into the ignored workspace SDK.](129_prepare_android_sdk.py) — `129_prepare_android_sdk.py`
+- [130 build android](130_build_android.ps1) — `130_build_android.ps1`
+- [Record SDK revisions and verify the actual debug APK/test/lint artifacts.](131_verify_android_build.py) — `131_verify_android_build.py`
+- [Launch the local TrueHue desktop demo or run a reproducible headless check.](246_run_python_demo.py) — `246_run_python_demo.py`
+- [Exercise our own Tk window with actual inference; save local QA screenshots.](247_check_python_demo_window.py) — `247_check_python_demo_window.py`
+- [Bundle the existing Python-demo baseline and its dependencies, without fitting.](321_prepare_android_pipeline_assets.py) — `321_prepare_android_pipeline_assets.py`
+- [Verify built Android artifacts; never label unrun device tests as passing.](322_verify_android_integration.py) — `322_verify_android_integration.py`
+- [Local ADB UI evidence helper; requires an explicitly named connected emulator.](323_android_reliability_ui.py) — `323_android_reliability_ui.py`
+- [Assemble a local walkthrough from recorded emulator evidence; no fitting.](325_prepare_android_demonstration.py) — `325_prepare_android_demonstration.py`
+
+## Thesis and decisions
+
+- [Build a portable, image-free development checkpoint from verified results.](127_build_thesis_checkpoint.py) — `127_build_thesis_checkpoint.py`
+- [Verify PDF example placement and compare the current formula without adoption.](229_finalize_proposal_augmentation_audit.py) — `229_finalize_proposal_augmentation_audit.py`
+- [Whole-document augmentation evidence index; no training or PDF changes.](230_scan_full_proposal.py) — `230_scan_full_proposal.py`
+- [Apply the three explicit pending-source rejections without changing history.](243_finalize_ycrcb_check_decisions.py) — `243_finalize_ycrcb_check_decisions.py`
+- [Export saved aggregate evidence only; no fitting, inference or photo access.](319_package_thesis_evidence.py) — `319_package_thesis_evidence.py`
+- [Preserve proposal content; insert clearly marked findings and anchored comments.](320_integrate_thesis_review_copy.py) — `320_integrate_thesis_review_copy.py`
+- [Aggregate-only local thesis/delivery snapshot; no inference, fitting or uploads.](384_package_delivery_checkpoint.py) — `384_package_delivery_checkpoint.py`
+- [Fixed Table2 interpretation audit on generated pixels, never dataset admission.](402_audit_proposal_distortion_recipe.py) — `402_audit_proposal_distortion_recipe.py`
+- [Verify writing provenance and links; no images, models, tests or experiments.](407_verify_thesis_progress_drafts.py) — `407_verify_thesis_progress_drafts.py`
+
+## Correction experiments
+
+- [Export the unchanged prototype and verify numeric parity, with no new fit.](113_verify_core_tree_portability.py) — `113_verify_core_tree_portability.py`
+- [Verify dependency-free CLI execution and preserve a current-scope decision.](115_finalize_core_tree_portability.py) — `115_finalize_core_tree_portability.py`
+- [11_prepare_training_manifests](11_prepare_training_manifests.py) — `11_prepare_training_manifests.py`
+- [Saved-fold routing and feature-neighbor diagnostic; no fitting or new rule.](123_diagnose_core_feature_conflicts.py) — `123_diagnose_core_feature_conflicts.py`
+- [Independent arithmetic/ranking/routing replay and readable diagnostic tables.](124_verify_core_feature_conflicts.py) — `124_verify_core_feature_conflicts.py`
+- [Inventory disposable generated files; deletion is a separate checked PS step.](132_plan_workspace_cleanup.py) — `132_plan_workspace_cleanup.py`
+- [133 clean workspace](133_clean_workspace.ps1) — `133_clean_workspace.ps1`
+- [Synthetic-only Table2 capacity check; no study images or tree fitting.](150_verify_table2_recovery_targets.py) — `150_verify_table2_recovery_targets.py`
+- [Stage source-grouped candidates and an offline review; never admit or fit.](153_prepare_table2_stress_review.py) — `153_prepare_table2_stress_review.py`
+- [Import exact user review and execute the fixed source-held stress recipe.](154_evaluate_reviewed_table2_stress.py) — `154_evaluate_reviewed_table2_stress.py`
+- [Recompute saved predictions, metrics, leaf targets and evidence hashes.](155_verify_table2_stress_evaluation.py) — `155_verify_table2_stress_evaluation.py`
+- [Trace existing held predictions to fitting leaf members; no new fits.](156_trace_table2_stress_routes.py) — `156_trace_table2_stress_routes.py`
+- [Fixed six-source processing, target verification and pending review.](157_prepare_table2_expansion.py) — `157_prepare_table2_expansion.py`
+- [Replay saved expansion pixels/features and prepare provisional combined folds.](158_verify_table2_expansion.py) — `158_verify_table2_expansion.py`
+- [Import the six-source review and evaluate the fixed eight-source cohort.](159_evaluate_table2_reviewed_expansion.py) — `159_evaluate_table2_reviewed_expansion.py`
+- [Independent saved-fold replay and comparison boards; no fitting.](160_verify_table2_reviewed_expansion.py) — `160_verify_table2_reviewed_expansion.py`
+- [Explain eight saved Table2 folds without fitting or changing predictions.](163_diagnose_table2_expansion_routes.py) — `163_diagnose_table2_expansion_routes.py`
+- [All three severities on eight fixed sources; saved-fold replay, never fitting.](164_check_table2_counterfactual_coverage.py) — `164_check_table2_counterfactual_coverage.py`
+- [Independent composite, clipping, residual and saved prediction checks.](165_verify_table2_counterfactual_coverage.py) — `165_verify_table2_counterfactual_coverage.py`
+- [Audit fixed ten-source design, saved routing and matched-cohort changes; no fits.](172_audit_table2_training_design.py) — `172_audit_table2_training_design.py`
+- [Frozen five-vs-nine feature comparison on reviewed ten-source folds.](173_compare_table2_chroma_features.py) — `173_compare_table2_chroma_features.py`
+- [Independent feature arithmetic and saved nine-feature fold replay.](174_verify_table2_chroma_features.py) — `174_verify_table2_chroma_features.py`
+- [Training-only control-preserving leaf outputs on saved trees; no new splits.](175_check_table2_clean_leaf_policy.py) — `175_check_table2_clean_leaf_policy.py`
+- [Independent sklearn leaf membership and RGB replay for conservative policy.](176_verify_table2_clean_leaf_policy.py) — `176_verify_table2_clean_leaf_policy.py`
+- [Nested source-held training-only selection; fixed candidate versus identity.](177_check_table2_nested_safety.py) — `177_check_table2_nested_safety.py`
+- [Independent saved inner-tree replay and training-only selection verification.](178_verify_table2_nested_safety.py) — `178_verify_table2_nested_safety.py`
+- [Fixed single-tree control-aware partition comparison, never runtime promotion.](189_compare_table2_control_partitions.py) — `189_compare_table2_control_partitions.py`
+- [Independent classification-leaf membership, target arithmetic and RGB replay.](190_verify_table2_control_partitions.py) — `190_verify_table2_control_partitions.py`
+- [Fixed conservative outputs on saved five-feature fifteen-source trees.](196_check_five_feature_clean_leaves.py) — `196_check_five_feature_clean_leaves.py`
+- [Fixed five-feature target-scale comparison on fifteen source-held folds.](202_compare_table2_target_scaling.py) — `202_compare_table2_target_scaling.py`
+- [Independent fitting statistics, normalized-leaf arithmetic and raw-pixel replay.](203_verify_table2_target_scaling.py) — `203_verify_table2_target_scaling.py`
+- [Exact selected/missed-region error accounting on the fixed30pair cohort.](204_audit_table2_recovery_budget.py) — `204_audit_table2_recovery_budget.py`
+- [Fixed fitting-only control/severity weight comparison on fifteen source-held folds.](205_compare_table2_severity_weighting.py) — `205_compare_table2_severity_weighting.py`
+- [Independent fitting-class weights, weighted target means and pixel replay.](206_verify_table2_severity_weighting.py) — `206_verify_table2_severity_weighting.py`
+- [Metadata-only600candidate freeze with separate validation/test locks.](207_freeze_correction_data_redesign.py) — `207_freeze_correction_data_redesign.py`
+- [Independent metadata selection, role locks and unchanged historical allocations.](208_verify_correction_data_redesign.py) — `208_verify_correction_data_redesign.py`
+- [Prepare the frozen post-quarantine training queue; never admit or fit a tree.](211_prepare_redesign_training.py) — `211_prepare_redesign_training.py`
+- [Upgrade only review HTML; retain original verified pages and all image bytes.](213_upgrade_training_review_pages.py) — `213_upgrade_training_review_pages.py`
+- [Complete the agreed 60-source development-review budget with 36 new IDs.](224_prepare_training_review36.py) — `224_prepare_training_review36.py`
+- [Validate 36 original-mask annotations and reconcile the 60-source budget.](225_import_training_review36.py) — `225_import_training_review36.py`
+- [Join human reference reviews with technical, clipping and input-mask evidence.](226_audit_accepted_training_pairs.py) — `226_audit_accepted_training_pairs.py`
+- [New direct-gamma inputs on the exact20accepted development sources.](231_compare_paper_gamma_inputs.py) — `231_compare_paper_gamma_inputs.py`
+- [Verify direct-gamma samples, input-only features and target conversion.](232_verify_paper_gamma_inputs.py) — `232_verify_paper_gamma_inputs.py`
+- [Build20controls and60declared distortions, preserving all holds and failures.](233_prepare_three_variant_candidates.py) — `233_prepare_three_variant_candidates.py`
+- [Verify all80attempts and preserve explicit unreviewed training holds.](234_verify_three_variant_candidates.py) — `234_verify_three_variant_candidates.py`
+- [Metadata-only role/group selection and candidate contract freeze.](238_freeze_ycrcb_training_check.py) — `238_freeze_ycrcb_training_check.py`
+- [Replay reviewed masks, then open the declared separate training-check phase.](239_run_ycrcb_training_check.py) — `239_run_ycrcb_training_check.py`
+- [Verify prospective check selection, candidate identity and40frame replays.](240_verify_ycrcb_training_check.py) — `240_verify_ycrcb_training_check.py`
+- [Preserve partial check annotations, blank decisions and conflicting notes.](241_import_ycrcb_training_check_reviews.py) — `241_import_ycrcb_training_check_reviews.py`
+- [Matched15-source training comparison; retain masks, features and all holds.](248_compare_direct_gamma_regression.py) — `248_compare_direct_gamma_regression.py`
+- [Independently refit30trees, replay90outputs and create a matched gallery.](249_verify_direct_gamma_regression.py) — `249_verify_direct_gamma_regression.py`
+- [One fixed fitting-control rule on saved direct-gamma source-held models.](250_compare_direct_gamma_clean_leaves.py) — `250_compare_direct_gamma_clean_leaves.py`
+- [Independently rebuild leaf membership, outputs and summaries.](251_verify_direct_gamma_clean_leaves.py) — `251_verify_direct_gamma_clean_leaves.py`
+- [One fixed11feature comparison on the same source-held direct-gamma cohort.](252_compare_direct_gamma_brightness.py) — `252_compare_direct_gamma_brightness.py`
+- [Independent feature/membership refits and60output replays for a failed candidate.](253_verify_direct_gamma_brightness.py) — `253_verify_direct_gamma_brightness.py`
+- [Add only reviewed unchanged originals; compare diversity with count matching.](254_compare_accepted_clean_controls.py) — `254_compare_accepted_clean_controls.py`
+- [Refit saved clean-control comparisons and replay every held-source output.](255_verify_accepted_clean_controls.py) — `255_verify_accepted_clean_controls.py`
+- [Fixed capacity comparison using previously admitted source-held controls.](256_compare_clean_control_tree_depth.py) — `256_compare_clean_control_tree_depth.py`
+- [Explain held clean failures from saved fitting membership, without refitting.](257_report_clean_control_routes.py) — `257_report_clean_control_routes.py`
+- [Source-held ordinary versus log multiplier targets; unchanged runtime curves.](258_compare_log_correction_targets.py) — `258_compare_log_correction_targets.py`
+- [Separate saved-target, fixed-support and learned errors on approved pairs.](259_audit_saved_recovery_targets.py) — `259_audit_saved_recovery_targets.py`
+- [Generate 24 attempted controlled pairs and input-only development tables.](25_build_controlled_training_table.py) — `25_build_controlled_training_table.py`
+- [Fixed five-versus-nine facial feature experiment and independent replay.](262_compare_chromatic_features.py) — `262_compare_chromatic_features.py`
+- [One endpoint-feature candidate against two verified saved baselines.](267_compare_endpoint_features.py) — `267_compare_endpoint_features.py`
+- [Display all source-held results including the candidate's clean failure.](268_build_endpoint_comparison_gallery.py) — `268_build_endpoint_comparison_gallery.py`
+- [Fixed-support JPEG stress of frozen source-held trees; no retraining.](269_check_endpoint_jpeg_sensitivity.py) — `269_check_endpoint_jpeg_sensitivity.py`
+- [Application-only morphology-order experiment with frozen measurement/model.](273_compare_jpeg_cleanup_order.py) — `273_compare_jpeg_cleanup_order.py`
+- [Reference-informed operator-limit audit on every full-path stress result.](275_audit_patchy_correction_limits.py) — `275_audit_patchy_correction_limits.py`
+- [Metadata-only checkpoint: distinguish approved stress pairs from primary data.](276_record_training_readiness_checkpoint.py) — `276_record_training_readiness_checkpoint.py`
+- [Prepare normal/stress candidate lanes from 26 approved references, not trees.](277_prepare_primary_training_candidates.py) — `277_prepare_primary_training_candidates.py`
+- [Reconstruct prepared variants, masks, targets and routing without tree fits.](278_verify_primary_training_preparation.py) — `278_verify_primary_training_preparation.py`
+- [Prepare two declared gamma-only exposure controls per approved source.](279_prepare_gamma_exposure_controls.py) — `279_prepare_gamma_exposure_controls.py`
+- [The single predeclared primary-data fit versus the frozen endpoint baseline.](283_run_primary_training_comparison.py) — `283_run_primary_training_comparison.py`
+- [Fit one fixed small tree and evaluate three development-validation pairs.](28_train_correction_prototype.py) — `28_train_correction_prototype.py`
+- [Fixed-model boundary experiment; development diagnostics, no tuning/refit.](29_compare_correction_boundaries.py) — `29_compare_correction_boundaries.py`
+- [One correction-only repair replay on the 16 saved R1 cases; no fits.](358_verify_continuous_correction.py) — `358_verify_continuous_correction.py`
+- [Aggregate-only candidate freeze/readiness package. No inference or fitting.](399_freeze_correction_training_readiness.py) — `399_freeze_correction_training_readiness.py`
+- [Generated-array supervision diagnostic; no photographs or model training.](401_check_blended_recovery_targets.py) — `401_check_blended_recovery_targets.py`
+- [Bounded generated-ramp diagnostic for the authorised formula revision.](403_check_directional_exposure_recipe.py) — `403_check_directional_exposure_recipe.py`
+- [One fixed colour/combined development check on a generated chromatic ramp.](405_check_core_colour_recipe.py) — `405_check_core_colour_recipe.py`
+- [Aggregate existing evidence and explicit gates; never import image/ML code.](406_build_integrated_correction_plan.py) — `406_build_integrated_correction_plan.py`
+- [Exercise the same single-image runtime on all controlled attempts and labels.](40_validate_correction_option.py) — `40_validate_correction_option.py`
+- [Group the integrated correction outputs by source for visual inspection.](41_make_correction_review_boards.py) — `41_make_correction_review_boards.py`
+- [Read-only coverage, leaf composition and path audit of the frozen prototype.](44_audit_training_tree.py) — `44_audit_training_tree.py`
+- [Standalone coverage figures from the completed read-only tree audit.](45_plot_training_audit.py) — `45_plot_training_audit.py`
+- [Isolated removal-only generation-mask experiment on all38 square attempts.](54_test_hair_clean_generation.py) — `54_test_hair_clean_generation.py`
+- [Prepare exact added/removed-support evidence for all38 YCrCb comparisons.](57_review_added_correction_regions.py) — `57_review_added_correction_regions.py`
+- [Fixed source-grouped ablation of unchanged/mild correction controls.](61_compare_control_training.py) — `61_compare_control_training.py`
+- [Verify fold provenance and render source-held-out control comparison; no fitting.](62_review_control_training.py) — `62_review_control_training.py`
+- [Audit source coverage and screen18 unused TRAIN sources; never fit a model.](64_audit_training_coverage.py) — `64_audit_training_coverage.py`
+- [Save Codex source-screen observations, verify audit coverage and plot features.](65_review_training_coverage.py) — `65_review_training_coverage.py`
+- [Fixed20probe check of four pending sources: estimation versus correction.](67_check_candidate_variants.py) — `67_check_candidate_variants.py`
+- [Fixed depth3 versus unrestricted tree, same31 probes/eight source folds.](71_compare_tree_capacity.py) — `71_compare_tree_capacity.py`
+- [Freeze input-only brightness features and audit existing31 inputs; no fitting.](72_audit_brightness_features.py) — `72_audit_brightness_features.py`
+- [Fixed baseline4 versus frozen brightness10 features; same31/eight source folds.](73_compare_brightness_features.py) — `73_compare_brightness_features.py`
+- [Trace four/ten-feature control errors and input-mask coverage; no fitting.](74_trace_brightness_controls.py) — `74_trace_brightness_controls.py`
+- [Fixed ten-probe check of two pending brightness/color sources.](76_check_brightness_color_variants.py) — `76_check_brightness_color_variants.py`
+- [Fixed75 variant attempts on all15 follow-up sources; no fitting.](80_check_fixed60_candidate_variants.py) — `80_check_fixed60_candidate_variants.py`
+- [Locate enclosed gaps separately from intentional feature exclusions; no fill.](86_audit_correction_gaps.py) — `86_audit_correction_gaps.py`
+- [Fixed correction-only enclosed-gap recovery; never alter feature/generation masks.](87_test_correction_gap_recovery.py) — `87_test_correction_gap_recovery.py`
+- [Fixed padded-crop correction proposal on32 saved inputs; no regeneration/fit.](88_test_padded_correction_crop.py) — `88_test_padded_correction_crop.py`
+- [training review](review_tools/training_review.html) — `training_review.html`
+- [training review](review_tools/training_review.js) — `training_review.js`
+
+## Reproducibility
+
+- [Bounded download and static ZIP/pickle-opcode inspection; never load a model.](110_preflight_cpm_pattern.py) — `110_preflight_cpm_pattern.py`
+- [Verify experimental artifact provenance and record the unexecuted next gates.](112_finalize_cpm_preflight.py) — `112_finalize_cpm_preflight.py`
+- [Run all existing38 attempts; references are evaluation-only, never inference.](117_check_core_pipeline.py) — `117_check_core_pipeline.py`
+- [Replay saved core features, original-model predictions, transforms and metrics.](118_verify_core_pipeline.py) — `118_verify_core_pipeline.py`
+- [Package existing core diagnostics and verify all local review artifacts.](119_finalize_core_pipeline_check.py) — `119_finalize_core_pipeline_check.py`
+- [Independent membership, fixed-refit, transform and metric replay of the comparison.](121_verify_core_control_comparison.py) — `121_verify_core_control_comparison.py`
+- [Build one reproducible development candidate; never replace the active model.](134_build_control_aware_model.py) — `134_build_control_aware_model.py`
+- [Replay the fixed candidate on all38known core attempts, with explicit cohorts.](135_replay_control_aware_candidate.py) — `135_replay_control_aware_candidate.py`
+- [Independently replay candidate leaf means, image math, metrics and hold status.](136_verify_control_aware_build.py) — `136_verify_control_aware_build.py`
+- [Verify blinded local assets, blank-form JS validation and Python import guards.](186_verify_photographer_review_package.py) — `186_verify_photographer_review_package.py`
+- [Build original/exclusion-overlay contact sheets for 45 accepted images.](18_prepare_exclusion_audit.py) — `18_prepare_exclusion_audit.py`
+- [Independent saved-tree leaf arithmetic, inner selection and pixel replay.](201_verify_nested_leaf_regularization.py) — `201_verify_nested_leaf_regularization.py`
+- [Verify training-only accounting and saved pixels/features without tree fitting.](212_verify_redesign_preparation.py) — `212_verify_redesign_preparation.py`
+- [Reconstruct40single-factor candidates and verify the8-source review packet.](236_verify_color_cast_ycrcb.py) — `236_verify_color_cast_ycrcb.py`
+- [Apply only the two explicitly clarified rejections; preserve three blanks.](242_record_check_rejection_clarification.py) — `242_record_check_rejection_clarification.py`
+- [One fixed contour rule on exposed check cases; not independent evaluation.](244_compare_postcheck_containment.py) — `244_compare_postcheck_containment.py`
+- [Reconstruct fixed contour candidates and preserve exposed-development labels.](245_verify_postcheck_containment.py) — `245_verify_postcheck_containment.py`
+- [Input measurement parity and source-held clean/distorted neighbor audit.](261_check_measurements_and_neighbors.py) — `261_check_measurements_and_neighbors.py`
+- [Independent saved-curve and target-residual verification for admitted pairs.](266_verify_reviewed_pair_targets.py) — `266_verify_reviewed_pair_targets.py`
+- [Full input-stage stress of frozen endpoint trees; preserve every failure.](270_check_full_path_jpeg.py) — `270_check_full_path_jpeg.py`
+- [281 check primary review page](281_check_primary_review_page.cjs) — `281_check_primary_review_page.cjs`
+- [Independent metadata replay; no model fitting or image decoding.](293_verify_review_import_and_broader_screen.py) — `293_verify_review_import_and_broader_screen.py`
+- [Fill only the appeal template's content slots; preserve other ZIP parts.](326_prepare_appeal_letter.py) — `326_prepare_appeal_letter.py`
+- [Bind six new exact masks to a small review; inventory saved support only.](330_prepare_semantic_data_readiness.py) — `330_prepare_semantic_data_readiness.py`
+- [332 verify semantic review page](332_verify_semantic_review_page.cjs) — `332_verify_semantic_review_page.cjs`
+- [Rebuild pairs on six accepted semantic masks; no MST/tree fit or adoption.](333_prepare_semantic_pairs.py) — `333_prepare_semantic_pairs.py`
+- [Replay pair statistics/targets and build an explicitly unapproved gallery.](334_verify_semantic_pairs.py) — `334_verify_semantic_pairs.py`
+- [Save no-correction regional baselines and clean controls; no tree training.](348_prepare_regional_baselines.py) — `348_prepare_regional_baselines.py`
+- [Audit local availability and saved eligibility; no image decoding or fits.](359_audit_existing_data_feasibility.py) — `359_audit_existing_data_feasibility.py`
+- [Two fixed semantic correction-mask candidates; no tuning or tree refit.](37_test_selfie_segmentation.py) — `37_test_selfie_segmentation.py`
+- [Paper-scope synthetic target checks; generated arrays only, no fits/adoption.](400_check_synthetic_restoration_targets.py) — `400_check_synthetic_restoration_targets.py`
+- [Freeze and check core/stress/clean separation; generated arrays only.](404_check_synthetic_development_roles.py) — `404_check_synthetic_development_roles.py`
+- [Add fixed unclipped exposure/identity probes to existing training sources only.](46_build_exposure_identity_table.py) — `46_build_exposure_identity_table.py`
+- [Verify saved revision/folds and export a compact coverage/readiness report.](47_check_exposure_identity_table.py) — `47_check_exposure_identity_table.py`
+- [Read-only local evidence for the proposal alignment checkpoint.](48_audit_method_alignment.py) — `48_audit_method_alignment.py`
+- [Compare existing saved development distortions at native and 256-square size.](50_check_square_distorted_inputs.py) — `50_check_square_distorted_inputs.py`
+- [Build separate square256 development pairs; no correction learner is used.](51_build_square_development_table.py) — `51_build_square_development_table.py`
+- [Verify saved square pairs against references, transforms, masks and folds.](52_verify_square_development_table.py) — `52_verify_square_development_table.py`
+- [Removal-only generation-mask regression at the original24 labeled pixels.](55_check_generation_hair_veto_points.py) — `55_check_generation_hair_veto_points.py`
+
+## Other records
+
+- [Bounded static follow-up for the legacy torch checkpoint; no deserialization.](111_inspect_cpm_legacy_metadata.py) — `111_inspect_cpm_legacy_metadata.py`
+- [Run the core Python development pipeline with an explicit unavailable MST.](116_run_core_pipeline.py) — `116_run_core_pipeline.py`
+- [One fixed control-recipe comparison on the current core's cached inputs.](120_compare_core_controls.py) — `120_compare_core_controls.py`
+- [Package comparison CSVs, visual QA and clearly post-hoc control leaf traces.](122_finalize_core_control_comparison.py) — `122_finalize_core_control_comparison.py`
+- [Fixed nested1/2/4minimum-leaf selection using fitting-only quality gates.](200_compare_nested_leaf_regularization.py) — `200_compare_nested_leaf_regularization.py`
+- [Local five-source/three-variant operator pilot; no model or final data split.](21_synthetic_pair_pilot.py) — `21_synthetic_pair_pilot.py`
+- [Replay saved geometry to separate color-rule coverage from missing landmarks.](222_diagnose_focused_color_rule.py) — `222_diagnose_focused_color_rule.py`
+- [Remove only HSV intersection on20color inputs and their20reference controls.](235_compare_color_cast_ycrcb.py) — `235_compare_color_cast_ycrcb.py`
+- [Import exact paired candidate-mask judgments; no global policy promotion.](237_import_color_cast_ycrcb_reviews.py) — `237_import_color_cast_ycrcb_reviews.py`
+- [Source-held paired training after exact human acceptance of six new masks.](265_compare_six_reviewed_pair_additions.py) — `265_compare_six_reviewed_pair_additions.py`
+- [Freeze candidate lanes and a source-grouped review; never train or infer labels.](280_freeze_primary_data_and_review.py) — `280_freeze_primary_data_and_review.py`
+- [Preserve every result and enforce the recorded no-more-small-trials decision.](284_report_primary_comparison.py) — `284_report_primary_comparison.py`
+- [Bind optional prior source/face decisions to v2; verify updated data.](347_finalize_preferred_v2_review.py) — `347_finalize_preferred_v2_review.py`
+- [Whole-face correction / separate nostril-guarded measurement preview.](350_preview_full_face.py) — `350_preview_full_face.py`
+- [Read saved metadata only; no image access, allocation changes or fitting.](355_inventory_next_cycle_metadata.py) — `355_inventory_next_cycle_metadata.py`
+- [Fetch the official version-1 segmentation weights into ignored local models.](36_download_selfie_segmenter.py) — `36_download_selfie_segmenter.py`
+- [Correct one local image with an explicit, versioned development mask policy.](39_correct_image.py) — `39_correct_image.py`
+- [Regenerate navigation only; preserve research paths, source bytes and evidence.](411_organize_project_navigation.py) — `411_organize_project_navigation.py`
+- [Source-grouped side-by-side boards for the frozen parameter/mask diagnostic.](43_make_error_diagnosis_boards.py) — `43_make_error_diagnosis_boards.py`
+- [Isolated native/256-square development comparison and local SCIN check.](49_compare_square_preprocessing.py) — `49_compare_square_preprocessing.py`
+- [Fixed YCrCb-only ablation: all square pairs plus labeled clean/shift probes.](56_compare_ycrcb_estimation.py) — `56_compare_ycrcb_estimation.py`
+- [Trace held-source control predictions to actual fitted leaves; no fitting.](63_trace_control_failures.py) — `63_trace_control_failures.py`
+- [Stage nine proposed pairs alongside frozen22; no fitting or final admission.](68_stage_development_expansion.py) — `68_stage_development_expansion.py`
+- [Execute the predeclared eight-source expansion comparison, never promote a model.](69_compare_development_expansion.py) — `69_compare_development_expansion.py`
+- [Replay fixed expansion folds and diagnose controls; no fitting or tuning.](70_trace_expansion_control_errors.py) — `70_trace_expansion_control_errors.py`
+- [Stage eight proposed pairs alongside frozen31; no fitting or final admission.](77_stage_development39.py) — `77_stage_development39.py`
+- [Fixed31 versus39 training pairs, frozen ten features and ten source folds.](78_compare_development39.py) — `78_compare_development39.py`
+- [Regenerate remaining28 accepted candidates with the same three-stage veto; no fitting.](85_regenerate_remaining28.py) — `85_regenerate_remaining28.py`
+- [run_hello_world](run_hello_world.py) — `run_hello_world.py`

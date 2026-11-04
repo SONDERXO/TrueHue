@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {"name": "01 Start and launchers", "path": "."},
+    {"name": "02 Python source", "path": "src"},
+    {"name": "03 Android app", "path": "android-app"},
+    {"name": "04 Tests", "path": "tests"},
+    {"name": "05 Research documents", "path": "docs"},
+    {"name": "06 Experiment scripts", "path": "scripts"},
+    {"name": "07 Saved results (local)", "path": "outputs"},
+    {"name": "08 Data (local)", "path": "data"},
+    {"name": "09 Models (local)", "path": "models"}
+  ],
+  "settings": {
+    "files.exclude": {
+      ".git": true,
+      "src": true,
+      "android-app": true,
+      "tests": true,
+      "docs": true,
+      "scripts": true,
+      "outputs": true,
+      "data": true,
+      "models": true,
+      "output": true,
+      "tmp": true,
+      "venv": true,
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/.gradle": true,
+      "**/.kotlin": true,
+      "**/build": true,
+      "**/oracleJdk-*": true,
+      "**/*_inference_env_v1": true,
+      "**/android_toolchain": true
+    },
+    "search.useIgnoreFiles": true,
+    "search.exclude": {"**/__pycache__/**": true, "**/oracleJdk-*/**": true},
+    "python.defaultInterpreterPath": "${workspaceFolder:01 Start and launchers}/venv/Scripts/python.exe"
+  }
+}

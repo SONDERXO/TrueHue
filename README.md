@@ -22,6 +22,11 @@ The fourth contrast control is a separate experiment, not an adopted output.
 
 ## Start here
 
+- [Organised documentation guide](docs/README.md).
+- [Searchable project catalogue](PROJECT.html) (open locally in a browser).
+- [Grouped VS Code workspace](TrueHue.code-workspace) (open as a workspace).
+- [All documents by topic](docs/navigation/research-library.md) and [script catalogue](scripts/README.md).
+
 - [Current session handoff](docs/session-handoff-2026-10-30.md) (latest entries first).
 - [Methods and interim results](docs/thesis-methods-results-draft-2026-11-03.md).
 - [Discussion, limitations and interim conclusion](docs/thesis-discussion-limitations-conclusion-draft-2026-11-03.md).
