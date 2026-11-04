@@ -2,7 +2,7 @@
 
 Run from the project root. Read the individual protocol and current [handoff](../docs/session-handoff-2026-10-30.md) before executing a script. Inclusion is not permission to rerun a stopped experiment.
 
-424 entries. Topic labels are navigation aids, not validation or activation status.
+426 entries. Topic labels are navigation aids, not validation or activation status.
 
 ## Data and references
 
@@ -79,6 +79,7 @@ Run from the project root. Read the individual protocol and current [handoff](..
 - [Bounded FFHQ photographic source preparation; MST/calibration/training deferred.](408_prepare_ffhq_sources.py) — `408_prepare_ffhq_sources.py`
 - [Static source-only gallery; no new photo processing, models or review requests.](409_build_ffhq_source_gallery.py) — `409_build_ffhq_source_gallery.py`
 - [Record assistant contact-sheet observations, never human approval or MST labels.](410_record_ffhq_source_screen.py) — `410_record_ffhq_source_screen.py`
+- [Restore only pinned public support metadata needed by the original FFHQ downloader.](413_restore_ffhq_support_metadata.py) — `413_restore_ffhq_support_metadata.py`
 - [Check20555's five fixed variants and screen the next18 unused TRAIN images.](66_continue_source_screening.py) — `66_continue_source_screening.py`
 - [Screen18 unused TRAIN sources across recorded brightness/color; never fit.](75_screen_brightness_color_sources.py) — `75_screen_brightness_color_sources.py`
 - [Execute the fixed60-source review plan; no variants, models or promotion.](79_screen_fixed60_sources.py) — `79_screen_fixed60_sources.py`
@@ -412,6 +413,7 @@ Run from the project root. Read the individual protocol and current [handoff](..
 - [Two fixed semantic correction-mask candidates; no tuning or tree refit.](37_test_selfie_segmentation.py) — `37_test_selfie_segmentation.py`
 - [Paper-scope synthetic target checks; generated arrays only, no fits/adoption.](400_check_synthetic_restoration_targets.py) — `400_check_synthetic_restoration_targets.py`
 - [Freeze and check core/stress/clean separation; generated arrays only.](404_check_synthetic_development_roles.py) — `404_check_synthetic_development_roles.py`
+- [Read-only clone readiness report; optional local assets never imply failure.](412_check_collaborator_setup.py) — `412_check_collaborator_setup.py`
 - [Add fixed unclipped exposure/identity probes to existing training sources only.](46_build_exposure_identity_table.py) — `46_build_exposure_identity_table.py`
 - [Verify saved revision/folds and export a compact coverage/readiness report.](47_check_exposure_identity_table.py) — `47_check_exposure_identity_table.py`
 - [Read-only local evidence for the proposal alignment checkpoint.](48_audit_method_alignment.py) — `48_audit_method_alignment.py`

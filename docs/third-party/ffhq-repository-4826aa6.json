@@ -1,0 +1,206 @@
+{
+  "repository": "NVlabs/ffhq-dataset",
+  "revision": "4826aa6ea77aa7f1a7802b938ed7c40afb985cda",
+  "tree": {
+    "sha": "4826aa6ea77aa7f1a7802b938ed7c40afb985cda",
+    "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/4826aa6ea77aa7f1a7802b938ed7c40afb985cda",
+    "tree": [
+      {
+        "path": "LICENSE.txt",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "4183161c4b98968c70d1296a0ec93bdf5f614435",
+        "size": 1610,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/4183161c4b98968c70d1296a0ec93bdf5f614435"
+      },
+      {
+        "path": "README.md",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "a40d216a1955f1e0d085cc0ffccaa19dfdadcd1a",
+        "size": 13959,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/a40d216a1955f1e0d085cc0ffccaa19dfdadcd1a"
+      },
+      {
+        "path": "docs",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "edffcf2a7fef9e22a8f81c543cd28d5772dbd851",
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/edffcf2a7fef9e22a8f81c543cd28d5772dbd851"
+      },
+      {
+        "path": "docs/search",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "43b3341837f56170786ade0a6839ae5729239d16",
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/43b3341837f56170786ade0a6839ae5729239d16"
+      },
+      {
+        "path": "docs/search/asset-manifest.json",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "acc1d36f1e0e3483de1c482bd2f73dd5e62ec689",
+        "size": 937,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/acc1d36f1e0e3483de1c482bd2f73dd5e62ec689"
+      },
+      {
+        "path": "docs/search/favicon.png",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "244f43ae86fa60a810094748822943e8468ffbd1",
+        "size": 556,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/244f43ae86fa60a810094748822943e8468ffbd1"
+      },
+      {
+        "path": "docs/search/ffhq-dataset-v1-processed.json",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "4051e0be978fd0395c5a6c91057a7cf55ad6bd96",
+        "size": 9645999,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/4051e0be978fd0395c5a6c91057a7cf55ad6bd96"
+      },
+      {
+        "path": "docs/search/index.html",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "87fd26a13b9264fcb879b49af55310304de50433",
+        "size": 2197,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/87fd26a13b9264fcb879b49af55310304de50433"
+      },
+      {
+        "path": "docs/search/manifest.json",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "1f2f141fafdeb1d31d85b008ec5132840c5e6362",
+        "size": 306,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/1f2f141fafdeb1d31d85b008ec5132840c5e6362"
+      },
+      {
+        "path": "docs/search/precache-manifest.d5e29510a2069c4ce4aaafff8ab19b02.js",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "b7dd21e3ff6384b6db4ce18f4d075b357f1d460c",
+        "size": 600,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/b7dd21e3ff6384b6db4ce18f4d075b357f1d460c"
+      },
+      {
+        "path": "docs/search/service-worker.js",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "bdc3cd5c47dc3ada94ec8b46c2f660f80c52cca0",
+        "size": 1081,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/bdc3cd5c47dc3ada94ec8b46c2f660f80c52cca0"
+      },
+      {
+        "path": "docs/search/static",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "24c9f189c049a6b5116c338f41813ab073a94b59",
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/24c9f189c049a6b5116c338f41813ab073a94b59"
+      },
+      {
+        "path": "docs/search/static/css",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "d547d68127c02f8382b85a716809b5f0a93cb96a",
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/d547d68127c02f8382b85a716809b5f0a93cb96a"
+      },
+      {
+        "path": "docs/search/static/css/main.48ff51cb.chunk.css",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "4ff524794415884836c82230e43b507673e523dc",
+        "size": 1145,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/4ff524794415884836c82230e43b507673e523dc"
+      },
+      {
+        "path": "docs/search/static/css/main.48ff51cb.chunk.css.map",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "87a9ca42f231aafa99400e5b1d67846bb2cd798d",
+        "size": 3600,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/87a9ca42f231aafa99400e5b1d67846bb2cd798d"
+      },
+      {
+        "path": "docs/search/static/js",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "e349459a657ae20e9ac192fc938177bd86349401",
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/trees/e349459a657ae20e9ac192fc938177bd86349401"
+      },
+      {
+        "path": "docs/search/static/js/2.f9cc10ee.chunk.js",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "cf92089c9a9f79ba34a1de7edbd29eedd815235d",
+        "size": 120886,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/cf92089c9a9f79ba34a1de7edbd29eedd815235d"
+      },
+      {
+        "path": "docs/search/static/js/2.f9cc10ee.chunk.js.map",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "c2b4170815b595e326240fe214a72c1dc3089ae6",
+        "size": 347043,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/c2b4170815b595e326240fe214a72c1dc3089ae6"
+      },
+      {
+        "path": "docs/search/static/js/main.3ccdce75.chunk.js",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "efeeda7099f920a6f29730b8c786c32eb6ca4a57",
+        "size": 4884,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/efeeda7099f920a6f29730b8c786c32eb6ca4a57"
+      },
+      {
+        "path": "docs/search/static/js/main.3ccdce75.chunk.js.map",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "1687192c451fca56def6a02c93d61e49f8914572",
+        "size": 16339,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/1687192c451fca56def6a02c93d61e49f8914572"
+      },
+      {
+        "path": "docs/search/static/js/runtime~main.e5de1b36.js",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "b7e8cddbdde908842e709cb2688977ccec369a05",
+        "size": 1522,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/b7e8cddbdde908842e709cb2688977ccec369a05"
+      },
+      {
+        "path": "docs/search/static/js/runtime~main.e5de1b36.js.map",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "43faeb5369f21173beaac07cd6718d9345a105c2",
+        "size": 8017,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/43faeb5369f21173beaac07cd6718d9345a105c2"
+      },
+      {
+        "path": "download_ffhq.py",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "b626ebce7a4a030d551d28b5837b326d44c98572",
+        "size": 23829,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/b626ebce7a4a030d551d28b5837b326d44c98572"
+      },
+      {
+        "path": "ffhq-piecharts.png",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "b7199a8004226f60d9da93d56540ecdf89ba056f",
+        "size": 74813,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/b7199a8004226f60d9da93d56540ecdf89ba056f"
+      },
+      {
+        "path": "ffhq-teaser.png",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "b5562124b11db4732813c52c59b5ae5828430e2e",
+        "size": 951059,
+        "url": "https://api.github.com/repos/NVlabs/ffhq-dataset/git/blobs/b5562124b11db4732813c52c59b5ae5828430e2e"
+      }
+    ],
+    "truncated": false
+  }
+}

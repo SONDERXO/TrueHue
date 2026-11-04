@@ -5,6 +5,8 @@ library; the original files stay in place to preserve links and evidence hashes.
 
 ## Current work
 
+New collaborator? Start with [cloning, setup and collaboration](collaborator-setup.md).
+
 **Next task:** check the existing face-and-neck support on the same12 FFHQ
 sources, saving a protocol first and retaining all difficult/failed cases.
 ITA-to-MST is deferred for this source work. No new training is activated.

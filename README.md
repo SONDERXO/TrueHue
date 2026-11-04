@@ -22,6 +22,8 @@ The fourth contrast control is a separate experiment, not an adopted output.
 
 ## Start here
 
+- [Partner clone/setup and collaboration guide](docs/collaborator-setup.md).
+
 - [Organised documentation guide](docs/README.md).
 - [Searchable project catalogue](PROJECT.html) (open locally in a browser).
 - [Grouped VS Code workspace](TrueHue.code-workspace) (open as a workspace).

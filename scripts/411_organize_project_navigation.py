@@ -19,6 +19,7 @@ GROUPS = [
     ('Reproducibility', ('verify','verification','check','audit','test','replay','export','build','config','access','preflight','parity','acqui','environment','provenance','setup','prepare','readiness')),
 ]
 CURRENT = [
+    ('Partner clone, setup and collaboration','docs/collaborator-setup.md'),
     ('Latest handoff: newest entries first','docs/session-handoff-2026-10-30.md'),
     ('Current documentation guide','docs/README.md'),
     ('FFHQ source preparation and next support check','docs/ffhq-source-preparation-results-2026-11-03.md'),

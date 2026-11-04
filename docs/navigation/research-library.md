@@ -2,7 +2,7 @@
 
 Start with [the current guide](../README.md). Older protocols, failed candidates and dated drafts stay in their original locations. This complete catalogue does not mean every record is current.
 
-370 entries. Topic labels are navigation aids, not validation or activation status.
+373 entries. Topic labels are navigation aids, not validation or activation status.
 
 ## Data and references
 
@@ -66,6 +66,8 @@ Start with [the current guide](../README.md). Older protocols, failed candidates
 - [Fixed 24-source training expansion: suitability checkpoint](../table2-source-expansion24-results.md) — `table2-source-expansion24-results.md`
 - [Fixed larger TRAIN-source preparation batch](../table2-source-expansion60-protocol.md) — `table2-source-expansion60-protocol.md`
 - [Larger fixed TRAIN-source preparation and screening](../table2-source-expansion60-results.md) — `table2-source-expansion60-results.md`
+- [ffhq LICENSE](../third-party/ffhq-LICENSE.txt) — `ffhq-LICENSE.txt`
+- [Pinned FFHQ support metadata](../third-party/ffhq-support-metadata.md) — `ffhq-support-metadata.md`
 - [Fixed60-source screening results](../training-source60-screen.md) — `training-source60-screen.md`
 - [Fixed75 variant checks and user review](../training-source60-variant-checks.md) — `training-source60-variant-checks.md`
 
@@ -348,6 +350,7 @@ Start with [the current guide](../README.md). Older protocols, failed candidates
 ## Reproducibility
 
 - [Accepted-image exclusion audit (2026-10-19)](../accepted-exclusion-audit.md) — `accepted-exclusion-audit.md`
+- [Partner setup and collaboration](../collaborator-setup.md) — `collaborator-setup.md`
 - [Reproducible control-aware development model build](../control-aware-model-build-protocol.md) — `control-aware-model-build-protocol.md`
 - [Control-aware model build: reproducible, quality held](../control-aware-model-build-results.md) — `control-aware-model-build-results.md`
 - [Unified core pipeline software check](../core-pipeline-check-protocol.md) — `core-pipeline-check-protocol.md`

@@ -1,0 +1,3 @@
+# Preserve the exact archived public metadata/licence bytes for bootstrap copies.
+docs/third-party/ffhq-repository-4826aa6.json -text whitespace=cr-at-eol
+docs/third-party/ffhq-LICENSE.txt -text whitespace=cr-at-eol
