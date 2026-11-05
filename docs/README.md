@@ -5,15 +5,67 @@ library; the original files stay in place to preserve links and evidence hashes.
 
 ## Current work
 
+**Stellenbosch request sent by the user:** [current correspondence status](mst-dataset-correspondence-status-2026-11-05.md).
+Awaiting a reply shared by the user; no inbox monitoring. The archived draft's
+unsent wording records its earlier state and is preserved for hash provenance.
+
+**Matching MST source investigation:** [new leads and decision](mst-cohort-source-investigation-2026-11-05.md).
+The strongest new inquiry lead is Stellenbosch's controlled-lighting MST dataset,
+available by request. [Access email draft](mst-stellenbosch-access-request-draft-2026-11-05.md)
+was prepared and is now user-reported sent. No qualified cohort/data access or calibration admission
+has been obtained. User confirms no STW reply/files. Do not refit the old subset.
+
+**Source eligibility review complete:** [decisions](ffhq-source-eligibility-results-2026-11-05.md)
+and [per-source gallery](../outputs/ffhq_source_eligibility_v1/review.html).
+All12originals passed an assistant full-resolution visible-face reference screen
+with individual limits. Correction/measurement admission remains separate;
+all168descendants are linked in one unsplit development holding block, not12
+verified people or a new split. Matching MST evidence remains the next constraint;
+no calibration or full-tree training is activated.
+
+**Latest: actual-input masks checked** on all168fixed cases.
+[Results](distorted-input-support-results-2026-11-05.md) and
+[gallery](../outputs/ffhq_distorted_input_support_v1/review.html).
+All96core recoveries available; RGB MAE0.591 versus0.135 with borrowed source
+alpha. One stress nasal-geometry failure retained; severe distortion reintroduces
+head-covering spill. Clean12 masks repeat exactly. No training admissions;
+object/neck/measurement consistency remains unresolved.
+
+**Correction development:** [photographic target diagnostic](ffhq-correction-target-results-2026-11-05.md)
+completed on all12 sources/168cases. Core target-fit RGB error18.665→0.135codes;
+clean identity exact; severe stress artifacts and four colour-metric regressions
+retained. These are oracle fits, not trained predictions. No training admissions
+or MST/tree fitting. [Gallery](../outputs/ffhq_correction_targets_v1/review.html).
+
+**Reusable preview:** [instructions and verification](reusable-correction-preview-results-2026-11-05.md).
+Use `run_object_protected_preview.cmd "photo.jpg" clear` (or `opaque`/`uncertain`).
+The new preview composes object protection and clear-lens handling for a selected
+photo. The choice is explicit, not an automatic glasses classifier. All12 saved
+results replay exactly; raw-photo inference/launcher execution remains untested.
+
 New collaborator? Start with [cloning, setup and collaboration](collaborator-setup.md).
 
-**Next task:** check the existing face-and-neck support on the same12 FFHQ
-sources, saving a protocol first and retaining all difficult/failed cases.
-ITA-to-MST is deferred for this source work. No new training is activated.
+**Latest result:** the [same12 FFHQ mask/support check](ffhq-mask-support-results-2026-11-05.md)
+is complete. All12 processed technically; head-covering spill, beard/hair
+measurement contamination and missing/uncertain neck support remain. No images
+are admitted. Resolve the observed mask limitations before training examples;
+no further experiment is automatically activated. ITA-to-MST remains deferred.
+
+**Current correction direction:** [protect objects from correction](object-protected-correction-results-2026-11-05.md),
+as requested5November. The same12 saved cases have a new
+[old/new gallery](../outputs/ffhq_object_protection_v1/review.html), with no new
+inference. Predicted opaque glasses/head covering/occlusions are excluded; fine boundaries
+and neck objects remain uncertain. Historical whole-face launchers are unchanged.
+
+**Clear-glasses refinement:** [correct through transparent lenses, protect rims](clear-lens-correction-results-2026-11-05.md).
+The [latest comparison](../outputs/ffhq_clear_lens_correction_v1/review.html)
+restores the two explicitly designated clear-lens examples; sunglasses and the
+other10 cases are unchanged. Rims are approximated, not precisely segmented.
 
 | Need | Open |
 |---|---|
 | Latest continuation notes | [Session handoff](session-handoff-2026-10-30.md), newest entries first |
+| Latest bounded mask evidence | [FFHQ support results](ffhq-mask-support-results-2026-11-05.md), [local findings gallery](../outputs/ffhq_mask_support_assessment_v1/review.html) |
 | Current FFHQ sources and limitations | [FFHQ source results](ffhq-source-preparation-results-2026-11-03.md) |
 | Local FFHQ source gallery | [Source gallery](../outputs/ffhq_source_visual_assessment_v1/review.html) |
 | Adopted mask/rendering design | [Masking design](adopted-masking-design-2026-11-01.md) |

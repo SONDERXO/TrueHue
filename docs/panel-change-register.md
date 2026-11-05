@@ -28,6 +28,133 @@ current changes; the alignment record retains the longer experiment history.
 
 ## Proposed or rejected items: do not present as adopted amendments
 
+### 5 November 2026 — C07/C10 new matching-MST source inquiry lead
+
+User authorised progressing toward a qualified labelled cohort and confirmed no
+new STW reply/files. Primary-source research identified Stellenbosch's controlled-
+lighting/manual-MST study as the strongest new inquiry lead; data are on request,
+not obtained/admitted. An unsent request to the paper's corresponding author is
+prepared. Casual Conversations v2 supplied apparent-tone fitting permission is
+not established; Google HR faces require source-specific controlled access;
+rPPG ethnicity-to-tone proxies must not become labels. No author contacted or
+terms accepted, no source/method adoption. See
+[investigation](mst-cohort-source-investigation-2026-11-05.md) and
+[unsent request](mst-stellenbosch-access-request-draft-2026-11-05.md).
+No old-subject refit, fake FFHQ labels, calibration/tree training or panel approval.
+
+### 5 November 2026 — C10/C12 reference eligibility and conservative grouping
+
+User authorised source/support eligibility from saved evidence. Assistant inspected
+all12original1024px FFHQ images: visible-face references usable with documented
+light/occlusion/crop limits; not ideal/intrinsic-colour truth or full-pipeline
+admission. Missing neck is not invented; visible-neck/clothing/mask concerns
+remain separate. All168descendants bind to12source lineages within one unsplit
+development holding block while person relationships are unknown. This is not
+one-person/12-person verification, a final split, or untouched evaluation.
+Recorded licences/attribution retained, no new terms clearance/publication.
+Current human MST review remains complete but not adequate admitted calibration;
+no same-subset refit or new labels. See
+[protocol](ffhq-source-eligibility-protocol-2026-11-05.md) and
+[results](ffhq-source-eligibility-results-2026-11-05.md).0newinference/fits/full-
+pipelineadmissions/runtimechange. No panel approval or thesis edits.
+
+### 5 November 2026 — C03/C04/C09/C10 actual distorted-input support check
+
+User explicitly authorised rerunning masks/measurement on all168 fixed cases.
+Existing model/geometry/thresholds unchanged;167parent successes/167fixed CPU
+FaceOcc forwards, one48879stress-over nasal-geometry failure retained. Actual
+input support supplied155nonclean oracle fits+12neutral controls. Fit intersection
+was constrained by the solver, but evaluation used full original scoring support
+including missed areas. Actual input support was not clamped to reference masks;
+outside/source-protected changes were measured, not hidden. CoreMAE0.135→0.591
+versus borrowed-alpha oracle; stress13.526 including failure; clean12exactmask
+repeats. New mask can reintroduce head covering29863 and collar/edge concerns.
+All168 retained,0admissions/trees/MSTfits. This supplies pipeline diagnostic
+evidence, not predictions or adopted mask repair. See
+[protocol](distorted-input-support-protocol-2026-11-05.md) and
+[results](distorted-input-support-results-2026-11-05.md). No paper/runtime change
+or panel approval.
+
+### 5 November 2026 — C09/C10/C12 photographic target construction diagnostic
+
+User requested correction-model progress. One bounded operator diagnostic now
+uses all12 fixed FFHQ sources and the existing14-case clean/core/stress matrix,
+with revised object/clear-lens alpha.156nonclean target fits plus12exact-neutral
+shortcuts; no decision tree/MST training. A common medium recipe preset was used
+for EVERY source as an engineering condition, explicitly NOT a skin/MST group.
+This differs from406's future MST-bound/admitted-source severity plan and is
+not final augmentation allocation. Synthesis/recovery share fixed source alpha;
+distorted-input masking/features were not rerun, so this is conditional capacity,
+not end-to-end prediction. All cases retained,0admissions. Core residuals small;
+severe stress artifacts and4CIEDE2000regressions retained despite improvedRGBMAE.
+No new formula/output/threshold adoption or panel approval. See
+[protocol](ffhq-correction-target-protocol-2026-11-05.md) and
+[results](ffhq-correction-target-results-2026-11-05.md). Paper/drafts/runtime unchanged.
+
+### 5 November 2026 — C03/C04 reusable development preview
+
+The user authorised work on reuse beyond photograph-specific clear-lens flags.
+A shared composition API and CLI now accept clear/opaque/uncertain choices for
+a selected photo. Uncertain keeps glasses protected and exposes a required-choice
+status. This is explicit development input, not a validated automatic glasses
+classifier or an adopted final-app manual step. The existing object-veto and rim
+approximations are unchanged. All12 saved masks/alpha/renderings exactly replay;
+51 focused tests pass. Raw-photo inference/Windows launcher were not executed
+for this validation. Remaining beard/hair measurement and neck/reference issues
+are preserved;0admissions/newinference/fits. See
+[results and use](reusable-correction-preview-results-2026-11-05.md). No runtime,
+final-model, panel-approval or thesis-completion claim.
+
+### 5 November 2026 — C03/C04 transparent prescription lenses
+
+User refines the object-protection policy: correct the visible face/eyes through
+transparent lenses, exclude frames/rims, keep sunglasses protected. The existing
+single glasses class cannot segment exact frames; the bounded implementation
+uses a fixed two-pixel envelope boundary approximation with explicitly designated
+clear-lens cases16061/59807. It overrides the earlier class6/FaceOcc glasses veto
+only inside those lens interiors. Other objects and explicit protections retain
+precedence. Measurement masks/features are unchanged; no automatic glasses-type
+classification or reliable optical/frame-accuracy claim. All12 saved cases checked,
+other10 masks unchanged;0newinference/fits/admissions/runtimechange. See
+[protocol](clear-lens-correction-protocol-2026-11-05.md) and
+[results](clear-lens-correction-results-2026-11-05.md). No panel approval or thesis edit.
+
+### 5 November 2026 — C03/C04 user-requested object protection
+
+User now requests avoiding correction on objects. This supersedes the earlier
+C03 choice to include objects inside the face outline. Normal facial features
+and associated visible neck remain intended support; parser-labelled objects,
+hair/background and FaceOcc-predicted facial occlusions are vetoed after hole
+filling, and protection overrides inward blending. FaceOcc now also informs
+this experimental correction-support veto, beyond its earlier measurement role.
+The measurement mask/features are unchanged. This is a recorded method change,
+not complete object detection, training admission or panel approval.
+
+All same12 FFHQ cases compared using saved outputs only; no new inference/fits.
+Glasses/head covering and most hand/microphone overlap are visibly excluded;
+fine boundaries, possible skin loss, beard and neck limitations remain. Current
+desktop/Android defaults and historical whole-face launchers are unchanged.
+See [protocol](object-protected-correction-protocol-2026-11-05.md) and
+[results](object-protected-correction-results-2026-11-05.md). The earlier C03 table
+entry and evidence remain historical, not the current requested object policy.
+
+### 5 November 2026 — C01–C06/C12 fixed FFHQ support diagnostic
+
+The same12 FFHQ sources now have one bounded mask/support check under a protocol
+saved before inference. Existing parser/anatomical/nostril measurement, whole-face
+and associated-neck correction, enclosed-hole filling, inward union blending and
+experimental FaceOcc veto were reused unchanged. All12 processed technically;
+head-covering correction spill, retained beard/hair measurement and missing or
+uncertain neck support prevent any blanket admission claim. No mask repair,
+new method adoption, MST omission/labels, variants, target/tree/calibration fit
+or runtime change was made. Fixed operator examples are illustrative only.
+
+This adds evidence for the already recorded departures, rather than amending the
+three-output method. Zero training admissions; no panel approval. See
+[protocol](ffhq-mask-support-protocol-2026-11-05.md) and
+[results](ffhq-mask-support-results-2026-11-05.md). Historical evidence and the
+submitted proposal/working thesis drafts are unchanged.
+
 ### 3 November 2026 — C12 FFHQ source work, MST deferred
 
 User authorised proceeding with FFHQ and handling ITA-to-MST later. This permits

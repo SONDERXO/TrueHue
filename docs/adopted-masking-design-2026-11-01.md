@@ -1,5 +1,19 @@
 # Adopted masking design
 
+**5November2026 clear-lens clarification:** user requests correction through
+see-through lenses, including visible eyes, while frames/rims remain protected.
+The [bounded clear-lens comparison](clear-lens-correction-results-2026-11-05.md)
+adds an explicit transparent-lens override with approximate rim protection.
+Opaque/unknown glasses remain excluded. No measurement admission or runtime switch.
+
+**5November2026 correction-policy update:** user requests avoiding correction on
+objects, superseding their inclusion in the historical policy below. A new
+[object-protected development comparison](object-protected-correction-results-2026-11-05.md)
+uses predicted object classes and saved FaceOcc visibility on the same12 FFHQ
+cases. Protection overrides hole filling/blending; measurement is unchanged.
+This is not complete object-detection validation or a desktop/Android default
+switch. Script350 launchers still implement the historical policy below.
+
 1November2026. User accepted whole-face support with inward edge blending and
 explicitly asked to retain strict ITA/MST exclusions. This adopts the method
 for continued development, not scientific reliability or a finished model.

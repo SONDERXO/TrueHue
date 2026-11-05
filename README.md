@@ -14,9 +14,11 @@ statistics and decision-tree gamma/red/blue correction -> corrected photograph.
 The written task is synthetic photographic restoration toward an original
 reference, rather than proof of recovery of intrinsic skin colour.
 
-Correction development uses whole-face and visible-neck support with enclosed
-hole filling and inward edge blending. Measurement excludes internal features,
-hair and neck. FaceOcc is a preferred experimental measurement candidate.
+Correction development uses face and visible-neck support with object protection,
+approximate clear-lens rim handling and inward edge blending. Protected object
+holes override enclosed-hole filling. Measurement excludes internal features,
+hair and neck. FaceOcc is a preferred experimental measurement candidate and
+also supplies the experimental correction occlusion veto.
 The Android/desktop demos still use their older experimental baseline.
 The fourth contrast control is a separate experiment, not an adopted output.
 
@@ -38,10 +40,17 @@ The fourth contrast control is a separate experiment, not an adopted output.
 - [Android setup and current implementation](android-app/README.md).
 - [Repository maintenance record](docs/repository-maintenance-2026-11-04.md).
 
-The FFHQ check acquired 12 fixed photographic candidates. Mask/support checks
-are next; ITA-to-MST work is deferred for this source-preparation phase. No
-full-method training or invented MST labels follow from that deferral.
-DAST has been dropped from active acquisition at the user's request.
+The fixed 12 FFHQ sources now have source/support screening, object/clear-lens
+comparisons, a reusable development preview, and 168 photographic target and
+actual-input mask diagnostics. Core recovery is promising under target-aware
+fitting; stress failures and mask instability remain. These are not learned
+predictions or training admissions. See the [current guide](docs/README.md).
+Matching MST remains unresolved; the user reports sending a new dataset-access
+request. No reply or new cohort has been supplied. DAST remains dropped.
+
+Use [the object-protected preview guide](docs/reusable-correction-preview-results-2026-11-05.md)
+for the new development entry point and explicit clear/opaque/uncertain glasses
+choice. Historical script350 launchers and Android/desktop defaults are unchanged.
 
 ## Repository layout
 
