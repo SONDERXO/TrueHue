@@ -920,6 +920,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Complete the existing WB314 exposure review](../wb-remaining-exposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-exposure-review-protocol-2026-11-18.md`
 - [Remaining nine WB314 underexposure outputs](../wb-remaining-underexposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-underexposure-review-protocol-2026-11-18.md`
 - [Complete WB314 pure-underexposure development review](../wb-remaining-underexposure-review-results-2026-11-18.md) — `docs/wb-remaining-underexposure-review-results-2026-11-18.md`
+- [WB314 V2 released for initial development feedback; Form insertion pending](../wb314-development-feedback-round1-release-2026-11-19.md) — `docs/wb314-development-feedback-round1-release-2026-11-19.md`
 - [The frozen candidate is ready for development-stage expert feedback](../wb314-expert-development-stage-clarification-2026-11-18.md) — `docs/wb314-expert-development-stage-clarification-2026-11-18.md`
 - [Existing expert form: read successfully; minimal alignment draft](../wb314-expert-feedback-preparation-2026-11-18.md) — `docs/wb314-expert-feedback-preparation-2026-11-18.md`
 - [Frozen WB314: changed-output feedback accepted, research inference connected](../wb314-final-review-and-inference-results-2026-11-18.md) — `docs/wb314-final-review-and-inference-results-2026-11-18.md`
