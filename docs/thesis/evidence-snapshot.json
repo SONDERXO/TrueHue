@@ -745,6 +745,61 @@
         "images_uploaded": 0,
         "protocol_sha256": "bda1346c3d59e9ed987722a441242237e40d5399b91ad77106f84bf7dc8ca0e4"
       }
+    },
+    "separate_MSTE_evaluation_eligibility": {
+      "local_source": "outputs/wb314_mste_evaluation_metadata_v1/summary.json",
+      "source_sha256": "999d6d9d58ff922cdd351ac8a5f27393b884ec6554e438518f2011f58943014e",
+      "values": {
+        "decision": "SEPARATE_UNRESERVED_INDEPENDENT_COHORT_NOT_ESTABLISHED",
+        "official_label_coverage": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "catalog_rows": 1546,
+        "unique_subject_image_keys": 1543,
+        "publisher_subjects": 19,
+        "prior_mapping_development_subjects": 15,
+        "closed_screen_subjects": 4,
+        "closed_subject_catalog_keys": 337,
+        "catalog_keys_outside_closed_subjects": 1206,
+        "other_catalog_keys_for_same_exposed_subjects": 788,
+        "previously_unused_subjects": 0,
+        "outside_closed_category_subject_counts": {
+          "1": 2,
+          "2": 2,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "6": 2,
+          "7": 1,
+          "8": 2,
+          "9": 1,
+          "10": 1
+        },
+        "positive_new_unreserved_evaluation_admissions": 0,
+        "interpretation": [
+          "Official labels exist; this is not a missing-label or universally unusable-dataset result.",
+          "Outside the four closed-screen subjects, all15remaining subjects are already exposed mapping-development subjects.",
+          "Unmeasured photographs of those same people do not create new independent subjects.",
+          "Prior exposure alone does not forbid every disclosed development analysis; none is newly selected or presented as final evaluation here.",
+          "The Form has20photo slots, not proof of20independent people; repeated photos must retain subject grouping.",
+          "Unknown role clearance is not silently treated as unreserved or cured by opening a locked manifest.",
+          "No image quality, compatible current support or photographic-reference eligibility is inferred from label metadata."
+        ],
+        "fits": 0,
+        "source_image_decodes": 0,
+        "locked_content_or_manifest_reads": 0,
+        "Form_edits": 0,
+        "expert_responses": 0
+      }
     }
   },
   "expert_preparation_status": {

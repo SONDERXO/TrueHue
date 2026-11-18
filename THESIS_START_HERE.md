@@ -10,6 +10,8 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Latest MST clarification:** the user reaffirmed that MST labels are part of the thesis. They remain required. The neutral-ID feedback draft is unapproved and on hold; it cannot satisfy tone-group evaluation. The11current development sources have no verified reference MST labels, and no compatible labelled20-photo expert roster is established. See [MST evaluation requirement](docs/wb314-mst-evaluation-requirement-2026-11-18.md). The Form is unchanged and no professional responses have been collected.
 
+**Completed separate MST-E eligibility assessment:** the user authorized a distinct cohort check. Catalogue labels coverMST1–10, but all19people reconcile to15previously exposed mapping-development subjects and four closed-screen subjects. No separate, positively cleared unreserved independent cohort was established; no photos or locked manifests were opened. This is not a claim that all development reuse is prohibited. No new cohort, fit, model change or Form edit was made. See [assessment results](docs/wb314-mste-evaluation-eligibility-results-2026-11-18.md).
+
 ## Read in this order
 
 1. This status and claim guide.
