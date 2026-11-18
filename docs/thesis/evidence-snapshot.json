@@ -959,6 +959,42 @@
         "known_support_limitations_disclosed": true,
         "old_drafts_and_feedback_preserved": true
       }
+    },
+    "MSTE_V2_large_presentation": {
+      "local_source": "outputs/wb314_development_feedback_large_v1/summary.json",
+      "source_sha256": "c1f91845ea99b833f70ff45d26e2711b294b22723be568408e054d47c52768aa",
+      "values": {
+        "round_id": "wb314_mste_v2_area_development_round1_2026_11_19",
+        "presentation_version": "V2_exact_pixel_repeat_4x",
+        "parent_model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "pairs": 20,
+        "subjects": 13,
+        "MST_categories": 10,
+        "scale": 4,
+        "native_face_width_range": [
+          70,
+          128
+        ],
+        "large_face_width_range": [
+          280,
+          512
+        ],
+        "exact_pixel_repeat_checks": 20,
+        "native_PNG_byte_copies": 20,
+        "all16_offsets_checked_per_pair": true,
+        "invented_high_resolution_detail": false,
+        "sharpening": false,
+        "new_model_calls": 0,
+        "new_fits": 0,
+        "source_portrait_decodes": 0,
+        "masks_changed": false,
+        "questions_changed": false,
+        "model_changed": false,
+        "live_Form_updated": false,
+        "expert_responses_created": 0,
+        "prior_packages_preserved": true,
+        "presentation_user_requested": true
+      }
     }
   },
   "expert_preparation_status": {
@@ -968,7 +1004,8 @@
     "compatible_labelled20_photo_roster_established": true,
     "expert_responses": 0,
     "online_Form_edits": 0,
-    "source": "docs/wb314-development-feedback-round1-release-2026-11-19.md"
+    "source": "docs/wb314-larger-expert-presentation-2026-11-19.md",
+    "presentation_version": "V2_exact_pixel_repeat_4x"
   },
   "expert_development_readiness": {
     "source": "docs/wb314-expert-development-stage-clarification-2026-11-18.md",
@@ -979,7 +1016,7 @@
     "existing_questions_scale_MST_structure_retained": true,
     "expert_responses": 0,
     "final_qualification_complete": false,
-    "latest_source": "docs/wb314-development-feedback-round1-release-2026-11-19.md",
+    "latest_source": "docs/wb314-larger-expert-presentation-2026-11-19.md",
     "MST_labelled_packet_technical_checks_pass": true,
     "MST_labelled_packet_collection_ready": false,
     "release_approval_received": true,
@@ -994,6 +1031,9 @@
     "local_materials_released": true,
     "live_Form_updated": false,
     "live_Form_image_insertion_pending": true,
-    "no_additional_pre_feedback_experiment_selected": true
+    "no_additional_pre_feedback_experiment_selected": true,
+    "larger_viewing_copies_prepared": true,
+    "presentation_scale": 4,
+    "additional_photographic_detail_created": false
   }
 }
