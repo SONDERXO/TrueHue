@@ -1,6 +1,6 @@
 # TrueHue: thesis-writing entry point
 
-**Evidence checkpoint: 18 November 2026. Research and qualification remain incomplete.**
+**Evidence checkpoint: 19 November 2026. Research and qualification remain incomplete.**
 
 The user now authorizes starting thesis editing and preparing this repository for ChatGPT web. Older statements that manuscript work is paused are superseded for evidence-based drafting. This does not adopt a correction model, authorize invented results or make the thesis submission-ready. The editable manuscript has not been edited by this repository update; provide the current manuscript to the writing session.
 
@@ -9,6 +9,10 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 **Standing synchronization rule:** every model feature/change is followed by a repository update with its code, actual checks, evidence and limitations. See [repository update policy](docs/thesis/repository-update-policy.md). For thesis editing, retrieve the current branch checkpoint rather than relying on a previously read revision or older upload bundle.
 
 **Development-feedback stage:** the user clarified that the immediate expert round is the paper's during-development feedback. The frozen model is ready to be shown for that purpose, but its MST-labelled review packet still needs verification before collection. Previously exposed, properly labelled eligible photos can support this development round with disclosure; the independent-final-cohort requirement was applied too early as a blocker. Keep the existing questions, scale and MST structure. See [stage clarification](docs/wb314-expert-development-stage-clarification-2026-11-18.md). No expert responses or final validation are claimed.
+
+**MST-labelled draft now prepared:**20pairs from13previously exposed people cover all ten publisher categories, two slots each, using the same two combined exposure/colour conditions in every category. All20label/Form/pixel checks pass; the model and questions are unchanged. Visual inspection found masking limitations, so the concrete draft is held for the user's development-round release decision. No expert scores or online collection yet. Read [packet results](docs/wb314-mste-development-feedback-results-2026-11-19.md); technical verification does not mean release approval or final qualification.
+
+The user then reported a sharpened/overexposed appearance without naming pairs or sides. This is not release approval or a new set of per-case ratings. Exact traces verify source normalization and preserved synthetic backgrounds outside correction support; no separate sharpening filter is present, but the specific perceived texture cause remains unresolved. No retouching or model edit was made. The packet stays on hold for pair/side clarification.
 
 **Latest MST clarification:** the user reaffirmed that MST labels are part of the thesis. They remain required. The neutral-ID feedback draft is unapproved and on hold; it cannot satisfy tone-group evaluation. The11current development sources have no verified reference MST labels, and no compatible labelled20-photo expert roster is established. See [MST evaluation requirement](docs/wb314-mst-evaluation-requirement-2026-11-18.md). The Form is unchanged and no professional responses have been collected.
 
@@ -101,4 +105,4 @@ Raw datasets, model weights, galleries, individual private evidence and locked h
 
 Connect GitHub and authorize `SONDERXO/TrueHue` in a supported ChatGPT experience. Explicitly provide this development branch and this file's path. Ask it to confirm what it actually retrieved before drafting. GitHub access is on-demand and varies by plan/surface; a repository link alone is not proof the whole project was read. See [OpenAI's GitHub guide](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt).
 
-The latest text/ZIP handoff files are under `output/thesis-web-handoff-2026-11-18-expert-draft/`; the earlier folders remain older snapshots. These support upload when branch access is unavailable. They are local delivery artifacts, not publicly committed research data. The20-pair expert-feedback draft and its photographs remain separate local materials, excluded from this public source/text handoff. Upload the current thesis manuscript separately so the writing assistant can preserve its structure, formatting instructions and bibliography.
+The latest text/ZIP handoff files are under `output/thesis-web-handoff-2026-11-19-mst-feedback/`; earlier folders remain older snapshots. These support upload when branch access is unavailable. They are local delivery artifacts, not publicly committed research data. The20-pair MST-labelled feedback draft and photographs remain separate local materials, excluded from the public source/text handoff. Upload the current thesis manuscript separately so the writing assistant can preserve its structure, formatting instructions and bibliography.

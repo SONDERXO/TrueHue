@@ -1,8 +1,8 @@
 {
-  "checkpoint": "2026-11-18",
+  "checkpoint": "2026-11-19",
   "publication_scope": "Research documentation/source on development branch; not a validated release",
-  "indexed_documents": 932,
-  "source_python_files": 1465,
+  "indexed_documents": 934,
+  "source_python_files": 1467,
   "syntax_errors": [],
   "high_confidence_secret_findings": [],
   "historical_non_UTF8_files_preserved": [
@@ -47,10 +47,5 @@
   "source_data_and_models_included": false,
   "locked_allocations_accessed": false,
   "original_proposal_and_current_editable_manuscript_included": false,
-  "personal_appeal_material_included": false,
-  "latest_clarification": "Frozen candidate ready for initial development expert feedback; MST-labelled material verification pending. Independent-final-cohort gate was applied too early; questions and model unchanged.",
-  "current_changed_python_syntax_checks": [
-    "scripts/assess_wb314_mste_evaluation_metadata.py",
-    "scripts/prepare_thesis_web_handoff.py"
-  ]
+  "personal_appeal_material_included": false
 }

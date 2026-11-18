@@ -6,6 +6,7 @@ tracked/unignored source paths. Personal appeal material stays local.
 """
 from pathlib import Path
 import argparse
+from datetime import date
 import ast
 import hashlib
 import json
@@ -53,17 +54,26 @@ def eligible(path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--destination-name', default=DEST.name,
+    parser.add_argument('--destination-name', default=None,
                         help='New folder name under output/; prior handoffs are preserved.')
+    parser.add_argument('--checkpoint-date', default='2026-11-18',
+                        help='Client-local evidence date in YYYY-MM-DD format.')
     args = parser.parse_args()
+    checkpoint = date.fromisoformat(args.checkpoint_date).isoformat()
+    args.destination_name = args.destination_name or 'thesis-web-handoff-' + checkpoint
     if not args.destination_name or Path(args.destination_name).name != args.destination_name or args.destination_name in {'.', '..'}:
         raise ValueError('A single new output folder name is required')
     destination = ROOT / 'output' / args.destination_name
     if destination.exists():
         raise FileExistsError('Preserve this dated handoff; use a new destination for another update')
     DOCS.mkdir(exist_ok=True)
-    snapshot = dict(checkpoint='2026-11-18', kind='Selected aggregate evidence, not raw data or final qualification',
+    previous = json.loads((DOCS / 'evidence-snapshot.json').read_text(encoding='utf-8')) if (DOCS / 'evidence-snapshot.json').exists() else {}
+    snapshot = dict(checkpoint=checkpoint, kind='Selected aggregate evidence, not raw data or final qualification',
                     model_ready=False, studies={})
+    # Preserve explicit stage/requirement notes and curated historical evidence.
+    # Named source extracts below refresh the studies they own.
+    snapshot.update({k: v for k, v in previous.items() if k not in {'checkpoint', 'kind', 'model_ready', 'studies'}})
+    snapshot['studies'].update(previous.get('studies', {}))
     specs = {
         'wb314': ('outputs/wb_feature_direct_prediction_v1/summary.json', ['by_role', 'role_gates', 'added_colour_benefit', 'candidate_numeric_eligible', 'baseline_numeric_eligible']),
         'exposure_eight_rereview': ('outputs/wb_feature_exposure_rereview_ratings_v1/assessment_PRIVATE.json', ['status', 'complete_cases', 'total', 'preference_counts', 'appearance_counts', 'raw_sha256']),
@@ -80,6 +90,9 @@ def main():
         'existing_expert_instrument': ('outputs/wb314_expert_instrument_respondent_access_v1/instrument_summary.json', ['title', 'item_count', 'item_type_counts', 'rating_items', 'comment_items', 'all_rating_options', 'rating_endpoint_labels', 'section_scale_labels', 'image_item_definitions', 'submission_made', 'questions_changed', 'source_html_sha256']),
         'expert_feedback_preparation_draft': ('output/wb314-expert-feedback-draft-2026-11-18/verification.json', ['passed', 'pair_count', 'source_count', 'per_condition', 'native_pixel_PNG_roundtrips', 'resampling', 'new_fits', 'feature_calls', 'predictions', 'correction_renders', 'submitted_responses', 'online_form_edits', 'images_uploaded', 'protocol_sha256']),
         'separate_MSTE_evaluation_eligibility': ('outputs/wb314_mste_evaluation_metadata_v1/summary.json', ['decision', 'official_label_coverage', 'catalog_rows', 'unique_subject_image_keys', 'publisher_subjects', 'prior_mapping_development_subjects', 'closed_screen_subjects', 'closed_subject_catalog_keys', 'catalog_keys_outside_closed_subjects', 'other_catalog_keys_for_same_exposed_subjects', 'previously_unused_subjects', 'outside_closed_category_subject_counts', 'positive_new_unreserved_evaluation_admissions', 'interpretation', 'fits', 'source_image_decodes', 'locked_content_or_manifest_reads', 'Form_edits', 'expert_responses']),
+        'MSTE_development_packet_status': ('outputs/wb314_mste_development_packet_v1/packet_status.json', ['technical_checks_pass', 'publisher_MST_categories', 'pairs', 'subjects', 'reference_attempts', 'reference_technical_failures', 'candidate_reserve_used_for_MST', 'distribution_ready', 'requires_user_release_decision', 'stage', 'completed_client_date', 'known_support_findings_present', 'questions_changed', 'model_changed', 'new_fits', 'expert_responses', 'uploads', 'contacts', 'independent_final_evaluation', 'unchanged_model_sha256']),
+        'MSTE_development_packet_pixel_checks': ('outputs/wb314_mste_development_packet_v1/verification.json', ['passed', 'model_sha256', 'pairs', 'publisher_MST_categories', 'slots_per_category', 'subjects', 'subject_counts_by_MST', 'condition_counts', 'portable_route_checks', 'exact_scalar_RGB8_checks', 'exact_PNG_roundtrips', 'actual_model_fits', 'questions_changed', 'Form_edits', 'uploads', 'expert_responses', 'independent_final_evaluation', 'dataset_training', 'reference_attempts']),
+        'MSTE_packet_appearance_trace': ('outputs/wb314_mste_packet_appearance_feedback_v1/trace.json', ['passed', 'user_feedback_kind', 'release_approval_received', 'expert_ratings_created', 'no_new_human_per_case_labels', 'source_resize_exact_cases', 'synthetic_input_exact_cases', 'outside_preservation_exact_cases', 'supported_mechanism', 'sharpening_trace', 'new_model_calls', 'new_fits', 'new_correction_renders', 'source_images_redecoded_for_trace', 'source_or_output_pixels_modified', 'model_sha256']),
     }
     for name, (source, keys) in specs.items():
         p = ROOT / source
@@ -132,7 +145,7 @@ def main():
     if syntax_errors:
         raise RuntimeError('Python syntax errors: ' + json.dumps(syntax_errors))
 
-    report = dict(checkpoint='2026-11-18', publication_scope='Research documentation/source on development branch; not a validated release',
+    report = dict(checkpoint=checkpoint, publication_scope='Research documentation/source on development branch; not a validated release',
                   indexed_documents=len(documents), source_python_files=sum(p.endswith('.py') for p in paths),
                   syntax_errors=syntax_errors, high_confidence_secret_findings=secret_findings,
                   historical_non_UTF8_files_preserved=encodings,
@@ -155,7 +168,7 @@ def main():
     # Keep each text part well below the official 2M-token ceiling even under the
     # conservative one-token-per-UTF8-byte bound. This is not a tokenizer estimate.
     pieces = []
-    current = 'TRUEHUE THESIS HANDOFF — 2026-11-18\nRead THESIS_START_HERE.md first. Historical records can be superseded.\n'
+    current = f'TRUEHUE THESIS HANDOFF — {checkpoint}\nRead THESIS_START_HERE.md first. Historical records can be superseded.\n'
     for p in context_paths:
         content, encoding = text(ROOT / p)
         section = f'\n\n===== FILE: {p} | original_encoding={encoding} | sha256={sha(ROOT / p)} =====\n{content}\n===== END FILE =====\n'
@@ -167,12 +180,13 @@ def main():
         pieces.append(current)
     for i, content in enumerate(pieces, 1):
         (destination / f'TrueHue-thesis-context-part{i:02d}.txt').write_text(content, encoding='utf-8')
-    with zipfile.ZipFile(destination / 'TrueHue-research-source-2026-11-18.zip', 'x', zipfile.ZIP_DEFLATED) as archive:
+    archive_name = f'TrueHue-research-source-{checkpoint}.zip'
+    with zipfile.ZipFile(destination / archive_name, 'x', zipfile.ZIP_DEFLATED) as archive:
         for p in sorted(set(paths)):
             archive.write(ROOT / p, p)
-    write_json(destination / 'verification.json', dict(passed=True, source_files=len(set(paths)), documents=len(documents),
+    write_json(destination / 'verification.json', dict(passed=True, checkpoint=checkpoint, source_files=len(set(paths)), documents=len(documents),
                text_parts=len(pieces), parts={p.name: sha(p) for p in destination.glob('*.txt')},
-               source_zip_sha256=sha(destination / 'TrueHue-research-source-2026-11-18.zip'),
+               source_zip_sha256=sha(destination / archive_name),
                raw_datasets_photos_weights_private_outputs_included=False))
     print(json.dumps(dict(passed=True, documents=len(documents), source_files=len(set(paths)),
                          python_syntax_files=report['source_python_files'], text_parts=len(pieces),

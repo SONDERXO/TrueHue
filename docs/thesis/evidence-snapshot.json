@@ -1,5 +1,5 @@
 {
-  "checkpoint": "2026-11-18",
+  "checkpoint": "2026-11-19",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
   "studies": {
@@ -800,6 +800,95 @@
         "Form_edits": 0,
         "expert_responses": 0
       }
+    },
+    "MSTE_development_packet_status": {
+      "local_source": "outputs/wb314_mste_development_packet_v1/packet_status.json",
+      "source_sha256": "626eec7246d8b3b6fa86d80ec179ba83d8963e4f982251fc0212ce325cea4d92",
+      "values": {
+        "technical_checks_pass": true,
+        "publisher_MST_categories": 10,
+        "pairs": 20,
+        "subjects": 13,
+        "reference_attempts": 21,
+        "reference_technical_failures": 1,
+        "candidate_reserve_used_for_MST": [
+          4
+        ],
+        "distribution_ready": false,
+        "requires_user_release_decision": true,
+        "stage": "during_development_feedback_DRAFT_USER_APPEARANCE_CONCERN",
+        "completed_client_date": "2026-11-19",
+        "known_support_findings_present": true,
+        "questions_changed": false,
+        "model_changed": false,
+        "new_fits": 0,
+        "expert_responses": 0,
+        "uploads": 0,
+        "contacts": 0,
+        "independent_final_evaluation": false,
+        "unchanged_model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f"
+      }
+    },
+    "MSTE_development_packet_pixel_checks": {
+      "local_source": "outputs/wb314_mste_development_packet_v1/verification.json",
+      "source_sha256": "b78358c43d343313632b095be8cf363a99da608205e9a2fab48c9e5cb799e1d8",
+      "values": {
+        "passed": true,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "pairs": 20,
+        "publisher_MST_categories": 10,
+        "slots_per_category": 2,
+        "subjects": 13,
+        "subject_counts_by_MST": {
+          "1": 2,
+          "2": 1,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 1,
+          "8": 2,
+          "9": 1,
+          "10": 1
+        },
+        "condition_counts": {
+          "combined_under": 10,
+          "combined_over": 10
+        },
+        "portable_route_checks": 20,
+        "exact_scalar_RGB8_checks": 20,
+        "exact_PNG_roundtrips": 20,
+        "actual_model_fits": 0,
+        "questions_changed": false,
+        "Form_edits": 0,
+        "uploads": 0,
+        "expert_responses": 0,
+        "independent_final_evaluation": false,
+        "dataset_training": false,
+        "reference_attempts": 21
+      }
+    },
+    "MSTE_packet_appearance_trace": {
+      "local_source": "outputs/wb314_mste_packet_appearance_feedback_v1/trace.json",
+      "source_sha256": "f3138c889019470edc50e65befa9306b1d32bab2b7894d8ab6a15919e5ffde5b",
+      "values": {
+        "passed": true,
+        "user_feedback_kind": "Uncategorised batch appearance concern; pair IDs and sides not supplied",
+        "release_approval_received": false,
+        "expert_ratings_created": 0,
+        "no_new_human_per_case_labels": true,
+        "source_resize_exact_cases": 20,
+        "synthetic_input_exact_cases": 20,
+        "outside_preservation_exact_cases": 20,
+        "supported_mechanism": "Full-frame synthetic exposure/colour perturbation remains outside application support. In overexposure conditions this leaves brighter backgrounds/garments on the right while reference is unmodified.",
+        "sharpening_trace": "No added sharpening stage is present in the packet path. Reference pixels exactly match declared source JPEG decode and256INTER_LINEAR resize. Scalar output parity already verified; source rendering/downsampling/tonal contrast can still affect perceived texture. Exact perceptual cause needs pair/side clarification.",
+        "new_model_calls": 0,
+        "new_fits": 0,
+        "new_correction_renders": 0,
+        "source_images_redecoded_for_trace": 20,
+        "source_or_output_pixels_modified": false,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f"
+      }
     }
   },
   "expert_preparation_status": {
@@ -819,6 +908,13 @@
     "untouched_final_cohort_required_before_initial_feedback": false,
     "existing_questions_scale_MST_structure_retained": true,
     "expert_responses": 0,
-    "final_qualification_complete": false
+    "final_qualification_complete": false,
+    "latest_source": "docs/wb314-mste-development-feedback-results-2026-11-19.md",
+    "MST_labelled_packet_technical_checks_pass": true,
+    "MST_labelled_packet_collection_ready": false,
+    "release_approval_received": false,
+    "known_mask_findings": true,
+    "user_reports_sharpened_overexposed_appearance": true,
+    "pair_and_side_clarification_pending": true
   }
 }

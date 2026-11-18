@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 562417,
-      "sha256": "fd9996db47753ffee5af56cdf714ac49c0237ce060756fa0368ce3e455439958"
+      "bytes": 565673,
+      "sha256": "4bbad49b6ac97682ce9409f9b10aa6e4dcff19b8820a3dbfa5cc370cbdefd610"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 16514,
-      "sha256": "0c2b2624c76a045ff97a6e3c25469c2c3bd66912e575d74f13ba11ab82bce71d"
+      "bytes": 17571,
+      "sha256": "2e14f431240f301afb7d90c135e7d90c9034fd180cfc907c5db4b2864915b4c9"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 75875,
-      "sha256": "d91b84034a9b76cb6725903d57c7b4f452dc600ae45c4c0c471e9264c0fdba86"
+      "bytes": 79131,
+      "sha256": "bfe5f7f367abdcd0c95f5b8fedc5e02f430e3ee875f74d79c4e759848d268563"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4582,18 +4582,18 @@
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 149463,
-      "sha256": "0bed2362badb270bb7586352c916145e8555e0fb867d202da853386066842a0b"
+      "bytes": 149864,
+      "sha256": "469f2fee33ac8f39ab28e2779f58ee59580cfeb58e79e46cea439c44bc29dc38"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 27134,
-      "sha256": "602f4a941309b53f90b71897f6fd4ec43cbb5af229ac208719ce4886d141b621"
+      "bytes": 31379,
+      "sha256": "338cea2d082a47a6f2bce2a8164284334909414564342af61babc004b02ddaa9"
     },
     {
       "path": "docs/thesis/publication-check.json",
-      "bytes": 2166,
-      "sha256": "11c833a2d5ea4a968d6b74c4ca6269f3acfc00ec4dff9bc08d29b066989b1d72"
+      "bytes": 1791,
+      "sha256": "55e35afba943ba2e5253e15af22610c1962b39c4f123e2f18c69ff3762a7c22f"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 7095,
-      "sha256": "c9f4523089672c8740ac405dcf85156a70b841a7d17f17697da17d81f7f5b462"
+      "bytes": 7448,
+      "sha256": "4e27ba5c520f2dd5c9054957b7f6f1b6803e30f6bbe8a188c85a0c895db42b36"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4874,6 +4874,16 @@
       "path": "docs/wb314-mst-evaluation-requirement-2026-11-18.md",
       "bytes": 3156,
       "sha256": "c60b2cfd587f1a0e231287de6feb4dcd8cf9e47944132702e1c5a15558d06c77"
+    },
+    {
+      "path": "docs/wb314-mste-development-feedback-protocol-2026-11-18.md",
+      "bytes": 6469,
+      "sha256": "dbd31b62e24227f68db90c6a12773e0122b08ba41cf4525d6146a8e128edb75b"
+    },
+    {
+      "path": "docs/wb314-mste-development-feedback-results-2026-11-19.md",
+      "bytes": 7569,
+      "sha256": "f257073268c29699df9fc6d41bd1271951623952ea66be06afdf3502d592cf31"
     },
     {
       "path": "docs/wb314-mste-evaluation-eligibility-results-2026-11-18.md",
@@ -9491,6 +9501,11 @@
       "sha256": "24e8ef6be3230210d4259196a52b2f0d03a0274a5d8accf78a5d9e32b11d80f5"
     },
     {
+      "path": "scripts/audit_wb314_mste_packet_draft.py",
+      "bytes": 9006,
+      "sha256": "fe607689eea63ad9b22c4b7446dcd490becef5579d488e8693e422043aea4732"
+    },
+    {
       "path": "scripts/bind_qualification_eligibility_and_check_blue.py",
       "bytes": 7427,
       "sha256": "463f7c588065ac1ba4d3957e3dc4199892b2758c5e61bbe06394c78f1b7e32ab"
@@ -9922,8 +9937,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 14024,
-      "sha256": "4321d3e8c88a74b619422666ef78138151a87adfda080a442d483cb24b722109"
+      "bytes": 16397,
+      "sha256": "a82a2f9f32ff08a8acbbaafdfca8d2f287970277f9b0941963cdfeb9c3521e5f"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",
@@ -9934,6 +9949,11 @@
       "path": "scripts/prepare_wb314_final_review.py",
       "bytes": 9736,
       "sha256": "981ea3057b13cced3aca8df52bfdfbd6e9d239d7cacd21e4a548277811736589"
+    },
+    {
+      "path": "scripts/prepare_wb314_mste_development_packet.py",
+      "bytes": 18908,
+      "sha256": "2c1b65f76e89148104a17b89b85e4116390d9bc0aa7f43b58e43cae1854c8d09"
     },
     {
       "path": "scripts/prepare_wb_feature_colour_review.py",
