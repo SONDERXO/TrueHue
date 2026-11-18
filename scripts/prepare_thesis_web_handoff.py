@@ -5,6 +5,7 @@ aggregate files below are read from outputs; all archive members come from Git's
 tracked/unignored source paths. Personal appeal material stays local.
 """
 from pathlib import Path
+import argparse
 import ast
 import hashlib
 import json
@@ -51,7 +52,14 @@ def eligible(path):
 
 
 def main():
-    if DEST.exists():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--destination-name', default=DEST.name,
+                        help='New folder name under output/; prior handoffs are preserved.')
+    args = parser.parse_args()
+    if not args.destination_name or Path(args.destination_name).name != args.destination_name or args.destination_name in {'.', '..'}:
+        raise ValueError('A single new output folder name is required')
+    destination = ROOT / 'output' / args.destination_name
+    if destination.exists():
         raise FileExistsError('Preserve this dated handoff; use a new destination for another update')
     DOCS.mkdir(exist_ok=True)
     snapshot = dict(checkpoint='2026-11-18', kind='Selected aggregate evidence, not raw data or final qualification',
@@ -65,6 +73,10 @@ def main():
         'actual_piq_correction': ('outputs/piq23_probe_correction_prediction_v1/summary.json', ['by_role', 'role_gates', 'under_improvement', 'colour_nonworse', 'numerical_eligible', 'identity_changed']),
         'actual_piq_cue_audit': ('outputs/piq23_probe_correction_prediction_v1/independent_audit.json', ['passed', 'cue_splits', 'models_using_cues', 'numerical_eligible']),
         'complete_ppr': ('outputs/ppr_full_pipeline_prediction_v1/summary.json', ['by_role', 'role_gates', 'under_improvement', 'colour_nonworse', 'numerical_eligible', 'identity_changed', 'decision']),
+        'complete_source_held_exposure_review': ('outputs/wb_feature_remaining_exposure_ratings_v1/combined_exposure_assessment.json', ['complete', 'expected', 'cases', 'preference_counts', 'appearance_counts', 'by_role']),
+        'frozen_predictor_changed_review': ('outputs/wb314_final_changed_ratings_v1/assessment_PRIVATE.json', ['status', 'complete_cases', 'total', 'preference_counts', 'appearance_counts', 'by_role', 'raw_sha256', 'model_sha256', 'event_replay_matches', 'event_count', 'independent_evaluation', 'expert_MOS', 'qualification_complete']),
+        'single_wb314_predictor': ('outputs/wb314_final_candidate_freeze_v1/model_card.json', ['version', 'status', 'model_sha256', 'sources', 'training_cases', 'features', 'real_all_development_fits', 'user_review_new_changed_cases', 'user_review_new_candidate_preferred', 'user_review_new_acceptable', 'exact_pixel_join_nonidentity_cases', 'joined_preference_counts', 'joined_appearance_acceptable', 'identity_outputs_exact_input', 'reviewers', 'expert_MOS', 'independent_final_evaluation', 'qualification_complete', 'raw_photo_to_mask_path_integrated', 'current_app_defaults_changed', 'normalized_input_to_output_checks', 'exact_feature_values_replayed', 'notes']),
+        'normalized_input_inference_parity': ('outputs/wb314_research_inference_v1/verification.json', ['passed', 'cases', 'exact_feature_values', 'exact_controls', 'exact_RGB8_outputs', 'input_and_WB_state_immutable', 'generated_invalid_input_guards', 'invalid_feature_guards', 'binary64_threshold_boundary_guards', 'real_fits', 'elapsed_seconds', 'qualification_complete', 'masking_inferred', 'defaults_changed', 'versions']),
     }
     for name, (source, keys) in specs.items():
         p = ROOT / source
@@ -122,17 +134,18 @@ def main():
                   syntax_errors=syntax_errors, high_confidence_secret_findings=secret_findings,
                   historical_non_UTF8_files_preserved=encodings,
                   focused_checks=dict(tests=['tests/test_correction_preview.py', 'tests/test_manual_refinement.py', 'tests/test_demo_current_masking.py'],
-                                      result='28 passed in 5.11s', note='Generated-fixture software tests; not scientific model qualification. First sandbox run had temp-directory permission errors.'),
+                                      result='Prior checkpoint: 28 passed in 5.11s', note='Historical generated-fixture checks, not rerun for this documentation/research-adapter publication. Current adapter parity is separately reported in evidence-snapshot.json; neither is scientific qualification.'),
                   source_data_and_models_included=False, locked_allocations_accessed=False,
                   original_proposal_and_current_editable_manuscript_included=False,
                   personal_appeal_material_included=False)
     write_json(DOCS / 'publication-check.json', report)
     paths = [p for p in repository_paths() if eligible(p) and (ROOT / p).is_file()]
+    paths = [p for p in paths if p != 'docs/thesis/file-manifest.json']
     entries = [dict(path=p, bytes=(ROOT / p).stat().st_size, sha256=sha(ROOT / p)) for p in paths]
     write_json(DOCS / 'file-manifest.json', dict(files=entries, note='Manifest excludes itself; checks raw local bytes before Git line-ending conversion.'))
     paths.append('docs/thesis/file-manifest.json')
 
-    DEST.mkdir(parents=True)
+    destination.mkdir(parents=True)
     context_paths = ['THESIS_START_HERE.md', 'docs/thesis/chatgpt-writing-prompt.md', 'docs/thesis/research-map.md',
                      'docs/thesis/evidence-snapshot.json', 'docs/thesis/publication-check.json', 'AGENTS.md']
     context_paths += [p for p in paths if p.startswith('docs/') and p.endswith('.md') and p not in context_paths]
@@ -150,17 +163,17 @@ def main():
     if current:
         pieces.append(current)
     for i, content in enumerate(pieces, 1):
-        (DEST / f'TrueHue-thesis-context-part{i:02d}.txt').write_text(content, encoding='utf-8')
-    with zipfile.ZipFile(DEST / 'TrueHue-research-source-2026-11-18.zip', 'x', zipfile.ZIP_DEFLATED) as archive:
+        (destination / f'TrueHue-thesis-context-part{i:02d}.txt').write_text(content, encoding='utf-8')
+    with zipfile.ZipFile(destination / 'TrueHue-research-source-2026-11-18.zip', 'x', zipfile.ZIP_DEFLATED) as archive:
         for p in sorted(set(paths)):
             archive.write(ROOT / p, p)
-    write_json(DEST / 'verification.json', dict(passed=True, source_files=len(set(paths)), documents=len(documents),
-               text_parts=len(pieces), parts={p.name: sha(p) for p in DEST.glob('*.txt')},
-               source_zip_sha256=sha(DEST / 'TrueHue-research-source-2026-11-18.zip'),
+    write_json(destination / 'verification.json', dict(passed=True, source_files=len(set(paths)), documents=len(documents),
+               text_parts=len(pieces), parts={p.name: sha(p) for p in destination.glob('*.txt')},
+               source_zip_sha256=sha(destination / 'TrueHue-research-source-2026-11-18.zip'),
                raw_datasets_photos_weights_private_outputs_included=False))
     print(json.dumps(dict(passed=True, documents=len(documents), source_files=len(set(paths)),
                          python_syntax_files=report['source_python_files'], text_parts=len(pieces),
-                         historical_encodings_preserved=len(encodings), delivery=str(DEST)), indent=2))
+                         historical_encodings_preserved=len(encodings), delivery=str(destination)), indent=2))
 
 
 if __name__ == '__main__':

@@ -871,6 +871,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [TrueHue results tables — 30 October 2026](../thesis-results-tables-2026-10-30.md) — `docs/thesis-results-tables-2026-10-30.md`
 - [Word thesis integration — 31 October 2026](../thesis-word-integration-2026-10-31.md) — `docs/thesis-word-integration-2026-10-31.md`
 - [Copy this prompt into ChatGPT web](../thesis/chatgpt-writing-prompt.md) — `docs/thesis/chatgpt-writing-prompt.md`
+- [Keep model development and thesis evidence synchronized](../thesis/repository-update-policy.md) — `docs/thesis/repository-update-policy.md`
 - [Research and implementation map](../thesis/research-map.md) — `docs/thesis/research-map.md`
 - [Pinned FFHQ support metadata](../third-party/ffhq-support-metadata.md) — `docs/third-party/ffhq-support-metadata.md`
 - [Three-variant development augmentation specification](../three-variant-augmentation-protocol.md) — `docs/three-variant-augmentation-protocol.md`
@@ -890,6 +891,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [One upper-face measurement candidate — 6 November 2026](../upper-face-measurement-protocol-2026-11-06.md) — `docs/upper-face-measurement-protocol-2026-11-06.md`
 - [One upper-face repair candidate: partial tradeoff — 6 November 2026](../upper-face-measurement-results-2026-11-06.md) — `docs/upper-face-measurement-results-2026-11-06.md`
 - [Facial evidence inside the vetoed correction branches](../vetoed-branch-facial-audit-results-2026-11-08.md) — `docs/vetoed-branch-facial-audit-results-2026-11-08.md`
+- [WB314 development image review: all66cases covered](../wb-complete-development-review-results-2026-11-18.md) — `docs/wb-complete-development-review-results-2026-11-18.md`
 - [Actual WB assets: generated verification contract](../wb-cue-actual-assets-generated-protocol-2026-11-15.md) — `docs/wb-cue-actual-assets-generated-protocol-2026-11-15.md`
 - [Read-only cutoff-tie diagnosis](../wb-cue-cutoff-tie-diagnosis-protocol-2026-11-15.md) — `docs/wb-cue-cutoff-tie-diagnosis-protocol-2026-11-15.md`
 - [Mapping-equivalent cutoff ties: engineering amendment](../wb-cue-equivalent-tie-amendment-2026-11-15.md) — `docs/wb-cue-equivalent-tie-amendment-2026-11-15.md`
@@ -915,8 +917,12 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [What remains testable after the WB cue proxy failure](../wb-feature-test-method-review-2026-11-15.md) — `docs/wb-feature-test-method-review-2026-11-15.md`
 - [Fixed saved-tree diagnosis of three unchanged exposure cases](../wb-feature-three-exposure-miss-diagnosis-2026-11-16.md) — `docs/wb-feature-three-exposure-miss-diagnosis-2026-11-16.md`
 - [Saved exposure misses reach identity-only leaves](../wb-feature-three-exposure-miss-results-2026-11-16.md) — `docs/wb-feature-three-exposure-miss-results-2026-11-16.md`
+- [Complete the existing WB314 exposure review](../wb-remaining-exposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-exposure-review-protocol-2026-11-18.md`
 - [Remaining nine WB314 underexposure outputs](../wb-remaining-underexposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-underexposure-review-protocol-2026-11-18.md`
 - [Complete WB314 pure-underexposure development review](../wb-remaining-underexposure-review-results-2026-11-18.md) — `docs/wb-remaining-underexposure-review-results-2026-11-18.md`
+- [Frozen WB314: changed-output feedback accepted, research inference connected](../wb314-final-review-and-inference-results-2026-11-18.md) — `docs/wb314-final-review-and-inference-results-2026-11-18.md`
+- [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`
+- [One frozen WB314 predictor: fit complete, changed-output review pending](../wb314-single-predictor-results-2026-11-18.md) — `docs/wb314-single-predictor-results-2026-11-18.md`
 - [Whole-face correction and nostril-excluded measurement](../whole-face-support-results-2026-11-01.md) — `docs/whole-face-support-results-2026-11-01.md`
 - [Whole-photograph distortion and scene-feature comparison](../whole-scene-correction-protocol-2026-11-06.md) — `docs/whole-scene-correction-protocol-2026-11-06.md`
 - [Whole-photo distortions: scene features help recovery but worsen clean preservation](../whole-scene-correction-results-2026-11-06.md) — `docs/whole-scene-correction-results-2026-11-06.md`

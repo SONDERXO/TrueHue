@@ -1,0 +1,13 @@
+# One frozen WB314 research predictor
+
+User explicitly authorizes the preceding proposal to define/produce one frozen final predictor: "Okay lets do that. Keep working until you nneed my input". This supersedes the earlier no-automatic-final-fit boundary for this one fit, not for tuning, final adoption, locked evaluation, Android or expert contact.
+
+Use all66existing exposed camera-task development rows,11sources/sixroles, unchanged314float32features, five analytic control targets, ordinary depth4seed42and all other saved WB314 CART settings. No feature/scaler/mapper/WB refit, target/mask/operator/gain changes or new data. Finalize the experimental WB314 method; do not present it as the original proposal's unchanged three-control/traditional-only method. Exactly ONE real all-development fit, no retry/selection grid.
+
+Reuse verified native/export/scalar routing and leaf-mean logic. Generated adaptation checks precede real fitting, including314width, float32/finite targets, Cartesian66roster, invalid input rejection before model construction, exact native/portable predictions and leaves, scalar leaf means and positive bounded outputs. Generated model has separate provenance and never serves portrait inference. Refuse overwriting any attempt.
+
+Bind actual row/schema/settings and prior verification hashes plus completed user review/clarification evidence. Validate all rows before construction; independent verification of all66fitting routes/leaf means precedes model sealing. Then compare the fixed model's66predictions against the saved source-held controls. Those comparisons are resubstitution/implementation checks, not new held-out validation or proof of final quality.
+
+After sealing, use only the existing66verified WB evaluation packs for final-candidate outputs if required. Independently replay rendering and exact outside/protected preservation. Existing reviews belong to the11source-held models; do not automatically transfer judgments to changed outputs. Identify exact pixel-equal outputs and changed cases with their previous judgments. Retain all changes, known misses, brightness preferences and contextual concerns. If a new appearance decision is needed, stop for that input rather than tune or claim acceptance.
+
+The saved source-held metrics remain development evidence for the recipe, not metrics from an independent test of this fitted tree. Final tone/MST/expert/device qualification and a complete input-to314 inference path remain separate requirements. No locked contents/manifests, raw originals, runtime/Android default replacement, manuscript rewrite or communication to others.

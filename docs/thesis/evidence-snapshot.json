@@ -491,6 +491,201 @@
         "identity_changed": 11,
         "decision": "FAILED_CLOSED_NO_REVIEW_OR_TUNING"
       }
+    },
+    "complete_source_held_exposure_review": {
+      "local_source": "outputs/wb_feature_remaining_exposure_ratings_v1/combined_exposure_assessment.json",
+      "source_sha256": "03aff581655f6d8ad6e64957c83a5b54ffdfb507a00dbdeae4b229cfc34b4232",
+      "values": {
+        "complete": true,
+        "expected": 44,
+        "cases": 44,
+        "preference_counts": {
+          "candidate": 30,
+          "input": 10,
+          "no_useful_difference": 4,
+          "uncertain": 0
+        },
+        "appearance_counts": {
+          "acceptable": 44,
+          "unwanted": 0,
+          "uncertain": 0
+        },
+        "by_role": {
+          "exposure_under": {
+            "cases": 11,
+            "preference_counts": {
+              "candidate": 9,
+              "input": 0,
+              "no_useful_difference": 2,
+              "uncertain": 0
+            },
+            "appearance_counts": {
+              "acceptable": 11,
+              "unwanted": 0,
+              "uncertain": 0
+            }
+          },
+          "exposure_over": {
+            "cases": 11,
+            "preference_counts": {
+              "candidate": 2,
+              "input": 9,
+              "no_useful_difference": 0,
+              "uncertain": 0
+            },
+            "appearance_counts": {
+              "acceptable": 11,
+              "unwanted": 0,
+              "uncertain": 0
+            }
+          },
+          "combined_under": {
+            "cases": 11,
+            "preference_counts": {
+              "candidate": 9,
+              "input": 0,
+              "no_useful_difference": 2,
+              "uncertain": 0
+            },
+            "appearance_counts": {
+              "acceptable": 11,
+              "unwanted": 0,
+              "uncertain": 0
+            }
+          },
+          "combined_over": {
+            "cases": 11,
+            "preference_counts": {
+              "candidate": 10,
+              "input": 1,
+              "no_useful_difference": 0,
+              "uncertain": 0
+            },
+            "appearance_counts": {
+              "acceptable": 11,
+              "unwanted": 0,
+              "uncertain": 0
+            }
+          }
+        }
+      }
+    },
+    "frozen_predictor_changed_review": {
+      "local_source": "outputs/wb314_final_changed_ratings_v1/assessment_PRIVATE.json",
+      "source_sha256": "3658a56e3c772bc85060d4df18cbe4763569998f1fa1a12a2219d83dbf9043e3",
+      "values": {
+        "status": "complete_recorded",
+        "complete_cases": 22,
+        "total": 22,
+        "preference_counts": {
+          "candidate": 22,
+          "input": 0,
+          "no_useful_difference": 0,
+          "uncertain": 0
+        },
+        "appearance_counts": {
+          "acceptable": 22,
+          "unwanted": 0,
+          "uncertain": 0
+        },
+        "by_role": {
+          "colour_only": {
+            "preference_counts": {
+              "candidate": 1
+            },
+            "appearance_counts": {
+              "acceptable": 1
+            }
+          },
+          "combined_under": {
+            "preference_counts": {
+              "candidate": 10
+            },
+            "appearance_counts": {
+              "acceptable": 10
+            }
+          },
+          "exposure_under": {
+            "preference_counts": {
+              "candidate": 11
+            },
+            "appearance_counts": {
+              "acceptable": 11
+            }
+          }
+        },
+        "raw_sha256": "f5fd57d48cf86e59d169e194c0a3a72a9d6b446765e9226f5254f861d9dc1ca7",
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "event_replay_matches": true,
+        "event_count": 46,
+        "independent_evaluation": false,
+        "expert_MOS": false,
+        "qualification_complete": false
+      }
+    },
+    "single_wb314_predictor": {
+      "local_source": "outputs/wb314_final_candidate_freeze_v1/model_card.json",
+      "source_sha256": "4035c904d7b8eac36efb0178be11b659350e8643a93183b3ed24effec750e22f",
+      "values": {
+        "version": "wb314_all_development_2026_11_18",
+        "status": "frozen_initial_research_candidate_for_development_feedback",
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "sources": 11,
+        "training_cases": 66,
+        "features": 314,
+        "real_all_development_fits": 1,
+        "user_review_new_changed_cases": 22,
+        "user_review_new_candidate_preferred": 22,
+        "user_review_new_acceptable": 22,
+        "exact_pixel_join_nonidentity_cases": 55,
+        "joined_preference_counts": {
+          "candidate": 45,
+          "input": 10
+        },
+        "joined_appearance_acceptable": 55,
+        "identity_outputs_exact_input": 11,
+        "reviewers": 1,
+        "expert_MOS": false,
+        "independent_final_evaluation": false,
+        "qualification_complete": false,
+        "raw_photo_to_mask_path_integrated": false,
+        "current_app_defaults_changed": false,
+        "normalized_input_to_output_checks": 66,
+        "exact_feature_values_replayed": 20724,
+        "notes": [
+          "Joined feedback retains different review rounds and exact-output provenance; no new ratings are synthesized.",
+          "Former underexposure neutral misses now have genuine candidate-preferred answers.",
+          "Earlier29617background concern is retained; empty new notes do not retract it.",
+          "Pure-overexposure still2candidate/9input; do not pool away that limitation.",
+          "Unvalidated development MST mapping remains a feature; no tone-group or physical colour claim.",
+          "Caller supplies256RGB8 and compatible measurement/application/protection masks. No masking fallback or new-photo generalization claim."
+        ]
+      }
+    },
+    "normalized_input_inference_parity": {
+      "local_source": "outputs/wb314_research_inference_v1/verification.json",
+      "source_sha256": "b7824ddea696cd7c5c0cb473135820a209e5d85ed18f09cfaa91ae19f323ed00",
+      "values": {
+        "passed": true,
+        "cases": 66,
+        "exact_feature_values": 20724,
+        "exact_controls": 66,
+        "exact_RGB8_outputs": 66,
+        "input_and_WB_state_immutable": true,
+        "generated_invalid_input_guards": 9,
+        "invalid_feature_guards": 4,
+        "binary64_threshold_boundary_guards": 2,
+        "real_fits": 0,
+        "elapsed_seconds": 12.830645399997593,
+        "qualification_complete": false,
+        "masking_inferred": false,
+        "defaults_changed": false,
+        "versions": {
+          "numpy": "2.5.3",
+          "opencv-python": "5.0.0.93",
+          "scipy": "1.18.1"
+        }
+      }
     }
   }
 }

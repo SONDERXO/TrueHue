@@ -6,13 +6,15 @@ The user now authorizes starting thesis editing and preparing this repository fo
 
 Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-development-20261105`**. Do not assume `main` contains this checkpoint. Read this file and the linked current evidence before historical drafts or long session logs.
 
+**Standing synchronization rule:** every model feature/change is followed by a repository update with its code, actual checks, evidence and limitations. See [repository update policy](docs/thesis/repository-update-policy.md). For thesis editing, retrieve the current branch checkpoint rather than relying on a previously read revision or older upload bundle.
+
 ## Read in this order
 
 1. This status and claim guide.
 2. [ChatGPT writing prompt](docs/thesis/chatgpt-writing-prompt.md).
 3. [Proposal versus actual implementation](docs/paper-alignment-reaudit-2026-11-15.md).
 4. [WB314 numerical correction results](docs/wb-feature-direct-results-2026-11-15.md).
-5. [Latest eight-case exposure rereview](docs/wb-feature-exposure-rereview-results-2026-11-18.md) and [completed pure-underexposure review](docs/wb-remaining-underexposure-review-results-2026-11-18.md).
+5. [Complete66-case development review](docs/wb-complete-development-review-results-2026-11-18.md), [single frozen predictor results](docs/wb314-single-predictor-results-2026-11-18.md), and [latest final-output review/inference](docs/wb314-final-review-and-inference-results-2026-11-18.md).
 6. [Implementation and experiment map](docs/thesis/research-map.md), [complete document index](docs/thesis/document-index.md), and [current session handoff](docs/session-handoff-2026-11-17.md).
 
 ## What the thesis proposes
@@ -53,7 +55,11 @@ The candidate passed its frozen numerical gate. It improves all five distorted-c
 - **Complete pure-underexposure role:** **9/11candidate preferred,2/11no useful difference,11/11appearance acceptable**. The two no-useful-difference cases are genuine neutral predictions. Current evidence therefore DOES demonstrate useful underexposure correction in nine specific outputs; blanket "no exposure usefulness demonstrated" wording is obsolete.
 - Source29617also has a note that the correction stands out against its gray/low-exposure background. Keep that concern alongside its candidate/acceptable selections. Do not invent an unwanted-change rating or silently boost exposure.
 
-There are17unique exposure/combined cases reviewed and27not reviewed. The complete eleven-case underexposure result overlaps the first eight-case screen; do not add11and8as independent observations. These are the user's development judgments, not expert MOS, independent participants or population-level evidence.
+All44 exposure/combined cases are now reviewed:30candidate preferred,10input preferred,4no useful difference; all44appearance acceptable. By role: under9/0/2, over2/9/0, combined-under9/0/2, combined-over10/1/0 (candidate/input/no difference). With identity and corrected colour judgments, all66 source-held appearances were acceptable;41of55nonidentity candidates were preferred. Keep the pure-over preference issue visible. The user's subsequent batch-level preference for brighter appearances and unspecified good reference matches does not relabel individual cases or change these counts. These are development judgments, not expert MOS or independent participants.
+
+The user subsequently authorized one frozen all-development WB314 fit. That single predictor now exists: one real fit,66native/portable routes,50leaf-mean checks and66exact scalar render checks passed. Compared with the reviewed source-held outputs,42are pixel-identical, two identity outputs now equal unmodified input, and22nonidentity corrections changed. The user genuinely preferred all22changed corrections and accepted all22appearances. Earlier ratings were not assigned to those changed outputs. Joining the22new judgments with33earlier judgments for pixel-identical nonidentity outputs yields45candidate/10input preferences and55acceptable appearances. This is a provenance-linked ledger across rounds, not a new55-case rating session. All11fitting identity outputs are exactly input. Source-held review counts above remain separate historical evidence.
+
+A research adapter now connects normalized256RGB plus explicitly supplied compatible measurement/application/protection masks to314features, the frozen tree and renderer. All66existing development inputs reproduced their20724features,66controls and66RGB8outputs exactly, with zero additional fits. Automatic new-photo masking and app defaults were not changed. These are exposed-development/resubstitution and software-parity checks, not independent validation, expert MOS or completed tone/device qualification. The next requested input is the existing expert Google Form link or its questions/scales. See the latest results for exact scope. This local checkpoint postdates published commitf6f0e8a and the earlier upload bundle.
 
 ## Later candidates and negative evidence
 
@@ -71,7 +77,7 @@ See the research map for exact protocols/results and earlier studies. Never turn
 
 ## What remains unestablished
 
-- A finally selected, frozen and qualified combined correction model. WB314 is retained for further qualification; the above user review is not automatic final adoption or an all-data final fit.
+- A fully qualified combined correction model. One frozen WB314 research predictor has positive changed-output feedback and a verified normalized-image/mask inference adapter. Compatible automatic new-photo mask integration, tone/MST, professional and device qualification remain. Do not call fitting results independent validation or final adoption.
 - Reliable, compatible ITA-to-MST mapping across intended lighting/domain conditions. Experimental calibration results exist, including failures. Do not equate software availability with a validated mapping.
 - Supported independent darker-skin/tone-group benefits. The11FFHQ sources have no independently qualified MST labels in this study. Do not infer tone groups from visible darkness, race, predicted appearance or PIQ scene labels.
 - The proposal's complete final partition/validation and disparity analysis. Derivatives must stay grouped with their photographic source; unresolved person/pretraining overlap must be disclosed.
@@ -89,4 +95,4 @@ Raw datasets, model weights, galleries, individual private evidence and locked h
 
 Connect GitHub and authorize `SONDERXO/TrueHue` in a supported ChatGPT experience. Explicitly provide this development branch and this file's path. Ask it to confirm what it actually retrieved before drafting. GitHub access is on-demand and varies by plan/surface; a repository link alone is not proof the whole project was read. See [OpenAI's GitHub guide](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt).
 
-The repository update also prepares local text/ZIP handoff files under `output/thesis-web-handoff-2026-11-18/` for upload when branch access is unavailable. Those are local delivery artifacts, not publicly committed research data. Upload the current thesis manuscript separately so the writing assistant can preserve its structure, formatting instructions and bibliography.
+The latest text/ZIP handoff files are under `output/thesis-web-handoff-2026-11-18-wb314-final/`; the earlier `output/thesis-web-handoff-2026-11-18/` remains an older snapshot. These support upload when branch access is unavailable. They are local delivery artifacts, not publicly committed research data. Upload the current thesis manuscript separately so the writing assistant can preserve its structure, formatting instructions and bibliography.

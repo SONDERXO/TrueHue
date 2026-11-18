@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 546730,
-      "sha256": "1f6bef13d22c68481aa93789d9918f1a8eef037d0d067452636f8f90de78c4da"
+      "bytes": 555462,
+      "sha256": "56b08c4d13f506f2800d63d1c78d87e6f31f38f095d4cab8c075780cb82091a4"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 11706,
-      "sha256": "3a960e6f64e9522dc61baf5acf883d175d962011d36ceb67e38e89e25250cfb5"
+      "bytes": 14335,
+      "sha256": "84f3fac00e5b4f19aad8548689be9e478b3e26fdbd412c3b606c6b95e6981f0e"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 59788,
-      "sha256": "21b1127e447dad5eb2df021a9a4dabeb5f7490c7761966e0c9b298eb16b24cb6"
+      "bytes": 68920,
+      "sha256": "70f5f499969b2165b90679829d6091870dbb6154df3c9e6c2003b9b9aa33e03a"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,28 +4577,33 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 3494,
-      "sha256": "a84c90e6c4d0b761ad3e47c54318463fe0d5d9e283c5fbee0f06edbd4be203e9"
+      "bytes": 4186,
+      "sha256": "1c66cc3a7764ff83ea6bd989eaac55b002c5ed7cfb086ef4e7e793a4e52ee1a5"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 147670,
-      "sha256": "2adbef503f43e52d4dc622f7ff94e7e8afe5246573b33931fc92ea0347af7c7b"
+      "bytes": 148698,
+      "sha256": "4fcf7cff715692cfcd0911e1342e906cfe3f76ddbca9edbd35a37549fd909e79"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 15175,
-      "sha256": "249cb531c63399c3e8b1556ea03fabd1621bf7483ac590a3e9bf9e5242c92c85"
+      "bytes": 22017,
+      "sha256": "46ae1944783eae53f44fda463b534dca7ce273fcedecaa7b107c21e7ab6547e5"
     },
     {
       "path": "docs/thesis/publication-check.json",
-      "bytes": 1689,
-      "sha256": "2f9dd3356636f066fc81f60ef7106ef40040558962ecea01286427a62a9769dc"
+      "bytes": 1791,
+      "sha256": "bd67a3cf8a004d7fce5a5e67f17fde17231715baf409a59ccd1fcea458fdbe12"
+    },
+    {
+      "path": "docs/thesis/repository-update-policy.md",
+      "bytes": 1982,
+      "sha256": "8666d8e6861c38d4e177df2ad616d08da6dcbd6997c9aa2f76e3af63c49ca7ed"
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 6257,
-      "sha256": "b718cfd76afb9af2f7ed826a6e8acfccd48e831d1fd594aa77652e8e0e2bd1a9"
+      "bytes": 6625,
+      "sha256": "5988bb8d4341718da311c2dfc01bbfb15de237ddadf6a3ca4441bfd1f31c621d"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4704,6 +4709,11 @@
       "path": "docs/vetoed-branch-facial-audit-results-2026-11-08.md",
       "bytes": 3359,
       "sha256": "f334fedc6a5c476e92510ac0aef4f8b749b0bcecc3bbd74564c4526106b48394"
+    },
+    {
+      "path": "docs/wb-complete-development-review-results-2026-11-18.md",
+      "bytes": 6113,
+      "sha256": "6ad3d54b5e2ed26448527bb3fecef041ae5a90c87f39e04df8ad7cc111361f17"
     },
     {
       "path": "docs/wb-cue-actual-assets-generated-protocol-2026-11-15.md",
@@ -4831,6 +4841,11 @@
       "sha256": "3125d8387691002e19d882d4112e1824ca737a6930c774d4988e89b90e2cd51a"
     },
     {
+      "path": "docs/wb-remaining-exposure-review-protocol-2026-11-18.md",
+      "bytes": 2426,
+      "sha256": "a818be924ea9d29eb9eb685b8161083ba5b51cbdf5f9d51fafcf4382521d30f5"
+    },
+    {
       "path": "docs/wb-remaining-underexposure-review-protocol-2026-11-18.md",
       "bytes": 1939,
       "sha256": "e7e43dbeae42eb60239f2b19846feffcace66a95fe10b304903277e74e7ff7d3"
@@ -4839,6 +4854,21 @@
       "path": "docs/wb-remaining-underexposure-review-results-2026-11-18.md",
       "bytes": 2944,
       "sha256": "bea83f4771ddf0716cf7d44c88d83eeb34a8c82b1be965995a14826461158089"
+    },
+    {
+      "path": "docs/wb314-final-review-and-inference-results-2026-11-18.md",
+      "bytes": 6744,
+      "sha256": "003ef4f8b8b91aa6b2b6b23925e76d85eaec2a067ab75713f2c2841c4bdaa398"
+    },
+    {
+      "path": "docs/wb314-single-predictor-protocol-2026-11-18.md",
+      "bytes": 2630,
+      "sha256": "a5bc08451342d2a405732d45ae5739b28f74378ef154eb79d744c6d71a24cfe1"
+    },
+    {
+      "path": "docs/wb314-single-predictor-results-2026-11-18.md",
+      "bytes": 5625,
+      "sha256": "e8536df0cba23ccb460018a52ee0a00802ef38318c185d6ba78c64eb3c8383cd"
     },
     {
       "path": "docs/whole-face-support-results-2026-11-01.md",
@@ -9586,6 +9616,11 @@
       "sha256": "4f113bbbd7c340fad95a0893554db9fd0ffa1becc380507580bdd17107c316ae"
     },
     {
+      "path": "scripts/check_wb314_research_inference.py",
+      "bytes": 7884,
+      "sha256": "4126e333b3852a69dee28a171cc9f56c796876bd56eba04e25efd807e30fbb06"
+    },
+    {
       "path": "scripts/check_wb_colour_review_state.cjs",
       "bytes": 3067,
       "sha256": "26ba3b233538e155745048cef4b0f2f0b6233727670f157620152086cd81a64b"
@@ -9666,6 +9701,11 @@
       "sha256": "6ea2f2b5e1c11940a1ba11904971f679cc932b9edddf4e0fdc602df9415216a0"
     },
     {
+      "path": "scripts/finalize_wb314_predictor.py",
+      "bytes": 12141,
+      "sha256": "dca3b598955ced835efca278b2334eaa323a9c1ffb286b377539638feea3cd2a"
+    },
+    {
       "path": "scripts/fit_actual_piq23_head.py",
       "bytes": 7205,
       "sha256": "3d0f25e206e3deb26be9b8a21b4d8df32e5d584ce69ba00b9e0d62415a43da25"
@@ -9704,6 +9744,11 @@
       "path": "scripts/import_frozen_neighbour_identity_review.py",
       "bytes": 2394,
       "sha256": "1c83a9fc9f6ca110e7755404a3bcd9f322a8d9bbc4ed89a77ba825511022cb0a"
+    },
+    {
+      "path": "scripts/import_wb314_final_review.py",
+      "bytes": 6871,
+      "sha256": "31af479f7cdf86bf21c0b4fbdd3a186e8e70e4eb9d66ad551f6cc8a6fe901098"
     },
     {
       "path": "scripts/import_wb_feature_colour_review.py",
@@ -9852,8 +9897,13 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 10261,
-      "sha256": "44173954ad015fbd768094dc5ea3f7f176c813a9fc6709db770ac6d4527e541c"
+      "bytes": 12660,
+      "sha256": "ba65159f8fcaeda9081285ce0f5e8d408339a6dd121a69d242458fb9f4d8ca10"
+    },
+    {
+      "path": "scripts/prepare_wb314_final_review.py",
+      "bytes": 9736,
+      "sha256": "981ea3057b13cced3aca8df52bfdfbd6e9d239d7cacd21e4a548277811736589"
     },
     {
       "path": "scripts/prepare_wb_feature_colour_review.py",
@@ -9869,6 +9919,11 @@
       "path": "scripts/prepare_wb_feature_identity_review.py",
       "bytes": 3573,
       "sha256": "b149844e4d9e1ed99a850bee8c8d3c89de0b90435f05373d38bee27dd169a7b0"
+    },
+    {
+      "path": "scripts/prepare_wb_remaining_exposure_review.py",
+      "bytes": 7255,
+      "sha256": "e03fde17510f6218db05d5f53072a3c9c9be5a15edaf99db789c3158758bdddf"
     },
     {
       "path": "scripts/preview_59807_correction_support.py",
@@ -10284,6 +10339,11 @@
       "path": "scripts/verify_wb_cue_assessment_saved.py",
       "bytes": 3402,
       "sha256": "439bbe3e063b14c27ef403c57f94b2c0f71f81ff2fd789306de6ce7cab24dfa7"
+    },
+    {
+      "path": "scripts/wb314_research_predictor.py",
+      "bytes": 5441,
+      "sha256": "84cde8e16ec224a1f33e7424bbef1a21b50a9a1ee4f5cb68b374f16e3b399590"
     },
     {
       "path": "scripts/wb_cue_adapter.py",
