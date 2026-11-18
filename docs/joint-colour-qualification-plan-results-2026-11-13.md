@@ -1,0 +1,13 @@
+# Qualification planning complete: supported claims and gaps explicit
+
+13 November 2026. [Plan](joint-colour-qualification-plan-2026-11-13.md); scripts/specify_joint_colour_qualification.py; outputs/joint_colour_qualification_plan_v1. Metadata/proposal/modelhash/independentplanchecksPASS. No images/fitting/inference/allocation/integration.
+
+Cachedproposalpage66 confirms lightMST1–3,medium4–7,dark8–10, and a>10percentimprovementdisparityflag. Plan preserves these boundaries and explicitly distinguishes a proposedpercentageformula from the proposal's unspecifieddenominator. Sourceequalfamilybenefits/harms/misses/availability, groupannotationprovenance and uncertainty retained. No newthreshold/tonecutoff, inventedlabels or fairnessclaim from the current11unlabelledsources.
+
+All11frozenfoldmodel hashes verified and allbluegainleaves exactly1.0. This confirms the bluecontrolcoveragegap rather than merely assuming zeroMAEmeanssuccess. Do not schedule an all44finalfit as if it could supply variableblue supervision or darker-groupvalidation. No finalpredictor has been chosen/trained; the recipe/reviewedfolds remain frozen.
+
+Existingeligibledataroles and previouslyexposed/heldstatus reconciled from saveddevelopmentreports, not freshsourceinventory. MST-E418/396is mappingdevelopment, no correctionfitting/untouchedfinal. SCINbothannotator/gradability/duplicate/face/referenceadmission concerns preserved; oldnine-local-shortlist counts are historical, not a newadmittedcohort. FairFace race is not MST. Broadreservedclean227rows/20originals not reassigned. Final24/olderlockedcontent/manifests untouched. No automaticnewdataset/capture/annotation/advisergate imposed.
+
+The plan separates: completedrecipefreeze; eligibleevaluation/labelbindings; blue/severity/combinedcoverage; onefuturefinalpredictor; prospectiveindependentevaluation; generated281feature/rendererparity thenAndroid; genuineexpertMOS/paper aftermodelperuser. ExistingAndroidfivefeature/oldermask/reciprocalgamma pipeline is notcurrent281feature/desktopmask/directgamma; aJSONswap would not demonstrate parity. No phonecompletion claim from historicalbuild.
+
+Concreteoutcome: currentposthocdevelopmentresult supported; fullcolour/tonebias/independentfinal/deviceclaims notsupportedyet. Next work must follow boundedmetadataeligibility/parityspecifications, not reopenoldfitgrids or spendholdouts. Plan is NONEXECUTABLE, exactsources/finalfit/evaluationroster remain unbound; that is not a completionpromise. Modelunfinished/paperpaused/November14targetatrisk/timeunspecified. Approved59807ears/manual+darker-skinpriority preserved.0newfits/predictions/photoarrays/raworiginal/final24olderlocked/runtimeAndroid/manuscript/commitchanges.

@@ -1,0 +1,51 @@
+{
+  "checkpoint": "2026-11-18",
+  "publication_scope": "Research documentation/source on development branch; not a validated release",
+  "indexed_documents": 922,
+  "source_python_files": 1457,
+  "syntax_errors": [],
+  "high_confidence_secret_findings": [],
+  "historical_non_UTF8_files_preserved": [
+    {
+      "path": "docs/clean-constrained-gate-results-2026-11-07.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/detector-appearance-fallback-results-2026-11-06.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/frozen-split-subject-check-results-2026-11-06.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/gamma-scene-chroma-restriction-results-2026-11-07.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/input-derived-mask-check-results-2026-11-06.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/recovered-false-correction-diagnosis-results-2026-11-07.md",
+      "encoding": "cp1252"
+    },
+    {
+      "path": "docs/signed-benefit-gate-results-2026-11-07.md",
+      "encoding": "cp1252"
+    }
+  ],
+  "focused_checks": {
+    "tests": [
+      "tests/test_correction_preview.py",
+      "tests/test_manual_refinement.py",
+      "tests/test_demo_current_masking.py"
+    ],
+    "result": "28 passed in 5.11s",
+    "note": "Generated-fixture software tests; not scientific model qualification. First sandbox run had temp-directory permission errors."
+  },
+  "source_data_and_models_included": false,
+  "locked_allocations_accessed": false,
+  "original_proposal_and_current_editable_manuscript_included": false,
+  "personal_appeal_material_included": false
+}

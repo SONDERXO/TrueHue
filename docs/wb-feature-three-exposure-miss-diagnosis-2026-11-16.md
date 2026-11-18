@@ -1,0 +1,7 @@
+# Fixed saved-tree diagnosis of three unchanged exposure cases
+
+16 November2026. User asks next work and closeness to completion. Paper63/65 and latest exposure stopping point checked. This is a read-only explanation of the existing predictor's exposure choices, not a new feature/fit/threshold experiment, modeladoption or repetition of oldsevere-task route studies.
+
+Exactly three alreadydiagnosed unchanged cases:48879exposure_under,16061exposure_under,48879combined_under. Compare their saved281and314foldmodels, scalarfloat32route, leafvalues and60fitting-row leaf membership. Verify sourceJSON/model hashes against originalrunproof before/after. Report original/cast/exposure trainingrole counts and botharms' controls; allsourceholdouts remain excluded. Savedtargets allowed only to verify leaf means, not infer newheldcontrols. No feature scanning, alternatefeature subset, threshold/rangeguard, model fit or pixels.
+
+The result may locate the exposure misrouting mechanism; it cannot by itself supply a credible generalization repair. No colour-only/exposure-only/manual-only fallback, gainamplification, classifier/feature/source queue or repeatedreview selected. Current combinedcandidate remains unadopted; acceptedidentity/colour evidence preserved. No claim that the fullmodel is close, impossible, or finishable byFriday. Later independenttone/MOS/device requirements remain incomplete.

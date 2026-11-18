@@ -1,0 +1,929 @@
+# Complete research document index
+
+Generated from the current source checkout. Read [THESIS_START_HERE.md](../../THESIS_START_HERE.md) first.
+Titles identify records; they do not certify completion or supersede later results. Local artifact paths inside records are not published evidence files.
+
+Personal appeal-letter material is excluded. Original file encodings are preserved in Git; the upload text uses decoded UTF-8 copies.
+
+- [40048 image-right cheek gap](../40048-cheek-gap.md) — `docs/40048-cheek-gap.md`
+- [TrueHue continuation checkpoint](../CODEX-HANDOFF.md) — `docs/CODEX-HANDOFF.md`
+- [TrueHue documentation: start here](../README.md) — `docs/README.md`
+- [Revised acceptability rule and labelled review continuation](../acceptable-small-change-policy-2026-11-13.md) — `docs/acceptable-small-change-policy-2026-11-13.md`
+- [Add already reviewed clean references: matched training comparison](../accepted-clean-control-protocol.md) — `docs/accepted-clean-control-protocol.md`
+- [Reviewed clean-photo training comparison](../accepted-clean-control-results.md) — `docs/accepted-clean-control-results.md`
+- [Accepted-image exclusion audit (2026-10-19)](../accepted-exclusion-audit.md) — `docs/accepted-exclusion-audit.md`
+- [Accepted-reference and distorted-pair audit](../accepted-reference-audit-protocol.md) — `docs/accepted-reference-audit-protocol.md`
+- [Accepted reference and distorted-input audit](../accepted-training-pair-audit-results.md) — `docs/accepted-training-pair-audit-results.md`
+- [Review of regions added by YCrCb-only masking](../added-correction-region-review.md) — `docs/added-correction-region-review.md`
+- [The supplied a.json export is partial](../additional-mask-partial-export-checkpoint.md) — `docs/additional-mask-partial-export-checkpoint.md`
+- [Additional MST-E eligibility screen](../additional-mst-eligibility-protocol-2026-11-01.md) — `docs/additional-mst-eligibility-protocol-2026-11-01.md`
+- [Additional MST-E eligibility screen: stop without fitting](../additional-mst-eligibility-results-2026-11-01.md) — `docs/additional-mst-eligibility-results-2026-11-01.md`
+- [Additional online datasets: useful new leads](../additional-online-dataset-search-2026-11-02.md) — `docs/additional-online-dataset-search-2026-11-02.md`
+- [Fixed paired-data preparation for six additional sources](../additional-six-source-paired-data-protocol.md) — `docs/additional-six-source-paired-data-protocol.md`
+- [Additional-source reviews complete; new primary-data candidates prepared](../additional-six-source-paired-data-results.md) — `docs/additional-six-source-paired-data-results.md`
+- [Additional-source quality triage — 30 October 2026](../additional-source-quality-triage.md) — `docs/additional-source-quality-triage.md`
+- [Additions-only correction boundary](../additions-only-boundary-results.md) — `docs/additions-only-boundary-results.md`
+- [Adopted masking design](../adopted-masking-design-2026-11-01.md) — `docs/adopted-masking-design-2026-11-01.md`
+- [TrueHue: progress update and questions for our adviser](../adviser-brief-2026-10-20.md) — `docs/adviser-brief-2026-10-20.md`
+- [TrueHue: correction-model decision brief](../adviser-correction-decision-brief-2026-11-11.md) — `docs/adviser-correction-decision-brief-2026-11-11.md`
+- [TrueHue: decision needed before the next development cycle](../adviser-decision-brief-2026-10-30.md) — `docs/adviser-decision-brief-2026-10-30.md`
+- [TrueHue: adviser decision brief](../adviser-decision-brief-2026-11-02.md) — `docs/adviser-decision-brief-2026-11-02.md`
+- [Proposed limited MST evaluation scope — for adviser review](../adviser-mst-limited-scope-proposal.md) — `docs/adviser-mst-limited-scope-proposal.md`
+- [TrueHue: short adviser update](../adviser-progress-brief-2026-11-07-before-simplification.md) — `docs/adviser-progress-brief-2026-11-07-before-simplification.md`
+- [TrueHue: Adviser Update](../adviser-progress-brief-2026-11-07.md) — `docs/adviser-progress-brief-2026-11-07.md`
+- [TrueHue: adviser progress briefing](../adviser-progress-detailed-2026-11-07.md) — `docs/adviser-progress-detailed-2026-11-07.md`
+- [Adviser role: user correction](../adviser-role-clarification-2026-11-17.md) — `docs/adviser-role-clarification-2026-11-17.md`
+- [Fixed matched FFHQ five-control capacity comparison](../affine-prepower-ffhq-capacity-comparison-protocol-2026-11-14.md) — `docs/affine-prepower-ffhq-capacity-comparison-protocol-2026-11-14.md`
+- [Matched FFHQ five-control capacity comparison: numerical screen passes](../affine-prepower-ffhq-capacity-comparison-results-2026-11-14.md) — `docs/affine-prepower-ffhq-capacity-comparison-results-2026-11-14.md`
+- [Operator decision: one pre-power affine candidate, not another contrast retry](../affine-prepower-operator-candidate-2026-11-14.md) — `docs/affine-prepower-operator-candidate-2026-11-14.md`
+- [Operator review decision and generated algebra results](../affine-prepower-operator-decision-results-2026-11-14.md) — `docs/affine-prepower-operator-decision-results-2026-11-14.md`
+- [Five-control target fitter: isolated generated feasibility contract](../affine-prepower-target-fitter-protocol-2026-11-14.md) — `docs/affine-prepower-target-fitter-protocol-2026-11-14.md`
+- [Five-control fitter: generated engineering complete](../affine-prepower-target-fitter-results-2026-11-14.md) — `docs/affine-prepower-target-fitter-results-2026-11-14.md`
+- [Why four clean photos are changed — 8 November 2026](../aligned-clean-error-trace-results-2026-11-08.md) — `docs/aligned-clean-error-trace-results-2026-11-08.md`
+- [One aligned input-mask and blended-correction development cycle](../aligned-correction-pipeline-protocol-2026-11-07.md) — `docs/aligned-correction-pipeline-protocol-2026-11-07.md`
+- [Actual-input masks and blended correction are now evaluated together](../aligned-correction-pipeline-results-2026-11-07.md) — `docs/aligned-correction-pipeline-results-2026-11-07.md`
+- [Saved-mask reliability diagnosis — 8 November 2026](../aligned-mask-reliability-results-2026-11-08.md) — `docs/aligned-mask-reliability-results-2026-11-08.md`
+- [Fixed anatomical-exclusion and contour protocol](../anatomical-contour-protocol.md) — `docs/anatomical-contour-protocol.md`
+- [Anatomical-exclusion and contour ablation results](../anatomical-contour-results.md) — `docs/anatomical-contour-results.md`
+- [First Android build and SDK setup](../android-build-results.md) — `docs/android-build-results.md`
+- [Android consultation demo update — 5 November 2026](../android-consultation-update-2026-11-05.md) — `docs/android-consultation-update-2026-11-05.md`
+- [Android demonstration script — 31 October 2026](../android-demonstration-script-2026-10-31.md) — `docs/android-demonstration-script-2026-10-31.md`
+- [Build and test TrueHue on a phone](../android-device-testing.md) — `docs/android-device-testing.md`
+- [Android emulator execution — 31 October 2026](../android-emulator-check-2026-10-31.md) — `docs/android-emulator-check-2026-10-31.md`
+- [Android integration checkpoint — 31 October 2026](../android-integration-2026-10-31.md) — `docs/android-integration-2026-10-31.md`
+- [Bounded Android reliability check — 31 October 2026](../android-reliability-check-2026-10-31.md) — `docs/android-reliability-check-2026-10-31.md`
+- [Approved ear coverage integrated; brightness audit](../approved-ear-support-integration-2026-11-12.md) — `docs/approved-ear-support-integration-2026-11-12.md`
+- [Practical proposal: average source-bootstrap correction trees](../bagged-tree-correction-proposal-2026-11-13.md) — `docs/bagged-tree-correction-proposal-2026-11-13.md`
+- [Authorized fixed bagged-tree development protocol](../bagged-tree-fixed-protocol-2026-11-13.md) — `docs/bagged-tree-fixed-protocol-2026-11-13.md`
+- [Source-bagged correction trial: verified, visual review pending](../bagged-tree-review-ready-2026-11-13.md) — `docs/bagged-tree-review-ready-2026-11-13.md`
+- [One nested correction-benefit gate — 6 November 2026](../benefit-aware-gate-protocol-2026-11-06.md) — `docs/benefit-aware-gate-protocol-2026-11-06.md`
+- [Nested benefit-aware gate: fewer harmful corrections, useful corrections still missed](../benefit-aware-gate-results-2026-11-06.md) — `docs/benefit-aware-gate-results-2026-11-06.md`
+- [Next decision: black-preserving operator feasibility, not another predictor fit](../black-preserving-feasibility-next-step-2026-11-15.md) — `docs/black-preserving-feasibility-next-step-2026-11-15.md`
+- [Two saved black-preserving diagnostics: do not advance](../black-preserving-saved-feasibility-results-2026-11-15.md) — `docs/black-preserving-saved-feasibility-results-2026-11-15.md`
+- [Blended correction-target construction — 3 November 2026](../blended-recovery-target-results-2026-11-03.md) — `docs/blended-recovery-target-results-2026-11-03.md`
+- [Blue-axis recipe closed; earlier development baseline preserved](../blue-axis-closure-2026-11-13.md) — `docs/blue-axis-closure-2026-11-13.md`
+- [Blue-axis coverage design complete, no real generation or fit](../blue-axis-coverage-design-results-2026-11-13.md) — `docs/blue-axis-coverage-design-results-2026-11-13.md`
+- [Fixed blue-axis coverage extension: preparation and first-fit design](../blue-axis-coverage-feasibility-protocol-2026-11-13.md) — `docs/blue-axis-coverage-feasibility-protocol-2026-11-13.md`
+- [Blue-axis preparation and first fitting feasibility results](../blue-axis-first-fit-results-2026-11-13.md) — `docs/blue-axis-first-fit-results-2026-11-13.md`
+- [Colour fitting versus source-transfer diagnosis](../blue-axis-fitting-transfer-diagnosis-2026-11-13.md) — `docs/blue-axis-fitting-transfer-diagnosis-2026-11-13.md`
+- [Fixed descriptive panel/region audit](../blue-axis-panel-region-audit-protocol-2026-11-13.md) — `docs/blue-axis-panel-region-audit-protocol-2026-11-13.md`
+- [Six-case saved panel and scoring-region audit](../blue-axis-panel-region-audit-results-2026-11-13.md) — `docs/blue-axis-panel-region-audit-results-2026-11-13.md`
+- [Blue-axis review ready: 22 exact judgments retained, 44 fresh](../blue-axis-review-ready-2026-11-13.md) — `docs/blue-axis-review-ready-2026-11-13.md`
+- [Blue-axis review complete: not ready, not adopted](../blue-axis-review-results-2026-11-13.md) — `docs/blue-axis-review-results-2026-11-13.md`
+- [Blue-axis preparation and fitting engineering complete](../blue-axis-runner-engineering-results-2026-11-13.md) — `docs/blue-axis-runner-engineering-results-2026-11-13.md`
+- [Saved blue-axis colour discrepancy diagnosis](../blue-axis-saved-colour-diagnosis-2026-11-13.md) — `docs/blue-axis-saved-colour-diagnosis-2026-11-13.md`
+- [Fixed blue-axis source-held comparison plan](../blue-axis-source-held-comparison-protocol-2026-11-13.md) — `docs/blue-axis-source-held-comparison-protocol-2026-11-13.md`
+- [Blue-axis source-held design complete](../blue-axis-source-held-design-results-2026-11-13.md) — `docs/blue-axis-source-held-design-results-2026-11-13.md`
+- [Blue-axis source-held run independently verified](../blue-axis-source-held-run-results-2026-11-13.md) — `docs/blue-axis-source-held-run-results-2026-11-13.md`
+- [Blue-axis source-held workflow engineering complete](../blue-axis-workflow-engineering-results-2026-11-13.md) — `docs/blue-axis-workflow-engineering-results-2026-11-13.md`
+- [Bounded replacement portrait-source decision](../bounded-portrait-source-decision-2026-11-14.md) — `docs/bounded-portrait-source-decision-2026-11-14.md`
+- [Why the better-fitting tree still fails on held photographs](../bounded-search-transfer-diagnosis-2026-11-11.md) — `docs/bounded-search-transfer-diagnosis-2026-11-11.md`
+- [Bounded non-greedy training: held-photo comparison](../bounded-training-comparison-results-2026-11-11.md) — `docs/bounded-training-comparison-results-2026-11-11.md`
+- [Bounded non-greedy tree search: generated verification and fitting feasibility](../bounded-training-search-feasibility-results-2026-11-11.md) — `docs/bounded-training-search-feasibility-results-2026-11-11.md`
+- [Bright-scene input comparison ? 11 November2026](../bright-scene-cue-comparison-results-2026-11-11.md) — `docs/bright-scene-cue-comparison-results-2026-11-11.md`
+- [One bright-weighted scene cue: design and bounded readiness screen](../bright-scene-cue-design-2026-11-11.md) — `docs/bright-scene-cue-design-2026-11-11.md`
+- [Concrete correction-input design and readiness result](../bright-scene-cue-readiness-results-2026-11-11.md) — `docs/bright-scene-cue-readiness-results-2026-11-11.md`
+- [Brightness/color training-source screening](../brightness-color-source-screen.md) — `docs/brightness-color-source-screen.md`
+- [Brightness/color candidates: fixed variant checks](../brightness-color-variant-checks.md) — `docs/brightness-color-variant-checks.md`
+- [Remaining ten-feature overcorrections](../brightness-control-diagnosis.md) — `docs/brightness-control-diagnosis.md`
+- [Input brightness-feature audit](../brightness-feature-audit.md) — `docs/brightness-feature-audit.md`
+- [Fixed brightness-feature comparison](../brightness-feature-comparison.md) — `docs/brightness-feature-comparison.md`
+- [Brighter-capture facial measurement annotation](../brightness-manual-measurement-protocol-2026-11-10.md) — `docs/brightness-manual-measurement-protocol-2026-11-10.md`
+- [Brighter-capture manual queue ready — 10 November 2026](../brightness-measurement-preparation-results-2026-11-10.md) — `docs/brightness-measurement-preparation-results-2026-11-10.md`
+- [Review the thirty brighter captures](../brightness-measurement-review-guide-2026-11-10.md) — `docs/brightness-measurement-review-guide-2026-11-10.md`
+- [Predeclared bounded source-expansion comparison](../broader-source-comparison-predeclaration.md) — `docs/broader-source-comparison-predeclaration.md`
+- [Broader-source comparison readiness — 30 October 2026](../broader-source-comparison-readiness.md) — `docs/broader-source-comparison-readiness.md`
+- [Completed broader-source comparison — 30 October 2026](../broader-source-comparison-results.md) — `docs/broader-source-comparison-results.md`
+- [Boundary before the next broader-source fit — 30 October 2026](../broader-source-next-fit-boundary.md) — `docs/broader-source-next-fit-boundary.md`
+- [Three-source review imported; bounded broader-source screen completed](../broader-source-screen61-results.md) — `docs/broader-source-screen61-results.md`
+- [Correction-only eyebrows and lips experiment](../brows-lips-correction-experiment-protocol.md) — `docs/brows-lips-correction-experiment-protocol.md`
+- [Eyebrows and lips in correction only](../brows-lips-correction-results-2026-10-31.md) — `docs/brows-lips-correction-results-2026-10-31.md`
+- [Calibration-design review — 10 November 2026](../calibration-design-review-results-2026-11-10.md) — `docs/calibration-design-review-results-2026-11-10.md`
+- [Saved calibration residual review — 11 November 2026](../calibration-residual-review-results-2026-11-11.md) — `docs/calibration-residual-review-results-2026-11-11.md`
+- [Camera-inspired nearest-neighbour result: failed inference](../camera-halfstop-neighbour-results-2026-11-15.md) — `docs/camera-halfstop-neighbour-results-2026-11-15.md`
+- [Separate camera-inspired correction assessment](../camera-inspired-correction-assessment-protocol-2026-11-15.md) — `docs/camera-inspired-correction-assessment-protocol-2026-11-15.md`
+- [Separate camera-inspired task: engineering and preparation](../camera-inspired-preparation-results-2026-11-15.md) — `docs/camera-inspired-preparation-results-2026-11-15.md`
+- [Four candidate sources: fixed-variant and measurement checks](../candidate-variant-checks.md) — `docs/candidate-variant-checks.md`
+- [Capture and labelling plan](../capture-and-labelling-plan-2026-11-01.md) — `docs/capture-and-labelling-plan-2026-11-01.md`
+- [One colour-distribution feature comparison — 6 November 2026](../chroma-feature-correction-protocol-2026-11-06.md) — `docs/chroma-feature-correction-protocol-2026-11-06.md`
+- [One colour-distribution feature comparison: no clean-image improvement](../chroma-feature-correction-results-2026-11-06.md) — `docs/chroma-feature-correction-results-2026-11-06.md`
+- [CHROMA-FIT assessment: promising, with important limits](../chroma-fit-assessment-2026-11-02.md) — `docs/chroma-fit-assessment-2026-11-02.md`
+- [Fixed facial chromatic distribution comparison](../chromatic-feature-tree-protocol.md) — `docs/chromatic-feature-tree-protocol.md`
+- [Facial color-distribution features and next training-data step](../chromatic-feature-tree-results.md) — `docs/chromatic-feature-tree-results.md`
+- [One fixed clean/core/stress balance repair — 6 November 2026](../clean-balanced-repair-protocol-2026-11-06.md) — `docs/clean-balanced-repair-protocol-2026-11-06.md`
+- [Clean-constrained signed-benefit gate: fixed protocol and acceptance rule](../clean-constrained-gate-protocol-2026-11-07.md) — `docs/clean-constrained-gate-protocol-2026-11-07.md`
+- [Clean-constrained gate: results and acceptance decision](../clean-constrained-gate-results-2026-11-07.md) — `docs/clean-constrained-gate-results-2026-11-07.md`
+- [Fixed tree-capacity comparison](../clean-control-tree-depth-protocol.md) — `docs/clean-control-tree-depth-protocol.md`
+- [Deeper correction-tree comparison](../clean-control-tree-depth-results.md) — `docs/clean-control-tree-depth-results.md`
+- [Saved-tree diagnosis of severe clean-photo darkening](../clean-darkening-route-audit-protocol-2026-11-07.md) — `docs/clean-darkening-route-audit-protocol-2026-11-07.md`
+- [Why the brightness tree darkens a clean photo](../clean-darkening-route-audit-results-2026-11-07.md) — `docs/clean-darkening-route-audit-results-2026-11-07.md`
+- [Clean-image harm: diagnosis and one balance comparison](../clean-harm-diagnosis-and-repair-results-2026-11-06.md) — `docs/clean-harm-diagnosis-and-repair-results-2026-11-06.md`
+- [Saved-trace audit of clean-photo failures](../clean-preservation-trace-audit-protocol-2026-11-07.md) — `docs/clean-preservation-trace-audit-protocol-2026-11-07.md`
+- [Why the latest gate still changes clean photos](../clean-preservation-trace-audit-results-2026-11-07.md) — `docs/clean-preservation-trace-audit-results-2026-11-07.md`
+- [Clean training failures: targets and rendering pass; depth-limited pooling remains](../clean-training-capacity-audit-2026-11-06.md) — `docs/clean-training-capacity-audit-2026-11-06.md`
+- [Clear prescription lenses: fixed saved-output comparison](../clear-lens-correction-protocol-2026-11-05.md) — `docs/clear-lens-correction-protocol-2026-11-05.md`
+- [Clear lenses receive correction; approximate rims remain protected](../clear-lens-correction-results-2026-11-05.md) — `docs/clear-lens-correction-results-2026-11-05.md`
+- [Partner setup and collaboration](../collaborator-setup.md) — `docs/collaborator-setup.md`
+- [Single-factor YCrCb refinement for color casts](../color-cast-ycrcb-refinement-protocol.md) — `docs/color-cast-ycrcb-refinement-protocol.md`
+- [Single-factor YCrCb color-cast refinement](../color-cast-ycrcb-refinement-results.md) — `docs/color-cast-ycrcb-refinement-results.md`
+- [YCrCb-only paired mask review imported](../color-cast-ycrcb-review-results.md) — `docs/color-cast-ycrcb-review-results.md`
+- [Frozen generated bin-merge signal check](../colour-bin-merge-signal-protocol-2026-11-13.md) — `docs/colour-bin-merge-signal-protocol-2026-11-13.md`
+- [Colour attenuation bin-density signal: generated mechanism check](../colour-bin-merge-signal-results-2026-11-13.md) — `docs/colour-bin-merge-signal-results-2026-11-13.md`
+- [Why six underexposure corrections were lost](../colour-nonharm-recovery-loss-trace-2026-11-09.md) — `docs/colour-nonharm-recovery-loss-trace-2026-11-09.md`
+- [Proposed fixed colour-only nonharm comparison](../colour-only-nonharm-protocol-2026-11-09.md) — `docs/colour-only-nonharm-protocol-2026-11-09.md`
+- [Colour-only nonharm constraint: results](../colour-only-nonharm-results-2026-11-09.md) — `docs/colour-only-nonharm-results-2026-11-09.md`
+- [Six input preferences clarified as insufficient visible benefit](../colour-preference-reason-clarification-2026-11-14.md) — `docs/colour-preference-reason-clarification-2026-11-14.md`
+- [Combined reviewed MST validation design — 11 November 2026](../combined-reviewed-mst-validation-design-2026-11-11.md) — `docs/combined-reviewed-mst-validation-design-2026-11-11.md`
+- [Combined reviewed calibration comparison — 11 November 2026](../combined-reviewed-mst-validation-results-2026-11-11.md) — `docs/combined-reviewed-mst-validation-results-2026-11-11.md`
+- [Whole eyebrow-area skin during correction](../complete-brow-area-results-2026-11-01.md) — `docs/complete-brow-area-results-2026-11-01.md`
+- [Complete-mouth exclusion experiment v1 (2026-10-19)](../complete-mouth-experiment.md) — `docs/complete-mouth-experiment.md`
+- [Completed brighter-capture review audit — 11 November 2026](../completed-brightness-review-results-2026-11-11.md) — `docs/completed-brightness-review-results-2026-11-11.md`
+- [Eleven FFHQ support reviews verified ? 11 November2026](../completed-ffhq-support-results-2026-11-11.md) — `docs/completed-ffhq-support-results-2026-11-11.md`
+- [Completed labelled reviews — 10 November 2026](../completed-labelled-review-results-2026-11-10.md) — `docs/completed-labelled-review-results-2026-11-10.md`
+- [Completed photographic supports and paired pixels — 10 November 2026](../completed-photographic-support-results-2026-11-10.md) — `docs/completed-photographic-support-results-2026-11-10.md`
+- [TrueHue completion specification — 9 November 2026](../completion-specification-2026-11-09.md) — `docs/completion-specification-2026-11-09.md`
+- [Fixed exposed-reference prior stability audit](../conditional-prior-reference-audit-protocol-2026-11-14.md) — `docs/conditional-prior-reference-audit-protocol-2026-11-14.md`
+- [Actual exposed references show substantial conditional-prior mismatch](../conditional-prior-reference-audit-results-2026-11-14.md) — `docs/conditional-prior-reference-audit-results-2026-11-14.md`
+- [Candidate: reference-conditioned chromaticity residual context](../conditional-reference-colour-prior-review-2026-11-13.md) — `docs/conditional-reference-colour-prior-review-2026-11-13.md`
+- [Conditional reference-prior artificial design specified](../conditional-reference-prior-generated-design-results-2026-11-13.md) — `docs/conditional-reference-prior-generated-design-results-2026-11-13.md`
+- [Fixed generated-only conditional reference-prior test](../conditional-reference-prior-generated-protocol-2026-11-13.md) — `docs/conditional-reference-prior-generated-protocol-2026-11-13.md`
+- [Conditional reference prior: generated mechanism works, source bias remains](../conditional-reference-prior-generated-results-2026-11-13.md) — `docs/conditional-reference-prior-generated-results-2026-11-13.md`
+- [November 14 submission: execution plan and measurement decision](../conference-delivery-plan-2026-11-06.md) — `docs/conference-delivery-plan-2026-11-06.md`
+- [Conference evidence brief — 6 November 2026](../conference-evidence-brief-2026-11-06.md) — `docs/conference-evidence-brief-2026-11-06.md`
+- [Mask-dependent failure modes in a three-control facial colour-correction prototype](../conference-working-draft-2026-11-06.md) — `docs/conference-working-draft-2026-11-06.md`
+- [Saved conflicting-leaf separability audit](../conflicting-leaf-separability-protocol-2026-11-09.md) — `docs/conflicting-leaf-separability-protocol-2026-11-09.md`
+- [Conflicting-leaf fitting separability — 9 November 2026](../conflicting-leaf-separability-results-2026-11-09.md) — `docs/conflicting-leaf-separability-results-2026-11-09.md`
+- [Consolidated correction-training decision](../consolidated-training-design-decision-2026-11-12.md) — `docs/consolidated-training-design-decision-2026-11-12.md`
+- [Authorised contextual MST software experiment — 5 November 2026](../contextual-mst-implementation-protocol-2026-11-05.md) — `docs/contextual-mst-implementation-protocol-2026-11-05.md`
+- [Contextual MST experiment implemented — 5 November 2026](../contextual-mst-implementation-results-2026-11-05.md) — `docs/contextual-mst-implementation-results-2026-11-05.md`
+- [Proposed fixed contextual calibration validation — 10 November 2026](../contextual-reviewed-mst-validation-protocol-2026-11-10.md) — `docs/contextual-reviewed-mst-validation-protocol-2026-11-10.md`
+- [Continuous MST correction candidate protocol — 6 November 2026](../continuous-mst-correction-protocol-2026-11-06.md) — `docs/continuous-mst-correction-protocol-2026-11-06.md`
+- [Continuous MST correction candidate results — 6 November 2026](../continuous-mst-correction-results-2026-11-06.md) — `docs/continuous-mst-correction-results-2026-11-06.md`
+- [Reproducible control-aware development model build](../control-aware-model-build-protocol.md) — `docs/control-aware-model-build-protocol.md`
+- [Control-aware model build: reproducible, quality held](../control-aware-model-build-results.md) — `docs/control-aware-model-build-results.md`
+- [Frozen candidate image replay](../control-aware-model-evaluation-protocol.md) — `docs/control-aware-model-evaluation-protocol.md`
+- [Controlled correction-model experiment plan — 6 November 2026](../controlled-correction-experiment-plan-2026-11-06.md) — `docs/controlled-correction-experiment-plan-2026-11-06.md`
+- [Controlled-development policy (2026-10-20)](../controlled-development-policy.md) — `docs/controlled-development-policy.md`
+- [Proposed controlled photographic-reference collection](../controlled-reference-capture-proposal.md) — `docs/controlled-reference-capture-proposal.md`
+- [Controlled training-table build (2026-10-20)](../controlled-training-table.md) — `docs/controlled-training-table.md`
+- [Normal colour-error candidates — 3 November 2026](../core-colour-recipe-results-2026-11-03.md) — `docs/core-colour-recipe-results-2026-11-03.md`
+- [Fixed core control-recipe comparison](../core-control-comparison-protocol.md) — `docs/core-control-comparison-protocol.md`
+- [Core control-aware training comparison](../core-control-comparison-results.md) — `docs/core-control-comparison-results.md`
+- [Core correction model: active priority](../core-correction-priority-2026-11-16.md) — `docs/core-correction-priority-2026-11-16.md`
+- [Fixed diagnostic of core feature/target conflicts](../core-feature-conflict-protocol.md) — `docs/core-feature-conflict-protocol.md`
+- [Why the control-aware tree still overcorrects](../core-feature-conflict-results.md) — `docs/core-feature-conflict-results.md`
+- [Unified core pipeline software check](../core-pipeline-check-protocol.md) — `docs/core-pipeline-check-protocol.md`
+- [Unified core pipeline: software check complete, quality limitations retained](../core-pipeline-check-results.md) — `docs/core-pipeline-check-results.md`
+- [Existing-source readiness audit](../core-source-readiness-protocol.md) — `docs/core-source-readiness-protocol.md`
+- [Existing source pool: readiness and implementation consequences](../core-source-readiness-results.md) — `docs/core-source-readiness-results.md`
+- [Frozen correction tree: portable inference verified](../core-tree-portability-results.md) — `docs/core-tree-portability-results.md`
+- [Core decision-tree portability check](../core-tree-portability.md) — `docs/core-tree-portability.md`
+- [Corrected-image comparison with identical model settings](../corrected-mask-comparison-results.md) — `docs/corrected-mask-comparison-results.md`
+- [Correction boundaries — 22 October 2026](../correction-boundary-results.md) — `docs/correction-boundary-results.md`
+- [Clean-photo risk in correction branches](../correction-branch-clean-evidence-results-2026-11-08.md) — `docs/correction-branch-clean-evidence-results-2026-11-08.md`
+- [One capacity-ceiling comparison — 6 November 2026](../correction-capacity-comparison-protocol-2026-11-06.md) — `docs/correction-capacity-comparison-protocol-2026-11-06.md`
+- [Capacity comparison: clean fitting succeeds, held clean preservation still fails](../correction-capacity-comparison-results-2026-11-06.md) — `docs/correction-capacity-comparison-results-2026-11-06.md`
+- [Optional correction-capture feasibility pilot](../correction-capture-feasibility-draft-2026-11-11.md) — `docs/correction-capture-feasibility-draft-2026-11-11.md`
+- [Correction controls: source-held-out comparison](../correction-controls-sourcecv-results.md) — `docs/correction-controls-sourcecv-results.md`
+- [Correction coverage checkpoint](../correction-coverage-checkpoint.md) — `docs/correction-coverage-checkpoint.md`
+- [Isolated correction coverage preview](../correction-coverage-preview-2026-11-12.md) — `docs/correction-coverage-preview-2026-11-12.md`
+- [Correction-data and validation redesign](../correction-data-redesign-protocol.md) — `docs/correction-data-redesign-protocol.md`
+- [New correction-data design frozen before image processing](../correction-data-redesign-results.md) — `docs/correction-data-redesign-results.md`
+- [Frozen candidate duplicate audit](../correction-duplicate-audit-protocol.md) — `docs/correction-duplicate-audit-protocol.md`
+- [Correction candidate duplicate audit](../correction-duplicate-audit-results.md) — `docs/correction-duplicate-audit-results.md`
+- [Correction failure paths and one objective proposal — 11 November 2026](../correction-failure-rationale-2026-11-11.md) — `docs/correction-failure-rationale-2026-11-11.md`
+- [Focused correction-family method selection](../correction-family-method-selection-2026-11-15.md) — `docs/correction-family-method-selection-2026-11-15.md`
+- [Correction-only enclosed-gap recovery test](../correction-gap-recovery-test.md) — `docs/correction-gap-recovery-test.md`
+- [One fixed synthetic-distortion gate — 6 November 2026](../correction-gate-protocol-2026-11-06.md) — `docs/correction-gate-protocol-2026-11-06.md`
+- [Fixed correction gate: less clean harm, many missed distortions](../correction-gate-results-2026-11-06.md) — `docs/correction-gate-results-2026-11-06.md`
+- [Correction goal and path reassessment - 11 November 2026](../correction-goal-and-path-reassessment-2026-11-11.md) — `docs/correction-goal-and-path-reassessment-2026-11-11.md`
+- [Correction-leaf applicability audit](../correction-leaf-applicability-results-2026-11-09.md) — `docs/correction-leaf-applicability-results-2026-11-09.md`
+- [TrueHue: focused correction-method consultation](../correction-method-consultation-brief-2026-11-15.md) — `docs/correction-method-consultation-brief-2026-11-15.md`
+- [Correction model and paper realignment — 11 November 2026](../correction-model-and-paper-realignment-2026-11-11.md) — `docs/correction-model-and-paper-realignment-2026-11-11.md`
+- [Stop small tweaks; complete one controlled model-development cycle](../correction-model-focused-finish-plan.md) — `docs/correction-model-focused-finish-plan.md`
+- [Correction prototype results — 21 October 2026](../correction-prototype-results.md) — `docs/correction-prototype-results.md`
+- [Correction redesign decision brief — 9 November 2026](../correction-redesign-decision-brief-2026-11-09.md) — `docs/correction-redesign-decision-brief-2026-11-09.md`
+- [Substantive correction redesign feasibility — 9 November 2026](../correction-redesign-feasibility-results-2026-11-09.md) — `docs/correction-redesign-feasibility-results-2026-11-09.md`
+- [Existing-data decision: stop before another training run](../correction-research-stop-decision-2026-11-02.md) — `docs/correction-research-stop-decision-2026-11-02.md`
+- [Isolated59807correction-support preview](../correction-support-59807-preview-2026-11-13.md) — `docs/correction-support-59807-preview-2026-11-13.md`
+- [Input-only correction coverage — 22 October 2026](../correction-support-results.md) — `docs/correction-support-results.md`
+- [Correction-first: existing evidence admission decision](../correction-training-admission-2026-11-02.md) — `docs/correction-training-admission-2026-11-02.md`
+- [TrueHue correction-training contract](../correction-training-contract-2026-11-11.md) — `docs/correction-training-contract-2026-11-11.md`
+- [Correction-model preparation after mouth-fix integration](../correction-training-next-steps.md) — `docs/correction-training-next-steps.md`
+- [New training cohort: preprocessing and review](../correction-training-preparation-results.md) — `docs/correction-training-preparation-results.md`
+- [From promising examples to automatic correction](../correction-training-readiness-plan-2026-11-02.md) — `docs/correction-training-readiness-plan-2026-11-02.md`
+- [Correction training-design audit: recipe coverage and target equations](../correction-training-target-audit-results-2026-11-11.md) — `docs/correction-training-target-audit-results-2026-11-11.md`
+- [CPM pattern-branch feasibility protocol](../cpm-material-preflight-protocol.md) — `docs/cpm-material-preflight-protocol.md`
+- [Material-model feasibility: CPM pattern branch](../cpm-pattern-feasibility.md) — `docs/cpm-pattern-feasibility.md`
+- [Fixed current-framing parser comparison — 8 November 2026](../current-parser-appearance-protocol-2026-11-08.md) — `docs/current-parser-appearance-protocol-2026-11-08.md`
+- [Current-framing contrast comparison — 8 November 2026](../current-parser-appearance-results-2026-11-08.md) — `docs/current-parser-appearance-results-2026-11-08.md`
+- [User clarification: darker-skin bias is the primary motivation](../darker-skin-bias-priority-2026-11-13.md) — `docs/darker-skin-bias-priority-2026-11-13.md`
+- [DAST examples and STW metadata: concrete new data leads](../dast-and-stw-readiness-results-2026-11-02.md) — `docs/dast-and-stw-readiness-results-2026-11-02.md`
+- [Dataset inquiries and status](../dataset-access-clarification-drafts-2026-11-02.md) — `docs/dataset-access-clarification-drafts-2026-11-02.md`
+- [Current datasets and online correction-reference review — 9 November 2026](../dataset-correction-reference-review-2026-11-09.md) — `docs/dataset-correction-reference-review-2026-11-09.md`
+- [Existing dataset status: corrected reconciliation](../dataset-status-reconciliation-2026-11-14.md) — `docs/dataset-status-reconciliation-2026-11-14.md`
+- [Delivery plan: before 7 November 2026](../deadline-delivery-plan.md) — `docs/deadline-delivery-plan.md`
+- [Decision Log](../decision-log.md) — `docs/decision-log.md`
+- [Face-parser code and decoder permission check](../decoder-permission-evidence-2026-11-08.md) — `docs/decoder-permission-evidence-2026-11-08.md`
+- [TrueHue delivery checkpoint — 1 November 2026](../delivery-checkpoint-2026-11-01.md) — `docs/delivery-checkpoint-2026-11-01.md`
+- [Delivery readiness and model-first work order](../delivery-readiness-review-2026-11-14.md) — `docs/delivery-readiness-review-2026-11-14.md`
+- [Desktop demo flow checks — 31 October 2026](../demo-flow-check-2026-10-31.md) — `docs/demo-flow-check-2026-10-31.md`
+- [Demo reporting update — 30 October 2026](../demo-reporting-update-2026-10-30.md) — `docs/demo-reporting-update-2026-10-30.md`
+- [Dense face-parser feasibility results](../dense-face-parser-results.md) — `docs/dense-face-parser-results.md`
+- [Fixed depth-four correction comparison](../depth-four-correction-protocol-2026-11-08.md) — `docs/depth-four-correction-protocol-2026-11-08.md`
+- [Depth-four correction results — 8 November 2026](../depth-four-correction-results-2026-11-08.md) — `docs/depth-four-correction-results-2026-11-08.md`
+- [Desktop adviser demo update — 7 November 2026](../desktop-adviser-update-2026-11-07.md) — `docs/desktop-adviser-update-2026-11-07.md`
+- [Current masking in the Python desktop demo](../desktop-current-masking-integration-2026-11-07.md) — `docs/desktop-current-masking-integration-2026-11-07.md`
+- [One zero-face detection fallback comparison](../detector-appearance-fallback-protocol-2026-11-06.md) — `docs/detector-appearance-fallback-protocol-2026-11-06.md`
+- [Zero-face detector appearance fallback: results](../detector-appearance-fallback-results-2026-11-06.md) — `docs/detector-appearance-fallback-results-2026-11-06.md`
+- [Development expansion comparison](../development-expansion-comparison.md) — `docs/development-expansion-comparison.md`
+- [Proposed31-pair controlled-development stage](../development-expansion31-stage.md) — `docs/development-expansion31-stage.md`
+- [Proposed39-pair development stage](../development-expansion39-stage.md) — `docs/development-expansion39-stage.md`
+- [Repeated local Python inference benchmark](../development-mst-benchmark-protocol.md) — `docs/development-mst-benchmark-protocol.md`
+- [Repeated local Python inference benchmark](../development-mst-benchmark-results.md) — `docs/development-mst-benchmark-results.md`
+- [Explicit experimental MST pipeline integration](../development-mst-pipeline-results.md) — `docs/development-mst-pipeline-results.md`
+- [Integrated MST pipeline stress test](../development-mst-stress-results.md) — `docs/development-mst-stress-results.md`
+- [Fixed31-versus39 training comparison](../development39-comparison.md) — `docs/development39-comparison.md`
+- [DINO face-decoder compatibility audit](../dino-decoder-interface-audit-2026-11-08.md) — `docs/dino-decoder-interface-audit-2026-11-08.md`
+- [Downloaded face-decoder checkpoint inventory](../dino-decoder-inventory-2026-11-08.md) — `docs/dino-decoder-inventory-2026-11-08.md`
+- [Downloaded DINOv3 package inventory](../dinov3-package-inventory-2026-11-08.md) — `docs/dinov3-package-inventory-2026-11-08.md`
+- [One direct continuous control comparison](../direct-control-ridge-protocol-2026-11-16.md) — `docs/direct-control-ridge-protocol-2026-11-16.md`
+- [Direct continuous control comparison: stopped and closed](../direct-control-ridge-results-2026-11-16.md) — `docs/direct-control-ridge-results-2026-11-16.md`
+- [Fixed brightness features on protected direct-gamma regression](../direct-gamma-brightness-protocol.md) — `docs/direct-gamma-brightness-protocol.md`
+- [Fixed brightness-feature comparison: not promoted](../direct-gamma-brightness-results.md) — `docs/direct-gamma-brightness-results.md`
+- [Fitting-control leaf protection on direct-gamma trees](../direct-gamma-clean-leaf-protocol.md) — `docs/direct-gamma-clean-leaf-protocol.md`
+- [Direct-gamma tree with fitting-control leaf protection](../direct-gamma-clean-leaf-results.md) — `docs/direct-gamma-clean-leaf-results.md`
+- [Matched correction-tree improvement experiment](../direct-gamma-regression-results.md) — `docs/direct-gamma-regression-results.md`
+- [Direct-gamma target regression: matched-source model comparison](../direct-gamma-tree-comparison-protocol.md) — `docs/direct-gamma-tree-comparison-protocol.md`
+- [Directional exposure revision — 3 November 2026](../directional-exposure-revision-results-2026-11-03.md) — `docs/directional-exposure-revision-results-2026-11-03.md`
+- [Distorted-input masking and recovery: fixed protocol](../distorted-input-support-protocol-2026-11-05.md) — `docs/distorted-input-support-protocol-2026-11-05.md`
+- [Actual distorted-input masks: recovery remains useful, object protection drifts](../distorted-input-support-results-2026-11-05.md) — `docs/distorted-input-support-results-2026-11-05.md`
+- [Distortion-aware MST input: one fixed correction comparison](../distortion-aware-mst-protocol-2026-11-08.md) — `docs/distortion-aware-mst-protocol-2026-11-08.md`
+- [Distortion-aware MST input comparison — 8 November 2026](../distortion-aware-mst-results-2026-11-08.md) — `docs/distortion-aware-mst-results-2026-11-08.md`
+- [ECPD training-basis review](../ecpd-training-basis-review-2026-11-15.md) — `docs/ecpd-training-basis-review-2026-11-15.md`
+- [Edge-based response cue: specific feasibility assessment](../edge-response-cue-feasibility-2026-11-12.md) — `docs/edge-response-cue-feasibility-2026-11-12.md`
+- [Enclosed mask-hole development check](../enclosed-hole-mask-protocol.md) — `docs/enclosed-hole-mask-protocol.md`
+- [Enclosed facial-mask hole check](../enclosed-hole-mask-results.md) — `docs/enclosed-hole-mask-results.md`
+- [Fixed masked channel-endpoint feature comparison](../endpoint-feature-tree-protocol.md) — `docs/endpoint-feature-tree-protocol.md`
+- [Endpoint features improve the source-held correction candidate](../endpoint-feature-tree-results.md) — `docs/endpoint-feature-tree-results.md`
+- [Frozen endpoint candidate: full-path JPEG check](../endpoint-full-path-jpeg-protocol.md) — `docs/endpoint-full-path-jpeg-protocol.md`
+- [Full-path JPEG check: benefit retained, mask sensitivity remains](../endpoint-full-path-jpeg-results.md) — `docs/endpoint-full-path-jpeg-results.md`
+- [Frozen endpoint candidate: JPEG sensitivity](../endpoint-jpeg-sensitivity-protocol.md) — `docs/endpoint-jpeg-sensitivity-protocol.md`
+- [Frozen candidate retains benefit under two JPEG encodings](../endpoint-jpeg-sensitivity-results.md) — `docs/endpoint-jpeg-sensitivity-results.md`
+- [Existing-data feasibility decision](../existing-data-feasibility-results-2026-11-01.md) — `docs/existing-data-feasibility-results-2026-11-01.md`
+- [Existing-dataset correction evidence: selected batch, access unavailable](../existing-dataset-correction-evidence-readiness-2026-11-11.md) — `docs/existing-dataset-correction-evidence-readiness-2026-11-11.md`
+- [Existing FFHQ reference appearance review](../existing-ffhq-reference-appearance-review-2026-11-11.md) — `docs/existing-ffhq-reference-appearance-review-2026-11-11.md`
+- [Existing illumination-cue readiness — 11 November 2026](../existing-illumination-cue-readiness-2026-11-11.md) — `docs/existing-illumination-cue-readiness-2026-11-11.md`
+- [Next correction comparison — plain-language plan](../expanded-correction-training-plan-summary-2026-11-08.md) — `docs/expanded-correction-training-plan-summary-2026-11-08.md`
+- [Expanded correction training: one fixed comparison](../expanded-correction-training-protocol-2026-11-08.md) — `docs/expanded-correction-training-protocol-2026-11-08.md`
+- [Expanded correction training results — 8 November 2026](../expanded-correction-training-results-2026-11-08.md) — `docs/expanded-correction-training-results-2026-11-08.md`
+- [Expanded training inputs prepared — 8 November 2026](../expanded-input-preparation-results-2026-11-08.md) — `docs/expanded-input-preparation-results-2026-11-08.md`
+- [Why the expanded model lost useful corrections](../expanded-lost-benefit-diagnosis-2026-11-08.md) — `docs/expanded-lost-benefit-diagnosis-2026-11-08.md`
+- [Can the existing features distinguish clean and overexposed photos?](../expanded-training-separability-results-2026-11-08.md) — `docs/expanded-training-separability-results-2026-11-08.md`
+- [Why acceptable images receive unwanted correction](../expansion-control-diagnosis.md) — `docs/expansion-control-diagnosis.md`
+- [Professional feedback and model refinement](../expert-feedback-refinement-policy.md) — `docs/expert-feedback-refinement-policy.md`
+- [TrueHue — current research status for expert discussion](../expert-status-brief-2026-11-17.md) — `docs/expert-status-brief-2026-11-17.md`
+- [Experiment Log](../expirement-log.md) — `docs/expirement-log.md`
+- [Explicit facial-hair model inventory — 30 October 2026](../explicit-facial-hair-model-inventory.md) — `docs/explicit-facial-hair-model-inventory.md`
+- [First real correction-tree diagnostic — 6 November 2026](../exploratory-correction-tree-protocol-2026-11-06.md) — `docs/exploratory-correction-tree-protocol-2026-11-06.md`
+- [First real photographic correction-tree result — 6 November 2026](../exploratory-correction-tree-results-2026-11-06.md) — `docs/exploratory-correction-tree-results-2026-11-06.md`
+- [Proposed bounded real-data MST experiment — 6 November 2026](../exploratory-real-mst-protocol-2026-11-06.md) — `docs/exploratory-real-mst-protocol-2026-11-06.md`
+- [First exploratory real-data contextual MST result — 6 November 2026](../exploratory-real-mst-results-2026-11-06.md) — `docs/exploratory-real-mst-results-2026-11-06.md`
+- [Exposure and unchanged-image training revision — 23 October 2026](../exposure-identity-training-revision.md) — `docs/exposure-identity-training-revision.md`
+- [Face and visible neck correction](../face-and-neck-correction-requirement.md) — `docs/face-and-neck-correction-requirement.md`
+- [Completed facial-boundary references and saved-mask audit](../face-boundary-reference-results.md) — `docs/face-boundary-reference-results.md`
+- [Facial-boundary reference review](../face-boundary-review-guide.md) — `docs/face-boundary-review-guide.md`
+- [Face-contained measurement candidate: diagnostic result](../face-contained-measurement-results-2026-11-01.md) — `docs/face-contained-measurement-results-2026-11-01.md`
+- [Fixed facial-root repair of the image-loss action tree](../face-first-action-tree-protocol-2026-11-07.md) — `docs/face-first-action-tree-protocol-2026-11-07.md`
+- [Facial-root joint tree: fewer later clean edits, development regressions](../face-first-action-tree-results-2026-11-07.md) — `docs/face-first-action-tree-results-2026-11-07.md`
+- [Face-local action learning: proposed fixed comparison — 8 November 2026](../face-local-action-design-2026-11-08.md) — `docs/face-local-action-design-2026-11-08.md`
+- [Face-local context comparison — 8 November 2026](../face-local-action-results-2026-11-08.md) — `docs/face-local-action-results-2026-11-08.md`
+- [Full-face coverage repair — 30 October 2026](../face-mask-coverage-repair-results.md) — `docs/face-mask-coverage-repair-results.md`
+- [Visible-neck support: fixed implementation and checks](../face-neck-support-protocol-2026-10-31.md) — `docs/face-neck-support-protocol-2026-10-31.md`
+- [Face and visible-neck support — 31 October 2026](../face-neck-support-results-2026-10-31.md) — `docs/face-neck-support-results-2026-10-31.md`
+- [Face-outline restriction experiment v1 (2026-10-19)](../face-outline-experiment.md) — `docs/face-outline-experiment.md`
+- [Fixed dense face-parsing feasibility experiment](../face-parsing-protocol.md) — `docs/face-parsing-protocol.md`
+- [Next step after the PPR preservation concern](../face-underexposure-next-step-2026-11-17.md) — `docs/face-underexposure-next-step-2026-11-17.md`
+- [Approved fixed facial-underexposure pilot](../face-underexposure-pilot-protocol-2026-11-17.md) — `docs/face-underexposure-pilot-protocol-2026-11-17.md`
+- [Approved facial-underexposure pilot: completed, not advanced](../face-underexposure-pilot-results-2026-11-17.md) — `docs/face-underexposure-pilot-results-2026-11-17.md`
+- [Face-underexposure checkpoint: bounded readiness result](../face-underexposure-readiness-results-2026-11-17.md) — `docs/face-underexposure-readiness-results-2026-11-17.md`
+- [One dependency compatibility adjustment](../face-underexposure-runtime-compatibility-2026-11-17.md) — `docs/face-underexposure-runtime-compatibility-2026-11-17.md`
+- [FaceOcc artifact acquired; input mapping remains unresolved](../faceocc-acquisition-readiness-2026-11-01.md) — `docs/faceocc-acquisition-readiness-2026-11-01.md`
+- [FaceOcc preferred experimental candidate: bounded development decision](../faceocc-bounded-development-plan-2026-11-01.md) — `docs/faceocc-bounded-development-plan-2026-11-01.md`
+- [Fixed FaceOcc input adaptation](../faceocc-bridge-protocol-2026-11-01.md) — `docs/faceocc-bridge-protocol-2026-11-01.md`
+- [Fixed MediaPipe-to-FaceOcc bridge prepared](../faceocc-bridge-results-2026-11-01.md) — `docs/faceocc-bridge-results-2026-11-01.md`
+- [Broader FaceOcc annotation set ready; comparison pending annotations](../faceocc-broader-annotation-ready-2026-11-01.md) — `docs/faceocc-broader-annotation-ready-2026-11-01.md`
+- [Broader fixed FaceOcc evaluation: annotate first](../faceocc-broader-evaluation-protocol-2026-11-01.md) — `docs/faceocc-broader-evaluation-protocol-2026-11-01.md`
+- [Evidence for considering a FaceOcc measurement-veto change](../faceocc-comparison-evidence-2026-11-01.md) — `docs/faceocc-comparison-evidence-2026-11-01.md`
+- [FaceOcc coordinate and loading checks](../faceocc-coordinate-loading-results-2026-11-01.md) — `docs/faceocc-coordinate-loading-results-2026-11-01.md`
+- [Preferred experimental measurement: reusable service and saved parity](../faceocc-development-service-results-2026-11-01.md) — `docs/faceocc-development-service-results-2026-11-01.md`
+- [Broader FaceOcc evaluation: reduced manual review](../faceocc-light-review-amendment-2026-11-01.md) — `docs/faceocc-light-review-amendment-2026-11-01.md`
+- [Reduced-burden FaceOcc review: full comparison saved, four judgments pending](../faceocc-light-review-results-2026-11-01.md) — `docs/faceocc-light-review-results-2026-11-01.md`
+- [MST feasibility decision: no calibration run now](../faceocc-mst-feasibility-decision-2026-11-01.md) — `docs/faceocc-mst-feasibility-decision-2026-11-01.md`
+- [FaceOcc qualitative evaluation: actual review imported](../faceocc-qualitative-conclusion-2026-11-01.md) — `docs/faceocc-qualitative-conclusion-2026-11-01.md`
+- [One FaceOcc measurement-veto diagnostic](../faceocc-single-diagnostic-protocol-2026-11-01.md) — `docs/faceocc-single-diagnostic-protocol-2026-11-01.md`
+- [FaceOcc veto: one diagnostic completed](../faceocc-single-diagnostic-results-2026-11-01.md) — `docs/faceocc-single-diagnostic-results-2026-11-01.md`
+- [Proposed fixed comparison: facial exception to the clean veto](../facial-exception-to-veto-protocol-2026-11-08.md) — `docs/facial-exception-to-veto-protocol-2026-11-08.md`
+- [Obtain the facial-hair checkpoint](../facial-hair-checkpoint-acquisition.md) — `docs/facial-hair-checkpoint-acquisition.md`
+- [Facial-hair cleanup checkpoint — 30 October 2026](../facial-hair-exclusion-results.md) — `docs/facial-hair-exclusion-results.md`
+- [Facial exception to the clean veto — results](../facial-veto-exception-results-2026-11-08.md) — `docs/facial-veto-exception-results-2026-11-08.md`
+- [FairFace subset selection guide](../fairface-subset-selection-guide.md) — `docs/fairface-subset-selection-guide.md`
+- [Why the current correction tree chooses the wrong operation](../ffhq-correction-learning-review-2026-11-11.md) — `docs/ffhq-correction-learning-review-2026-11-11.md`
+- [Fixed photographic correction-target diagnostic](../ffhq-correction-target-protocol-2026-11-05.md) — `docs/ffhq-correction-target-protocol-2026-11-05.md`
+- [Photographic correction targets: core recovery works; stress failures remain](../ffhq-correction-target-results-2026-11-05.md) — `docs/ffhq-correction-target-results-2026-11-05.md`
+- [Directional recoverability workflow: generated engineering passed](../ffhq-directional-recoverability-engineering-results-2026-11-14.md) — `docs/ffhq-directional-recoverability-engineering-results-2026-11-14.md`
+- [Current-renderer FFHQ directional recoverability test](../ffhq-directional-recoverability-protocol-2026-11-14.md) — `docs/ffhq-directional-recoverability-protocol-2026-11-14.md`
+- [FFHQ directional recoverability: real diagnostic complete](../ffhq-directional-recoverability-results-2026-11-14.md) — `docs/ffhq-directional-recoverability-results-2026-11-14.md`
+- [Fixed FFHQ mask/support feasibility protocol](../ffhq-mask-support-protocol-2026-11-05.md) — `docs/ffhq-mask-support-protocol-2026-11-05.md`
+- [FFHQ mask/support feasibility: technical success, visual holds](../ffhq-mask-support-results-2026-11-05.md) — `docs/ffhq-mask-support-results-2026-11-05.md`
+- [FFHQ restoration development comparison ? frozen11 November2026](../ffhq-restoration-comparison-protocol-2026-11-11.md) — `docs/ffhq-restoration-comparison-protocol-2026-11-11.md`
+- [FFHQ support preparation — 11 November 2026](../ffhq-reviewed-support-preparation-protocol-2026-11-11.md) — `docs/ffhq-reviewed-support-preparation-protocol-2026-11-11.md`
+- [Fixed FFHQ source/support eligibility review](../ffhq-source-eligibility-protocol-2026-11-05.md) — `docs/ffhq-source-eligibility-protocol-2026-11-05.md`
+- [FFHQ eligibility: references usable, full-pipeline admission still separate](../ffhq-source-eligibility-results-2026-11-05.md) — `docs/ffhq-source-eligibility-results-2026-11-05.md`
+- [FFHQ photographic sources: bounded preparation complete](../ffhq-source-preparation-results-2026-11-03.md) — `docs/ffhq-source-preparation-results-2026-11-03.md`
+- [FFHQR suitability decision](../ffhqr-source-suitability-review-2026-11-15.md) — `docs/ffhqr-source-suitability-review-2026-11-15.md`
+- [Fitting-only green-feature preparation — 9 November 2026](../fitting-green-feature-preparation-results-2026-11-09.md) — `docs/fitting-green-feature-preparation-results-2026-11-09.md`
+- [Five-control source-held workflow: generated engineering passed](../five-control-prediction-engineering-results-2026-11-14.md) — `docs/five-control-prediction-engineering-results-2026-11-14.md`
+- [Real five-control input features: complete and independently verified](../five-control-real-feature-preparation-results-2026-11-14.md) — `docs/five-control-real-feature-preparation-results-2026-11-14.md`
+- [Five-control real source-held prediction: not advanced](../five-control-real-prediction-results-2026-11-15.md) — `docs/five-control-real-prediction-results-2026-11-15.md`
+- [Bounded saved-route diagnosis of the failed five-control prediction test](../five-control-saved-route-diagnosis-protocol-2026-11-15.md) — `docs/five-control-saved-route-diagnosis-protocol-2026-11-15.md`
+- [Five-control saved-route diagnosis: transfer failure, no qualified repair](../five-control-saved-route-diagnosis-results-2026-11-15.md) — `docs/five-control-saved-route-diagnosis-results-2026-11-15.md`
+- [Five-control prediction test: exact design fixed, no training yet](../five-control-source-held-prediction-design-results-2026-11-14.md) — `docs/five-control-source-held-prediction-design-results-2026-11-14.md`
+- [One bounded five-control source-held prediction test](../five-control-source-held-prediction-protocol-2026-11-14.md) — `docs/five-control-source-held-prediction-protocol-2026-11-14.md`
+- [Approved nested-selection execution details](../fivefold-tree-selection-execution-protocol-2026-11-16.md) — `docs/fivefold-tree-selection-execution-protocol-2026-11-16.md`
+- [Proposed next step: one declared fivefold tree-selection study](../fivefold-tree-selection-proposal-2026-11-16.md) — `docs/fivefold-tree-selection-proposal-2026-11-16.md`
+- [Approved fivefold selection: complete, combined gate failed](../fivefold-tree-selection-results-2026-11-16.md) — `docs/fivefold-tree-selection-results-2026-11-16.md`
+- [FiveK two-source full-resolution decision](../fivek-full-resolution-results-2026-11-02.md) — `docs/fivek-full-resolution-results-2026-11-02.md`
+- [FiveK fixed six-source feasibility result](../fivek-source-feasibility-results-2026-11-02.md) — `docs/fivek-source-feasibility-results-2026-11-02.md`
+- [Actual-record linear-leaf adapter engineering complete](../fixed-branch-linear-leaf-engineering-results-2026-11-14.md) — `docs/fixed-branch-linear-leaf-engineering-results-2026-11-14.md`
+- [Fixed-branch linear leaves: first60 fitting feasibility passes modestly](../fixed-branch-linear-leaf-first-fit-results-2026-11-14.md) — `docs/fixed-branch-linear-leaf-first-fit-results-2026-11-14.md`
+- [Fixed-branch affine continuation cannot change three known blue concerns](../fixed-linear-leaf-known-blockers-2026-11-14.md) — `docs/fixed-linear-leaf-known-blockers-2026-11-14.md`
+- [Fixed-structure colour-nonharm comparison](../fixed-structure-nonharm-protocol-2026-11-09.md) — `docs/fixed-structure-nonharm-protocol-2026-11-09.md`
+- [Fixed-structure nonharm comparison — 9 November 2026](../fixed-structure-nonharm-results-2026-11-09.md) — `docs/fixed-structure-nonharm-results-2026-11-09.md`
+- [Completed 24-photo reference/mask review](../focused-mask-review-import-results.md) — `docs/focused-mask-review-import-results.md`
+- [Reduced training-only mask review](../focused-mask-review-protocol.md) — `docs/focused-mask-review-protocol.md`
+- [One focused review instead of seven batches](../focused-mask-review-results.md) — `docs/focused-mask-review-results.md`
+- [Reviewed-source semantic mask comparison](../focused-semantic-mask-protocol.md) — `docs/focused-semantic-mask-protocol.md`
+- [Reviewed-source semantic mask candidate](../focused-semantic-mask-results.md) — `docs/focused-semantic-mask-results.md`
+- [Candidate mask review imported](../focused-semantic-mask-review-results.md) — `docs/focused-semantic-mask-review-results.md`
+- [Focused paper color-rule diagnostic](../focused-ycrcb-protocol.md) — `docs/focused-ycrcb-protocol.md`
+- [Where facial correction coverage is lost](../fragmented-correction-support-results-2026-11-08.md) — `docs/fragmented-correction-support-results-2026-11-08.md`
+- [Parser contract check on the fragmented distorted inputs](../fragmented-parser-contract-audit-2026-11-08.md) — `docs/fragmented-parser-contract-audit-2026-11-08.md`
+- [Friday preparation: proposed parallel work](../friday-critical-path-2026-11-17.md) — `docs/friday-critical-path-2026-11-17.md`
+- [Friday deadline clarification](../friday-deadline-clarification-2026-11-17.md) — `docs/friday-deadline-clarification-2026-11-17.md`
+- [One distance-based final-predictor assessment](../frozen-block-neighbour-correction-protocol-2026-11-15.md) — `docs/frozen-block-neighbour-correction-protocol-2026-11-15.md`
+- [Block-balanced neighbour predictor: generated engineering](../frozen-block-neighbour-engineering-results-2026-11-15.md) — `docs/frozen-block-neighbour-engineering-results-2026-11-15.md`
+- [Frozen features with block-balanced neighbours: numerical result](../frozen-block-neighbour-results-2026-11-15.md) — `docs/frozen-block-neighbour-results-2026-11-15.md`
+- [Case09 clarification and remaining-two continuation](../frozen-neighbour-colour-case09-clarification-2026-11-15.md) — `docs/frozen-neighbour-colour-case09-clarification-2026-11-15.md`
+- [Completed user colour review](../frozen-neighbour-colour-completed-results-2026-11-15.md) — `docs/frozen-neighbour-colour-completed-results-2026-11-15.md`
+- [Colour review stopped at appearance uncertainty](../frozen-neighbour-colour-review-stopping-point-2026-11-15.md) — `docs/frozen-neighbour-colour-review-stopping-point-2026-11-15.md`
+- [Bounded colour-usefulness review](../frozen-neighbour-colour-usefulness-protocol-2026-11-15.md) — `docs/frozen-neighbour-colour-usefulness-protocol-2026-11-15.md`
+- [Exposure appearance rejected despite numerical improvement](../frozen-neighbour-exposure-rejection-2026-11-15.md) — `docs/frozen-neighbour-exposure-rejection-2026-11-15.md`
+- [Eight-case exposure usefulness screen](../frozen-neighbour-exposure-usefulness-protocol-2026-11-15.md) — `docs/frozen-neighbour-exposure-usefulness-protocol-2026-11-15.md`
+- [Saved identity review: all final answers acceptable](../frozen-neighbour-identity-review-results-2026-11-15.md) — `docs/frozen-neighbour-identity-review-results-2026-11-15.md`
+- [Frozen fitting recipe and separately selected publisher-key check](../frozen-split-subject-check-protocol-2026-11-06.md) — `docs/frozen-split-subject-check-protocol-2026-11-06.md`
+- [Frozen correction candidate: separate-subject results](../frozen-split-subject-check-results-2026-11-06.md) — `docs/frozen-split-subject-check-results-2026-11-06.md`
+- [First step toward a full correction model](../full-correction-training-basis-first-step-2026-11-15.md) — `docs/full-correction-training-basis-first-step-2026-11-15.md`
+- [Recovery-oriented exposure controls: declared supplemental recipe](../gamma-control-data-specification.md) — `docs/gamma-control-data-specification.md`
+- [Gamma-only scene-chroma restriction comparison](../gamma-scene-chroma-restriction-protocol-2026-11-07.md) — `docs/gamma-scene-chroma-restriction-protocol-2026-11-07.md`
+- [Gamma-only scene-chroma restriction: results](../gamma-scene-chroma-restriction-results-2026-11-07.md) — `docs/gamma-scene-chroma-restriction-results-2026-11-07.md`
+- [Fixed gamma scene-lightness restriction](../gamma-scene-lightness-protocol-2026-11-07.md) — `docs/gamma-scene-lightness-protocol-2026-11-07.md`
+- [Removing scene brightness: clean protection, little core recovery](../gamma-scene-lightness-results-2026-11-07.md) — `docs/gamma-scene-lightness-results-2026-11-07.md`
+- [Remaining colour decisions: saved-route diagnosis](../gap-colour-route-diagnosis-2026-11-13.md) — `docs/gap-colour-route-diagnosis-2026-11-13.md`
+- [Gap-cue source-held workflow engineering](../gap-source-held-engineering-results-2026-11-12.md) — `docs/gap-source-held-engineering-results-2026-11-12.md`
+- [Gap-cue development comparison: review ready](../gap-source-held-review-ready-2026-11-12.md) — `docs/gap-source-held-review-ready-2026-11-12.md`
+- [Generated full-schema correction check — 6 November 2026](../generated-full-correction-results-2026-11-06.md) — `docs/generated-full-correction-results-2026-11-06.md`
+- [Hair-removal experiment — 23 October 2026](../graphcut-support-results.md) — `docs/graphcut-support-results.md`
+- [Gray-pixel colour-cast cue: assumptions and readiness](../gray-pixel-input-feasibility-2026-11-11.md) — `docs/gray-pixel-input-feasibility-2026-11-11.md`
+- [Frozen gray-pixel selector: generated-only engineering protocol](../gray-pixel-selector-protocol-2026-11-12.md) — `docs/gray-pixel-selector-protocol-2026-11-12.md`
+- [Gray-pixel selector: generated-only results and disposition](../gray-pixel-selector-results-2026-11-12.md) — `docs/gray-pixel-selector-results-2026-11-12.md`
+- [Selected correction design: facial green-channel distribution](../green-channel-correction-design-2026-11-09.md) — `docs/green-channel-correction-design-2026-11-09.md`
+- [Green-channel design readiness — 9 November 2026](../green-channel-design-readiness-2026-11-09.md) — `docs/green-channel-design-readiness-2026-11-09.md`
+- [Fixed green-feature correction comparison — 9 November 2026](../green-feature-correction-results-2026-11-09.md) — `docs/green-feature-correction-results-2026-11-09.md`
+- [One bounded source-diversity expansion — metadata phase](../group-diversity-expansion-protocol-2026-11-08.md) — `docs/group-diversity-expansion-protocol-2026-11-08.md`
+- [Fixed occlusion and final-support stage — 8 November 2026](../group-diversity-occlusion-protocol-2026-11-08.md) — `docs/group-diversity-occlusion-protocol-2026-11-08.md`
+- [Broader cohort: final-mask stage — 8 November 2026](../group-diversity-occlusion-results-2026-11-08.md) — `docs/group-diversity-occlusion-results-2026-11-08.md`
+- [Development-only parent measurement screen](../group-diversity-parent-screen-protocol-2026-11-08.md) — `docs/group-diversity-parent-screen-protocol-2026-11-08.md`
+- [Broader source preparation: first stage — 8 November 2026](../group-diversity-preparation-results-2026-11-08.md) — `docs/group-diversity-preparation-results-2026-11-08.md`
+- [Limiting unwanted correction — 22 October 2026](../guarded-correction-support-results.md) — `docs/guarded-correction-support-results.md`
+- [Hair contamination fix: generation-mask experiment](../hair-clean-generation-results.md) — `docs/hair-clean-generation-results.md`
+- [Highlight-context mathematical feasibility protocol](../highlight-context-generated-protocol-2026-11-13.md) — `docs/highlight-context-generated-protocol-2026-11-13.md`
+- [Highlight-context generated mathematical assessment](../highlight-context-generated-results-2026-11-13.md) — `docs/highlight-context-generated-results-2026-11-13.md`
+- [Frozen input-only histogram-gap cache audit](../histogram-gap-exposed-cache-protocol-2026-11-12.md) — `docs/histogram-gap-exposed-cache-protocol-2026-11-12.md`
+- [Histogram-gap signal in the existing exposed input cache](../histogram-gap-exposed-input-results-2026-11-12.md) — `docs/histogram-gap-exposed-input-results-2026-11-12.md`
+- [Frozen generated-only histogram-gap check](../histogram-gap-generated-protocol-2026-11-12.md) — `docs/histogram-gap-generated-protocol-2026-11-12.md`
+- [Histogram-gap descriptor: generated robustness results](../histogram-gap-generated-results-2026-11-12.md) — `docs/histogram-gap-generated-results-2026-11-12.md`
+- [22-input fitting-only runner: generated engineering results](../histogram-gap-runner-engineering-results-2026-11-12.md) — `docs/histogram-gap-runner-engineering-results-2026-11-12.md`
+- [Frozen 22-input source-held development comparison](../histogram-gap-source-held-comparison-protocol-2026-11-12.md) — `docs/histogram-gap-source-held-comparison-protocol-2026-11-12.md`
+- [Gap-cue tree with approved ear support: development results](../histogram-gap-source-held-results-2026-11-12.md) — `docs/histogram-gap-source-held-results-2026-11-12.md`
+- [Frozen 22-input fitting-only feasibility](../histogram-gap-training-feasibility-protocol-2026-11-12.md) — `docs/histogram-gap-training-feasibility-protocol-2026-11-12.md`
+- [22-input gap-cue fitting-only feasibility results](../histogram-gap-training-feasibility-results-2026-11-12.md) — `docs/histogram-gap-training-feasibility-results-2026-11-12.md`
+- [Illumination-stability design feasibility — 11 November 2026](../illumination-stability-feasibility-results-2026-11-11.md) — `docs/illumination-stability-feasibility-results-2026-11-11.md`
+- [One image-loss action-tree redesign](../image-loss-action-tree-protocol-2026-11-07.md) — `docs/image-loss-action-tree-protocol-2026-11-07.md`
+- [Joint image-loss tree: stronger recovery, clean generalization unresolved](../image-loss-action-tree-results-2026-11-07.md) — `docs/image-loss-action-tree-results-2026-11-07.md`
+- [Where the implementation differs from the proposal](../implementation-departures-simple-2026-10-31.md) — `docs/implementation-departures-simple-2026-10-31.md`
+- [Thesis 2 Implementation Plan](../implementation-plan.md) — `docs/implementation-plan.md`
+- [Additional training-source inventory — 30 October 2026](../independent-source-expansion-inventory.md) — `docs/independent-source-expansion-inventory.md`
+- [Input-derived-mask correction check](../input-derived-mask-check-protocol-2026-11-06.md) — `docs/input-derived-mask-check-protocol-2026-11-06.md`
+- [Input-derived masks: end-to-end experimental results](../input-derived-mask-check-results-2026-11-06.md) — `docs/input-derived-mask-check-results-2026-11-06.md`
+- [Integrated correction development plan — 3 November 2026](../integrated-correction-development-plan-2026-11-03.md) — `docs/integrated-correction-development-plan-2026-11-03.md`
+- [Integrated correction option — 23 October 2026](../integrated-correction-option.md) — `docs/integrated-correction-option.md`
+- [Joint-colour continuation: acceptable development review, qualification pending](../joint-colour-acceptability-review-results-2026-11-13.md) — `docs/joint-colour-acceptability-review-results-2026-11-13.md`
+- [Joint-colour review: prospective early failure, no further ratings needed](../joint-colour-early-review-results-2026-11-13.md) — `docs/joint-colour-early-review-results-2026-11-13.md`
+- [Qualification and integration plan for the frozen joint-colour recipe](../joint-colour-qualification-plan-2026-11-13.md) — `docs/joint-colour-qualification-plan-2026-11-13.md`
+- [Qualification planning complete: supported claims and gaps explicit](../joint-colour-qualification-plan-results-2026-11-13.md) — `docs/joint-colour-qualification-plan-results-2026-11-13.md`
+- [281-input fitting runner: generated engineering passed](../joint-colour-runner-engineering-results-2026-11-13.md) — `docs/joint-colour-runner-engineering-results-2026-11-13.md`
+- [Frozen joint-colour source-held comparison design](../joint-colour-source-held-comparison-protocol-2026-11-13.md) — `docs/joint-colour-source-held-comparison-protocol-2026-11-13.md`
+- [Joint-colour source-held comparison: design complete](../joint-colour-source-held-design-results-2026-11-13.md) — `docs/joint-colour-source-held-design-results-2026-11-13.md`
+- [Joint-colour fixed development run verified; identity-first review ready](../joint-colour-source-held-review-ready-2026-11-13.md) — `docs/joint-colour-source-held-review-ready-2026-11-13.md`
+- [Joint-colour comparison workflow: generated engineering complete](../joint-colour-workflow-engineering-results-2026-11-13.md) — `docs/joint-colour-workflow-engineering-results-2026-11-13.md`
+- [One joint-cue decision-tree comparison](../joint-cue-tree-protocol-2026-11-16.md) — `docs/joint-cue-tree-protocol-2026-11-16.md`
+- [Joint features: exposure improves, colour fails](../joint-cue-tree-results-2026-11-16.md) — `docs/joint-cue-tree-results-2026-11-16.md`
+- [Fixed exposed-input audit of joint log-colour features](../joint-log-colour-exposed-audit-protocol-2026-11-13.md) — `docs/joint-log-colour-exposed-audit-protocol-2026-11-13.md`
+- [Joint log-colour: exposed input audit complete](../joint-log-colour-exposed-audit-results-2026-11-13.md) — `docs/joint-log-colour-exposed-audit-results-2026-11-13.md`
+- [Joint log-colour representation: bounded generated protocol](../joint-log-colour-generated-protocol-2026-11-13.md) — `docs/joint-log-colour-generated-protocol-2026-11-13.md`
+- [Joint log-colour candidate: engineering passed, photo usefulness untested](../joint-log-colour-generated-results-2026-11-13.md) — `docs/joint-log-colour-generated-results-2026-11-13.md`
+- [Joint log-colour learning test: design frozen, not executed](../joint-log-colour-training-design-results-2026-11-13.md) — `docs/joint-log-colour-training-design-results-2026-11-13.md`
+- [Fixed joint log-colour learning-feasibility design](../joint-log-colour-training-feasibility-protocol-2026-11-13.md) — `docs/joint-log-colour-training-feasibility-protocol-2026-11-13.md`
+- [Joint log-colour first fitting test: verified gain, no held evidence](../joint-log-colour-training-feasibility-results-2026-11-13.md) — `docs/joint-log-colour-training-feasibility-results-2026-11-13.md`
+- [Joint neutral-control and fitting-support check](../joint-neutral-support-protocol-2026-11-07.md) — `docs/joint-neutral-support-protocol-2026-11-07.md`
+- [Joint control repair: clean photos protected, useful correction lost](../joint-neutral-support-results-2026-11-07.md) — `docs/joint-neutral-support-results-2026-11-07.md`
+- [Saved-trace audit after the joint-control check](../joint-policy-trace-audit-protocol-2026-11-07.md) — `docs/joint-policy-trace-audit-protocol-2026-11-07.md`
+- [Why the joint-control repair loses useful corrections](../joint-policy-trace-audit-results-2026-11-07.md) — `docs/joint-policy-trace-audit-results-2026-11-07.md`
+- [Fixed cleanup-order application-support comparison](../jpeg-cleanup-order-protocol.md) — `docs/jpeg-cleanup-order-protocol.md`
+- [Traced JPEG mask losses and tested one cleanup-order change](../jpeg-mask-stage-and-cleanup-results.md) — `docs/jpeg-mask-stage-and-cleanup-results.md`
+- [Saved labelled annotation audit — 10 November 2026](../labelled-annotation-audit-2026-11-10.md) — `docs/labelled-annotation-audit-2026-11-10.md`
+- [Existing labelled brightness coverage review — 10 November 2026](../labelled-brightness-coverage-review-2026-11-10.md) — `docs/labelled-brightness-coverage-review-2026-11-10.md`
+- [Fixed local brightness screen](../labelled-brightness-screen-protocol-2026-11-10.md) — `docs/labelled-brightness-screen-protocol-2026-11-10.md`
+- [Fixed 1200-capture screen results — 10 November 2026](../labelled-brightness-screen-results-2026-11-10.md) — `docs/labelled-brightness-screen-results-2026-11-10.md`
+- [Review the labelled facial measurements](../labelled-manual-measurement-guide-2026-11-10.md) — `docs/labelled-manual-measurement-guide-2026-11-10.md`
+- [Labelled manual measurement preparation protocol — 10 November 2026](../labelled-manual-measurement-protocol-2026-11-10.md) — `docs/labelled-manual-measurement-protocol-2026-11-10.md`
+- [Labelled measurement editing preparation — 10 November 2026](../labelled-manual-measurement-results-2026-11-10.md) — `docs/labelled-manual-measurement-results-2026-11-10.md`
+- [Fixed landmark-framing comparison](../landmark-framing-protocol.md) — `docs/landmark-framing-protocol.md`
+- [Crop versus full-image landmark comparison](../landmark-framing-results.md) — `docs/landmark-framing-results.md`
+- [Concrete MST method choice — 5 November 2026](../lighting-aware-mst-method-choice-2026-11-05.md) — `docs/lighting-aware-mst-method-choice-2026-11-05.md`
+- [One bounded model decision: fixed branches with affine leaves](../linear-leaf-bounded-trial-decision-2026-11-14.md) — `docs/linear-leaf-bounded-trial-decision-2026-11-14.md`
+- [Bounded model trial selected and specified; first fit not executed](../linear-leaf-bounded-trial-design-results-2026-11-14.md) — `docs/linear-leaf-bounded-trial-design-results-2026-11-14.md`
+- [Linear-leaf artificial feasibility design specified](../linear-leaf-generated-design-results-2026-11-13.md) — `docs/linear-leaf-generated-design-results-2026-11-13.md`
+- [Fixed generated-only linear-leaf feasibility design](../linear-leaf-generated-feasibility-protocol-2026-11-13.md) — `docs/linear-leaf-generated-feasibility-protocol-2026-11-13.md`
+- [Linear-leaf engineering passes; source-colour confusion remains](../linear-leaf-generated-feasibility-results-2026-11-13.md) — `docs/linear-leaf-generated-feasibility-results-2026-11-13.md`
+- [Candidate: one multi-output tree with linear leaves](../linear-leaf-model-tree-candidate-review-2026-11-13.md) — `docs/linear-leaf-model-tree-candidate-review-2026-11-13.md`
+- [Local labelled photographic source review — 11 November 2026](../local-labelled-photographic-source-review-2026-11-11.md) — `docs/local-labelled-photographic-source-review-2026-11-11.md`
+- [One-step local nonharm refinement comparison](../local-nonharm-refinement-protocol-2026-11-09.md) — `docs/local-nonharm-refinement-protocol-2026-11-09.md`
+- [Bounded local nonharm refinement — 9 November 2026](../local-nonharm-refinement-results-2026-11-09.md) — `docs/local-nonharm-refinement-results-2026-11-09.md`
+- [Fixed multiplicative-target regression comparison](../log-target-tree-protocol.md) — `docs/log-target-tree-protocol.md`
+- [Multiplier-target comparison and target audit](../log-target-tree-results.md) — `docs/log-target-tree-results.md`
+- [Lower-face boundary experiment](../lower-face-boundary-results.md) — `docs/lower-face-boundary-results.md`
+- [One luminance/chroma operator feasibility test](../luminance-chroma-feasibility-protocol-2026-11-15.md) — `docs/luminance-chroma-feasibility-protocol-2026-11-15.md`
+- [Luminance/chroma two-case diagnostic result](../luminance-chroma-two-case-results-2026-11-15.md) — `docs/luminance-chroma-two-case-results-2026-11-15.md`
+- [User-assisted mask refinement route — 9 November 2026](../manual-mask-refinement-route-2026-11-09.md) — `docs/manual-mask-refinement-route-2026-11-09.md`
+- [Facial Skin Mask Quality Review Policy](../mask-quality-review.md) — `docs/mask-quality-review.md`
+- [Mask versus parameter diagnosis — 23 October 2026](../mask-vs-parameter-results.md) — `docs/mask-vs-parameter-results.md`
+- [Focused local material-model search — 8 November 2026](../material-aware-model-search-2026-11-08.md) — `docs/material-aware-model-search-2026-11-08.md`
+- [Material-model readiness check — 8 November 2026](../material-candidate-readiness-2026-11-08.md) — `docs/material-candidate-readiness-2026-11-08.md`
+- [Input-relative color check — 22 October 2026](../material-check-results.md) — `docs/material-check-results.md`
+- [Cached material-failure attribution protocol](../material-failure-attribution-protocol.md) — `docs/material-failure-attribution-protocol.md`
+- [Plan for better skin and object separation — 8 November 2026](../material-improvement-development-plan-2026-11-08.md) — `docs/material-improvement-development-plan-2026-11-08.md`
+- [Facial-hair model suitability decision — 6 November 2026](../material-model-suitability-decision-2026-11-06.md) — `docs/material-model-suitability-decision-2026-11-06.md`
+- [Small material review](../material-point-review-guide.md) — `docs/material-point-review-guide.md`
+- [Human material review results — 22 October 2026](../material-point-review-results.md) — `docs/material-point-review-results.md`
+- [Material protection and reference-quality checkpoint](../material-protection-design-checkpoint.md) — `docs/material-protection-design-checkpoint.md`
+- [Measurement-error proposal](../measurement-error-proposal-2026-11-01.md) — `docs/measurement-error-proposal-2026-11-01.md`
+- [Measurement parity and clean/distorted overlap](../measurement-neighbor-audit-results.md) — `docs/measurement-neighbor-audit-results.md`
+- [Method recommendations before expanded training](../method-decisions-2026-10-23.md) — `docs/method-decisions-2026-10-23.md`
+- [TrueHue correction-model completion plan](../model-completion-plan-2026-11-09.md) — `docs/model-completion-plan-2026-11-09.md`
+- [Standing priority: correction improvements and time cost](../model-progress-time-priority-2026-11-17.md) — `docs/model-progress-time-priority-2026-11-17.md`
+- [Face-masking shortlist and one recommended candidate](../modern-face-masking-shortlist-2026-11-01.md) — `docs/modern-face-masking-shortlist-2026-11-01.md`
+- [One pretrained exposure-correction alternative: scope/backend decision needed](../msec-pretrained-scope-review-2026-11-15.md) — `docs/msec-pretrained-scope-review-2026-11-15.md`
+- [MST calibration and evaluation design](../mst-calibration-evaluation-design.md) — `docs/mst-calibration-evaluation-design.md`
+- [Matching MST cohort: stronger new access lead, no admitted cohort yet](../mst-cohort-source-investigation-2026-11-05.md) — `docs/mst-cohort-source-investigation-2026-11-05.md`
+- [MST dataset correspondence status](../mst-dataset-correspondence-status-2026-11-05.md) — `docs/mst-dataset-correspondence-status-2026-11-05.md`
+- [MST-E ITA Calibration Diagnostic Protocol](../mst-e-ita-diagnostic-protocol.md) — `docs/mst-e-ita-diagnostic-protocol.md`
+- [MST evidence checkpoint — 30 October 2026](../mst-evidence-checkpoint-2026-10-30.md) — `docs/mst-evidence-checkpoint-2026-10-30.md`
+- [Proposed single gate restriction: exclude estimated MST from the gate only](../mst-excluded-gate-proposed-protocol-2026-11-07.md) — `docs/mst-excluded-gate-proposed-protocol-2026-11-07.md`
+- [Approved single gate restriction: exclude estimated MST from the gate only](../mst-excluded-gate-protocol-2026-11-07.md) — `docs/mst-excluded-gate-protocol-2026-11-07.md`
+- [Gate-only MST exclusion: results and decision](../mst-excluded-gate-results-2026-11-07.md) — `docs/mst-excluded-gate-results-2026-11-07.md`
+- [Four labelled skin measurements: simple human check ready](../mst-four-skin-check-ready-2026-11-02.md) — `docs/mst-four-skin-check-ready-2026-11-02.md`
+- [Four labelled skin checks: actual human answers imported](../mst-four-skin-check-results-2026-11-02.md) — `docs/mst-four-skin-check-results-2026-11-02.md`
+- [Limited-scope evaluation tooling](../mst-limited-evaluation-implementation.md) — `docs/mst-limited-evaluation-implementation.md`
+- [ITA-to-MST mapping feasibility audit (21 October 2026)](../mst-mapping-feasibility.md) — `docs/mst-mapping-feasibility.md`
+- [MST mapping: mask-version comparison (21 October 2026)](../mst-mask-version-comparison.md) — `docs/mst-mask-version-comparison.md`
+- [Saved measurement diagnosis](../mst-measurement-diagnosis-protocol.md) — `docs/mst-measurement-diagnosis-protocol.md`
+- [Why the current MST calibration is blocked](../mst-measurement-diagnosis-results.md) — `docs/mst-measurement-diagnosis-results.md`
+- [Retain the paper's MST method](../mst-method-retained.md) — `docs/mst-method-retained.md`
+- [Fixed monotone mapping under confirmed limited scope](../mst-monotone-square256-protocol.md) — `docs/mst-monotone-square256-protocol.md`
+- [Monotone square256 mapping: experimental progress](../mst-monotone-square256-results.md) — `docs/mst-monotone-square256-results.md`
+- [Fixed12 measurement-region QA](../mst-region-quality-protocol.md) — `docs/mst-region-quality-protocol.md`
+- [Fixed12 measurement-region QA](../mst-region-quality-results.md) — `docs/mst-region-quality-results.md`
+- [Retain the proposed MST method: metadata-only checkpoint](../mst-retention-data-audit-protocol.md) — `docs/mst-retention-data-audit-protocol.md`
+- [Reviewed cheek regions: measurement decision](../mst-reviewed-regions-results.md) — `docs/mst-reviewed-regions-results.md`
+- [Square256 measurement and calibration protocol](../mst-square256-calibration-protocol.md) — `docs/mst-square256-calibration-protocol.md`
+- [Square256 measurement and MST calibration result](../mst-square256-results.md) — `docs/mst-square256-results.md`
+- [Unsent dataset access request — Stellenbosch skin-tone dataset](../mst-stellenbosch-access-request-draft-2026-11-05.md) — `docs/mst-stellenbosch-access-request-draft-2026-11-05.md`
+- [One complete existing-subject skin eligibility study](../mst-subject-skin-study-protocol-2026-11-02.md) — `docs/mst-subject-skin-study-protocol-2026-11-02.md`
+- [Existing-subject skin study: review ready](../mst-subject-skin-study-ready-2026-11-02.md) — `docs/mst-subject-skin-study-ready-2026-11-02.md`
+- [Existing-subject skin study: review complete, stop before fitting](../mst-subject-skin-study-results-2026-11-02.md) — `docs/mst-subject-skin-study-results-2026-11-02.md`
+- [Native-anchor coordinate preparation — 9 November 2026](../native-anchor-bridge-readiness-2026-11-09.md) — `docs/native-anchor-bridge-readiness-2026-11-09.md`
+- [Proposed four-condition native inward-fade pilot](../native-inward-fade-pilot-protocol-2026-11-08.md) — `docs/native-inward-fade-pilot-protocol-2026-11-08.md`
+- [Native inward-fade pilot results](../native-inward-fade-pilot-results-2026-11-08.md) — `docs/native-inward-fade-pilot-results-2026-11-08.md`
+- [Cached native masks against completed human references — 9 November 2026](../native-mask-existing-reference-protocol-2026-11-09.md) — `docs/native-mask-existing-reference-protocol-2026-11-09.md`
+- [Native measurement against existing human references — 9 November 2026](../native-mask-existing-reference-results-2026-11-09.md) — `docs/native-mask-existing-reference-results-2026-11-09.md`
+- [Matching native-anchor MST measurement readiness — 9 November 2026](../native-mst-measurement-readiness-protocol-2026-11-09.md) — `docs/native-mst-measurement-readiness-protocol-2026-11-09.md`
+- [Native-anchor calibration measurement readiness — 9 November 2026](../native-mst-measurement-readiness-results-2026-11-09.md) — `docs/native-mst-measurement-readiness-results-2026-11-09.md`
+- [Research library by topic](../navigation/research-library.md) — `docs/navigation/research-library.md`
+- [Next data and reference plan](../next-data-reference-plan-2026-11-01.md) — `docs/next-data-reference-plan-2026-11-01.md`
+- [Paper-aligned nominal-control baseline ? frozen 11 November 2026](../nominal-control-regression-protocol-2026-11-11.md) — `docs/nominal-control-regression-protocol-2026-11-11.md`
+- [Direct nominal-control regression baseline ? 11 November 2026](../nominal-control-regression-results-2026-11-11.md) — `docs/nominal-control-regression-results-2026-11-11.md`
+- [Remaining28 candidates regenerated consistently](../non-skin-remaining28-regeneration.md) — `docs/non-skin-remaining28-regeneration.md`
+- [Consistent regeneration:60162 and63870](../non-skin-two-source-regeneration.md) — `docs/non-skin-two-source-regeneration.md`
+- [Fixed non-skin veto across three mask stages](../non-skin-veto-experiment.md) — `docs/non-skin-veto-experiment.md`
+- [Skin-only ITA/MST recalibration: completed results](../nostril-mst-calibration-results-2026-11-01.md) — `docs/nostril-mst-calibration-results-2026-11-01.md`
+- [Frozen nostril-excluded MST calibration cycle](../nostril-mst-single-cycle-protocol-2026-11-01.md) — `docs/nostril-mst-single-cycle-protocol-2026-11-01.md`
+- [Object-protected correction: bounded saved-output comparison](../object-protected-correction-protocol-2026-11-05.md) — `docs/object-protected-correction-protocol-2026-11-05.md`
+- [Object protection added to development correction masks](../object-protected-correction-results-2026-11-05.md) — `docs/object-protected-correction-results-2026-11-05.md`
+- [Oblique comparison workflow engineering](../oblique-comparison-workflow-engineering-2026-11-12.md) — `docs/oblique-comparison-workflow-engineering-2026-11-12.md`
+- [Why acceptable photographs received strong exposure changes](../oblique-identity-route-diagnosis-2026-11-12.md) — `docs/oblique-identity-route-diagnosis-2026-11-12.md`
+- [User correction/masking feedback; review incomplete](../oblique-review-feedback-pending-2026-11-12.md) — `docs/oblique-review-feedback-pending-2026-11-12.md`
+- [Generated review preview check](../oblique-review-preview-check-2026-11-12.md) — `docs/oblique-review-preview-check-2026-11-12.md`
+- [Review workflow readiness after generated preview](../oblique-review-workflow-readiness-2026-11-12.md) — `docs/oblique-review-workflow-readiness-2026-11-12.md`
+- [Oblique-tree development comparison: not ready](../oblique-source-held-comparison-results-2026-11-12.md) — `docs/oblique-source-held-comparison-results-2026-11-12.md`
+- [Review the 44 frozen development cases](../oblique-source-held-review-guide-2026-11-12.md) — `docs/oblique-source-held-review-guide-2026-11-12.md`
+- [Saved-evidence diagnosis: correction support and brightness](../oblique-support-brightness-diagnosis-2026-11-12.md) — `docs/oblique-support-brightness-diagnosis-2026-11-12.md`
+- [Candidate found: one multi-output oblique regression tree](../oblique-tree-candidate-review-2026-11-12.md) — `docs/oblique-tree-candidate-review-2026-11-12.md`
+- [Frozen oblique-tree engineering specification](../oblique-tree-engineering-protocol-2026-11-12.md) — `docs/oblique-tree-engineering-protocol-2026-11-12.md`
+- [Oblique correction tree: generated-only engineering results](../oblique-tree-engineering-results-2026-11-12.md) — `docs/oblique-tree-engineering-results-2026-11-12.md`
+- [Oblique fitting-only runner: generated verification](../oblique-tree-feasibility-runner-results-2026-11-12.md) — `docs/oblique-tree-feasibility-runner-results-2026-11-12.md`
+- [Oblique-tree source-held development comparison design](../oblique-tree-source-held-comparison-design-2026-11-12.md) — `docs/oblique-tree-source-held-comparison-design-2026-11-12.md`
+- [One oblique-tree training-only feasibility design](../oblique-tree-training-feasibility-design-2026-11-12.md) — `docs/oblique-tree-training-feasibility-design-2026-11-12.md`
+- [Oblique-tree training-only feasibility results](../oblique-tree-training-feasibility-results-2026-11-12.md) — `docs/oblique-tree-training-feasibility-results-2026-11-12.md`
+- [Online correction-reference search](../online-correction-reference-shortlist-2026-11-02.md) — `docs/online-correction-reference-shortlist-2026-11-02.md`
+- [Online reference access and portrait metadata check](../online-reference-access-results-2026-11-02.md) — `docs/online-reference-access-results-2026-11-02.md`
+- [Padded processing-crop experiment](../padded-correction-crop-test.md) — `docs/padded-correction-crop-test.md`
+- [Broader protected-material development validation](../paint-protection-validation-protocol.md) — `docs/paint-protection-validation-protocol.md`
+- [Broader protected-material development results](../paint-protection-validation-results.md) — `docs/paint-protection-validation-results.md`
+- [One paired-reference calibration test](../paired-reference-calibration-protocol-2026-11-15.md) — `docs/paired-reference-calibration-protocol-2026-11-15.md`
+- [Fixed paired-reference calibration: failed correction gate](../paired-reference-calibration-results-2026-11-15.md) — `docs/paired-reference-calibration-results-2026-11-15.md`
+- [Paired correction supervision: prerequisite check, no training selected](../paired-supervision-readiness-2026-11-18.md) — `docs/paired-supervision-readiness-2026-11-18.md`
+- [Changes to track for the thesis-panel request letter](../panel-change-register.md) — `docs/panel-change-register.md`
+- [Paper-aligned condition, target and evaluation decision](../paper-aligned-condition-target-evaluation-2026-11-14.md) — `docs/paper-aligned-condition-target-evaluation-2026-11-14.md`
+- [Paper alignment and a distinct quantized-edit cue](../paper-aligned-correction-signal-review-2026-11-12.md) — `docs/paper-aligned-correction-signal-review-2026-11-12.md`
+- [Saved-shortlist admission decision](../paper-aligned-source-admission-decision-2026-11-14.md) — `docs/paper-aligned-source-admission-decision-2026-11-14.md`
+- [Proposal alignment re-audit](../paper-alignment-reaudit-2026-11-15.md) — `docs/paper-alignment-reaudit-2026-11-15.md`
+- [Paper distortion and target checkpoint](../paper-distortion-target-checkpoint.md) — `docs/paper-distortion-target-checkpoint.md`
+- [Direct-gamma convention: fixed matched-source comparison](../paper-gamma-comparison-protocol.md) — `docs/paper-gamma-comparison-protocol.md`
+- [Versioned paper-gamma implementation and matched comparison](../paper-gamma-input-comparison-results.md) — `docs/paper-gamma-input-comparison-results.md`
+- [Paper-aligned use of input and reference photographs](../paper-input-reference-alignment-2026-11-13.md) — `docs/paper-input-reference-alignment-2026-11-13.md`
+- [Paper-method correction progress](../paper-method-correction-progress.md) — `docs/paper-method-correction-progress.md`
+- [Proposal reassessment and recommended direction — 9 November 2026](../paper-reassessment-and-recommendation-2026-11-09.md) — `docs/paper-reassessment-and-recommendation-2026-11-09.md`
+- [Paper-scoped correction-method search](../paper-scoped-correction-search-2026-11-18.md) — `docs/paper-scoped-correction-search-2026-11-18.md`
+- [Fixed parser backend comparison](../parser-backend-parity-protocol-2026-11-08.md) — `docs/parser-backend-parity-protocol-2026-11-08.md`
+- [Parser backend comparison results](../parser-backend-parity-results-2026-11-08.md) — `docs/parser-backend-parity-results-2026-11-08.md`
+- [Fixed parser, anatomy and material combination](../parser-combination-protocol.md) — `docs/parser-combination-protocol.md`
+- [Parser input audit — 8 November 2026](../parser-input-contract-audit-2026-11-08.md) — `docs/parser-input-contract-audit-2026-11-08.md`
+- [Fixed material-boundary guard follow-up](../parser-material-boundary-protocol.md) — `docs/parser-material-boundary-protocol.md`
+- [Parser, anatomical and material protection results](../parser-material-combination-results.md) — `docs/parser-material-combination-results.md`
+- [Parser suitability decision — 8 November 2026](../parser-suitability-decision-2026-11-08.md) — `docs/parser-suitability-decision-2026-11-08.md`
+- [Patchy output: fixed-operator information-loss audit](../patchy-correction-audit-protocol.md) — `docs/patchy-correction-audit-protocol.md`
+- [Patchy output: prediction error versus fixed-operator limits](../patchy-correction-limits-results.md) — `docs/patchy-correction-limits-results.md`
+- [Include skin around eyebrows during correction](../peribrow-correction-results-2026-10-31.md) — `docs/peribrow-correction-results-2026-10-31.md`
+- [Blinded development reference-suitability review](../photographer-reference-review-protocol.md) — `docs/photographer-reference-review-protocol.md`
+- [Photographer reference-suitability review package ready](../photographer-reference-review-ready.md) — `docs/photographer-reference-review-ready.md`
+- [Photographic reference continuation — 10 November 2026](../photographic-reference-continuation-protocol-2026-11-10.md) — `docs/photographic-reference-continuation-protocol-2026-11-10.md`
+- [Reference decisions and support preparation — 10 November 2026](../photographic-reference-decisions-and-support-results-2026-11-10.md) — `docs/photographic-reference-decisions-and-support-results-2026-11-10.md`
+- [Photographic supervision readiness — 10 November 2026](../photographic-reference-readiness-2026-11-10.md) — `docs/photographic-reference-readiness-2026-11-10.md`
+- [Review the photographic correction references](../photographic-reference-review-guide-2026-11-10.md) — `docs/photographic-reference-review-guide-2026-11-10.md`
+- [Photographic support preparation — 10 November 2026](../photographic-support-preparation-protocol-2026-11-10.md) — `docs/photographic-support-preparation-protocol-2026-11-10.md`
+- [Review source and target supports](../photographic-support-review-guide-2026-11-10.md) — `docs/photographic-support-review-guide-2026-11-10.md`
+- [Photographic support save controls and draft recovery — 10 November 2026](../photographic-support-save-controls-fix-2026-11-10.md) — `docs/photographic-support-save-controls-fix-2026-11-10.md`
+- [Technical continuation after the adviser-role correction](../piq-independent-technical-next-step-2026-11-17.md) — `docs/piq-independent-technical-next-step-2026-11-17.md`
+- [Alternatives after the PIQ23 form error](../piq23-access-alternatives-2026-11-16.md) — `docs/piq23-access-alternatives-2026-11-16.md`
+- [PIQ23 access preparation](../piq23-access-request-preparation-2026-11-16.md) — `docs/piq23-access-request-preparation-2026-11-16.md`
+- [Received PIQ23 Exposure: actual admission and extraction](../piq23-actual-admission-protocol-2026-11-18.md) — `docs/piq23-actual-admission-protocol-2026-11-18.md`
+- [Alternatives after the continuing PIQ23 website error](../piq23-alternatives-recheck-2026-11-17.md) — `docs/piq23-alternatives-recheck-2026-11-17.md`
+- [PIQ2023 arrival: download pending](../piq23-dataset-arrival-2026-11-18.md) — `docs/piq23-dataset-arrival-2026-11-18.md`
+- [Approved direct PIQ23-feature correction comparison](../piq23-probe-correction-protocol-2026-11-18.md) — `docs/piq23-probe-correction-protocol-2026-11-18.md`
+- [Direct PIQ23-feature correction assessment: complete, not advanced](../piq23-probe-correction-results-2026-11-18.md) — `docs/piq23-probe-correction-results-2026-11-18.md`
+- [Actual PIQ23 head: fixed held-scene reporting](../piq23-real-head-evaluation-2026-11-18.md) — `docs/piq23-real-head-evaluation-2026-11-18.md`
+- [Received PIQ23: first real quality head completed](../piq23-real-head-results-2026-11-18.md) — `docs/piq23-real-head-results-2026-11-18.md`
+- [Resumed PIQ23 stage: work while access is pending](../piq23-trainer-engineering-protocol-2026-11-17.md) — `docs/piq23-trainer-engineering-protocol-2026-11-17.md`
+- [PIQ23: necessary preparation completed while access is pending](../piq23-training-readiness-2026-11-17.md) — `docs/piq23-training-readiness-2026-11-17.md`
+- [Portrait calibration source strategy — 11 November 2026](../portrait-calibration-source-strategy-2026-11-11.md) — `docs/portrait-calibration-source-strategy-2026-11-11.md`
+- [Approved exposure-quality stage: preparation contract](../portrait-exposure-head-preparation-protocol-2026-11-16.md) — `docs/portrait-exposure-head-preparation-protocol-2026-11-16.md`
+- [Proposed scope addition: learn portrait-exposure quality](../portrait-exposure-learning-proposal-2026-11-16.md) — `docs/portrait-exposure-learning-proposal-2026-11-16.md`
+- [Portrait-exposure supervision: source review completed](../portrait-exposure-prior-review-2026-11-16.md) — `docs/portrait-exposure-prior-review-2026-11-16.md`
+- [Portrait-exposure prior: source-only review](../portrait-exposure-prior-review-protocol-2026-11-16.md) — `docs/portrait-exposure-prior-review-protocol-2026-11-16.md`
+- [Approved exposure stage: preparation results](../portrait-exposure-stage-preparation-results-2026-11-16.md) — `docs/portrait-exposure-stage-preparation-results-2026-11-16.md`
+- [Next-step review: externally learned portrait-retouching parameters](../portrait-parameter-prior-next-step-2026-11-17.md) — `docs/portrait-parameter-prior-next-step-2026-11-17.md`
+- [Correction research after MSEC cancellation](../post-msec-stopping-point-2026-11-15.md) — `docs/post-msec-stopping-point-2026-11-15.md`
+- [Post-check face-containment development comparison](../postcheck-contour-development-results.md) — `docs/postcheck-contour-development-results.md`
+- [PPR10K bounded access recheck](../ppr-bounded-access-recheck-2026-11-11.md) — `docs/ppr-bounded-access-recheck-2026-11-11.md`
+- [Approved complete PPR mapping assessment](../ppr-full-pipeline-assessment-protocol-2026-11-17.md) — `docs/ppr-full-pipeline-assessment-protocol-2026-11-17.md`
+- [Complete frozen PPR correction assessment: failed and closed](../ppr-full-pipeline-results-2026-11-18.md) — `docs/ppr-full-pipeline-results-2026-11-18.md`
+- [Official PPR mirror readiness check - 11 November 2026](../ppr-official-mirror-readiness-2026-11-11.md) — `docs/ppr-official-mirror-readiness-2026-11-11.md`
+- [Bounded official PPR parameter-checkpoint readiness](../ppr-parameter-acquisition-contract-2026-11-17.md) — `docs/ppr-parameter-acquisition-contract-2026-11-17.md`
+- [One fixed portrait-parameter feature comparison](../ppr-parameter-correction-protocol-2026-11-17.md) — `docs/ppr-parameter-correction-protocol-2026-11-17.md`
+- [Fixed portrait-parameter feature comparison](../ppr-parameter-correction-results-2026-11-17.md) — `docs/ppr-parameter-correction-results-2026-11-17.md`
+- [PPR10K anchor miss diagnosis — 9 November 2026](../ppr10k-anchor-diagnosis-2026-11-09.md) — `docs/ppr10k-anchor-diagnosis-2026-11-09.md`
+- [Fixed PPR10K automatic-support feasibility screen — 9 November 2026](../ppr10k-automatic-support-screen-protocol-2026-11-09.md) — `docs/ppr10k-automatic-support-screen-protocol-2026-11-09.md`
+- [Fixed eight-pair PPR10K automatic-support result — 9 November 2026](../ppr10k-automatic-support-screen-results-2026-11-09.md) — `docs/ppr10k-automatic-support-screen-results-2026-11-09.md`
+- [Detail check: contrast is promising, but not ready for adoption](../ppr10k-clipping-detail-results-2026-11-02.md) — `docs/ppr10k-clipping-detail-results-2026-11-02.md`
+- [One contrast-control comparison: strong wedding improvement, mixed indoor results](../ppr10k-contrast-diagnostic-results-2026-11-02.md) — `docs/ppr10k-contrast-diagnostic-results-2026-11-02.md`
+- [Expert-target identity-control readiness protocol — 9 November 2026](../ppr10k-expert-control-readiness-protocol-2026-11-09.md) — `docs/ppr10k-expert-control-readiness-protocol-2026-11-09.md`
+- [Photographic supervision and expert-control readiness — 9 November 2026](../ppr10k-expert-control-readiness-results-2026-11-09.md) — `docs/ppr10k-expert-control-readiness-results-2026-11-09.md`
+- [PPR10K fixed sample: useful appearance examples, not training-ready](../ppr10k-fixed-sample-inspection-2026-11-02.md) — `docs/ppr10k-fixed-sample-inspection-2026-11-02.md`
+- [Fixed native-input YuNet anchor comparison — 9 November 2026](../ppr10k-native-anchor-comparison-protocol-2026-11-09.md) — `docs/ppr10k-native-anchor-comparison-protocol-2026-11-09.md`
+- [Native-input PPR10K anchor comparison — 9 November 2026](../ppr10k-native-anchor-comparison-results-2026-11-09.md) — `docs/ppr10k-native-anchor-comparison-results-2026-11-09.md`
+- [Native-coordinate pipeline integration diagnostic — 9 November 2026](../ppr10k-native-pipeline-diagnostic-protocol-2026-11-09.md) — `docs/ppr10k-native-pipeline-diagnostic-protocol-2026-11-09.md`
+- [Native-coordinate pipeline integration result — 9 November 2026](../ppr10k-native-pipeline-diagnostic-results-2026-11-09.md) — `docs/ppr10k-native-pipeline-diagnostic-results-2026-11-09.md`
+- [New PPR10K groups: contrast improves approximation in eight further photos](../ppr10k-new-group-comparison-results-2026-11-02.md) — `docs/ppr10k-new-group-comparison-results-2026-11-02.md`
+- [PPR10K: three controls capture much of the change, with visible limits](../ppr10k-operator-diagnostic-results-2026-11-02.md) — `docs/ppr10k-operator-diagnostic-results-2026-11-02.md`
+- [Remaining correction error: compressed contrast and colour differences](../ppr10k-residual-diagnosis-2026-11-02.md) — `docs/ppr10k-residual-diagnosis-2026-11-02.md`
+- [Existing PPR10K eight-pair readiness assessment — 9 November 2026](../ppr10k-saved-readiness-results-2026-11-09.md) — `docs/ppr10k-saved-readiness-results-2026-11-09.md`
+- [Smooth boundary experiment: less endpoint flattening, similar colour match](../ppr10k-smooth-boundary-results-2026-11-02.md) — `docs/ppr10k-smooth-boundary-results-2026-11-02.md`
+- [Practical correction-model completion contract](../practical-model-completion-contract-2026-11-12.md) — `docs/practical-model-completion-contract-2026-11-12.md`
+- [Practical correction-model completion contract - draft for researcher choices](../practical-model-completion-contract-draft-2026-11-12.md) — `docs/practical-model-completion-contract-draft-2026-11-12.md`
+- [Practical correction-model evaluation protocol](../practical-model-evaluation-protocol-2026-11-12.md) — `docs/practical-model-evaluation-protocol-2026-11-12.md`
+- [Preferred correction regions](../preferred-correction-support-2026-10-31.md) — `docs/preferred-correction-support-2026-10-31.md`
+- [Regional comparison scoring is ready](../preferred-regional-scoring-readiness-2026-11-01.md) — `docs/preferred-regional-scoring-readiness-2026-11-01.md`
+- [Preferred-region correction cycle: preparation results](../preferred-support-cycle-readiness-results.md) — `docs/preferred-support-cycle-readiness-results.md`
+- [Preferred-support development cycle](../preferred-support-development-cycle-protocol.md) — `docs/preferred-support-development-cycle-protocol.md`
+- [Current-mask data readiness — 1 November 2026](../preferred-support-v2-readiness-2026-11-01.md) — `docs/preferred-support-v2-readiness-2026-11-01.md`
+- [Decision checkpoint after the one planned primary comparison](../primary-comparison-decision-checkpoint.md) — `docs/primary-comparison-decision-checkpoint.md`
+- [Fixed primary-data preparation, before another model fit](../primary-data-preparation-protocol.md) — `docs/primary-data-preparation-protocol.md`
+- [Primary data prepared and frozen for one planned training cycle](../primary-data-preparation-results.md) — `docs/primary-data-preparation-results.md`
+- [Primary-task training evidence: feasibility and decision](../primary-training-evidence-feasibility-2026-11-11.md) — `docs/primary-training-evidence-feasibility-2026-11-11.md`
+- [One planned comparison after primary-mask review](../primary-training-single-comparison-protocol.md) — `docs/primary-training-single-comparison-protocol.md`
+- [Project organisation — 5 November 2026](../project-organisation-2026-11-05.md) — `docs/project-organisation-2026-11-05.md`
+- [Proposal augmentation specification audit](../proposal-augmentation-specification-audit.md) — `docs/proposal-augmentation-specification-audit.md`
+- [Proposal distortion recipe audit — 3 November 2026](../proposal-distortion-recipe-audit-2026-11-03.md) — `docs/proposal-distortion-recipe-audit-2026-11-03.md`
+- [Full proposal scan: augmentation details](../proposal-full-scan-findings.md) — `docs/proposal-full-scan-findings.md`
+- [Verified proposal scope: photographic correction, not intrinsic colour recovery](../proposal-scope-validation-2026-11-03.md) — `docs/proposal-scope-validation-2026-11-03.md`
+- [Research-prototype demonstration guide](../prototype-demonstration-guide-2026-11-12.md) — `docs/prototype-demonstration-guide-2026-11-12.md`
+- [Remaining work after this milestone](../prototype-milestone-remaining-work-2026-11-12.md) — `docs/prototype-milestone-remaining-work-2026-11-12.md`
+- [TrueHue: research-prototype methods and developmental results](../prototype-paper-methods-results-draft-2026-11-12.md) — `docs/prototype-paper-methods-results-draft-2026-11-12.md`
+- [TrueHue prototype/paper milestone](../prototype-paper-milestone-2026-11-12.md) — `docs/prototype-paper-milestone-2026-11-12.md`
+- [Working Python desktop demonstration](../python-desktop-demo-results.md) — `docs/python-desktop-demo-results.md`
+- [Bounded eligibility binding and generated blue-axis check](../qualification-eligibility-blue-check-protocol-2026-11-13.md) — `docs/qualification-eligibility-blue-check-protocol-2026-11-13.md`
+- [Qualification eligibility bound; blue-axis generated engineering passes](../qualification-eligibility-blue-check-results-2026-11-13.md) — `docs/qualification-eligibility-blue-check-results-2026-11-13.md`
+- [Saved false-correction diagnosis](../recovered-false-correction-diagnosis-protocol-2026-11-07.md) — `docs/recovered-false-correction-diagnosis-protocol-2026-11-07.md`
+- [Recovered false correction: saved-route diagnosis](../recovered-false-correction-diagnosis-results-2026-11-07.md) — `docs/recovered-false-correction-diagnosis-results-2026-11-07.md`
+- [R1 review imported and enclosed correction holes repaired](../reference-r1-and-continuity-results-2026-11-01.md) — `docs/reference-r1-and-continuity-results-2026-11-01.md`
+- [Reference readiness R1 review ready](../reference-readiness-r1-review-ready-2026-11-01.md) — `docs/reference-readiness-r1-review-ready-2026-11-01.md`
+- [Refined measurement preparation — 10 November 2026](../refined-measurement-preparation-2026-11-10.md) — `docs/refined-measurement-preparation-2026-11-10.md`
+- [Refined MST subject-held assessment — 10 November 2026](../refined-mst-assessment-results-2026-11-10.md) — `docs/refined-mst-assessment-results-2026-11-10.md`
+- [Refined MST mapping design — 10 November 2026](../refined-mst-grouped-design-2026-11-10.md) — `docs/refined-mst-grouped-design-2026-11-10.md`
+- [One frozen added-feature correction test](../reiqa-added-feature-prediction-protocol-2026-11-15.md) — `docs/reiqa-added-feature-prediction-protocol-2026-11-15.md`
+- [Added frozen features: source-held correction result](../reiqa-added-feature-prediction-results-2026-11-15.md) — `docs/reiqa-added-feature-prediction-results-2026-11-15.md`
+- [Prospective frozen representation assessment](../reiqa-development-representation-protocol-2026-11-15.md) — `docs/reiqa-development-representation-protocol-2026-11-15.md`
+- [Real input-only representation assessment](../reiqa-development-representation-results-2026-11-15.md) — `docs/reiqa-development-representation-results-2026-11-15.md`
+- [Frozen Re-IQA feasibility pilot](../reiqa-frozen-encoder-pilot-protocol-2026-11-15.md) — `docs/reiqa-frozen-encoder-pilot-protocol-2026-11-15.md`
+- [Frozen neural encoder: generated feasibility results](../reiqa-frozen-encoder-pilot-results-2026-11-15.md) — `docs/reiqa-frozen-encoder-pilot-results-2026-11-15.md`
+- [Re-IQA input-feature feasibility review](../reiqa-input-feature-feasibility-2026-11-11.md) — `docs/reiqa-input-feature-feasibility-2026-11-11.md`
+- [One relative-loss correction comparison — frozen 11 November 2026](../relative-correction-loss-protocol-2026-11-11.md) — `docs/relative-correction-loss-protocol-2026-11-11.md`
+- [Relative correction-loss comparison ? 11 November 2026](../relative-correction-loss-results-2026-11-11.md) — `docs/relative-correction-loss-results-2026-11-11.md`
+- [Remaining correction decisions: trace results](../remaining-correction-decision-trace-2026-11-09.md) — `docs/remaining-correction-decision-trace-2026-11-09.md`
+- [Remaining correction failures: saved-output audit](../remaining-correction-failure-audit-2026-11-08.md) — `docs/remaining-correction-failure-audit-2026-11-08.md`
+- [Missing-mask report: 31367](../reported-missing-mask-diagnosis.md) — `docs/reported-missing-mask-diagnosis.md`
+- [Repository maintenance — 4 November 2026](../repository-maintenance-2026-11-04.md) — `docs/repository-maintenance-2026-11-04.md`
+- [TrueHue delivery index — 30 October 2026](../research-delivery-status-2026-10-30.md) — `docs/research-delivery-status-2026-10-30.md`
+- [Proposed fixed comparison: reserved clean-photo veto](../reserved-clean-veto-protocol-2026-11-08.md) — `docs/reserved-clean-veto-protocol-2026-11-08.md`
+- [Reserved clean-photo veto results — 8 November 2026](../reserved-clean-veto-results-2026-11-08.md) — `docs/reserved-clean-veto-results-2026-11-08.md`
+- [One alternative parser comparison — 6 November 2026](../resnet34-parser-comparison-protocol-2026-11-06.md) — `docs/resnet34-parser-comparison-protocol-2026-11-06.md`
+- [Alternative parser comparison: more skin, more unwanted material — 6 November 2026](../resnet34-parser-comparison-results-2026-11-06.md) — `docs/resnet34-parser-comparison-results-2026-11-06.md`
+- [Why the restored corrections look patchy](../restored-mask-boundary-diagnosis-2026-11-08.md) — `docs/restored-mask-boundary-diagnosis-2026-11-08.md`
+- [Reusable object-protected correction preview: protocol](../reusable-correction-preview-protocol-2026-11-05.md) — `docs/reusable-correction-preview-protocol-2026-11-05.md`
+- [Reusable correction preview with an explicit glasses choice](../reusable-correction-preview-results-2026-11-05.md) — `docs/reusable-correction-preview-results-2026-11-05.md`
+- [Reviewed contextual MST validation — 10 November 2026](../reviewed-contextual-validation-results-2026-11-10.md) — `docs/reviewed-contextual-validation-results-2026-11-10.md`
+- [One reviewed-data correction comparison — 11 November 2026](../reviewed-correction-comparison-design-2026-11-11.md) — `docs/reviewed-correction-comparison-design-2026-11-11.md`
+- [Reviewed photographic correction comparison — 11 November 2026](../reviewed-correction-comparison-results-2026-11-11.md) — `docs/reviewed-correction-comparison-results-2026-11-11.md`
+- [Fixed magnitude and application audit of the reviewed outputs](../reviewed-correction-magnitude-audit-protocol-2026-11-14.md) — `docs/reviewed-correction-magnitude-audit-protocol-2026-11-14.md`
+- [Why the reviewed changes can look small: complete66-case audit](../reviewed-correction-magnitude-audit-results-2026-11-14.md) — `docs/reviewed-correction-magnitude-audit-results-2026-11-14.md`
+- [Correction training/action coverage review — 11 November 2026](../reviewed-correction-training-coverage-2026-11-11.md) — `docs/reviewed-correction-training-coverage-2026-11-11.md`
+- [Reviewed feature/control preparation — 10 November 2026](../reviewed-feature-control-preparation-results-2026-11-10.md) — `docs/reviewed-feature-control-preparation-results-2026-11-10.md`
+- [Reviewed FFHQ restoration baseline ? 11 November2026](../reviewed-ffhq-restoration-results-2026-11-11.md) — `docs/reviewed-ffhq-restoration-results-2026-11-11.md`
+- [Review the11 accepted FFHQ reference selections](../reviewed-ffhq-support-guide-2026-11-11.md) — `docs/reviewed-ffhq-support-guide-2026-11-11.md`
+- [FFHQ reference decisions imported; support queue ready](../reviewed-ffhq-support-preparation-results-2026-11-11.md) — `docs/reviewed-ffhq-support-preparation-results-2026-11-11.md`
+- [Reviewed photographic feature and target contract — 10 November 2026](../reviewed-photographic-feature-target-contract-2026-11-10.md) — `docs/reviewed-photographic-feature-target-contract-2026-11-10.md`
+- [Reviewed photographic pixel preparation — 10 November 2026](../reviewed-photographic-pixel-preparation-protocol-2026-11-10.md) — `docs/reviewed-photographic-pixel-preparation-protocol-2026-11-10.md`
+- [Planned primary-data comparison completed; candidate not adopted](../reviewed-primary-training-results.md) — `docs/reviewed-primary-training-results.md`
+- [Exact-sixty scene-summary diagnostic — 11 November 2026](../reviewed-scene-diagnostic-results-2026-11-11.md) — `docs/reviewed-scene-diagnostic-results-2026-11-11.md`
+- [Six reviewed distorted-pair additions](../reviewed-six-pair-training-protocol.md) — `docs/reviewed-six-pair-training-protocol.md`
+- [Completed eleven-mask review and paired training comparison](../reviewed-six-pair-training-results.md) — `docs/reviewed-six-pair-training-results.md`
+- [Reviewed-source evidence registry — 30 October 2026](../reviewed-source-evidence29-results.md) — `docs/reviewed-source-evidence29-results.md`
+- [Paper-method mask ordering refinement](../rule-mask-ordering-protocol.md) — `docs/rule-mask-ordering-protocol.md`
+- [Where marked skin disappears — 8 November 2026](../saved-parent-mask-trace-results-2026-11-08.md) — `docs/saved-parent-mask-trace-results-2026-11-08.md`
+- [Matched facial-only versus scene-aware gate — 6 November 2026](../scene-aware-gate-protocol-2026-11-06.md) — `docs/scene-aware-gate-protocol-2026-11-06.md`
+- [Scene-aware gate: better clean preservation, unresolved misses and false corrections](../scene-aware-gate-results-2026-11-06.md) — `docs/scene-aware-gate-results-2026-11-06.md`
+- [Fixed scene-context diagnostic — 8 November 2026](../scene-context-invariance-protocol-2026-11-08.md) — `docs/scene-context-invariance-protocol-2026-11-08.md`
+- [Remaining gate mistakes: missed useful correction and avoided harmful correction](../scene-gate-mistake-diagnosis-2026-11-06.md) — `docs/scene-gate-mistake-diagnosis-2026-11-06.md`
+- [SCIN nine-case exploratory policy — 11 November 2026](../scin-exploratory-policy-2026-11-11.md) — `docs/scin-exploratory-policy-2026-11-11.md`
+- [SCIN image download guide (Google Cloud Storage)](../scin-image-download-guide.md) — `docs/scin-image-download-guide.md`
+- [Nine-case SCIN provenance reconciliation — 11 November 2026](../scin-nine-provenance-review-2026-11-11.md) — `docs/scin-nine-provenance-review-2026-11-11.md`
+- [Nine-source visual suitability decision](../scin-nine-suitability-inspection-2026-11-14.md) — `docs/scin-nine-suitability-inspection-2026-11-14.md`
+- [Fixed nine-case SCIN support screen — 11 November 2026](../scin-nine-support-screen-results-2026-11-11.md) — `docs/scin-nine-support-screen-results-2026-11-11.md`
+- [SCIN subset selection guide](../scin-subset-selection-guide.md) — `docs/scin-subset-selection-guide.md`
+- [Frozen three-source eye-context inspection](../sclera-context-cache-inspection-protocol-2026-11-13.md) — `docs/sclera-context-cache-inspection-protocol-2026-11-13.md`
+- [Cached eye-context inspection results](../sclera-context-cache-inspection-results-2026-11-13.md) — `docs/sclera-context-cache-inspection-results-2026-11-13.md`
+- [A distinct colour-context candidate: sclera measurements](../sclera-context-candidate-review-2026-11-13.md) — `docs/sclera-context-candidate-review-2026-11-13.md`
+- [Frozen eye-context engineering check](../sclera-context-generated-protocol-2026-11-13.md) — `docs/sclera-context-generated-protocol-2026-11-13.md`
+- [Eye-context selector: generated engineering results](../sclera-context-generated-results-2026-11-13.md) — `docs/sclera-context-generated-results-2026-11-13.md`
+- [Seamless whole-face support: one fixed implementation](../seamless-support-protocol-2026-11-01.md) — `docs/seamless-support-protocol-2026-11-01.md`
+- [Whole-face edge blending results](../seamless-support-results-2026-11-01.md) — `docs/seamless-support-results-2026-11-01.md`
+- [SegFace fixed six-photo screening protocol](../segface-fixed-mask-comparison-protocol-2026-11-09.md) — `docs/segface-fixed-mask-comparison-protocol-2026-11-09.md`
+- [SegFace loader and fixed mask screen — 9 November 2026](../segface-loader-and-mask-screen-results-2026-11-09.md) — `docs/segface-loader-and-mask-screen-results-2026-11-09.md`
+- [SegFace local checkpoint inventory — 9 November 2026](../segface-local-inventory-2026-11-09.md) — `docs/segface-local-inventory-2026-11-09.md`
+- [Selected permitted masking route: SegFace MobileNet](../segface-masking-route-selection-2026-11-09.md) — `docs/segface-masking-route-selection-2026-11-09.md`
+- [SegFace package acquisition status — 9 November 2026](../segface-package-acquisition-status-2026-11-09.md) — `docs/segface-package-acquisition-status-2026-11-09.md`
+- [Preparing the next correction-data stage](../semantic-data-readiness-2026-10-31.md) — `docs/semantic-data-readiness-2026-10-31.md`
+- [Fuller-face measurement and MST results — 31 October 2026](../semantic-measurement-results-2026-10-31.md) — `docs/semantic-measurement-results-2026-10-31.md`
+- [Fuller-face measurement: one controlled cycle](../semantic-measurement-single-cycle-protocol.md) — `docs/semantic-measurement-single-cycle-protocol.md`
+- [Paired-data preparation with the accepted fuller-face masks](../semantic-paired-data-preparation-protocol.md) — `docs/semantic-paired-data-preparation-protocol.md`
+- [Accepted fuller-face masks and rebuilt paired data](../semantic-paired-data-results-2026-10-31.md) — `docs/semantic-paired-data-results-2026-10-31.md`
+- [Cached semantic-reference audit protocol](../semantic-reference-audit-protocol.md) — `docs/semantic-reference-audit-protocol.md`
+- [Semantic classes versus skin-only reference regions](../semantic-reference-audit-results.md) — `docs/semantic-reference-audit-results.md`
+- [MediaPipe skin/hair comparison — 23 October 2026](../semantic-support-results.md) — `docs/semantic-support-results.md`
+- [TrueHue session handoff — 30 October 2026](../session-handoff-2026-10-30.md) — `docs/session-handoff-2026-10-30.md`
+- [TrueHue session handoff — 9 November 2026](../session-handoff-2026-11-09.md) — `docs/session-handoff-2026-11-09.md`
+- [TrueHue continuation handoff — 10 November 2026](../session-handoff-2026-11-10.md) — `docs/session-handoff-2026-11-10.md`
+- [TrueHue consolidated handoff — 13 November 2026](../session-handoff-2026-11-13.md) — `docs/session-handoff-2026-11-13.md`
+- [TrueHue session handoff — 17 November 2026](../session-handoff-2026-11-17.md) — `docs/session-handoff-2026-11-17.md`
+- [Setup Guide](../setup-guide.md) — `docs/setup-guide.md`
+- [Fresh shared-core MST feature completion — 10 November 2026](../shared-core-mst-features-results-2026-11-10.md) — `docs/shared-core-mst-features-results-2026-11-10.md`
+- [Signed-benefit correction gate: fixed development comparison](../signed-benefit-gate-protocol-2026-11-07.md) — `docs/signed-benefit-gate-protocol-2026-11-07.md`
+- [Signed-benefit gate: action-cost audit and results](../signed-benefit-gate-results-2026-11-07.md) — `docs/signed-benefit-gate-results-2026-11-07.md`
+- [Open the TrueHue demo](../simple-python-demo.md) — `docs/simple-python-demo.md`
+- [Actual skin-patch measurements — 6 November 2026](../skin-patch-measurement-results-2026-11-06.md) — `docs/skin-patch-measurement-results-2026-11-06.md`
+- [Six-case skin-patch reference protocol — 6 November 2026](../skin-patch-review-protocol-2026-11-06.md) — `docs/skin-patch-review-protocol-2026-11-06.md`
+- [Skin-patch review ready — 6 November 2026](../skin-patch-review-ready-2026-11-06.md) — `docs/skin-patch-review-ready-2026-11-06.md`
+- [Skin-patch review controls — 6 November 2026](../skin-patch-review-ui-fix-2026-11-06.md) — `docs/skin-patch-review-ui-fix-2026-11-06.md`
+- [Source-bagged ensemble: complete review, failed and closed](../source-bagged-review-results-2026-11-13.md) — `docs/source-bagged-review-results-2026-11-13.md`
+- [Saved ensemble routes: shared exposure error survives averaging](../source-bagged-saved-route-diagnosis-2026-11-13.md) — `docs/source-bagged-saved-route-diagnosis-2026-11-13.md`
+- [Visible support gaps in source59807: saved-photo diagnosis](../source-bagged-support-diagnosis-2026-11-13.md) — `docs/source-bagged-support-diagnosis-2026-11-13.md`
+- [FFHQ correction development source checkpoint](../source-checkpoint-2026-11-05.md) — `docs/source-checkpoint-2026-11-05.md`
+- [Source-matched correction comparison — 11 November 2026](../source-matched-restoration-comparison-results-2026-11-11.md) — `docs/source-matched-restoration-comparison-results-2026-11-11.md`
+- [Controlled restoration data prepared — 11 November 2026](../source-matched-restoration-preparation-results-2026-11-11.md) — `docs/source-matched-restoration-preparation-results-2026-11-11.md`
+- [Source-matched controlled supervision specification — 11 November 2026](../source-matched-restoration-specification-2026-11-11.md) — `docs/source-matched-restoration-specification-2026-11-11.md`
+- [Source screening follow-up](../source-screening-followup.md) — `docs/source-screening-followup.md`
+- [Source selection, provisional partitions and failure handling](../source-selection-splits-and-failures.md) — `docs/source-selection-splits-and-failures.md`
+- [Bounded source-shape context rationale check](../source-shape-context-generated-protocol-2026-11-13.md) — `docs/source-shape-context-generated-protocol-2026-11-13.md`
+- [Source-shape context check: invariant shape is not an absolute colour baseline](../source-shape-context-generated-results-2026-11-13.md) — `docs/source-shape-context-generated-results-2026-11-13.md`
+- [Specific source-transfer repair assessment](../source-transfer-repair-review-2026-11-12.md) — `docs/source-transfer-repair-review-2026-11-12.md`
+- [Seven accepted-note cases: layer inspection](../source60-note-inspection.md) — `docs/source60-note-inspection.md`
+- [Imported user review: fixed60-source variants](../source60-user-review-results.md) — `docs/source60-user-review-results.md`
+- [One fixed spatial-input correction comparison](../spatial-input-correction-comparison-protocol-2026-11-11.md) — `docs/spatial-input-correction-comparison-protocol-2026-11-11.md`
+- [Spatial input redesign: completed correction comparison](../spatial-input-correction-results-2026-11-11.md) — `docs/spatial-input-correction-results-2026-11-11.md`
+- [Input redesign: spatial natural-scene statistics feasibility](../spatial-input-representation-design-2026-11-11.md) — `docs/spatial-input-representation-design-2026-11-11.md`
+- [Spatial input preparation authorization and bounds](../spatial-input-representation-preparation-2026-11-11.md) — `docs/spatial-input-representation-preparation-2026-11-11.md`
+- [One benefit-gate retraining for split predictors — 6 November 2026](../split-benefit-gate-protocol-2026-11-06.md) — `docs/split-benefit-gate-protocol-2026-11-06.md`
+- [Split-corrector benefit gate retrained: no overall RGB improvement](../split-benefit-gate-results-2026-11-06.md) — `docs/split-benefit-gate-results-2026-11-06.md`
+- [One split exposure/colour predictor comparison — 6 November 2026](../split-control-predictors-protocol-2026-11-06.md) — `docs/split-control-predictors-protocol-2026-11-06.md`
+- [Split exposure and colour predictors improve the development comparison](../split-control-predictors-results-2026-11-06.md) — `docs/split-control-predictors-results-2026-11-06.md`
+- [Fresh 256x256 development dataset](../square-development-dataset.md) — `docs/square-development-dataset.md`
+- [256x256 check on existing development distortions](../square-distorted-input-results.md) — `docs/square-distorted-input-results.md`
+- [Development mask-quality screen](../square-mask-quality-screen.md) — `docs/square-mask-quality-screen.md`
+- [Native versus 256x256 preprocessing](../square-preprocessing-results.md) — `docs/square-preprocessing-results.md`
+- [Stellenbosch bounded measurement preparation and decimal-score policy](../stellenbosch-bounded-preparation-protocol-2026-11-05.md) — `docs/stellenbosch-bounded-preparation-protocol-2026-11-05.md`
+- [Bounded preparation: decimal scores preserved; current whole-frame path fails](../stellenbosch-bounded-preparation-results-2026-11-05.md) — `docs/stellenbosch-bounded-preparation-results-2026-11-05.md`
+- [Stellenbosch calibration admission decision — 5 November 2026](../stellenbosch-calibration-admission-decision-2026-11-05.md) — `docs/stellenbosch-calibration-admission-decision-2026-11-05.md`
+- [Reviewed Stellenbosch material: correction-specific eligibility decision](../stellenbosch-correction-eligibility-decision-2026-11-14.md) — `docs/stellenbosch-correction-eligibility-decision-2026-11-14.md`
+- [Fixed face-first input bridge: same30 Stellenbosch cases](../stellenbosch-face-crop-protocol-2026-11-05.md) — `docs/stellenbosch-face-crop-protocol-2026-11-05.md`
+- [Stellenbosch fixed face-crop bridge — 5 November 2026](../stellenbosch-face-crop-results-2026-11-05.md) — `docs/stellenbosch-face-crop-results-2026-11-05.md`
+- [One aligned FaceOcc appearance candidate — 5 November 2026](../stellenbosch-faceocc-appearance-protocol-2026-11-05.md) — `docs/stellenbosch-faceocc-appearance-protocol-2026-11-05.md`
+- [Aligned FaceOcc appearance candidate — 5 November 2026](../stellenbosch-faceocc-appearance-results-2026-11-05.md) — `docs/stellenbosch-faceocc-appearance-results-2026-11-05.md`
+- [Saved FaceOcc removal inspection — 5 November 2026](../stellenbosch-faceocc-removal-protocol-2026-11-05.md) — `docs/stellenbosch-faceocc-removal-protocol-2026-11-05.md`
+- [FaceOcc removal inspection — 5 November 2026](../stellenbosch-faceocc-removal-results-2026-11-05.md) — `docs/stellenbosch-faceocc-removal-results-2026-11-05.md`
+- [Saved-pixel mask failure isolation — 5 November 2026](../stellenbosch-mask-failure-protocol-2026-11-05.md) — `docs/stellenbosch-mask-failure-protocol-2026-11-05.md`
+- [Skin-parser failure isolated — 5 November 2026](../stellenbosch-mask-failure-results-2026-11-05.md) — `docs/stellenbosch-mask-failure-results-2026-11-05.md`
+- [Source-first follow-up, frozen method — 5 November 2026](../stellenbosch-new-subject-protocol-2026-11-05.md) — `docs/stellenbosch-new-subject-protocol-2026-11-05.md`
+- [Frozen-method new-source follow-up — 5 November 2026](../stellenbosch-new-subject-results-2026-11-05.md) — `docs/stellenbosch-new-subject-results-2026-11-05.md`
+- [One segmentation-only appearance candidate — 5 November 2026](../stellenbosch-parser-appearance-protocol-2026-11-05.md) — `docs/stellenbosch-parser-appearance-protocol-2026-11-05.md`
+- [Parser-only appearance candidate — 5 November 2026](../stellenbosch-parser-appearance-results-2026-11-05.md) — `docs/stellenbosch-parser-appearance-results-2026-11-05.md`
+- [Received Stellenbosch dataset: local integrity and metadata check](../stellenbosch-received-data-protocol-2026-11-05.md) — `docs/stellenbosch-received-data-protocol-2026-11-05.md`
+- [Stellenbosch release received: access resolved, metadata verified](../stellenbosch-received-data-results-2026-11-05.md) — `docs/stellenbosch-received-data-results-2026-11-05.md`
+- [Actual reference-point review results — 6 November 2026](../stellenbosch-reference-point-results-2026-11-06.md) — `docs/stellenbosch-reference-point-results-2026-11-06.md`
+- [Small reference-skin review — 6 November 2026](../stellenbosch-reference-point-review-protocol-2026-11-06.md) — `docs/stellenbosch-reference-point-review-protocol-2026-11-06.md`
+- [Six-photo reference review ready — 6 November 2026](../stellenbosch-reference-point-review-ready-2026-11-06.md) — `docs/stellenbosch-reference-point-review-ready-2026-11-06.md`
+- [Skin-support and lighting check — 5 November 2026](../stellenbosch-support-lighting-protocol-2026-11-05.md) — `docs/stellenbosch-support-lighting-protocol-2026-11-05.md`
+- [Skin support, lighting and calibration decision — 5 November 2026](../stellenbosch-support-lighting-results-2026-11-05.md) — `docs/stellenbosch-support-lighting-results-2026-11-05.md`
+- [Final case-level usability screen — 5 November 2026](../stellenbosch-usability-screen-protocol-2026-11-05.md) — `docs/stellenbosch-usability-screen-protocol-2026-11-05.md`
+- [Case-level skin usability screen — 5 November 2026](../stellenbosch-usability-screen-results-2026-11-05.md) — `docs/stellenbosch-usability-screen-results-2026-11-05.md`
+- [STW, MM-CelebA-HQ and FFHQ: which problem each can address](../stw-mmceleba-ffhq-assessment-2026-11-03.md) — `docs/stw-mmceleba-ffhq-assessment-2026-11-03.md`
+- [STW qualification: useful labels, not ready for a processing/evaluation cycle](../stw-qualification-results-2026-11-02.md) — `docs/stw-qualification-results-2026-11-02.md`
+- [Normal examples, clipping stress tests and clean controls](../synthetic-development-role-results-2026-11-03.md) — `docs/synthetic-development-role-results-2026-11-03.md`
+- [Approved synthetic exposure-ranking execution contract](../synthetic-exposure-ranking-execution-protocol-2026-11-17.md) — `docs/synthetic-exposure-ranking-execution-protocol-2026-11-17.md`
+- [Proposed diagnostic: synthetic exposure ranking on existing cached inputs](../synthetic-exposure-ranking-proposal-2026-11-17.md) — `docs/synthetic-exposure-ranking-proposal-2026-11-17.md`
+- [Synthetic exposure-ranking diagnostic: completed, limited positive evidence](../synthetic-exposure-ranking-results-2026-11-17.md) — `docs/synthetic-exposure-ranking-results-2026-11-17.md`
+- [Synthetic-pair technical pilot (2026-10-20)](../synthetic-pair-pilot.md) — `docs/synthetic-pair-pilot.md`
+- [Fixed follow-on: synthetic-ranking probes as correction-tree features](../synthetic-probe-correction-protocol-2026-11-17.md) — `docs/synthetic-probe-correction-protocol-2026-11-17.md`
+- [Synthetic probe features: fixed correction comparison failed](../synthetic-probe-correction-results-2026-11-17.md) — `docs/synthetic-probe-correction-results-2026-11-17.md`
+- [Paper-aligned synthetic restoration: first target-consistency check](../synthetic-restoration-target-check-2026-11-03.md) — `docs/synthetic-restoration-target-check-2026-11-03.md`
+- [Preserved application masks on the current Table 2 inputs](../table2-application-mask-comparison-results.md) — `docs/table2-application-mask-comparison-results.md`
+- [Fixed chroma-distribution comparison](../table2-chroma-distribution-protocol.md) — `docs/table2-chroma-distribution-protocol.md`
+- [Fixed chroma-distribution feature comparison](../table2-chroma-distribution-results.md) — `docs/table2-chroma-distribution-results.md`
+- [Fixed training-control leaf policy experiment](../table2-clean-leaf-policy-protocol.md) — `docs/table2-clean-leaf-policy-protocol.md`
+- [Training-control leaf policy: development result](../table2-clean-leaf-policy-results.md) — `docs/table2-clean-leaf-policy-results.md`
+- [Proposed Table 2 clipping-stress experiment](../table2-clipping-stress-design.md) — `docs/table2-clipping-stress-design.md`
+- [Fixed control-aware partition training experiment](../table2-control-partition-protocol.md) — `docs/table2-control-partition-protocol.md`
+- [Control-aware partition training result](../table2-control-partition-results.md) — `docs/table2-control-partition-results.md`
+- [Table 2 severity coverage and recovery capacity](../table2-counterfactual-coverage-results.md) — `docs/table2-counterfactual-coverage-results.md`
+- [Why the eight-source Table 2 tree still harms unchanged inputs](../table2-expansion-route-diagnosis.md) — `docs/table2-expansion-route-diagnosis.md`
+- [Fixed five-feature conservative leaf comparison](../table2-five-feature-leaf-protocol.md) — `docs/table2-five-feature-leaf-protocol.md`
+- [Five-feature conservative leaf policy](../table2-five-feature-leaf-results.md) — `docs/table2-five-feature-leaf-results.md`
+- [Input-mask robustness under fixed Table2 distortions](../table2-input-mask-robustness-protocol.md) — `docs/table2-input-mask-robustness-protocol.md`
+- [Fixed Table2 input-mask robustness comparison](../table2-input-mask-robustness-results.md) — `docs/table2-input-mask-robustness-results.md`
+- [Table 2 known-source feasibility protocol](../table2-known-source-feasibility-protocol.md) — `docs/table2-known-source-feasibility-protocol.md`
+- [Table 2 known-source feasibility results](../table2-known-source-feasibility-results.md) — `docs/table2-known-source-feasibility-results.md`
+- [Fixed fitting-leaf support guard experiment](../table2-leaf-support-protocol.md) — `docs/table2-leaf-support-protocol.md`
+- [Fitting-leaf support guard: narrow gate pass, limited recovery](../table2-leaf-support-results.md) — `docs/table2-leaf-support-results.md`
+- [Predeclared nested leaf-size selection](../table2-nested-regularization-protocol.md) — `docs/table2-nested-regularization-protocol.md`
+- [Nested minimum-leaf-size comparison](../table2-nested-regularization-results.md) — `docs/table2-nested-regularization-results.md`
+- [Training-only selection of the clean-leaf candidate](../table2-nested-safety-protocol.md) — `docs/table2-nested-safety-protocol.md`
+- [Training-only safety selection and same-cohort thesis metrics](../table2-nested-safety-results.md) — `docs/table2-nested-safety-results.md`
+- [Next Table 2 coverage experiment: preparation protocol](../table2-next-coverage-protocol.md) — `docs/table2-next-coverage-protocol.md`
+- [Recovery budget and fixed severity-weighting comparison](../table2-recovery-budget-and-weighting.md) — `docs/table2-recovery-budget-and-weighting.md`
+- [Reviewed eight-source Table 2 evaluation](../table2-reviewed-expansion-results.md) — `docs/table2-reviewed-expansion-results.md`
+- [Reviewed fifteen-source correction comparison](../table2-reviewed-fifteen-source-results.md) — `docs/table2-reviewed-fifteen-source-results.md`
+- [Reviewed Table 2 stress experiment](../table2-reviewed-stress-results.md) — `docs/table2-reviewed-stress-results.md`
+- [Reviewed ten-source Table 2 comparison](../table2-reviewed-ten-source-results.md) — `docs/table2-reviewed-ten-source-results.md`
+- [Fixed control/severity weight experiment](../table2-severity-weighting-protocol.md) — `docs/table2-severity-weighting-protocol.md`
+- [Fixed 24-source Table 2 development expansion](../table2-source-expansion24-protocol.md) — `docs/table2-source-expansion24-protocol.md`
+- [Fixed 24-source training expansion: suitability checkpoint](../table2-source-expansion24-results.md) — `docs/table2-source-expansion24-results.md`
+- [Fixed larger TRAIN-source preparation batch](../table2-source-expansion60-protocol.md) — `docs/table2-source-expansion60-protocol.md`
+- [Larger fixed TRAIN-source preparation and screening](../table2-source-expansion60-results.md) — `docs/table2-source-expansion60-results.md`
+- [Fixed reviewed-source expansion protocol](../table2-stress-expansion-protocol.md) — `docs/table2-stress-expansion-protocol.md`
+- [Fixed six-source Table 2 expansion](../table2-stress-expansion-results.md) — `docs/table2-stress-expansion-results.md`
+- [Table 2 clipping-stress preparation](../table2-stress-preparation-results.md) — `docs/table2-stress-preparation-results.md`
+- [Table2 composite transform and recovery-target protocol](../table2-target-fit-protocol.md) — `docs/table2-target-fit-protocol.md`
+- [Table2 composite and approximate recovery targets](../table2-target-fit-results.md) — `docs/table2-target-fit-results.md`
+- [Fixed fitting-only output-standardization experiment](../table2-target-scaling-protocol.md) — `docs/table2-target-scaling-protocol.md`
+- [Fitting-only target-scale comparison](../table2-target-scaling-results.md) — `docs/table2-target-scaling-results.md`
+- [Ten-source training-design audit](../table2-training-design-audit.md) — `docs/table2-training-design-audit.md`
+- [Candidate: externally supervised white-balance evidence for control prediction](../task-specific-wb-cue-candidate-2026-11-15.md) — `docs/task-specific-wb-cue-candidate-2026-11-15.md`
+- [Technical plan reassessment](../technical-plan-reassessment-2026-11-17.md) — `docs/technical-plan-reassessment-2026-11-17.md`
+- [Reproduce the current development demonstration](../thesis-demo-guide.md) — `docs/thesis-demo-guide.md`
+- [TrueHue: discussion, limitations and interim conclusion](../thesis-discussion-limitations-conclusion-draft-2026-11-03.md) — `docs/thesis-discussion-limitations-conclusion-draft-2026-11-03.md`
+- [Discussion, limitations and conclusion — thesis draft](../thesis-discussion-limitations-conclusion-draft.md) — `docs/thesis-discussion-limitations-conclusion-draft.md`
+- [Thesis method alignment and future editing record](../thesis-method-alignment.md) — `docs/thesis-method-alignment.md`
+- [TrueHue: methods and interim experimental results](../thesis-methods-results-draft-2026-11-03.md) — `docs/thesis-methods-results-draft-2026-11-03.md`
+- [TrueHue methods and results — evidence-based thesis draft](../thesis-methods-results-draft.md) — `docs/thesis-methods-results-draft.md`
+- [Thesis proposal completion tracker — 8 November 2026](../thesis-proposal-completion-tracker-2026-11-08.md) — `docs/thesis-proposal-completion-tracker-2026-11-08.md`
+- [Methods/results/discussion addendum — 1 November 2026](../thesis-results-addendum-2026-11-01.md) — `docs/thesis-results-addendum-2026-11-01.md`
+- [TrueHue results tables — 30 October 2026](../thesis-results-tables-2026-10-30.md) — `docs/thesis-results-tables-2026-10-30.md`
+- [Word thesis integration — 31 October 2026](../thesis-word-integration-2026-10-31.md) — `docs/thesis-word-integration-2026-10-31.md`
+- [Copy this prompt into ChatGPT web](../thesis/chatgpt-writing-prompt.md) — `docs/thesis/chatgpt-writing-prompt.md`
+- [Research and implementation map](../thesis/research-map.md) — `docs/thesis/research-map.md`
+- [Pinned FFHQ support metadata](../third-party/ffhq-support-metadata.md) — `docs/third-party/ffhq-support-metadata.md`
+- [Three-variant development augmentation specification](../three-variant-augmentation-protocol.md) — `docs/three-variant-augmentation-protocol.md`
+- [Three-variant development candidate set](../three-variant-candidate-results.md) — `docs/three-variant-candidate-results.md`
+- [User decision: retain lightweight traditional input features](../traditional-feature-scope-decision-2026-11-11.md) — `docs/traditional-feature-scope-decision-2026-11-11.md`
+- [Training-source coverage audit and expansion plan](../training-coverage-audit.md) — `docs/training-coverage-audit.md`
+- [Training Data Preparation Protocol (FairFace + SCIN)](../training-data-preparation-protocol.md) — `docs/training-data-preparation-protocol.md`
+- [Training-design checkpoint and next development plan](../training-design-checkpoint.md) — `docs/training-design-checkpoint.md`
+- [Exposure versus colour: saved training audit](../training-exposure-colour-audit-2026-11-09.md) — `docs/training-exposure-colour-audit-2026-11-09.md`
+- [Completed original-mask development review](../training-review36-import-results.md) — `docs/training-review36-import-results.md`
+- [Remaining 36 training-development reviews](../training-review36-protocol.md) — `docs/training-review36-protocol.md`
+- [Next correction-training step: 36 additional development sources](../training-review36-results.md) — `docs/training-review36-results.md`
+- [Fixed60-source screening results](../training-source60-screen.md) — `docs/training-source60-screen.md`
+- [Fixed75 variant checks and user review](../training-source60-variant-checks.md) — `docs/training-source60-variant-checks.md`
+- [Training and tree audit — 23 October 2026](../training-tree-audit.md) — `docs/training-tree-audit.md`
+- [Fixed tree-capacity comparison](../tree-capacity-comparison.md) — `docs/tree-capacity-comparison.md`
+- [One upper-face measurement candidate — 6 November 2026](../upper-face-measurement-protocol-2026-11-06.md) — `docs/upper-face-measurement-protocol-2026-11-06.md`
+- [One upper-face repair candidate: partial tradeoff — 6 November 2026](../upper-face-measurement-results-2026-11-06.md) — `docs/upper-face-measurement-results-2026-11-06.md`
+- [Facial evidence inside the vetoed correction branches](../vetoed-branch-facial-audit-results-2026-11-08.md) — `docs/vetoed-branch-facial-audit-results-2026-11-08.md`
+- [Actual WB assets: generated verification contract](../wb-cue-actual-assets-generated-protocol-2026-11-15.md) — `docs/wb-cue-actual-assets-generated-protocol-2026-11-15.md`
+- [Read-only cutoff-tie diagnosis](../wb-cue-cutoff-tie-diagnosis-protocol-2026-11-15.md) — `docs/wb-cue-cutoff-tie-diagnosis-protocol-2026-11-15.md`
+- [Mapping-equivalent cutoff ties: engineering amendment](../wb-cue-equivalent-tie-amendment-2026-11-15.md) — `docs/wb-cue-equivalent-tie-amendment-2026-11-15.md`
+- [WB cue feasibility checkpoint](../wb-cue-feasibility-results-2026-11-15.md) — `docs/wb-cue-feasibility-results-2026-11-15.md`
+- [WB cue generated interface check](../wb-cue-generated-feasibility-protocol-2026-11-15.md) — `docs/wb-cue-generated-feasibility-protocol-2026-11-15.md`
+- [Frozen WB cue assessment on existing exposed inputs](../wb-cue-portrait-assessment-protocol-2026-11-15.md) — `docs/wb-cue-portrait-assessment-protocol-2026-11-15.md`
+- [External WB cue assessment: not advanced](../wb-cue-portrait-assessment-results-2026-11-15.md) — `docs/wb-cue-portrait-assessment-results-2026-11-15.md`
+- [WB314 colour review ready after identity acceptance](../wb-feature-colour-review-ready-2026-11-16.md) — `docs/wb-feature-colour-review-ready-2026-11-16.md`
+- [WB314 colour review: mixed usefulness, explanation pending](../wb-feature-colour-review-results-2026-11-16.md) — `docs/wb-feature-colour-review-results-2026-11-16.md`
+- [WB314 colour usefulness: fixed eleven-case review](../wb-feature-colour-usefulness-protocol-2026-11-16.md) — `docs/wb-feature-colour-usefulness-protocol-2026-11-16.md`
+- [User corrects colour preferences: all eleven candidates preferred](../wb-feature-colour-user-correction-2026-11-16.md) — `docs/wb-feature-colour-user-correction-2026-11-16.md`
+- [Fixed direct WB-feature comparison](../wb-feature-direct-comparison-protocol-2026-11-15.md) — `docs/wb-feature-direct-comparison-protocol-2026-11-15.md`
+- [Direct WB-feature comparison: generated workflow verified](../wb-feature-direct-engineering-results-2026-11-15.md) — `docs/wb-feature-direct-engineering-results-2026-11-15.md`
+- [Direct learned WB features: numerical gate passed, appearance input needed](../wb-feature-direct-results-2026-11-15.md) — `docs/wb-feature-direct-results-2026-11-15.md`
+- [Read-only diagnosis of similar-looking exposure candidates](../wb-feature-exposure-display-diagnosis-protocol-2026-11-16.md) — `docs/wb-feature-exposure-display-diagnosis-protocol-2026-11-16.md`
+- [Exposure review: three unchanged predictions, five changed outputs](../wb-feature-exposure-display-diagnosis-results-2026-11-16.md) — `docs/wb-feature-exposure-display-diagnosis-results-2026-11-16.md`
+- [User-requested WB314 exposure rereview](../wb-feature-exposure-rereview-results-2026-11-18.md) — `docs/wb-feature-exposure-rereview-results-2026-11-18.md`
+- [WB314 exposure screen ready after explicit colour correction](../wb-feature-exposure-review-ready-2026-11-16.md) — `docs/wb-feature-exposure-review-ready-2026-11-16.md`
+- [Exposure screen confirmed: useful benefit not established](../wb-feature-exposure-review-stopping-point-2026-11-16.md) — `docs/wb-feature-exposure-review-stopping-point-2026-11-16.md`
+- [WB314 exposure and combined usefulness: eight-case screen](../wb-feature-exposure-usefulness-protocol-2026-11-16.md) — `docs/wb-feature-exposure-usefulness-protocol-2026-11-16.md`
+- [Candidate-specific identity review](../wb-feature-identity-review-protocol-2026-11-15.md) — `docs/wb-feature-identity-review-protocol-2026-11-15.md`
+- [WB314 identity review: all eleven acceptable](../wb-feature-identity-review-results-2026-11-16.md) — `docs/wb-feature-identity-review-results-2026-11-16.md`
+- [What remains testable after the WB cue proxy failure](../wb-feature-test-method-review-2026-11-15.md) — `docs/wb-feature-test-method-review-2026-11-15.md`
+- [Fixed saved-tree diagnosis of three unchanged exposure cases](../wb-feature-three-exposure-miss-diagnosis-2026-11-16.md) — `docs/wb-feature-three-exposure-miss-diagnosis-2026-11-16.md`
+- [Saved exposure misses reach identity-only leaves](../wb-feature-three-exposure-miss-results-2026-11-16.md) — `docs/wb-feature-three-exposure-miss-results-2026-11-16.md`
+- [Remaining nine WB314 underexposure outputs](../wb-remaining-underexposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-underexposure-review-protocol-2026-11-18.md`
+- [Complete WB314 pure-underexposure development review](../wb-remaining-underexposure-review-results-2026-11-18.md) — `docs/wb-remaining-underexposure-review-results-2026-11-18.md`
+- [Whole-face correction and nostril-excluded measurement](../whole-face-support-results-2026-11-01.md) — `docs/whole-face-support-results-2026-11-01.md`
+- [Whole-photograph distortion and scene-feature comparison](../whole-scene-correction-protocol-2026-11-06.md) — `docs/whole-scene-correction-protocol-2026-11-06.md`
+- [Whole-photo distortions: scene features help recovery but worsen clean preservation](../whole-scene-correction-results-2026-11-06.md) — `docs/whole-scene-correction-results-2026-11-06.md`
+- [Workspace cleanup](../workspace-cleanup-2026-10-28.md) — `docs/workspace-cleanup-2026-10-28.md`
+- [Development workspace map](../workspace-guide.md) — `docs/workspace-guide.md`
+- [Post-check anatomical-containment development comparison](../ycrcb-contour-development-protocol.md) — `docs/ycrcb-contour-development-protocol.md`
+- [YCrCb-only estimation comparison](../ycrcb-estimation-ablation.md) — `docs/ycrcb-estimation-ablation.md`
+- [Frozen YCrCb candidate: separate twenty-source training check](../ycrcb-training-check-protocol.md) — `docs/ycrcb-training-check-protocol.md`
+- [Frozen YCrCb policy and separate twenty-photo training check](../ycrcb-training-check-results.md) — `docs/ycrcb-training-check-results.md`
+- [Frozen-candidate training-check review imported](../ycrcb-training-check-review-results.md) — `docs/ycrcb-training-check-review-results.md`

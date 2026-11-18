@@ -1,0 +1,17 @@
+# Copy this prompt into ChatGPT web
+
+I am editing the TrueHue thesis. Use the connected GitHub repository `SONDERXO/TrueHue`, branch `ffhq-correction-development-20261105`. If GitHub cannot retrieve this branch, say so and use the text/ZIP handoff I upload instead. Do not assume the default `main` branch is current.
+
+First read `THESIS_START_HERE.md`, `docs/thesis/research-map.md`, `docs/thesis/evidence-snapshot.json`, and `docs/thesis/document-index.md`. Follow the linked exact protocols/results and relevant implementation files. The document index covers the research history, including failed/closed studies; it is a retrieval index, not proof you read every file. List what you actually read and identify important unavailable evidence.
+
+My latest request authorizes thesis drafting. Historical manuscript-pause instructions are superseded for drafting only. Use the manuscript I upload for chapter structure and formatting. Before rewriting, make a concise chapter-by-chapter change plan and an evidence table matching proposed claims to repository files. Then revise the requested sections using that evidence. Do not launch research scripts, acquire datasets, contact people, reopen closed experiments or change software/model adoption.
+
+Describe the actual study rather than silently changing it to match an ideal pipeline. Separate proposal requirements from implemented research extensions, experimental software from qualified model performance, generated fixtures from photographic data, source-held development from independent final evaluation, and user feedback from expert MOS. Original photographs are synthetic-restoration targets, not physical skin-colour ground truth.
+
+The latest complete WB314 pure-underexposure review has9candidate preferences,2no-useful-difference judgments and11acceptable appearances across11sources. All11colour candidates were explicitly preferred by the user after clarification; preserve that correction rather than reverting to the raw4/7file interpretation. Preserve the separate8-case exposure rereview and the background-context concern. Do not double-count overlapping cases. These positives do not establish a finished model, fairness, expert approval or current-model Android performance.
+
+Keep negative results and limitations. PPR319, synthetic316, actualPIQ316 and fullPPRfailed/closed outcomes are not adopted. PIQ's positive held ranking and failed loss gate must both be reported when relevant. Do not present a protocol that was never run as a completed experiment, or an old draft's claimed result as current.
+
+Cite repository paths next to factual development claims and verified primary publications for academic statements. Do not invent references, sample sizes, tone labels, significance tests, participant responses, missing results or device measurements. Use explicit placeholders or pending wording where evidence is absent. The adviser handles paper format/conferences only. Expert-created training edits/preset collection/editor-tool work were dropped and are not thesis prerequisites.
+
+The GitHub checkout deliberately excludes raw photographs, model binaries, private `outputs/` evidence, the local proposal PDF and locked holdout contents/manifests. Do not claim to have inspected them. Ask for the current editable manuscript if it is not attached; do not infer its full contents from old repository drafts. Do not frame a draft as final/submission-ready while the documented qualification work is incomplete.

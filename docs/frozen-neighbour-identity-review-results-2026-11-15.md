@@ -1,0 +1,16 @@
+# Saved identity review: all final answers acceptable
+
+15 November2026. User reported saving Downloads/truehue-identity-review. Located ONLY the named matching download `C:/Users/NYTHAN/Downloads/truehue-identity-review.json`,2740bytes. Imported with `scripts/import_frozen_neighbour_identity_review.py`. Source/manifest/status/allowed-answer validation passed. Independently confirmed all11final answers and byte equality of source and archived file.
+
+Raw SHA256:`7666db958d6b0a5ae01083242b8af0c1956332b4ebd7fa54a0af36a4fa02cd20`.
+Manifest SHA256:`cfd3fdf80d5a92e303f301c21512b466bc7b765f655824036d2a80a4d05bf427`.
+
+Final saved counts:11acceptable,0unwanted,0uncertain. Both changed49131/54632identity cases were accepted under the user's slight-acceptable-difference policy; nine unchanged cases were also explicitly answered, not autofilled. All notes empty. Case04has an acceptable->unwanted->acceptable sequence in raw event history. Preserve that user-authored revision; no claim that the intermediate click was accidental, no deletion, no agent rescore and no reinterpretation of the final saved answer. Raw bytes archived unchanged in `outputs/frozen_neighbour_identity_ratings_v1/raw_user_review_PRIVATE.json`, assessed in its `assessment_PRIVATE.json`.
+
+This clears the defined development identity no-unwanted-change check for these exact outputs/reviewer/setup. It is not expertMOS, population preservation evidence, correction usefulness or darker-skin qualification. No model adoption, final all-source index, runtime or manuscript change follows automatically.
+
+Next bounded human task is ALL11colour-only cases, one per source, including the unchanged53146case. [Prospective usefulness protocol](frozen-neighbour-colour-usefulness-protocol-2026-11-15.md). Keeping this stage to11focuses the unresolved colour limitation and avoids requiring55new reviews at once. All44exposure/combined outputs remain unreviewed for usefulness. Separate usefulness/appearance questions prevent too-small feedback being treated as harm. Unwanted/uncertain appearance stops; no arbitrary automated visualPASS is introduced.
+
+Prepared delivered page: `outputs/frozen_neighbour_colour_review_v2/index.html`, http://127.0.0.1:8878/ . Three lossless native256PNGassets per case, independently equal to the saved verified input/candidate/reference arrays.33servedimagehashes+HTTP200+JavaScript syntax PASS. Browser click-through/layout QA unavailable; no such claim or new extension request. The initial undistributed v1UI was preserved; v2fixes restoring a partially answered two-question case, and carries a distinct ui_version manifest binding. No human rating was made on either version by the agent.
+
+Save filename:`truehue-colour-usefulness-review.json`. Importer prepared `scripts/import_frozen_neighbour_colour_review.py --file <exact saved path>`, NOT executed. It validates v2manifest/kind/status, permits honest partial answers, preserves raw responses and reports counts without automatic visualPASS or score reclassification. No old ratings reused, candidate retuned, new correction renders or original/locked reads. Paperpaused/modelunfinished/darkerpriority/November25modelASAP; all prior artifacts/closures/manual59807ears preserved.

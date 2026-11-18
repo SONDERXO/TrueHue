@@ -1,0 +1,13 @@
+Continue TrueHue in C:\Users\NYTHAN\OneDrive\Documents\TrueHue.
+
+Read first: AGENTS.md and docs/session-handoff-2026-11-17.md. Then read docs/friday-deadline-clarification-2026-11-17.md, docs/paper-alignment-reaudit-2026-11-15.md and docs/piq23-training-readiness-2026-11-17.md. Follow latest entries; historical pending tasks/deadlines/holds are superseded.
+
+Goal: useful natural automatic exposure AND colour correction, preserving acceptable photographed complexion and identity, with darker-skin benefit central. Model remains unfinished; no latest candidate adopted. Manuscript editing remains PAUSED; I will provide the editable manuscript again. Friday 20 November 2026 before noon Manila is the PAPER SUBMISSION deadline, so genuine expert feedback is needed BEFORE Friday. No interim/progress-only paper, preliminary-methods-feedback substitution, reduced scope or completion promise has been accepted.
+
+Active approved route: PIQ23 exposure-quality head on the existing frozen ReIQA encoder, later supplying two input features to the correction-control model. User reports email sent but suspects no reply; no inbox/delivery verification or duplicate contact. Dataset access/use remain unresolved. Trainer, generated numerical/encoder checks and expected metadata roster are complete; ZERO actual PIQ23 image admissions or real head fits. generated_head.json is MOCK ONLY, never photographic inference weights. Actual archive/use/admission/feature bindings are needed before the approved one real fit; later 316-feature correction comparison requires its own full prospective protocol/QA.
+
+Do not rerun closed ridge, joint4410 or completed/failed 231-fit fivefold selection. Preserve WB314 feedback: all 11 identities acceptable, explicit ALL 11 colour candidates preferred (overriding the raw selection interpretation), but confirmed 8-case exposure batch lacked visible benefit. Three exact neutral predictions diagnosed; no repeat review or savefile request pending. The active identity-review launcher in the IDE does not create a pending task.
+
+Before every substantive research/delivery step, proactively recheck relevant cached proposal passages and latest authorized amendments; distinguish written-method parity, authorized research extension and final adoption. Do not invent requirements or reopen a source/model/tuning queue. PIQ23/researcher replies are not universal original-paper dependencies.
+
+Keep locked holdout contents AND manifests unread/uninventoried, raw originals unread, all artifacts/ratings/manual ears preserved, and runtime/Android/manuscript unchanged. No external contact or routine subagents. Continue justified authorized work without repeat permission; report limitations candidly.

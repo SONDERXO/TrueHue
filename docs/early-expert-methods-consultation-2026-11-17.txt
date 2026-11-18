@@ -1,0 +1,22 @@
+UNSENT CONDITIONAL DRAFT - early consultation timing is not yet agreed under the previous model-first policy. This is not the formal MOS invitation or instrument.
+
+Subject: Request for brief methodological feedback on TrueHue
+
+Dear [Name and title],
+
+I am [Name], a [programme] student at [Institution]. My thesis, TrueHue, investigates automatic facial exposure and colour correction while preserving photographed complexion, particularly for darker skin tones.
+
+Our combined correction model has not yet met its acceptance requirements. The current difficulty is improving exposure while preserving acceptable colour and original appearance. We have completed several controlled development comparisons; their limitations and failed outcomes are retained. We are also awaiting requested access to PIQ23 for a proposed exposure-quality learning stage.
+
+If your schedule permits, could you provide brief methodological feedback by Thursday,19November? I am seeking advice on the following questions:
+
+1. Is an exposure-quality ranking cue, learned on a frozen encoder and used as a feature for correction-control prediction, a reasonable extension of a synthetic-to-original restoration study?
+2. How should we balance restoration and preservation without treating naturally darker complexion as an exposure error?
+3. What evidence would you require before formal comparative image ratings and claims of improvement across skin-tone groups?
+
+Short comments would be valuable. This request is for methodological advice; it would not be reported as Mean Opinion Scores or final validation of an unfinished model. I can provide the concise status brief and relevant methods excerpts if useful.
+
+Thank you for your time and consideration.
+
+Kind regards,
+[Name / programme / institution / email]

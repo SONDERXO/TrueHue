@@ -12,12 +12,19 @@ import numpy as np
 
 ROOT=Path(__file__).resolve().parents[2]
 PRESET={'experiment':'baseline5','fold_id':1,'model_status':'experimental_failed_quality_gate'}
-DEMO_NOTICE='Experimental demo: older ten-source baseline; failed quality checks. The MST estimate is unvalidated.'
+DEMO_NOTICE='Experimental demo: current masks with older correction controls. The model and MST estimate remain unvalidated.'
 
 
-def build_demo_pipeline():
+def build_demo_pipeline(masking='current',glasses='uncertain'):
     runner=import_module('scripts.180_run_development_mst_pipeline')
-    return runner.build_pipeline(PRESET['experiment'],PRESET['fold_id'])
+    pipeline,provenance=runner.build_pipeline(PRESET['experiment'],PRESET['fold_id'])
+    if masking not in ('current','legacy'):raise ValueError('Known masking mode required')
+    if masking=='current':
+        from src.demo.current_masking import CurrentMaskDemoPipeline
+        pipeline=CurrentMaskDemoPipeline(pipeline,glasses)
+    provenance.update(demo_masking=masking,combined_pipeline_validated=False,
+        model_features_measurement_contract_sha256=provenance.get('measurement_contract_sha256'))
+    return pipeline,provenance
 
 
 def example_path():
@@ -37,6 +44,8 @@ def read_photo(path):
 def plain_failure(report):
     measured=report.get('measurement',{});stage=report.get('failed_stage') or measured.get('stage')
     count=measured.get('face_count')
+    if stage=='legacy_correction':return 'The new mask succeeded, but the older correction model could not run. '+report.get('reason','No correction was applied.')
+    if stage=='current_masking':return 'Current masking could not finish. No correction was applied. '+report.get('reason','Inspect the technical report.')
     if stage=='face_detection':
         if count==0:return 'No clear face was found. Try a front-facing photo with the whole face visible.'
         if isinstance(count,int) and count>1:return 'More than one face was found. Choose a photo with one person.'
@@ -61,7 +70,13 @@ class DemoRun:
     def success(self):return self.result.corrected is not None and self.result.report.get('status')=='development_experimental_mst'
 
     @property
-    def message(self):return 'Finished. Compare the trial result with your photo.' if self.success else plain_failure(self.result.report)
+    def message(self):
+        if not self.success:return plain_failure(self.result.report)
+        if self.result.report.get('manual_refinement'):
+            return 'Mask refined by you. Correction controls and MST remain experimental.'
+        if self.result.report.get('masking',{}).get('requires_glasses_choice'):
+            return 'Finished with glasses protected. Choose clear for transparent lenses or opaque for sunglasses, then rerun.'
+        return 'Finished. Compare the trial result with your photo.'
 
 
 def analyze_photo(path,pipeline,provenance):
@@ -81,6 +96,20 @@ def run_report(run):
         provenance=deepcopy(run.provenance))
 
 
+def load_refined_run(folder):
+    from types import SimpleNamespace
+    from src.demo.manual_refinement import verify_export
+    folder=Path(folder);verify_export(folder)
+    report=json.loads((folder/'report.json').read_text(encoding='utf-8'))
+    demo=report['demo']
+    result=SimpleNamespace(report=report,image=cv2.imread(str(folder/'photo_used.png')),
+        mask=cv2.imread(str(folder/'correction_mask.png'),0),measurement_mask=cv2.imread(str(folder/'measurement_mask.png'),0),
+        protected_mask=cv2.imread(str(folder/'protected_mask.png'),0),alpha=np.load(folder/'correction_alpha.npy',allow_pickle=False),
+        corrected=cv2.imread(str(folder/'experimental_correction.png')),refinement_export_folder=str(folder))
+    return DemoRun(demo['source_path'],demo['source_sha256'],result,report.get('provenance',{}),
+        preset=demo['preset'],run_id=demo['run_id'],analyzed_utc=demo['analyzed_utc'])
+
+
 def skin_overlay(run):
     image=run.result.image;mask=run.result.mask
     if image is None or mask is None or run.result.report.get('measurement',{}).get('status')!='success':return None
@@ -88,6 +117,14 @@ def skin_overlay(run):
     if mask is not None:
         selected=mask>0
         shown[selected]=np.rint(.65*shown[selected]+.35*np.array([0,255,0])).astype(np.uint8)
+    return shown
+
+
+def measurement_overlay(run):
+    mask=getattr(run.result,'measurement_mask',None)
+    if mask is None:return skin_overlay(run)
+    shown=run.result.image.copy();selected=mask>0
+    shown[selected]=np.rint(.65*shown[selected]+.35*np.array([0,255,0])).astype(np.uint8)
     return shown
 
 
@@ -103,15 +140,26 @@ def stage_labels(run):
 
 def save_run(run,parent):
     folder=Path(parent)/('truehue_demo_'+uuid.uuid4().hex[:12])
+    if run.result.report.get('manual_refinement') and hasattr(run.result,'refinement_export_folder'):
+        import shutil
+        from src.demo.manual_refinement import verify_export
+        source=Path(run.result.refinement_export_folder);verify_export(source)
+        shutil.copytree(source,folder)
+        return folder
     folder.mkdir(parents=True,exist_ok=False)
     report=run_report(run)
     (folder/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False),encoding='utf-8')
     for name,image in [('photo_used.png',run.result.image),('skin_mask.png',run.result.mask),
-        ('selected_skin.png',skin_overlay(run)),('experimental_correction.png',run.result.corrected if run.success else None)]:
+        ('selected_skin.png',skin_overlay(run)),('experimental_correction.png',run.result.corrected if run.success else None),
+        ('facial_measurement.png',measurement_overlay(run) if hasattr(run.result,'measurement_mask') else None),
+        ('measurement_mask.png',getattr(run.result,'measurement_mask',None)),
+        ('correction_mask.png',run.result.mask if hasattr(run.result,'measurement_mask') else None),
+        ('protected_mask.png',getattr(run.result,'protected_mask',None))]:
         if image is not None:
             ok,data=cv2.imencode('.png',image)
             if not ok:raise OSError('Could not encode demo image')
             (folder/name).write_bytes(data.tobytes())
+    if hasattr(run.result,'alpha'):np.save(folder/'correction_alpha.npy',run.result.alpha,allow_pickle=False)
     manifest=dict(schema_version='truehue_demo_export_v1',run_id=run.run_id,
         saved_utc=datetime.now(timezone.utc).isoformat(),
         files={p.name:dict(sha256=hashlib.sha256(p.read_bytes()).hexdigest(),bytes=p.stat().st_size)

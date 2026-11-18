@@ -1,0 +1,23 @@
+To: piq2023@dxomark.com
+Subject: PIQ23 academic access request - website form error
+
+Dear PIQ23 team,
+
+My name is [Full name], and I am a [programme/year] student at [Institution]. I would like to request access to PIQ23 for my non-commercial academic thesis, TrueHue.
+
+I tried submitting the dataset access form on your website, but received this error: "Cannot send message, Please try again later". Could you advise an alternative way to complete my application?
+
+TrueHue investigates automatic facial exposure and colour correction while preserving photographed complexion, with particular attention to darker skin tones. We propose using PIQ23's facial-exposure annotations to learn within-scene quality rankings through a small head on a frozen feature encoder. Its responses to fixed exposure perturbations would serve as features for a correction-parameter predictor. This is an exploratory research extension; its correction effectiveness has not yet been established.
+
+Could you confirm our eligibility and whether the permitted use includes thesis publication, reporting aggregate results, sharing research code and derived trained weights, and demonstrating a locally running research application? We would not redistribute PIQ23 photographs.
+
+Institution: [Institution]
+Thesis adviser: [Name and title]
+Head of department: [Name and title]
+
+Thank you for your time and assistance.
+
+Kind regards,
+[Full name]
+[Programme, Institution]
+[Institutional email]

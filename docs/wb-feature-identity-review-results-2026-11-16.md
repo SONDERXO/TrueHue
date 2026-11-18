@@ -1,0 +1,11 @@
+# WB314 identity review: all eleven acceptable
+
+16 November2026. User reported "Okay, done". Imported the exact Downloads/truehue-wb-feature-identity-review.json,2581bytes,SHA2566e9c771d7d661e9c7e200d83a86ed73099945cb1402bad3956c0702182e4b9a8. Manifest6864d3dc2ef62220f7179e2bde71f74a95a91aa34b66c33b735de5eaa1fe9568 matches this candidate; no old ratings transferred.
+
+All11finalanswers acceptable,0unwanted,0uncertain. The two changed cases39568/59807 were explicitly accepted by the user, as were the nine unchanged cases. Allnotesempty. Twelveevents retained, including repeated acceptable selections on the firstcase; no inference about accidental clicking or agent revision. Independent raw-byte equality/sourcehash/manifest checks and full event replay matched final saved answers. Evidence outputs/wb_feature_identity_ratings_v1/{raw_user_review_PRIVATE.json,assessment_PRIVATE.json,independent_verification_PRIVATE.json}. Original file/rawbytes unchanged.
+
+This clears the candidate-specific development preservation check. It does not establish visible correction usefulness, expertMOS, darker-tone qualification, independent final performance, Android readiness or model adoption. Numeric gate remains verified; underexposure regression vs281baseline, source16061colour regression vsinput and48879under misses remain in the record.
+
+Relevant cached proposal PDF65/66 rechecked before next step: restore distorted input toward original photographic target and compare with uncorrected input; expert evaluation is separate. Next bounded work is ALL11colour-only source cases for this same314candidate, with separate usefulness and appearance questions. No repeat identity task. All44exposure/combined outputs remain usefulness-unqualified pending a later prospectively bounded screen; no55case batch selected automatically.
+
+No model arrays/features/fits/predictions/correction renders or locked contents/manifests/raworiginal/runtimeAndroid/manuscript accessed for this import. Ratings preserved; manualears/artifacts/closures unchanged. Modelunfinished/paperpaused/darkerpriority/FridayNov20beforeNOONManila/no promise. Parent experiment remains an authorized research extension; no paper rewrite or final adoption.

@@ -1,0 +1,17 @@
+# WB314 colour review: mixed usefulness, explanation pending
+
+Later user correction,16November: the user explicitly states preference for ALL11candidates and no inputpreferences. The interpretation in this original import record is superseded by wb-feature-colour-user-correction-2026-11-16.md; originalrawbytes/counts/events remain unchanged. The explanation question is resolved; do not ask it again. All11savedappearanceacceptable remain unchanged. Effective userpreference11candidate/0input.
+
+16 November2026. User: "Done and saved". Imported exact Downloads/truehue-wb-feature-colour-review.json,5685bytes,SHA256b02d080f616c2b12633854ac13721884fb25524607a8a76a24eaf0f36c43eda5. Bound to newcolourmanifest41ee69bc8058644e9cdb5844414d733f3c25292a726b2133d595cbb4979ee32f and this314candidate, not the prior neighbour. Importer confirms candidateproof/identity/protocol bindings and29event replay. Independently confirmed rawbyte equality/sourceSHA/manifest/finalcounts/empty notes/event replay. No overwrite or agent rescoring.
+
+All11cases recorded: candidate preferred4(16061,29617,32685,39568); input preferred7(46795,48879,49131,52445,53146,54632,59807). No no_useful_difference or usefulnessuncertain answers. Appearanceacceptable11, unwanted0, uncertain0. Allnotesempty. Raw29events and any revisions preserved; no accidentalclick or misinterpretation inferred. User prefers candidate for16061 despite its numericalregression; this discrepancy is retained, not a reason to override the rating.
+
+This is MIXED development usefulness evidence, not automaticvisualPASS, expertMOS, modeladoption or fairness. Inputpreference is not automatically visual harm, and all11acceptable appearances must remain explicit. Numeric5rolePASS and prior11acceptedidentity outcomes preserved; neither establishes colour usefulness for the seven input-preferred cases. No arbitrary new minimum-usefulness count is imposed after seeing these results.
+
+Before an exposure-review decision, ONE explanation-only question was asked: what mainly led to the seven input preferences—input closer to photographicreference, candidate colour/brightness lessnatural, or changes too small to be useful? This is not a rerating request. Answer pending at time of this note. A later explanation must be saved separately and bound to the rawreviewSHA, without replacing originalpreferences, appearances, notes or histories. Do not assume reason from counts/contiguouscase order.
+
+Cached proposal PDF65/66 rechecked: image-error and human appraisal discrepancies must be discussed, not hidden. User development review remains distinct from genuineexpertMOS. Original reference remains a processed photograph, not physicalskintruth. Current camera/WBfeature/control method extensions disclosed.
+
+STOP automatic review progression pending interpretation. No44exposure/combined review, newratings, strength/offset/K/mask/feature/source tuning, fit or all-datafinalmodel selected. No fullmodel or independent darker-tone/Android qualification. All oldratings/artifacts/closures/manualears/lockedCONTENTS-MANIFESTS/raworiginal preserved; no newpixel/NPZ/model reads, fitting, correctionrenders, runtimeAndroid or manuscript changes. Modelunfinished/paperpaused/darkerpriority/FridayNov20beforeNOONManila/no promise.
+
+Evidence outputs/wb_feature_colour_ratings_v1/{raw_user_review_PRIVATE.json,assessment_PRIVATE.json,independent_verification_PRIVATE.json}; scripts/import_wb_feature_colour_review.py. Existing review remains immutable for provenance; no repeated wholebatch required.

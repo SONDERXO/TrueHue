@@ -2,12 +2,12 @@
 <resources>
     <!-- App / screen titles -->
     <string name="app_name">Skin Tone Correction</string>
-    <string name="app_title">Skin Tone Correction</string>
+    <string name="app_title">TrueHue</string>
 
     <!-- Home screen -->
-    <string name="home_description">Experimental demo using an older model that failed quality checks. Select one face for local ITA/MST measurement and trial correction. Results may be wrong.</string>
+    <string name="home_description">Research prototype for skin-tone correction. Choose a photo, inspect the selected skin and compare a trial correction. Processing stays on your phone.</string>
     <string name="select_photo">Select Photo</string>
-    <string name="process_image">Process Image</string>
+    <string name="process_image">Generate trial correction</string>
     <string name="no_photo_selected">No photo selected yet</string>
     <string name="selected_photo_preview">Selected photo preview</string>
     <string name="photo_selected">Photo selected.</string>
@@ -20,9 +20,8 @@
 
     <!-- Result screen -->
     <string name="result_before">Original</string>
-    <string name="result_after">Corrected</string>
-    <string name="result_hint">The corrected image is currently a placeholder (same as the original).
-        The decision-tree correction will be wired in later.</string>
+    <string name="result_after">Trial correction</string>
+    <string name="result_hint">Compare the trial correction with the working input and inspect the selected skin. Correction quality is not validated.</string>
     <string name="reselect_photo">Re-select Photo</string>
     <string name="save_corrected_image">Save Corrected Image</string>
     <string name="save_not_implemented">Save not implemented yet</string>

@@ -1,0 +1,18 @@
+# PIQ2023 arrival: download pending
+
+18 November2026, Asia/Manila. User reports **"PIQ2023 just gave me the dataset"**, then confirms **"Yes It's in downloads but it hasnt finished downloading yet"**. This is a user-reported data-access response and ongoing download, not a completed archive/admission or verified Exposure subset. No inbox was accessed and no duplicate contact/download was started.
+
+User supplied this response excerpt:
+
+> At DXOMARK, we are committed to providing high-quality datasets that enable researchers and innovators to advance their work. We hope that our dataset meets your needs and helps you achieve your research goals.
+> We would also appreciate it if you could cite our dataset in your research and acknowledge our contribution to your work. This will help us reach a wider audience and demonstrate the impact of our research. We look forward to seeing the innovative ways in which it is used and the insights it yields.
+
+Retain the citation/acknowledgment request. This excerpt does not identify the supplied subset or state complete use/distribution terms; inspect any supplied README/licence with the completed archive. Do not invent blanket rights, an absolute prohibition, or another researcher-contact dependency from the excerpt.
+
+Read-only, nonrecursive Downloads metadata check found one unfinished Chrome file: `C:\Users\NYTHAN\Downloads\Unconfirmed 521060.crdownload`,2,677,720bytes at inspection. **Its generic filename does not identify it as PIQ23.** No partial-file contents, browser history or unrelated file contents were read. Do not extract, rename, hash as a completed archive, interrupt, duplicate or consume it. The completed archive filename/path remains unverified.
+
+The previously approved PIQ23 route has a prepared fixed trainer and sealed expected5116image roster; reuse them without another engineering rehearsal. On completion, first identify the actual archive, read its supplied metadata/notices, establish source/hash binding and reconcile Exposure paths against public scores/scene splits. Then check decoding/known duplicates and freeze actual admission/preprocessing/feature bindings before the single approved real quality-head fit. Test scenes stay outside fitting/scaling. Unknown identity/tone coverage must be disclosed; no need to invent perfect-mask/person certification requirements. No real PIQ images/quality-head fits yet; generated weights are never inference weights. No automatic later correction experiment or completion claim from dataset arrival.
+
+The separately approved complete PPR assessment is **deferred at a safe checkpoint**, not failed/closed/cancelled and not started in parallel. Its matching LUT retrieval succeeded:2,157,507bytes, SHA256`b6612699da0b15d8c0cc7cd6d8c3c4b2060d8c78de4b266f3af2d5f3fcd6e9a1`,2,015,387bytestransferred. No LUT inspection/native build/generated mapping/actual output calls have occurred. Preserve its approval/assets/protocol; do not redownload or restart it while establishing the actual PIQ handoff. The user's new dataset message steers the current model-completion task; it does not adopt a final method or reverse prior closures.
+
+No extra source/model queue, fits, downloads, portrait decoding, correction renders, user review, contacts, raw-original/locked-content-manifest, runtime/Android or manuscript changes. Prior ratings/manual ears/artifacts retained; adviser remains format/conferences only. Full goal and actual expert feedback before Friday20November paper submission unchanged, no completion promise. Next action awaits completion/identification of the user's download.

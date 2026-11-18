@@ -142,6 +142,12 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             // ---- Buttons --------------------------------------------------------------
+            Text(
+                text = "For the clearest demo, choose one front-facing person with a well-lit face. This build uses an older, unvalidated correction model; results may be wrong.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
             Button(
                 onClick = {
                     pickImageLauncher.launch(

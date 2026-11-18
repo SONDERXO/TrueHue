@@ -1,0 +1,13 @@
+# Direct WB-feature comparison: generated workflow verified
+
+15 November2026. User authorized proceeding with the direct learned-feature comparison. Frozen protocol: wb-feature-direct-comparison-protocol-2026-11-15.md. This is separate from the failed native-WB proxy; no old result rescored.
+
+Generated rehearsal completed22actual artificial tree fits,1320fitting routes,132held routes and198independent full-pixel/metric replays. Ordinarydepth4seed42 baseline281 and candidate314; exactnative/exportedleaf and control parity, scalarleafmeans and sharedconstant verification. Generated masks include alpha0/feather/core/protected pixels. Source-held poison payload excluded; badwidth rejected BEFORE anyfit/output; missingcertificate rejected; existingoutput refuses overwrite. Global22fit barrier and132heldcontrol seal precede scoring. Artificial coordinate values encode synthetic signal solely to exercise the workflow, not as photographic evidence.
+
+Independent six-role summaries and candidate gate reproduced. GeneratedPASS is implementation evidence, not evidence of working portrait correction, skin-tone generalization, or phone performance. No real fits occurred in this generated run. Full versions/code/protocol hashes bound in outputs/wb_feature_direct_generated_v1/verification.json. Dependencies unchanged.
+
+The actual adapter must verify savedcamera18546feature scalar checks, plan/row hashes, all66case-pack hashes, WBfeature seal and independent cue verification plus their original bindings before anyrealfit. No actual features, targets, masks or model assets are recalculated. It preserves original parent_training_admitted=false and generated_fixture=false and uses an explicit exposed-development execution role. No raworiginal/lockedcontents-manifests/runtimeAndroid/manuscript accesses.
+
+Generated sources: scripts/wb_feature_direct_workflow.py, scripts/wb_feature_direct_verify.py, scripts/check_wb_feature_direct_generated.py; real adapter scripts/run_wb_feature_direct_real.py. This new camera-control tree schema does not reuse the incompatible old signedoffset runtime. Plan target_names and feature_names originally inherited from camera-neighbour planning are historical parent metadata; actual per-arm input widths and target meanings are explicitly specified in this protocol, saved row matrices and exported camera-control models. No runtime compatibility inferred.
+
+Modelunfinished/paperpaused/darkerpriority/FridayNov20beforeNOONManila/no promise. All prior artifacts/ratings/manualears/closures preserved. Actual experimental quality is a separate result and must not be inferred from this engineering record.

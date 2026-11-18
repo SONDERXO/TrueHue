@@ -1,0 +1,35 @@
+﻿{
+    "date":  "2026-11-15",
+    "audit_type":  "requirements and saved evidence, not implementation rerun",
+    "proposal_pdf_pages_read":  [
+                                    10,
+                                    11,
+                                    12,
+                                    13,
+                                    14,
+                                    58,
+                                    59,
+                                    60,
+                                    61,
+                                    62,
+                                    63,
+                                    64,
+                                    65,
+                                    66,
+                                    67
+                                ],
+    "files":  [
+                  {
+                      "path":  "outputs/proposal_scope_validation_20261103_v1/pages.json",
+                      "sha256":  "f8970380cff083084ab23bfe0b6d6792114d19f501ea93a1587696f1fbb2fe92"
+                  },
+                  {
+                      "path":  "docs/paper-alignment-reaudit-2026-11-15.md",
+                      "sha256":  "c439a243ef8abe644571691b60101ae38b9037ab993c2d7b4eda4cd346115aa9"
+                  }
+              ],
+    "email_status":  "user-reported sent; not independently verified",
+    "manuscript_modified":  false,
+    "locked_data_accessed":  false,
+    "fits":  0
+}

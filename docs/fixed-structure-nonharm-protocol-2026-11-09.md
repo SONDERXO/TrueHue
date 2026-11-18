@@ -1,0 +1,7 @@
+# Fixed-structure colour-nonharm comparison
+
+User approved 9 November 2026. Preserve every split, threshold, child link and fitting-leaf membership of the prior facial-exception candidate's pre-veto trees. For each leaf, choose the lowest summed saved RGB-cost existing action feasible for every clean row (zero cost) and colour-only row (cost no greater than identity). Ascending action index breaks ties. Same three colour recipes; no recipe at inference. Exactly 11 existing configurations; no new split fitting, thresholds, weights or MST fits.
+
+Reapply the reserved-clean veto and frozen facial exception as before. Verify final fitting clean/colour constraints and reserved-clean identity decisions. Keep all fitting data, features, calibrated MST, group exclusions, costs, actions, measurement masks, alpha and scoring regions fixed. Internal-node training traces remain historical, not new greedy optimum claims; leaf trace actions/costs record reassignment explicitly.
+
+Replay the same 756 attempts. Compare the original facial-exception and globally retrained colour-nonharm candidates for attribution, with the original aligned model remaining the acceptance comparator. Unchanged joint requirements: zero usable clean edits, no increase in core/stress RGB/CIEDE2000 mean error or harms and no reduction in beneficial counts per cohort, plus protection/replay checks. A failed requirement stops adoption and any automatic follow-up sweep. Final 24-photo holdout stays byte-unread. No DINO, parser changes, extra data, annotation or integration.

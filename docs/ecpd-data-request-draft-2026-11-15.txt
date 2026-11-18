@@ -1,0 +1,20 @@
+UNSENT DRAFT
+To: mnyang@cqu.edu.cn
+Subject: Research access request for ECPD portrait enhancement pairs
+
+Dear Professor Yang,
+
+I am working on TrueHue, a thesis project investigating automatic portrait exposure and colour correction while preserving complexion, with particular attention to darker skin tones.
+
+Your paper, "An end-to-end perceptual enhancement method for UHD portrait images" (10.1049/ipr2.12464), identifies ECPD as available upon reasonable request. Could you provide research access, or a permitted small paired sample for an initial suitability assessment?
+
+Could you also clarify:
+- Dataset use, attribution and publication/reproduction conditions;
+- Source/target correspondence, colour profiles and how retoucher targets are organized;
+- Whether person/session grouping and person-disjoint splits are available;
+- Whether skin-tone annotations or documented coverage exist;
+- Whether unchanged or already acceptable portraits are included.
+
+Our planned method predicts correction controls rather than adopting your enhancement network. Initial assessment would examine reference suitability and whether those controls can represent the edits before training.
+
+Thank you for considering this request.

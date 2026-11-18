@@ -7,6 +7,7 @@ from src.skin_masking.continuous_correction import continuous_support
 from src.skin_masking.anatomical_face_coverage import build_face_coverage
 from src.skin_masking.clear_lens_correction import protect_with_clear_lenses
 from src.correction.seamless_blend import apply_blended
+from src.skin_masking.approved_ear_support import extend_support
 
 GLASSES_MODES = ('clear', 'opaque', 'uncertain')
 
@@ -23,7 +24,8 @@ class CorrectionPreview:
 
 
 def render_preview(image, facial_mask, categories, landmarks, visible_face, *,
-                   glasses='uncertain', parameters=(.85, 1.05, .95), protected=None):
+                   glasses='uncertain', parameters=(.85, 1.05, .95), protected=None,
+                   manual_removed=None):
     """Compose unchanged candidate masks with explicit per-photo glasses handling.
 
     ``visible_face`` must come from the matching pinned FaceOcc mapping. There is
@@ -37,6 +39,8 @@ def render_preview(image, facial_mask, categories, landmarks, visible_face, *,
     outline = build_face_coverage(image, landmarks).face_outline
     revised, veto, lenses, rims = protect_with_clear_lenses(support, categories,
         visible_face, outline, transparent_glasses=glasses == 'clear', protected=protected)
+    # Add only associated ear classes AFTER all vetoes; never refill protected holes.
+    revised = extend_support(revised,categories,protected=veto,manual_removed=manual_removed)
     _, xx = np.nonzero(facial_mask)
     if not len(xx):
         raise ValueError('Nonempty facial measurement support required')
@@ -45,7 +49,7 @@ def render_preview(image, facial_mask, categories, landmarks, visible_face, *,
         face_width=width, protected=veto)
     detected = bool((categories == 6).any())
     needs_choice = detected and glasses == 'uncertain'
-    report = dict(version='reusable_object_protected_correction_preview_v1',
+    report = dict(version='reusable_object_protected_ear_correction_preview_v2',
         status='needs_glasses_choice' if needs_choice else 'preview_available',
         glasses_choice=glasses, glasses_choice_source='explicit_caller_choice_not_classifier',
         parser_glasses_present=detected, requires_glasses_choice=needs_choice,

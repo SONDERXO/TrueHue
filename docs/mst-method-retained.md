@@ -101,3 +101,11 @@ generation. No guessed severity groups or final-performance claim follows here.
 The decision now is fixed: complete and evaluate MST rather than quietly remove
 it. Mapping quality, data eligibility, final evaluation, neck coverage and expert
 MOS remain unfinished. CPM stays deferred and paint/makeup remains a limitation.
+
+## 6 November experimental extension
+
+The user explicitly selected a [continuous MST correction candidate](continuous-mst-correction-protocol-2026-11-06.md).
+That isolated experiment uses predicted continuous 1–10 `input_mst_score`
+instead of integer `input_mst_index`, with Lab/ITA and three correction outputs
+retained. It is not runtime adoption or a validated real-data calibration.
+The historical integer method documented above remains unchanged for comparison.

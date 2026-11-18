@@ -1,5 +1,189 @@
 # Changes to track for the thesis-panel request letter
 
+## 18November — actual PIQ23 external quality-head stage completed
+
+[Actual5116image admission and one trained external quality head](piq23-real-head-results-2026-11-18.md) completed:3630Train/35scenes;1486Test/15scenes. Held equal-scene pairaccuracy85.51%(pooled88.36%),all15above50%, but loss1.45248>worsethantied.69315, so fixed quality screen not advanced. No new correction tree, naturalness/preservation/MSTfairness/expertMOS/runtime claim. This is actual external supervision on frozen neural features, a disclosed proposal63/65extension, not unchanged traditional tree/gamma-RBmodel. Exactduplicatepairs remain within scenes, person/tone independence unknown; owner's citation request retained. No panel approval/manuscript/Android change; PPRassessment remains deferred.
+
+## 17 November — approved facial-underexposure pilot failed/closed
+
+[Fixed66-input score assessment](face-underexposure-pilot-results-2026-11-17.md) completed with the one frozen external tiny checkpoint, no local fitting or corrected RGB outputs. Originals1/11andcolour2/11false underexposure flags; pure-under3/11andcombined-under5/11detected. Within-source ordering11/11and9/11positive, but the predeclared direct-cue screen fails. Preserve both observations; no threshold/crop/model rescue, correction fit, adopted runtime gate or current-model/fairness claim. Native/generated/scalar/source checks pass in an isolated overlay; old environment unchanged. Neural-feature extension remains research only; no panel approval or manuscript/runtime/Android change.
+
+## 17 November — face-underexposure prior readiness only
+
+[One newly checked source](face-underexposure-readiness-results-2026-11-17.md) supplies an externally trained binary underexposure estimator intended to address darker-skin false positives. One22.2MBtiny checkpoint safely inspected; no model inference, portrait calls, locally trained classifier, correction fits or adoption. A future scalar feature would be an additional neural component beyond proposal63/65, preserving the control pipeline. Native runtime/preprocessing and a fixed cue assessment still required. No tiny/TrueHue fairness claim from the paper's base-model results, no panel/manuscript/runtime change, and PPR319 remains closed after brightness feedback.
+
+## 17 November — PPR319 not adopted following preservation concern
+
+User's exact16061original feedback, "Um i think it's a little too bright?", is preserved separately in `outputs/ppr_parameter_preservation_feedback_v1`. This natural-language brightness concern does not endorse acceptable preservation; the candidate review is closed without tuning or further ratings. Its numerical gate PASS remains historical and unchanged. No formal categorical response, expertMOS, model completion, method adoption or new fit is inferred. See [updated results](ppr-parameter-correction-results-2026-11-17.md).
+
+## 17 November — fixed PPR319 feature comparison passed numerical gate; review pending
+
+The [one fixed test](ppr-parameter-correction-results-2026-11-17.md) retrieved one official frozen five-coefficient ResNet18 component through the author's replacement archive link, used66existing input-only calls and exactly11new source-held correction trees. UnderRGB11.251=>9.396/DE4.552=>3.944; colour2.476/.901 unchanged; all five nonidentity means beat input and constant. Numerical gate passes, but a new original-image brightening and combined-under regression remain; no adoption/preservation/usefulness claim. This is an externally supervised neural-feature extension to proposal63/65, with no LUT/external corrected pixels, not an old PPR pair-study restart or unchanged original method. One new preservation-risk pair awaits the user's judgment before further candidate review. No final fit, panel approval, manuscript/runtime/Android change or old rating transfer. Noncommercial thesis feasibility only; pretrained overlap unknown and no weight redistribution/commercial rights inferred.
+
+## 17 November — pretrained portrait-parameter source reviewed, not adopted
+
+[Bounded source-only review](portrait-parameter-prior-next-step-2026-11-17.md) identifies the official PPR10K validation component producing five LUT mixing coefficients as a possible feature source. This is different from the closed local PPR10K pair studies and the eleven-source synthetic ranking. Actual checkpoint availability/terms/hash/load/inference remain unverified; no assets, code execution, photos or fits. Parameter-only use would preserve ITA/MST and the final control learner but add an externally supervised neural component beyond proposal13/63/65; it is NOT unchanged traditional-method parity, external pixel-network adoption or automatic permission. No correction experiment selected or panel/manuscript change.
+
+## 17 November — fixed synthetic-probe316 correction comparison failed/closed
+
+Following broad model-development continuation, one [prospectively specified](synthetic-probe-correction-protocol-2026-11-17.md) matched comparison appended two synthetic-ranking probe responses toWB314. [Results](synthetic-probe-correction-results-2026-11-17.md):132new probe vectors, no new head training, exactly11source-held correction trees; outer held source excluded from both stages. UnderRGB11.251=>8.606/DE4.552=>3.136, but colourRGB2.476=>9.531/DE.901=>3.187 and six identity exposure changes; combined gateFAIL. Engineering/scalar/source/hash checks passed. This is a tested/rejected auxiliary-feature extension to proposal63/65, not adopted method/panel approval. No old human acceptance transfer, new review, final model, manuscript/runtime/Android change or relaxed gate. All failures retained.
+
+## 17 November — approved synthetic-ranking diagnostic completed
+
+User approved and all eleven source-held scalar heads completed using existing4096camera features and explicit original-versus-synthetic exposure ordering. [Results](synthetic-exposure-ranking-results-2026-11-17.md):29/44held preferences correct, families7/11,7/11,9/11,6/11 meet the fixed narrow directional criterion; all440fitting pair occurrences correct. Severe held confidence errors give loss12.032 versus tied baseline0.693; no score calibration or correction usefulness established. Auxiliary learned score is an authorized research extension to proposal63/65, not expert labels or final adoption. Generated-v1 verifier failure preserved; corrected independent step replay and actual550updates/scalar/hash audits passed without changed settings or tolerances. No correction fits, actual probes, pixels, ratings, manuscript/runtime/Android change. PIQ23 external stage remains separate and access-pending.
+
+## 17 November — synthetic exposure-ranking diagnostic proposed only
+
+The [new proposal](synthetic-exposure-ranking-proposal-2026-11-17.md) would train a supplementary scalar exposure score from existing source-matched original/synthetic comparisons, using a frozen4096-feature encoder and eleven source-held fits. Cached proposal63/65 supports synthetic-to-original targets, but an auxiliary learned score remains an extra method component. This is NOT PIQ23 expert-label supervision, new independent data, an approved replacement stage, a selected correction fit or final adoption. Scope approval and full explicit-pair engineering/actual bindings remain before real fitting. Generated algebra checks alone show a possible curvature mechanism and retain affine/identical-feature impossibility counterexamples; they do not establish actual portrait transfer. Existing failures and full qualification requirements remain. No panel/adviser approval or paper edit is claimed.
+
+## 9 November — user chooses optional manual mask refinement
+
+The user explicitly chooses the manual refinement route, superseding their
+earlier fully automatic masking preference. [Python implementation and limits](manual-mask-refinement-route-2026-11-09.md):
+automatic mask as starting point, optional user add/remove/restore, protected-area
+unlock and immutable original/edit provenance. This introduces a human-assisted
+step and must be described separately from automatic research benchmarks.
+The decision tree/ITA/MST remain required. Current editor rerenders with captured
+historical controls and displays edited ITA without feeding it to the old MST
+mapping. It does not qualify new calibration/model performance. User direction
+is not panel/adviser approval; submitted proposal/appeal documents are unchanged.
+Android and failed-run rescue remain future work; final holdout remains unread.
+
+## 7 November — input-mask/operator alignment implemented for research
+
+The user approved preparing and learning through actual-input masks and the
+intended blended correction region. [Results](aligned-correction-pipeline-results-2026-11-07.md):
+756attempts,451usableinputs,56matching experimental MST fits and11joint trees.
+Clean edits remain2/22development and2/18later; coverage and later core recovery
+remain inadequate. This candidate adds explicit actual-input face normalization
+and native alpha projection, so it is not identical to current desktop framing.
+No runtime, scientific admission, final method adoption or panel approval.
+
+## 7 November — facial-root hierarchy tested, not adopted
+
+One fixed joint-tree repair permits only facial Lab/ITA/MST at the first split,
+with all inputs available below. Eleven trees select estimated MST at the root.
+[Results](face-first-action-tree-results-2026-11-07.md): later clean edits fall
+5 to 1/23 and core MAE 6.00 to 5.64, but development clean edits increase and
+stress recovery worsens. This is research evidence, not an adopted method,
+completed correction model, app update or panel approval.
+
+## 7 November — joint image-loss tree developed, not adopted
+
+The user approved a structural training redesign: a single tree learns identity
+or correction actions using rendered RGB loss and hard fitting-clean protection,
+replacing separate heads/gates/posthoc policies for this candidate. Eleven fixed
+fits are complete. [Results](image-loss-action-tree-results-2026-11-07.md) show
+core MAE improving from 13.51 to 2.83 development and 17.43 to 6.00 later fallback,
+but 2/29 and 5/23 clean photos are altered, and severe errors remain. This is an
+implemented research candidate, not an adopted thesis method, completed model,
+demo integration or panel-approved amendment. ITA/MST remain available inputs
+but were not selected as splits in these fitted trees; do not omit that limitation.
+
+## 7 November — brightness feature restriction tested, not adopted
+
+One authorized fixed comparison refits eleven gamma predictors without three
+absolute scene-lightness percentiles. ITA/MST and the other predictor inputs
+remain; gains, gate and conservative neutral/support policy stay fixed.
+[Results](gamma-scene-lightness-results-2026-11-07.md): all scored clean photos
+are preserved, but gated core-distortion correction falls to zero. This closes
+an unsuccessful research trial; it is not an implemented thesis amendment,
+completed model, runtime update or panel approval.
+
+## 7 November — remaining joint-policy failures diagnosed
+
+The [saved-trace audit](joint-policy-trace-audit-results-2026-11-07.md) separates
+the exposure tree's remaining clean error, useful modified actions rejected by
+the old gate, and useful actions removed by the range rule. No further model fit
+or method adoption. These findings refine the development problem; they are not
+additional implemented thesis amendments or evidence of panel approval.
+
+## 7 November — joint-control protection tested, not adopted
+
+The user authorized proceeding after the brightness/colour diagnosis. One fixed
+zero-fit [comparison](joint-neutral-support-results-2026-11-07.md) applies exact
+neutral outputs to clean fitting leaves in both heads and joint abstention outside
+leaf fitting ranges. With the existing gate, clean edits fall to 0/29 and 0/23,
+but core and stress recovery worsen. Without the gate, core recovery improves but
+one later clean photo is severely altered. This remains a research comparison,
+not an adopted thesis-method change, completed model, app update or panel approval.
+
+## 7 November — saved-tree clean darkening diagnosis
+
+User authorized diagnosis only. The [audit](clean-darkening-route-audit-results-2026-11-07.md)
+finds a clean input routed by absolute scene lightness into a pure overexposure
+gamma leaf. Its targets and export replay correctly; no new method is adopted.
+An analytic fixed-gain check also shows gamma-only changes cannot preserve the
+three retained-gate clean failures with their existing gains. This is a local
+control-policy limitation, not impossibility of the correction task. No new
+training, manuscript amendment, runtime adoption or panel approval follows.
+
+## 7 November — gate-only MST restriction tested, not adopted
+
+The user approved one fixed11-gate comparison. Estimated MST's gate coefficient
+is exactly zero; ITA/MST remain in correction predictors. [Results](mst-excluded-gate-results-2026-11-07.md):
+development clean edits7→5/29, later3→4/23; core means improve versus retained gate
+but both zero-clean screens fail, and later stress mean error increases. No
+method/runtime/paper adoption or panel approval. The experiment closes without
+automatically trying another feature, threshold or model setting.
+
+## 7 November — clean-preservation diagnosis and one gate restriction proposed
+
+User resumed correction development. A [saved-trace audit](clean-preservation-trace-audit-results-2026-11-07.md)
+checked existing clean failures with no fitting or new image-model inference.
+Estimated MST leads the positive score difference from a nearest protected clean
+reference in all3later failures. This motivates a [proposed gate-only zero-MST
+coefficient](mst-excluded-gate-proposed-protocol-2026-11-07.md), not removal of
+ITA/MST from the correction predictors. User agreement is pending; no fit,
+adoption, paper amendment or panel approval follows from this diagnosis.
+
+## 7 November — fuller proposal-revision inventory
+
+The user clarified that the full list belongs in the appeal letter. Its
+[detailed attachment](appeal-letter-detailed-revisions-2026-11-07.md), included in
+the current Word appeal packet, provides 40 detailed items across masking, preparation, datasets, MST,
+distortions/targets, correction models, evaluation and deployment, with evidence
+links and affected manuscript sections. This expands the short summary and the
+older C01–C12 table; it does not mean 40 final changes were adopted. Each item
+distinguishes implementation, experimental work, clarification and pending work.
+The original proposal remains unchanged, and no panel approval is inferred.
+
+## 7 November — updated appeal prepared at the user's explicit request
+
+The user asks to update the October31 appeal and reports adviser advice to send
+it to the panel; the user also requests blank names. Updated DOCX is at
+`outputs/appeal_change_request_20261107_v1/TrueHue_Appeal_for_Methodology_Changes_2026-11-07.docx`.
+It records current MST/correction results, failed clean-preservation acceptance
+and the proposed method/dataset/evaluation revisions, retaining the original
+template. See [update record](appeal-letter-update-2026-11-07.md). No letter sent,
+signature/endorsement fabricated or panel approval assumed. Final rendered-page
+QA unavailable (LibreOffice missing; Word COM logon unavailable); structural and
+content checks complete. The submitted proposal remains unchanged.
+
+## 7 November — desktop masking adoption and proposal comparison
+
+The user explicitly requests adopting the masking method in the Python demo.
+Current parser/FaceOcc visibility, object-protected face/neck support, correction
+hole filling and inward blending now form its default mask/rendering path.
+Transparent/opaque/uncertain glasses selection and approximate rim protection are
+available. The displayed measurement mask remains skin-only. This adopts the
+existing masking/rendering design for the desktop demonstration, not scientific
+validation, final Android adoption or formal panel approval (C01–C06).
+
+The older baseline5/fold1 model still receives only its original mask-derived
+features/MST. Its controls are applied through the new correction mask after an
+explicit reciprocal gamma conversion preserving its curve. The new mask's
+measurement is never passed through the old lookup. This mixed demo combination
+is explicitly unvalidated; no fitting, gate adoption or new calibration occurs.
+
+The short adviser briefing now compares the proposal with current development.
+Baseline wording was checked against saved source-bound PDF text: pages2/12–14
+for colour thresholds, sources and facial scope; pages59–65 for three synthetic
+variants, MST-dependent severity,256px,1000pixel guard, calibrated ITA lookup,
+70/15/15 and five-fold evaluation, and the three tree outputs. Dataset additions,
+contextual continuous MST, split heads, scene features and gates are disclosed as
+development experiments, not all adopted amendments. The submitted PDF is unchanged.
+
 Living register, started1November2026 at the user's explicit request. Update it
 whenever a substantive method/scope change is proposed, adopted or rejected.
 This supplies evidence for a future request-of-changes letter; it is not the
@@ -27,6 +211,197 @@ current changes; the alignment record retains the longer experiment history.
 | C12 | Proposal abstract (PDF2) names FairFace/SCIN for synthetic distorted-original training pairs | FFHQ added as a photographic-source feasibility pool; ordinary originals may serve as restoration references | User-authorised bounded source acquisition/screen; not final training-dataset adoption or panel approval; MST work deferred, not removed | ffhq-source-preparation-results-2026-11-03.md |
 
 ## Proposed or rejected items: do not present as adopted amendments
+
+### 6 November 2026 — C01/C05/C06/C07 one alternative parser variant
+
+User authorised one [ResNet34 comparison](resnet34-parser-comparison-results-2026-11-06.md)
+against frozenResNet18 on the same six reference cases. Same19class BiSeNet
+family/preprocessing/full-face guards/visibility, six parser forwards and no
+new FaceOcc. Actual skin54→77/113but unwanted9→15/94;all old unwanted inclusions
+persist. Isolated non-adopted candidate, not a beard classifier, model sweep,
+calibration fit, independent validation or runtime/panel-approved replacement.
+
+### 6 November 2026 — C05/C06/C07 isolated upper-face repair comparison
+
+User authorised one parent-mask coverage/material repair;[results](upper-face-measurement-results-2026-11-06.md).
+Fixed geometry/visibility upper-face candidate allows parser-background recovery
+but excludes below nasal base. Explicit anatomical scope/contract change, not
+equivalent full-face measurement or a beard classifier. Actual point skin54→58/113,
+unwanted9→5/94but object inclusion1→2/8and genuine skin losses retained. No default
+adoption, calibration/tree fits, adviser approval or app change;33focused tests,
+zero new model forwards. No automatic parameter sweep follows.
+
+### 6 November 2026 — C05/C07/C10 actual sparse reference import complete
+
+[Actual user results](stellenbosch-reference-point-results-2026-11-06.md):238points,
+54/113available skin points selected and9/94unwanted points included;31points
+have unavailable predictions. Not segmentation accuracy or an independent test.
+Neck skin marks retained with a separate face-only geometry/scope breakdown.
+Most missed marks precede FaceOcc; facial-hair inclusion remains. No new model
+passes, repairs, threshold tuning, fits, admissions or runtime adoption. User
+review is now complete; the preparation entry below remains historical.
+
+### 6 November 2026 — C05/C07/C10 small reference review prepared
+
+User authorised a small diagnostic reference review.
+[Six-photo page and importer](stellenbosch-reference-point-review-ready-2026-11-06.md)
+are ready: original native pixel point labels, predictions/scores hidden, Cannot
+judge supported. Actual user export pending;19software tests/synthetic UI checks
+are not human decisions or skin-validation results. Six exposed photos/five
+publisher keys, no independent/blinded or dense-ground-truth claim. No new model
+passes, mask tuning, calibration/tree fits, admission or runtime adoption.
+
+### 5 November 2026 — C06/C07/C10 frozen different-source follow-up
+
+User authorised a separately planned new-source sample;[results](stellenbosch-new-subject-results-2026-11-05.md).
+Ten new publisher keys/30photos selected by fixed SHAorder before pixels, same
+candidate settings with new explicitly bound anchor acquisition.29technical
+passes but14development-plausible/15uncertain/1failed on assistant visual screen;
+no admissions or fits. Both remaining highest-interval keys now exposed; no
+untouched highest-interval reserve in release. Not a paired method improvement,
+independent-person validation, adopted mapping or adviser-approved evaluation.
+No automatic expansion, mask revision, category adapter or runtime change.
+
+### 5 November 2026 — C05/C07/C10 individual visual usability record
+
+User authorised a case-level screen and model comparison conditional on a
+defensible cohort. [Results](stellenbosch-usability-screen-results-2026-11-05.md):
+18visually plausible for development,7uncertain,5failed;all30retained with individual
+reasons/hashes. Six complete plausible subject keys, no highest-interval plausible
+cases. Assistant judgement is not independent validation or calibration admission.
+No real mapping/tree fit or method/runtime change. Repeated30case sequence closed;
+a different source-first cohort is only a separately specified option, not an
+activated batch, altered claim or panel-approved evaluation.
+
+### 5 November 2026 — C07/C08 contextual candidate user-selected and implemented
+
+User explicitly selected testing ITA+Lab, authorising the isolated experimental
+mapping-method change. [Implementation](contextual-mst-implementation-results-2026-11-05.md)
+includes fixed ridgealpha1, ITA-only ridge and fitting-subject median comparisons,
+equal-subject weighting and subject-held decimal-score evaluation.55focused
+software tests pass; script451uses generated arithmetic fixtures only. No real
+calibration/tree fits, admissions, category rounding/adapter, runtime replacement,
+adviser approval or submitted-paper changes. The older ITA-only interface is
+preserved; prior choice-pending entry below is historical and superseded only
+for this selected experimental comparison.
+
+### 5 November 2026 — C07/C08 concrete contextual-MST proposal, choice pending
+
+[Method-choice document](lighting-aware-mst-method-choice-2026-11-05.md) recommends
+testing measured ITA+Lab rather than an ITA-only threshold lookup across lighting.
+It fixes a prospective ridgealpha1candidate, same-setting ITA-only ablation and
+training-subject median comparator with subject-held continuous-score evaluation.
+This would change the explicitly retained mapping method; user choice is pending.
+No code/fit/admission, category rounding, continuous replacement for MSTindex,
+runtime adoption, adviser approval or submitted-paper change. Integer-category
+integration remains a separate unresolved requirement even if scores improve.
+
+### 5 November 2026 — C06/C07 skin-support and lighting decision
+
+User authorised saved latest-mask and within-subject colour comparison.
+[Results](stellenbosch-support-lighting-results-2026-11-05.md): same seven complete
+keys, common aligned-location probes leave median ITA range107.81→106.29degrees;
+cool-negative/warm-positive b*pattern persists. No new formula or mapping adopted.
+Actual-skin validity remains unverified; ITA can still serve as a distorted-image
+correction feature, but compatible cross-lighting MST calibration is not qualified.
+Lighting-aware mapping/reference-condition policy is an unresolved design decision,
+not a silently implemented scope change or panel approval. No fits or runtime change.
+
+### 5 November 2026 — C01/C06/C07 aligned FaceOcc recognition candidate
+
+User authorised one [fixed comparison](stellenbosch-faceocc-appearance-results-2026-11-05.md):
+CLAHE-L clip2/grid8 after original alignment, model recognition only. Original
+parent masks, inverse mapping, thresholds and measurement pixels unchanged.
+25new CPU forwards;21→25/30technical passes, highest interval0→3/6; seven complete
+subject keys. New explicit preprocessing contract, not upstream equivalence or
+old-lookup compatibility. Sparse masks, boundaries and large lighting-related
+ITA variability remain. No calibration/tree fit, admission, runtime adoption,
+panel approval or final accuracy claim.
+
+### 5 November 2026 — C01/C06/C07 saved FaceOcc removal inspection
+
+User authorised saved before/after inspection, not a changed model comparison.
+[Results](stellenbosch-faceocc-removal-results-2026-11-05.md): all30retained,
+25available; some apparent visible-skin removals alongside plausible contour
+trimming. Mapping-domain versus prediction accounting isolates the latter as
+95.79%of removed normalized pixels, not an error rate. Recognition-only appearance
+adaptation for FaceOcc is the next proposed single candidate, not implemented,
+adopted or panel-approved. No threshold, calibration, tree or runtime change.
+
+### 5 November 2026 — C01/C06/C07 parser-only appearance candidate
+
+User authorised one [fixed diagnostic](stellenbosch-parser-appearance-results-2026-11-05.md):
+Lab-L CLAHE clip2/grid8 copy for segmentation only; measurements and FaceOcc use
+original pixels. Explicit new preprocessing contract, not an upstream-equivalent
+or physically corrected image. Final technical passes18→21/30, highest interval
+still0/6; six complete subjects unchanged. Sparse masks and spatial losses remain,
+so no actual-skin admission, calibration/tree fitting or runtime adoption. Source
+decimals and private terms retained. No panel approval or final effectiveness claim.
+
+### 5 November 2026 — C01/C06/C07 parser failure isolation
+
+Continued correction work used existing pixel outputs, not new inference or fits.
+[Diagnostic](stellenbosch-mask-failure-results-2026-11-05.md) finds all four
+available anatomical probes in the highest sampled interval classified entirely
+as background by the parser, before FaceOcc; two further detector failures remain.
+Geometry is not skin truth or an adopted fallback. Parser-recognition repair is
+the specific next target; segmentation-only preprocessing is a proposed candidate,
+not an implemented method change, runtime adoption or panel-approved amendment.
+
+### 5 November 2026 — C06/C07 saved calibration admission assessment
+
+The user authorised reliability/admission assessment on the same30saved cases.
+[Decision and evaluation scope](stellenbosch-calibration-admission-decision-2026-11-05.md):
+hold calibration with the current measurement path. Only six complete subject
+keys;0/6technical passes in the highest sampled descriptive score interval.
+Large saved within-subject ITA variation and observed incomplete skin support
+remain limitations, not new tuned acceptance thresholds. No integer rounding,
+new fit, expanded processing, runtime change or panel approval. Subject-held
+evaluation and failure-denominator requirements are recorded without allocating
+an unseen test set or inventing adequate sample counts.
+
+### 5 November 2026 — C06/C07 fixed native face-crop diagnostic
+
+User authorised one fixed face-first bridge on the same30images. A1.5times
+saved-box native square precedes the unchanged normalized measurement service;
+this is a new effective preprocessing contract, not old whole-frame equivalence.
+18/30technical passes versus0previously,12failures retained. Native crops46–61px;
+selected native grid counts282–725among successes do not prove adequacy. All30
+boards inspected; incomplete and condition-dependent skin support persists.
+Decimals remain unchanged; zero calibration/tree fits, admissions or runtime
+changes. No panel approval is implied. See
+[results](stellenbosch-face-crop-results-2026-11-05.md) and its frozen protocol.
+
+### 5 November 2026 — C06/C07 decimal-score preparation and framing mismatch
+
+User authorised bounded current-measurement preparation and a decimal-score policy.
+Source targets retain the supplied decimal MST scores without integer rounding;
+the existing integer-only calibrator/runtime interface is unchanged/unfitted.
+Fixed10subjects/30front-facing images were chosen before pixels by SHA ordering
+within5descriptive score strata (not category relabelling),3conditions each.
+21parent successes/21CPUFaceOcc outputs, but0final masks meet the unchanged1000-
+pixel guard. All30 retained. Native224px sampled scenes contain small faces;
+whole-frame parser admits hair/neck/clothing and veto can leave sparse skin.
+A fixed face-first bridge is proposed only, with native-resolution accounting;
+no new crop contract, lower threshold or broader batch was adopted. Private
+images/labels/gallery remain unshared under the author conditions. See
+[protocol](stellenbosch-bounded-preparation-protocol-2026-11-05.md) and
+[results](stellenbosch-bounded-preparation-results-2026-11-05.md). No calibration,
+tree/runtime/paper change or panel approval.
+
+### 5 November 2026 — C07/C10 Stellenbosch research release received
+
+User supplied the author reply granting dataset access: cite the source paper,
+research/noncommercial only, no sharing without consent. Delivery is now local,
+not merely an inquiry lead. Read-only metadata/archive/header check found285subject
+folders/21,375JPEGs/75per subject, all224px, with168fractional and117integral MST
+scores, including numeric-string storage. Source labels are preserved; no rounding,
+integer-only subset, calibrator change or automatic cohort adoption. The current
+integer-only calibration interface needs a predeclared compatible policy before
+fitting. Private dataset/subject labels/manifests stay untracked and unshared.
+See [protocol](stellenbosch-received-data-protocol-2026-11-05.md) and
+[results](stellenbosch-received-data-results-2026-11-05.md).0inference/fits/admissions;
+no paper/runtime change or panel approval.
 
 ### 5 November 2026 — C07/C10 new matching-MST source inquiry lead
 
@@ -509,3 +884,16 @@ No admitted cohort/matchingMST/identitysplit/cleanimagepolicy established;
 smoothneutral is not exactidentity and old inverse targets cannot transfer.
 See correction-training-readiness-plan-2026-11-02.md. Submittedthesis/open
 discussiondraft and immutable delivery snapshots unchanged;0newfits/inference.
+
+
+6 November 2026: user-authorised experimental input-derived-mask check complete.
+Frozen three-control bundle and retained ITA/MST method unchanged; no runtime or
+Android adoption. Actual distorted-input masks/crops versus borrowed support,
+with an explicitly separate common native-scene renderer. See
+input-derived-mask-check-results-2026-11-06.md. All admissions remain false.
+
+
+6 November 2026: one user-authorised zero-face detection fallback comparison
+complete. Recognition-copy CLAHE retry only; frozen model and existing method
+unchanged.16measurement recoveries plus one newly enabled correction harm,
+not runtime adoption. See detector-appearance-fallback-results-2026-11-06.md.

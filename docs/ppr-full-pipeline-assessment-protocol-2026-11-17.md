@@ -1,0 +1,27 @@
+# Approved complete PPR mapping assessment
+
+17 November2026. Exact approval: **"Allow this specific PPR method-change assessment"**. Supersedes the feature-only/pixel-replacement exclusion ONLY for this one frozen candidate. [Reviewed plan](technical-plan-reassessment-2026-11-17.md). Paper13/63/65 rechecked: this is a substantive approved research-method amendment, not final adoption, academic approval or unchanged traditional tone-conditioned tree/gamma-RB parameter-MAE method. ITA/MST remain measurement/evaluation, not inputs to this predictor. All other closures, full objective, deadline/expert sequence and preservation rules remain.
+
+## Assets and native readiness
+
+Exactly the existing official `mask_noglc_a` predictor and its matching `LUTs_-1.pth`. Cached66raw float32coefficient vectors reused with their exact input hashes. ZEROtraining/newCNNcalls, model variants, datasets/demo photos or contacts. Retrieve only `pretrained_models/mask_noglc_a/LUTs_-1.pth`, expected2,157,507bytes/compressed1,944,984/CRC1421459092, from the already verified archive261,433,127bytes. Reuse byte-range helper,4MiBtransfercap; ZIPCRC plus computedSHA256; no full archive. SafeCPUweights_onlyload, five numbered states each exactlyone float32finite3x33x33x33LUT, no unsafe load or schema fallback.
+
+Compile the pinned official CPU CppExtension source unchanged in a fresh workspace build directory. Existing VS18C++BuildTools, setuptools78.1/torch2.15CPU/Python3.13.17. Child-only developer environment activation; no core/dependency installs, CUDA, MATLAB, unofficial port or compiler/backend queue. ONEbuild attempt/300secondsmaximum, preserve complete log/exit/failure. Stop on build failure or timeout. No actual-photo LUT calls before generated/scalar interpolation, output quantization/compositing, repeat/input/weights immutability and error guards pass. Reuse existing metrics/protection helpers; no new training framework.
+
+## Frozen mapping and application
+
+Native single-image RGB8->float32RGB/255/NCHW input. Five original LUT states, five original coefficient values with no normalization/clipping/selection. Official33grid, binsizePython1.000001/32 cast toC++float. Each LUT separately native-trilinear interpolated; five weighted outputs added left-to-right in float32, same order as official validation. Do NOT preblend LUTs or optimize away operations with different rounding.
+
+Whole-image native RGB8 follows torchvision save_image's published operation order: float32 multiply255,add0.5,clamp0..255,castuint8. Save raw-range/clipping counts. Apply current approved alpha/protection to this RGB8candidate: `(1-alpha)*inputRGB8 + alpha*nativeRGB8` in float64, numpyrinttoRGB8, restore exact input atalpha0/protected. No strength tuning/new masks. This declared encoded-RGB compositing wrapper is an application adaptation, not the old luminance/chroma operator or native whole-frame output everywhere. All protected/outside pixels must remain exact.
+
+Generated QA checks native vs independent scalar interpolation including all256input codes in everychannel, endpoints/near-grid boundaries, finite/non-square input; native output float tolerance1e-6and RGB8EXACT, three generated full-width images/two repeats, allfive-LUTweights/inputunchanged, scalarquantization/compositing, wrongshape/dtype/nonfinite/coeff guards before native calls. A disagreement stops; no tolerance or sampling-rule rescue after failure.
+
+## One complete66case assessment
+
+Use the exact existing11sources/sixroles/cachedcoefficientbindings. Validate all66containers and joins before any actual decode. For each output read ONLY input/alpha/protected, not reference RGB; inputhash must match coefficient record. No reference/role/target/model selection in the mapping. Save all66candidate arrays and seal their hashes BEFORE reading reference arrays or scoring. No omissions/replacements/final locked data/raw originals.
+
+Scoring reuses saved WB314 and fit-onlyconstant outputs, no refits. Exactly66newnative-LUTmappings/composites, no additionalCNNcalls. Allregion(primary/core/feather/whole)RGB/CIEDE2000, independent scalar aggregation, parentjoins, changedoriginals/per-caseharms/clipping and three prior misses. Gamma/RBparameterMAEisNOTapplicable tofiveLUTmixingcoefficients; do not invent target coefficients or substituteRGBMAE as parameterMAE.
+
+Fixed numerical screen, same requirements as the recent combined comparisons: ALLfive nonidentity role means strictly beat input AND saved fit-onlyconstant on RGBANDDEby1e-10; pure-under both metrics improveWB314by1e-10; colour neither metric worse thanWB314+1e-10. Report all other regressions and all eleven original changes; slight acceptable changes still permitted by human policy, no new exact-identity requirement. Failure closes this fixed candidate without new model/style/strength/crop/gain/feature/source/backend grid or further review. A pass only permits candidate-specific preservation/usefulness inspection and bounded human appraisal, never old rating transfer/adoption.
+
+All results remain exposed development, no external-pretraining/person/MSTindependence claim. A successful candidate still needs supported tone qualification, genuine expert feedback/refinement, current-model Android validation and manuscript work only after explicit unpause/editablefile. No Android/manuscript changes here, no guaranteed Friday completion. Preserve old failures/ratings/clarifications/manual ears, raw-original and locked-content/manifest boundaries; adviser remains formatting/conferences only.

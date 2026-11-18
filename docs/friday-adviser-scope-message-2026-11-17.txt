@@ -1,0 +1,14 @@
+UNSENT PROPOSAL - no delivery-scope change is adopted.
+
+SUPERSEDED 17 NOVEMBER: Do not use this as current guidance or a sending draft. The user clarified that the adviser assists with paper formatting and conferences only, not technical thesis/model decisions. This older proposal is retained as history; no adviser escalation is selected. See docs/adviser-role-clarification-2026-11-17.md.
+
+Dear [Adviser],
+
+I need to flag a completion risk before our Friday,20November deadline. TrueHue's combined automatic exposure-and-colour model has not yet met its acceptance requirements. Colour and identity development results exist, but exposure usefulness and preservation remain unresolved across the tested candidates. The completed fivefold model-selection study did not resolve the combined failure. The proposed PIQ23stage is awaiting dataset access; its software preparation is ready, but it has not trained a real model and has no guaranteed completion date.
+
+Could we discuss a specific Friday deliverable: an accurate revised development draft and verified experiment record, together with expert availability or explicitly labelled methods feedback, while full combined-model, tone-group and formal expert validation remain pending? This would be an interim review deliverable, not a claim that the thesis model is complete. I want to retain the full exposure-and-colour objective and avoid reporting unfinished results as completed.
+
+Please confirm whether that interim package is acceptable, or which required milestone must be addressed before Friday. I am not assuming a deadline or scope change without agreement.
+
+Thank you,
+[Name]

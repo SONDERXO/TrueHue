@@ -1,0 +1,21 @@
+# Joint-colour fixed development run verified; identity-first review ready
+
+13 November 2026. User explicitly authorized executing the frozen comparison. **10newordinary281inputfits + EXACTfirstcandidate reuse completed; independent verification PASSED. Candidate remains NOTADOPTED; initial userratings0.** Scores/controls/modeloutputs remain private until the prospective review rule permits assessment. No quantitative outcome disclosure in this guide.
+
+[Frozen protocol](joint-colour-source-held-comparison-protocol-2026-11-13.md); outputs/joint_colour_source_held_comparison_v1. All11fittingexports independently verified BEFORE anyheldprediction/photo/supportdecode. Firstcandidate SHA624347012a0211650dbceb8fc6005958da19e099c34d51437fc70f7f5a7fdc10 reused byte-exactly; no refit/retry/grid/all-datafit. Same281float32inputs/raw3targets/depth4seed42.44heldcontrols/44primaryrenders,48attemptledger/four29863exclusions retained.
+
+Primarysupport is10exact historical reviewed+approvedearbundles plus59807exact user-approved manualforehead/neck/microphone revision. Measurement unchanged; originalmanualremovals retained; new59807protection supersetsoldcacheprotection. This is manually assisted developmental support with samegeometryrolepropagation, not a validated automaticmaskmethod or runtime source-IDexception. No masksregenerated or oldexports modified. NewROI means no pooled historicalmodelaggregate effect claim; primarycomparator is input on the same selectedregion/reference.
+
+Independentverification passed440fittingroutes/leafmeans/joins,44heldroutes,44per-channelRGB8renders/RGB/CIEDE2000/protectionreplays,11selectedsupportalphareplays, firstSHAreuse, identity-firstorder and completeaccounting. QA/code/design/version/sourcebindings unchanged. Numericaleligibility only permits visualreview, not useful correction, preservation, fairness or adoption.
+
+## User action — stop early if an unchanged photo fails
+
+Open **review_joint_colour_comparison.cmd**, not the oldgap/ensemble launcher. Record current displaysettings and review the unchanged-photo cases first. **Save after each judgment.** If any savedanswer is noticeable_change, the page displays a closure notice and disablesfurtherSave/Next; no remainingratings needed. Download the savedJSON to retain the partialreview. No scores/controls are revealed by earlyclosure; unreviewedcases remain unreviewed and cannot be counted as successful correction.
+
+If all11unchangedcases pass, continue the33distortedcases, Save44/44 thenDownload. A possibledevelopmentPASS requires completeinitialratings before unblinding, usefulbenefit in everydistortedfamily and accepted identity/artifact/protectionpolicy. Cannotjudge stays unresolved; no newperceptualcutoff/harmallowance. Oldratings are not copied. No painting/newmaskreview task.
+
+The shared durableUI has a newclosurestatusscript already generatedHTTPtested. Freshreal-outputGETchecks passed44cases,first11identity,121publicPNGassets, latest=null, openclosurestatus and private scores/modelpaths404. Agent wrote0ratings, started/stoppedonlytemporaryHTTPchecks; no newlivebrowservisual/click/downloadQA claimed. Readiness: outputs/joint_colour_review_readiness_v1/http_readiness_PRIVATE.json. Userlauncher verifies every boundcomparisonartifact before serving.
+
+After userdownload, identify/validate the exact savedimmutable revision. scripts/review_joint_colour_source_held.py --assess REVISION.json handles earlyidentityfailure without reading controls/metrics; incompleteprogress with nofailure cannotPASS/unblind. Completeassessment uses the accepted practicalprocedure. Never unblind a partialpassing review, require remainingratings afterestablished earlyfailure, or reopenfailedtrials from a favorable subset.
+
+This11sourcecohort remains repeatedly exposeddevelopment, not44independentpeople/finalqualification. No independenttone labels, fullblue/combined/severity/tonebias/MOS/phoneevidence. Darker-skinbias remains primarymotivation, not an established result. Modelunfinished/paperpaused. November14deadline remains at risk/timeunspecified/no guarantee. No raworiginal/final24/olderlocked bytes, newparserinference, runtime/Android/manuscript/dependency changes, sourceacquisition, contacts/upload or commit. Approved59807/ears/manualretained; no newfitvariant selected.

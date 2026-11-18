@@ -7,6 +7,7 @@ __pycache__/
 venv/
 env/
 .venv/
+.venv-reiqa-pilot/
 *.egg-info/
 dist/
 build/
@@ -54,6 +55,7 @@ android-app/app/src/main/assets/development_pipeline/
 android-app/app/src/androidTest/assets/pipeline_fixture/
 *.iml
 .gradle/
+android-app/.kotlin/
 local.properties
 *.apk
 *.aab

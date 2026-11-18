@@ -1,0 +1,30 @@
+# Standing priority: correction improvements and time cost
+
+Latest reinforcement after the failed detector pilot,17November: **"So what next? We cant afford to waste time doing expirements. I dont want to keep reminding you that."** Stop the sequence of speculative feature/model/dataset/detector trials. Do not answer each next-step question with another uncertain pilot, installation, source hunt, diagnostic repeat or review batch. Necessary validation of a concrete supported repair remains distinct from exploratory trial queues. Prior broad completion authorization does not override this priority or reopen closed studies. No further fit/download/inference/review was started in response to this message.
+
+Current delivery assessment from saved evidence: WB314 has accepted colour/identity feedback but exposure usefulness is unresolved; PPR319 is closed after brightness concern; the externally trained detector failed its direct-cue screen and is closed. There is currently no demonstrated combined correction model or supported direct implementation that can be labelled ready for expert image appraisal. No deterministic rendering/export defect remains established to fix. Do not portray consolidation, dependency readiness or another untested idea as model improvement. State this evidence gap candidly; do not guarantee Friday completion, silently reduce scope, substitute methods advice for image appraisal, involve the formatting adviser in technical decisions, or seek a rubber-stamp approval for another unsupported trial. Model remains unfinished and all existing boundaries remain.
+
+Later continuation outcome: new official access information resolved the conditional PPR checkpoint lead, followed by one fixed319test; see [results and current stopping point](ppr-parameter-correction-results-2026-11-17.md). Numerical gate passed, preservation judgment pending, no adoption. The operating priority below remains; its earlier unavailable-access description is historical and must not trigger repeat checks.
+
+17 November 2026, Asia/Manila. Exact user instruction:
+
+> Okay, but I want to establish that I dont wanna do anything unnecessary or that may take up loads of our time. As much as possible I need improvements/progress on the correction model. I cant afford to fail this subject.
+
+The priority is a usable automatic exposure-and-colour correction model. Treat time/resource cost and the likelihood of useful evidence as part of every next technical decision. Do not equate more code, engineering checks, documentation, model leads or experiment counts with demonstrated correction improvements. No success/subject-pass/completion-date guarantee follows from the user's urgency.
+
+## Operating boundary
+
+- Prefer a concrete action addressing an observed exposure-decision/preservation failure, using available admitted resources and reusable verified tools. Establish exact resources and a plausible inference mechanism before implementation or a fit.
+- For a new resource, complete a short readiness decision first: actual official asset availability, applicable use terms, required input/output and compatibility with the retained pipeline. Do not build substantial infrastructure, install a stack, download a full corpus, pursue another access detour or start a mock-training project while those essentials remain unverified.
+- Any selected experiment needs one fixed scope, budget, acceptance rule and stopping condition before it starts. Preserve complete negative outcomes. Close a failed fixed candidate without an automatic parameter/source/model/review queue. Existing studies and user reviews remain closed.
+- Reuse appropriate existing numerical/rendering/protection verification. Add checks for genuinely new assumptions and changed interfaces; avoid broad/repeated checks without a concrete unresolved risk. Necessary correctness checks remain required, but report them separately from actual image-quality outcomes.
+- Report usable exposure benefit, colour preservation and acceptable-original behaviour together, including every regression. Do not present a fixed subset of previously missed cases as model completion, transfer old ratings to new outputs, or relax criteria because time is short.
+- Keep documentation limited to reproducibility, decisions, failures and continuation. Preserve the current artifacts, manual ears, raw-original/locked-content-and-manifest boundaries, manuscript pause and runtime/Android/final-adoption safeguards. Adviser remains formatting/conferences only; no technical referral.
+
+## Immediate implication for the PPR10K parameter lead
+
+The prior turn established an official five-coefficient interface and portrait training/model listings, but did NOT establish an accessible checkpoint or applicable model-specific terms. Official linked Drive/OneDrive pages returned404through the reader and browser discovery was empty. Do not repeat the same availability checks without new evidence or begin parameter-extractor implementation/inference/training on the assumption that access will work. This remains a conditional lead, not a ready or demonstrably quick solution. No new fit is selected by this time-priority clarification.
+
+The latest316candidate remains FAILED/CLOSED; the earlier ranking criterion's limited positive result remains historical. No supported subsequent correction fit has yet been established. This is a current evidence limit, not proof the objective is impossible or that PIQ23/ECPD replies are universal prerequisites. A technically distinct next proposal still needs a credible input-available basis and a bounded falsifiable assessment; urgency alone is not that basis.
+
+Retain the full exposure-and-colour/darker-skin objective, actual expert feedback before Friday's paper submission, and manuscript editing pause. No reduced deliverable, adviser intervention, deadline revision, automatic alternate pretrained pixel-network adoption, new contacts or fabricated completion is authorized by this message.

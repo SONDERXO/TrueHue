@@ -54,3 +54,19 @@ def test_no_parser_glasses_does_not_require_choice_or_claim_validated_detection(
     result=render_preview(*args)
     assert not result.report['requires_glasses_choice']
     assert not result.report['glasses_detection_validated']
+
+def test_approved_ears_reach_alpha_without_changing_measurement():
+    args=list(example())
+    # Find a pixel immediately outside existing support; mark it as an ear.
+    base=render_preview(*args,glasses='opaque')
+    old=base.support.correction_mask>0
+    border=(cv2.dilate(old.astype(np.uint8),np.ones((3,3),np.uint8))>0)&~old&~base.protected
+    yy,xx=np.nonzero(border)
+    assert len(xx)
+    y,x=int(yy[len(yy)//2]),int(xx[len(xx)//2]);args[2][y,x]=7
+    result=render_preview(*args,glasses='opaque')
+    assert result.support.correction_mask[y,x] and result.alpha[y,x]>0
+    assert np.array_equal(result.support.measurement_mask,base.support.measurement_mask)
+    protected=np.zeros_like(old);protected[y,x]=True
+    excluded=render_preview(*args,glasses='opaque',protected=protected)
+    assert not excluded.alpha[y,x]

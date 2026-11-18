@@ -1,0 +1,13 @@
+# Frozen input-only histogram-gap cache audit
+
+12 November 2026. User authorized the existing44case exposed-cache check. Use exactly the available11source identity/under/over/cool roster from reviewed_ffhq_restoration_preparation_v1/rows_PRIVATE.json;29863remains excluded. No generated fixture, alternate cohort or new source. Record the ordered cases and all hashes before loading cached input arrays. Fail without restart if any binding, shape or extraction check fails.
+
+Read only input_rgb8 from each declared per-case paired_pixels.npz after path and container-hash checks. Hashing a container reads its compressed bytes; it does not decode/use reference or mask arrays. Do not load reference_rgb8, alpha, measurement/correction/protection arrays or run any image generation. No source/raw-original, final24 or older locked files. Full-frame256RGB8 is the exact existing input path; no filtering, recompression, resizing or mask changes.
+
+Apply the six frozen full-frame RGB low/high internal-gap fractions unchanged. Independently reconstruct every value from code sets/Fractions. No feature selection, normalization fitted across sources, learned cutoff, classifier, correction output or tree fit. Record availability and diagnostics for all44, including degeneracies.
+
+Report each six-value vector, per-feature role ranges/means and identity-versus-distorted interval overlap descriptively. Compare paired descriptor differences within each source, including exact identity/cool equality. Report the prespecified green high-minus-low asymmetry and its change from identity for under/over as a descriptive sign check, not a runtime threshold or accuracy score. This tests the generated mechanism's directional footprint without selecting a new formula from real outcomes. Keep every source/case and all counterexamples.
+
+List exact descriptor collisions across roles with case IDs. Such collisions concern these six new summaries, not the retained16features or deterministic feasibility of the full predictor. Lack of collisions does not prove useful correction/generalization. No ideal source/role labels at inference, tone labels, calibrated physical truth or universal identifiability requirement is introduced.
+
+A positive cue establishes input information only. It does not qualify the failed oblique candidate, erase processing sensitivity, complete colour/tone coverage or authorize real fitting. Decide after this fixed audit whether a separately specified fitting-only feasibility has a concrete incremental-information rationale, or the cue should stop. No automatic band/channel/scale/threshold/source or tree-parameter rescue. Prior failures and approved ear integration unchanged; model first/paper paused.

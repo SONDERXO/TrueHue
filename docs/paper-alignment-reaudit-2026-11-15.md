@@ -1,0 +1,56 @@
+# Proposal alignment re-audit
+
+15 November 2026. Requested by the user after reporting that they sent the ECPD access email. **Conclusion: the research remains aligned with the photographic correction goal, but not every experiment matches the written method. Several are explicit research extensions; the primary study requirements remain incomplete.** No claim of full proposal compliance or a finished model is warranted.
+
+## Evidence and audit boundary
+
+Read the cached proposal extraction at `outputs/proposal_scope_validation_20261103_v1/pages.json`, PDF pages 10–14 and 58–67. Its historical source binding is the 111-page proposal SHA256 `1426f3769ba771daadf9b6e0e0b1e347729c8f04919c214e6fedc3df272e7b8a`, recorded in `proposal-scope-validation-2026-11-03.md`. This audit did not reread, hash or modify the manuscript PDF; the receipt identifies the cached extraction actually read. Page citations below are PDF page numbers, not printed page numbers.
+
+Compared those requirements with the current stopping point, November 8 completion tracker, November 11 realignment, November 13 input/reference and qualification plans, subsequent frozen-feature/operator/camera/prediction protocols and results, and recent source-review records. Latest user instructions supersede old pending questions and deadlines. This is a requirements/evidence audit, not a fresh run or line-by-line audit of every historical implementation. Saved implementation-verification reports are evidence, not newly repeated tests.
+
+## Corrections to my recent advice
+
+1. **Real editor before/after pairs are not mandatory.** Pages 12–14, 59 and 63–65 explicitly use synthetic distortions with original photographic references. My recent framing made a new paired correction corpus sound necessary to continue the paper. That was too strong. ECPD may offer different development supervision, but is optional and not a completion dependency in the proposal.
+2. **Tone labels are not required on every training reference.** Input-derived ITA/MST features and target supervision must be honestly described; independent defensible labels are needed for mapping-accuracy and tone-group claims. A missing labelled evaluation cohort prevents those claims, not every bounded correction-development test.
+3. **Do not require intrinsic colour truth or proof of real camera-bias removal.** Page 14 explicitly disclaims both. Darker-skin benefit remains central, assessed as photographic synthetic-restoration performance across supported tone groups.
+4. **Preservation checks are supplementary.** Original-reference controls, fit-only constant baselines, independent scalar verification and no-unwanted-change reviews strengthen engineering evidence but are not verbatim proposal requirements. Preserve each trial's frozen rules and failures. Removing identity checks now would not fix the latest distorted-colour failures.
+5. **Person separation must match the claim.** All derivatives must stay with their source; known person/duplicate groups must not cross partitions. Unresolved identity must be disclosed. Universal identity certification and perfect masks are not newly invented prerequisites for every exploratory experiment.
+
+These corrections do not select another fit on the old 11 portraits, reopen failures, establish a new learning cue, or demonstrate that more synthetic variants will repair transfer.
+
+## Requirement-by-requirement disposition
+
+| Topic | Written proposal | Current evidence and alignment |
+| --- | --- | --- |
+| Goal and target | Post-capture exposure AND colour correction toward original photographs; exploratory simulated feasibility, not physical skin truth (10–14, 59, 65) | Retained goal. No combined candidate currently adopted. A prototype-only or negative-only submission was not accepted by the user. |
+| Data sources | FairFace/SCIN training; MST-E evaluation (12–13, 58–59) | FFHQ diagnostics, PPR work and proposed ECPD supervision differ from the named primary design. Their development roles must be disclosed. No source search or admission is automatically authorized by this audit. |
+| ECPD | Not named; target is original, not an expert edit (59, 63–65) | Requesting access is permissible exploratory work, not substitution of the primary target. Adoption as training supervision would be a documented data/target-method extension. PEN and its exposure classifier are not selected. |
+| FFHQR | Not named | Review found blemish-retouching targets unsuitable for the missing exposure/colour-pair rationale. Closed for that purpose; no images downloaded. |
+| Skin support | Automatic face-local detection; detailed method uses YCrCb, largest component and 1,000-pixel guard (12, 61) | Additional semantic/occlusion support, manual refinement, protection, blending and approved ears are development changes. Availability and exact preservation do not establish fully automatic anatomical coverage. No rollback selected. |
+| Correction region | Face only, explicitly excluding neck (13–14) | User-approved visible-neck/ear support extends the written scope. It must be named if used; facial measurement and application support stay distinct. |
+| Preprocessing | 256×256/OpenCV resize (60–61) | Recent development uses 256×256 inputs, but this alone does not establish end-to-end proposal parity. Historical 224 inputs, detector choice, neural preprocessing and interpolation contracts must be distinguished in any adopted implementation. |
+| ITA/MST | Facial mean Lab/ITA and MST-E-calibrated lookup (61–63) | ITA/MST retained as inputs; current mapper is unvalidated development evidence, not the promised validated lookup. Having an MST column does not prove useful tone conditioning. |
+| Features | ITA, mapped MST and facial colour statistics; traditional ML (12–13, 63) | 281-feature expansion is a method detail requiring disclosure. Adding 4,096 frozen Re-IQA coordinates creates a hybrid learned representation. User authorized bounded research, not automatic traditional-only paper equivalence or adoption. |
+| Final predictor | One decision-tree correction model (10, 63, 65) | Trees were tested; neighbour and projected-prototype trials are different predictors. User authorized bounded assessment beyond a tree. That authorization does not make those methods the unchanged written model or authorize a search queue. None is adopted. |
+| Predicted controls | Gamma plus red/blue multipliers (63) | Five-control pre-power affine and shared luminance/chroma operators are substantive extensions. Even camera runs with only three varying fields have different control meanings. They are not the original gamma/R/B renderer. No final control schema selected. |
+| Synthetic conditions | Three distorted versions per source; tone-dependent Table 2 settings (11, 59–62) | Six-role diagnostics include identity, which is not a distortion. Exact three-version formulas are underspecified. Directional recipes are declared interpretations; the approved half-stop linear-light camera task is an explicit amendment, not literal Table 2 parity. No prospective or historical rescoring here. |
+| Partition and validation | 70/15/15 MST-stratified split and k=5 validation (62, 65) | Eleven source-held development folds test a useful question but do not fulfil that final design. Repeatedly exposed people are not an independent final cohort. Derivatives must remain grouped. Locked allocations stay sealed. |
+| MST-E role | Evaluation only in scope, but also proposed as lookup calibration source (12–13, 58, 62–63) | The proposal contains a calibration/evaluation role tension. Historical mapping exposure must be disclosed and cannot become untouched end-to-end qualification. Do not resolve it by opening locks or training the correction predictor on evaluation data. |
+| Quantitative outcomes | Parameter MAE and input-versus-output CIEDE2000 against reference, overall/per MST (65–67) | These purposes are retained. RGB image MAE is additional and is not parameter MAE. Approximate local target controls are not unique physical ground truth. No final full-category result is established. |
+| Bias disparity | More than 10% difference in light/dark improvement is a residual-bias flag (66) | Percentage denominator is unspecified. An operational definition was proposed in the qualification plan; it must be fixed before an actual qualification test and must not be attributed verbatim to the proposal. No fairness pass claimed. |
+| Human assessment | Actual expert MOS by light 1–3, medium 4–7, dark 8–10, after system testing (13, 60, 66–67) | User development ratings and assistant inspection are valuable but not expert MOS. Preserve exact responses and later explanations; no acceptance transfer between candidates. Existing instrument and model-first order retained. |
+| Android/local operation | One-photo input, local smartphone processing, no ISP replacement (11, 13) | Retained deliverable; current research models have not been integrated/qualified on-device. Older runtime does not establish new feature/control parity, latency or memory. Desktop timing is not phone timing. |
+
+## Practical alignment decision
+
+The paper's primary lane remains synthetic distorted-input to original-photo restoration, with ITA/MST, exposure AND colour benefit versus uncorrected input, supported tone reporting, and later expert/device evaluation. The user's approved research scope permits assessed extensions, but the final method still needs one explicit, evidence-backed selection and accurate methods wording. User permission to investigate is distinct from academic adoption or demonstrated success.
+
+ECPD is an optional supplementary learning-evidence route. Do not make waiting for its reply the only route to finishing the paper, repeat the source hunt, or claim its access alone fixes learning. If data become available, first assess rights, target acceptability, control representability and grouping under a bounded plan. No learned recipe is selected in this audit. Current source-transfer/colour failures remain closed; no new input-available learning rationale has been established merely by correcting our interpretation.
+
+No final model, validated mapper, independent tone qualification, complete proposed partition/validation, genuine expert MOS or current-model Android parity is established. No combined model or fairness claim should be written as completed. All numerical and human progress remains candidate-specific; rejected exposure results remain rejected.
+
+## Email status and preserved boundaries
+
+User reports "I just sent" the ECPD request. Record as **user-reported sent, awaiting possible reply**. No inbox was accessed, delivery verified, exact sent body archived or follow-up sent by the assistant. The earlier local email file remains an unsent assistant draft, not an authenticated sent-message copy. No repeated permission or duplicate email is needed.
+
+Working deadline remains Friday November 20 before noon Manila, without a completion promise. Manuscript editing remains paused; no proposal text, runtime, Android, dataset photos/arrays, raw originals or locked contents/manifests were accessed or changed. No fits, predictions, correction renders, ratings or external contact. Documentation and cached proposal text only; implementation tests are not applicable.

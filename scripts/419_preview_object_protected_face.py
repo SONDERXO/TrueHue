@@ -86,6 +86,7 @@ def dependencies():
     collect(spec)
     for name in ['scripts/419_preview_object_protected_face.py','scripts/420_run_preview_faceocc.py',
         'src/skin_masking/correction_preview.py','src/skin_masking/clear_lens_correction.py',
+        'src/skin_masking/approved_ear_support.py','src/skin_masking/correction_ear_preview.py',
         'src/skin_masking/object_protected_correction.py','src/skin_masking/continuous_correction.py',
         'src/skin_masking/face_neck_support.py','src/correction/seamless_blend.py','src/distortion_generation/paper_gamma.py']:
         hashes[str(ROOT/name)]=sha(ROOT/name)

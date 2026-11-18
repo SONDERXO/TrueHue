@@ -1,5 +1,10 @@
 # SkinToneCorrection — Android app (thesis)
 
+Latest: [5 November consultation demo polish and rebuild](../docs/android-consultation-update-2026-11-05.md).
+Before/trial toggle and expandable mask;18JVM tests pass, lint0errors/45warnings.
+Updated UI has not been checked on a connected device. Existing models/pipeline
+remain; newer Python masks are not included. Debug APK: `app/build/outputs/apk/debug/app-debug.apk`.
+
 Android front-end for *"Smartphone-Based Post-Capture Skin Tone Correction Using ITA
 Estimation and Machine Learning"*. The local experimental pipeline is now wired
 through photo decode, YuNet, the original rule-based mask, ITA, experimental MST,

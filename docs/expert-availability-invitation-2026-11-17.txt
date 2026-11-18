@@ -1,0 +1,16 @@
+UNSENT DRAFT - user sends after choosing recipient; no participation assumed.
+
+Subject: Availability for TrueHue thesis expert evaluation
+
+Dear [Name and title],
+
+I am [Name], a [programme] student at [Institution], working on TrueHue, a thesis about automatic facial exposure and colour correction with attention to darker skin tones.
+
+I would like to ask whether you would be willing to participate in our expert evaluation once an eligible model is ready. The planned appraisal uses side-by-side photographs and a structured questionnaire. The combined correction model is still in development, so I am contacting you to confirm your availability rather than claiming it is ready for final evaluation.
+
+Our paper submission deadline is Friday, 20 November, before noon Manila time, so we need completed expert feedback before Friday. Would you have time for the image appraisal by Thursday, 19 November, provided we can supply an eligible model and complete review materials with sufficient lead time? Please let me know your availability and required lead time. The model is still in development; I cannot yet confirm when evaluation materials will be ready, and I understand if this schedule is not feasible.
+
+Thank you for your consideration.
+
+Kind regards,
+[Name / programme / institution / email]

@@ -24,6 +24,8 @@ The fourth contrast control is a separate experiment, not an adopted output.
 
 ## Start here
 
+- **[Thesis-writing entry point — current evidence, 18 November 2026](THESIS_START_HERE.md).** Includes the latest user review, all major failures, scope differences, remaining qualification and a ChatGPT web prompt. Read this before historical drafts or the older summaries below.
+
 - [Partner clone/setup and collaboration guide](docs/collaborator-setup.md).
 
 - [Organised documentation guide](docs/README.md).
@@ -31,7 +33,7 @@ The fourth contrast control is a separate experiment, not an adopted output.
 - [Grouped VS Code workspace](TrueHue.code-workspace) (open as a workspace).
 - [All documents by topic](docs/navigation/research-library.md) and [script catalogue](scripts/README.md).
 
-- [Current session handoff](docs/session-handoff-2026-10-30.md) (latest entries first).
+- [Current session handoff](docs/session-handoff-2026-11-17.md) (latest entries first).
 - [Methods and interim results](docs/thesis-methods-results-draft-2026-11-03.md).
 - [Discussion, limitations and interim conclusion](docs/thesis-discussion-limitations-conclusion-draft-2026-11-03.md).
 - [Changes from the proposal](docs/panel-change-register.md).

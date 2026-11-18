@@ -1,0 +1,11 @@
+# Frozen generated bin-merge signal check
+
+13 November 2026. Own arithmetic mechanism check, not a new fitted corrector or author-method reproduction. Investigate whether red/blue attenuation can leave periodic bin-mass patterns despite no internal gaps. This specifically addresses why the six gap features miss colour-only examples. One final tree/ITA/MST/traditional single-photo scope remains; no inference recipe label, reference difference or direct control override.
+
+Generated one-dimensional RGBsample lists from four fixed source palettes: complete0–255uniform; complete0–255with smooth count1+floor(code/32); every-fourth-code uniform; and an acceptable source already red-attenuated by the existing medium factor245/255. Apply identity, existing medium cool, existing medium warm and existing medium underexposure power. These16records are scalar colour samples, not source photographs/training rows.
+
+For each observed channel histogram, restrict to occupied min/max range and compute mean-subtracted DFT. Report largest non-DC magnitude among unique nonnegative frequencies, normalized by total sample count, plus its frequency index and range length. Flat/constant histograms report zero peak with no index. This is spectral diagnosis, not a chosen six-input descriptor or correction decision. No cutoff/classifier is fitted. Independently recompute the selected complex DFT coefficient by scalar sine/cosine sums.
+
+Additionally reconstruct the known gain lookup mapping for all256codes. Count merged codes, reachable support, multiplicities and merge locations; do not infer actual gamma/control from the diagnostic. Quantify the expected density signal even when internal holes are zero. Report clean sparse/smooth and previously edited acceptable-original confounds explicitly; no universal-identifiability prerequisite or practical photo success claim.
+
+Freeze source sets/roles before running, preserve every outcome, no alternative spectral windows, smoothing, bands, gains or tuning loop. No JPEG/resize robustness claim from this small arithmetic check. No dataset/cache/holdout/model read, real fits, runtime changes or new review. A positive mechanism can only justify specifying a compact descriptor and fixed robustness check; it cannot reopen the failed gap-cue tree or fix colour by a global gain multiplier.

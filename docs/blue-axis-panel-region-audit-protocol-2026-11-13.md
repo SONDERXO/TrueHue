@@ -1,0 +1,11 @@
+# Fixed descriptive panel/region audit
+
+User authorized inspecting the existing review panels against their scoring regions on13November2026. Inspect exactly the six input-preferred cases04,12,16,24,48,52 from the completed review. This outcome-conditioned diagnostic sample is not an unbiased accuracy estimate or a new model-selection set.
+
+Read only their already verified input/output/reference PNGs and bound selected alpha/protection arrays from outputs/blue_axis_source_held_comparison_v1. Check every file against its existing verification hash before decoding. Do not read NPZs, raw originals or locked data, regenerate predictions or render new corrections. Preserve all ratings, outputs and frozen gates. Create a separate analysis artifact folder with a labelled contact sheet and results.
+
+Replay the original alpha>0 primary RGBMAE/CIEDE2000 metrics against saved values. Describe the whole256crop, exact alpha==1 core,0<alpha<1 feather, alpha==0 outside, and explicit protection as fixed additional regions. Empty regions are unavailable, never zero error. Record pixel counts, changed pixels and blue-channel differences. These regions are descriptive only, not alternate gates or a rescue. Unchanged outside error necessarily cancels in whole-frame benefit; a larger context can dilute an aggregate without reversing its sign.
+
+For the three blue-increase cases, use photographic-reference B>245 to locate exactly where the fixed255/245 forward operator clipped before quantization. Report overlap with primary/core/feather/outside; do not infer clipping from a saturated input alone. This use is retrospective reference-assisted diagnosis, never an inference feature. Count whether primary output pixels equal the reference, and residual per-channel errors; nominal control equality is not identical photographic reconstruction through clipping/rounding/feathering.
+
+Agent inspects the contact sheet at recorded analysis dimensions, not the user's original physical display. No agent visual score replaces a user judgment, and subtle visibility cannot be established from a resized contact sheet. No new user review, training/strength/grid, support adjustment, gate reclassification, deployment or paper editing. Candidate remains closed; darker-skin qualification remains unestablished.

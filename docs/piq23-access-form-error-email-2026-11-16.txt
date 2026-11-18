@@ -1,0 +1,23 @@
+To: piq2023@dxomark.com
+Subject: PIQ23 academic access request - website form submission error
+
+Hello PIQ23 team,
+
+I tried to request access to PIQ23 through the DXOMARK website, but the form displays an error when I submit it. Could you advise how I can complete the access request?
+
+The exact error message is: "Cannot send message, Please try again later".
+
+My details are:
+Name: [Full name]
+Institution and programme: [Institution / programme]
+Head of department: [Name]
+Thesis adviser: [Name]
+
+My thesis, TrueHue, investigates single-photograph facial exposure and colour correction, with particular attention to preserving darker skin tones. We would use PIQ23's facial-exposure quality annotations to train a small ranking head on a frozen feature encoder. Its responses to fixed exposure perturbations would become features for a correction-control predictor. This is proposed academic research; the approach has not yet been demonstrated to improve correction.
+
+Could you also confirm our eligibility and the permitted scope of thesis reporting, aggregate results, sharing derived trained weights/code, and a locally running research demonstration? We would not redistribute the dataset images. Please clarify how the internal-research licence, confidentiality provisions and publication obligations apply to this use.
+
+Thank you for your help,
+[Full name]
+[Institution]
+[Institutional email]

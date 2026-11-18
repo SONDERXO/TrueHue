@@ -1,0 +1,19 @@
+'use strict';
+const data=JSON.parse(document.getElementById('data').textContent), rows=data.rows;
+const el=id=>document.getElementById(id), key='truehue_native_points_'+data.manifest_sha256;
+let saved;try{saved=JSON.parse(localStorage.getItem(key)||'{}');}catch{saved={};}
+saved.rows=saved.rows||{};let index=0,picture=null,token=0;
+const colours={skin:'#00ff66',hair_or_beard:'#ffcc00',object_or_other:'#ff55dd',uncertain:'#00ddff'};
+function record(){const r=rows[index];return saved.rows[r.review_id]||(saved.rows[r.review_id]={review_id:r.review_id,image_sha256:r.image_sha256,status:'',notes:'',points:[]});}
+function persist(){saved.reviewer=el('reviewer').value;try{localStorage.setItem(key,JSON.stringify(saved));}catch{el('message').textContent='Draft storage unavailable. Keep this tab open and export when finished.';}}
+function complete(r){if(!r||!Array.isArray(r.points))return false;const n=r.points.filter(p=>p.label!=='uncertain').length;return r.status==='marked'?n>0:r.status==='cannot_judge'&&n===0&&r.notes.trim().length>0;}
+function draw(){const canvas=el('canvas'),ctx=canvas.getContext('2d'),r=rows[index];ctx.clearRect(0,0,canvas.width,canvas.height);if(!picture||!picture.complete)return;ctx.imageSmoothingEnabled=false;ctx.drawImage(picture,0,0,canvas.width,canvas.height);const sx=canvas.width/r.width,sy=canvas.height/r.height;for(const p of record().points){ctx.strokeStyle=colours[p.label];ctx.lineWidth=2;ctx.beginPath();ctx.arc((p.x+.5)*sx,(p.y+.5)*sy,4,0,2*Math.PI);ctx.stroke();}el('pointcount').textContent=record().points.length+' points · '+rows.filter(r=>complete(saved.rows[r.review_id])).length+'/'+rows.length+' images complete';}
+function fields(){const r=record();r.status=el('status').value;r.notes=el('notes').value;persist();draw();}
+function load(){const r=rows[index],v=record();el('title').textContent='Image '+(index+1)+' of '+rows.length;el('context').src=r.context_path;el('status').value=v.status;el('notes').value=v.notes;el('message').textContent='';const current=++token;picture=new Image();picture.onload=()=>{if(current===token)draw();};picture.src=r.image_path;draw();}
+el('canvas').addEventListener('pointerdown',event=>{if(!picture||!picture.complete)return;const canvas=el('canvas'),b=canvas.getBoundingClientRect(),r=rows[index];const x=Math.floor((event.clientX-b.left)*r.width/b.width),y=Math.floor((event.clientY-b.top)*r.height/b.height);if(x<0||y<0||x>=r.width||y>=r.height)return;const points=record().points;const existing=points.findIndex(p=>p.x===x&&p.y===y);if(existing<0&&points.length>=50){el('message').textContent='50-point limit reached; undo a point first.';return;}const p={x,y,label:el('label').value};if(existing>=0)points[existing]=p;else points.push(p);persist();draw();});
+el('undo').onclick=()=>{record().points.pop();persist();draw();};
+el('prev').onclick=()=>{fields();index=Math.max(0,index-1);load();};el('next').onclick=()=>{fields();index=Math.min(rows.length-1,index+1);load();};
+for(const id of ['status','notes'])el(id).addEventListener('input',fields);
+el('reviewer').value=saved.reviewer||'';el('reviewer').addEventListener('input',persist);
+el('export').onclick=()=>{fields();if(!saved.reviewer||!saved.reviewer.trim()||rows.some(r=>!complete(saved.rows[r.review_id]))){el('message').textContent='Enter your name/code and complete all six images. Cannot judge needs a reason and no definite points.';return;}const value={schema_version:'truehue_native_reference_points_v1',manifest_sha256:data.manifest_sha256,reviewer:saved.reviewer.trim(),rows:rows.map(r=>saved.rows[r.review_id])};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='truehue_stellenbosch_reference_points.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);el('message').textContent='Save the JSON locally. It contains your actual review; no data was uploaded.';};
+load();
