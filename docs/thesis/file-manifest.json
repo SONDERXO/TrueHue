@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 573278,
-      "sha256": "055f9368736c07592a38decb0d6ce8fefc5880ad1e2d4a8313f67c769c82dcff"
+      "bytes": 577053,
+      "sha256": "04d74d8c56f39e892dd993a50460ee1187a665f2bc02929c05270931038a8114"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 18816,
-      "sha256": "0cd650613f422aa455c85fde22abda7f058189a7467cb2997a502fef3e1edf6b"
+      "bytes": 18976,
+      "sha256": "cd515373d5392d44bdb1fb5ff8e06c1f713663d189fb7f052bc5666ac4c7876c"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 86736,
-      "sha256": "f012a094791cfe7574647f9a15d27c27092ba86d74a2d6306a5bc242b1ab1aba"
+      "bytes": 90511,
+      "sha256": "8621ce6bef34650efd4c7b01566229789a65a2978c31d698df9821d74b1fe838"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 5929,
-      "sha256": "15c00ebadc7bd98a6a1d004439064429d4a26529d21221f0a3d365e18c441955"
+      "bytes": 6717,
+      "sha256": "18eaba3f94a0f94277de66dc9e490adc5ec600116c22647adc2f6cd90dc37a95"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 150648,
-      "sha256": "7c0c4ea32f35965012bf5f9fed7881b59bdce752317065eaf5f98241214e4a3a"
+      "bytes": 150836,
+      "sha256": "f98ac71ac34c43ca0c9d8fafa7c86bfdece2766c5e2622ac6798a820a8245e7e"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 36238,
-      "sha256": "478582d5aaf6a3fd5782a478d37fbd2b0af07ca63e0cbf4f1873efa9225d63fd"
+      "bytes": 37939,
+      "sha256": "fdf9ec79481808e0661d31706d6241a4c62e42f3799c202a631c244191e99380"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "24e4def33a1737b7793b3d59b7ff9c49db66f4de9f9578f0ab4ad5364c4a6783"
+      "sha256": "14d41c3ddf6996ffb7271595ccb67ad9a579edf0a8cd86e652774c652131cdf1"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 8355,
-      "sha256": "0eac75d1178f6aaeeb1ef14f1bd450958bcc0c0b50825742decfbdf3ad0a9a18"
+      "bytes": 8666,
+      "sha256": "118edb961200a8711e4e78ab12d7f6b59bdebb97d70f07454868cbbf8c84fc23"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4854,6 +4854,11 @@
       "path": "docs/wb-remaining-underexposure-review-results-2026-11-18.md",
       "bytes": 2944,
       "sha256": "bea83f4771ddf0716cf7d44c88d83eeb34a8c82b1be965995a14826461158089"
+    },
+    {
+      "path": "docs/wb314-before-after-expert-pairing-2026-11-19.md",
+      "bytes": 5269,
+      "sha256": "1c1e9aec6356455c06ebd5db2904c59da3d6c01dccb9f2f82357c8f6fd9d38a4"
     },
     {
       "path": "docs/wb314-development-feedback-round1-release-2026-11-19.md",
@@ -9751,6 +9756,11 @@
       "sha256": "a8d53939ec890ce90ca8f0e45a72008c1f92745be7b82c094752fea0bcabf8de"
     },
     {
+      "path": "scripts/export_wb314_before_after_feedback.py",
+      "bytes": 11998,
+      "sha256": "e9f9fbb0ac58439b184ab17e075712bb4d571e5bb5f33e6c66610c8aeddd9d35"
+    },
+    {
       "path": "scripts/export_wb314_mste_area_draft.py",
       "bytes": 11733,
       "sha256": "c05cb4eb4c69363af3b8868dea259a6d6bf131af414c1e08b88c5d669b859099"
@@ -9967,8 +9977,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 18557,
-      "sha256": "cfbed8cf75d1015a6169a5d6639d3fe961688dc46f81199915f62ca104bd4523"
+      "bytes": 19251,
+      "sha256": "51ec75ef1f0afbd79ddc3aaeb45be99cb3547d2707d434a336ff6623b5b365d7"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",

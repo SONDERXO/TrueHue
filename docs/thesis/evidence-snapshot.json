@@ -995,17 +995,48 @@
         "prior_packages_preserved": true,
         "presentation_user_requested": true
       }
+    },
+    "MSTE_V2_before_after_pairing": {
+      "local_source": "outputs/wb314_before_after_feedback_v1/summary.json",
+      "source_sha256": "d0d9756eb2041ff80342c4809faa9b4f0b0df804dd0bf7f1912c55d0dcbc5c53",
+      "values": {
+        "round_id": "wb314_mste_v2_before_after_development_round1_2026_11_19",
+        "presentation": "before_input_after_output_4x",
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "pairs": 20,
+        "subjects": 13,
+        "publisher_MST_categories": 10,
+        "unchanged_Form_slot_joins": 20,
+        "exact_input_left_checks": 20,
+        "exact_saved_candidate_right_checks": 20,
+        "exact_4x_repeat_checks": 20,
+        "left_is_clean_reference": false,
+        "clean_reference_kept_for_quantitative_restoration": true,
+        "questions_changed": false,
+        "scale_changed": false,
+        "intro_clarification_prepared": true,
+        "live_Form_updated": false,
+        "new_fits": 0,
+        "new_model_calls": 0,
+        "new_source_portrait_decodes": 0,
+        "new_human_ratings": 0,
+        "model_changed": false,
+        "masks_changed": false,
+        "previous_outputs_and_packages_preserved": true,
+        "rating_transfer": false,
+        "independent_final_evaluation": false
+      }
     }
   },
   "expert_preparation_status": {
     "neutral_id_draft_approved": false,
-    "status": "MSTE_V2_round1_local_materials_released_live_Form_insertion_pending",
+    "status": "V2_before_after_package_ready_live_Form_insertion_and_intro_clarification_pending",
     "independent_reference_MST_labels_for_current11_sources_established": false,
     "compatible_labelled20_photo_roster_established": true,
     "expert_responses": 0,
     "online_Form_edits": 0,
-    "source": "docs/wb314-larger-expert-presentation-2026-11-19.md",
-    "presentation_version": "V2_exact_pixel_repeat_4x"
+    "source": "docs/wb314-before-after-expert-pairing-2026-11-19.md",
+    "presentation_version": "before_input_after_output_4x"
   },
   "expert_development_readiness": {
     "source": "docs/wb314-expert-development-stage-clarification-2026-11-18.md",
@@ -1016,7 +1047,7 @@
     "existing_questions_scale_MST_structure_retained": true,
     "expert_responses": 0,
     "final_qualification_complete": false,
-    "latest_source": "docs/wb314-larger-expert-presentation-2026-11-19.md",
+    "latest_source": "docs/wb314-before-after-expert-pairing-2026-11-19.md",
     "MST_labelled_packet_technical_checks_pass": true,
     "MST_labelled_packet_collection_ready": false,
     "release_approval_received": true,
@@ -1034,6 +1065,12 @@
     "no_additional_pre_feedback_experiment_selected": true,
     "larger_viewing_copies_prepared": true,
     "presentation_scale": 4,
-    "additional_photographic_detail_created": false
+    "additional_photographic_detail_created": false,
+    "left_panel": "actual_cached_distorted_input",
+    "right_panel": "unchanged_saved_model_output",
+    "clean_reference_retained_for_quantitative_metrics": true,
+    "intro_clarification_pending": true,
+    "round_id": "wb314_mste_v2_before_after_development_round1_2026_11_19",
+    "prior_target_output_feedback_transferred": false
   }
 }
