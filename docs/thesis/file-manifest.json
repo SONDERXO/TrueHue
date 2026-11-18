@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 555462,
-      "sha256": "56b08c4d13f506f2800d63d1c78d87e6f31f38f095d4cab8c075780cb82091a4"
+      "bytes": 558677,
+      "sha256": "5abb789fbf40c01d3e5880386674646c77fe865fb78f27823cbf2a889b44d1f3"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 14335,
-      "sha256": "84f3fac00e5b4f19aad8548689be9e478b3e26fdbd412c3b606c6b95e6981f0e"
+      "bytes": 15298,
+      "sha256": "0fa23479cf534ae699f23315efa635d0be75dd7fbb04447d142ffe0fa95e95b4"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 68920,
-      "sha256": "70f5f499969b2165b90679829d6091870dbb6154df3c9e6c2003b9b9aa33e03a"
+      "bytes": 72135,
+      "sha256": "5b848ab65bd95e4f58f6104c6f1c0ae5020aa8c265dbb4344a0d15336ea26b3a"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4582,18 +4582,18 @@
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 148698,
-      "sha256": "4fcf7cff715692cfcd0911e1342e906cfe3f76ddbca9edbd35a37549fd909e79"
+      "bytes": 149052,
+      "sha256": "c0d886e0055fb24624c1d3cb00340cf0f80b3ac8c32971f33e7682f3d7d90bd7"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 22017,
-      "sha256": "46ae1944783eae53f44fda463b534dca7ce273fcedecaa7b107c21e7ab6547e5"
+      "bytes": 24308,
+      "sha256": "cd074f95b052b0ac9add17bf993f764182dcc55cdb2606cf3d87485b7a35fe71"
     },
     {
       "path": "docs/thesis/publication-check.json",
-      "bytes": 1791,
-      "sha256": "bd67a3cf8a004d7fce5a5e67f17fde17231715baf409a59ccd1fcea458fdbe12"
+      "bytes": 1923,
+      "sha256": "f1ff00bbdc19fa935d27ff02acba8953388988826b98aac2158308b060e4fcd9"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 6625,
-      "sha256": "5988bb8d4341718da311c2dfc01bbfb15de237ddadf6a3ca4441bfd1f31c621d"
+      "bytes": 6855,
+      "sha256": "0fa70d181a0a151b80493ef5badaf43969aedd7d4110e463c1026600cbe644ac"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4856,9 +4856,19 @@
       "sha256": "bea83f4771ddf0716cf7d44c88d83eeb34a8c82b1be965995a14826461158089"
     },
     {
+      "path": "docs/wb314-expert-feedback-preparation-2026-11-18.md",
+      "bytes": 4723,
+      "sha256": "bda1346c3d59e9ed987722a441242237e40d5399b91ad77106f84bf7dc8ca0e4"
+    },
+    {
       "path": "docs/wb314-final-review-and-inference-results-2026-11-18.md",
-      "bytes": 6744,
-      "sha256": "003ef4f8b8b91aa6b2b6b23925e76d85eaec2a067ab75713f2c2841c4bdaa398"
+      "bytes": 7198,
+      "sha256": "4491ce4feeb5a31908068e5e21d02926f22f372fcd7a27740ceac2dc8d6d1333"
+    },
+    {
+      "path": "docs/wb314-mst-evaluation-requirement-2026-11-18.md",
+      "bytes": 3156,
+      "sha256": "c60b2cfd587f1a0e231287de6feb4dcd8cf9e47944132702e1c5a15558d06c77"
     },
     {
       "path": "docs/wb314-single-predictor-protocol-2026-11-18.md",
@@ -9897,8 +9907,13 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 12660,
-      "sha256": "ba65159f8fcaeda9081285ce0f5e8d408339a6dd121a69d242458fb9f4d8ca10"
+      "bytes": 13384,
+      "sha256": "fc9259a8853d16160a2cb7eddb66fe7637c4d19178d5c413df37a11d05f6d505"
+    },
+    {
+      "path": "scripts/prepare_wb314_expert_feedback.py",
+      "bytes": 8093,
+      "sha256": "804fbc37eeff651e13ba1e3903a3683ca93e920094a73766d9bdc2065964c06e"
     },
     {
       "path": "scripts/prepare_wb314_final_review.py",

@@ -1,0 +1,23 @@
+# Existing expert form: read successfully; minimal alignment draft
+
+The user's respondent link was read by an unauthenticated, read-only HTTPS GET after the web reader failed and a sandbox socket restriction required approved network access. HTTP200;122321bytes; HTML SHA256 `137dc1d5ad8863a446d2a619454579acffe4b2b5241edc55332ca2d5e87dbdd4`. The local receipt and public form definition are preserved in `outputs/wb314_expert_instrument_respondent_access_v1`. No consent choice, answer, form submission, edit, contact or authentication was performed. The earlier edit-link failure is superseded as an instrument-access blocker.
+
+## Observed instrument
+
+The published definition contains64items: one consent question, an evaluator-information section, expertise/experience questions,20image-pair sections,20required overall1–5ratings, and20optional comment fields. Each rating has the same five numerical choices; section instructions define1Bad,2Poor,3Fair,4Good,5Excellent. Each score combines exposure, colour and texture into overall facial-skin quality relative to the original photographic reference on the left. There are not separate numerical questions for all four aspects listed in the introduction. No image-item definitions or image tags in the20pair-section descriptions were present in the captured public definition; the rating slots still need their versioned photographs.
+
+The20section headings assign two pairs to each MST category1–10. The current11source development photographs have no independently qualified MST labels. Predicted MST features, appearance, race or a slot's heading cannot establish those categories. Assigning these photographs to those headings would fabricate tone-group evidence. The current form also promises per-MST MOS, which this development set cannot support.
+
+## Concrete minimal revision, not applied online
+
+Retain consent, evaluator information, the existing overall1–5question, its anchors and optional comments. Do not expand to80rating questions or invent a new scoring instrument. For an **initial model-development feedback round only**, replace the20MST-labelled headings with neutral numbered pair IDs and use the copy-ready introduction in the local preparation folder. That introduction describes one combined score, photographic reference versus research-model output, and comments used for refinement; it makes no per-MST, independent-final-test or Android-validation claim. Formal supported tone-group appraisal remains a required later qualification task, not removed from the thesis goal.
+
+This adaptation needs the user's decision before it becomes the operative collection procedure. Providing a respondent link authorized reading and preparation, not editing the cloud Form or launching professional collection. No online changes or invitations are made. This is actual model-result feedback preparation, not the previously dropped early methods consultation, expert-created training edits or presets.
+
+## Draft version-specific photographs
+
+Prepare exactly20reference-left/candidate-right pairs from the already sealed WB314 outputs, matching the20existing rating slots. Use four cases per nonidentity condition, covering all11available sources. Selection uses a fixed SHA256 ordering and least-used-source balancing, with no metric, user-rating, predicted-tone or appearance input. All photographs are repeatedly exposed development/fitting examples; the roster is not an independent final evaluation. Preserve source grouping and role membership in the local manifest, not invented MST categories. Identity preservation remains the separately recorded exact-input check on all11originals; this20-pair draft does not add professional preservation ratings.
+
+Selection is fixed before image export or any expert answer. No new fitting, feature extraction, prediction, correction rendering, masks, gains or source photos are needed. Export the exact cached reference and final-candidate pixels, without enhancement, resampling or image generation. Verify source hashes and PNG round trips. Keep all photographs, raw form capture and private roster local; publish only preparation code and appropriate status/aggregate summaries.
+
+This draft becomes useful only with matching neutral pair headings and correct introductory wording. Do not send it using the present MST-labelled form. No expert participation, response, MOS or final validation is assumed. The frozen predictor remains SHA256 `7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f`; no model change is selected. The user's required decision is whether to use this neutral-ID adaptation for the initial feedback round while retaining the full later tone-group requirement.

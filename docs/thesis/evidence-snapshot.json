@@ -686,6 +686,74 @@
           "scipy": "1.18.1"
         }
       }
+    },
+    "existing_expert_instrument": {
+      "local_source": "outputs/wb314_expert_instrument_respondent_access_v1/instrument_summary.json",
+      "source_sha256": "a049906f7df3ece5c95c4fde4df897dba17e18f32e0f8fbacb4d8f8822f23715",
+      "values": {
+        "title": "Expert Evaluation of Smartphone Skin Tone Correction",
+        "item_count": 64,
+        "item_type_counts": {
+          "2": 2,
+          "8": 21,
+          "0": 1,
+          "5": 20,
+          "1": 20
+        },
+        "rating_items": 20,
+        "comment_items": 20,
+        "all_rating_options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "rating_endpoint_labels": [
+          "Bad",
+          "Excellent"
+        ],
+        "section_scale_labels": [
+          "Bad",
+          "Poor",
+          "Fair",
+          "Good",
+          "Excellent"
+        ],
+        "image_item_definitions": 0,
+        "submission_made": false,
+        "questions_changed": false,
+        "source_html_sha256": "137dc1d5ad8863a446d2a619454579acffe4b2b5241edc55332ca2d5e87dbdd4"
+      }
+    },
+    "expert_feedback_preparation_draft": {
+      "local_source": "output/wb314-expert-feedback-draft-2026-11-18/verification.json",
+      "source_sha256": "8a0c2359267ef979527b0444f02841bcfdd27e142a77307f5861d0a49f44c907",
+      "values": {
+        "passed": true,
+        "pair_count": 20,
+        "source_count": 11,
+        "per_condition": 4,
+        "native_pixel_PNG_roundtrips": 20,
+        "resampling": false,
+        "new_fits": 0,
+        "feature_calls": 0,
+        "predictions": 0,
+        "correction_renders": 0,
+        "submitted_responses": 0,
+        "online_form_edits": 0,
+        "images_uploaded": 0,
+        "protocol_sha256": "bda1346c3d59e9ed987722a441242237e40d5399b91ad77106f84bf7dc8ca0e4"
+      }
     }
+  },
+  "expert_preparation_status": {
+    "neutral_id_draft_approved": false,
+    "status": "on_hold_MST_requirement_retained",
+    "independent_reference_MST_labels_for_current11_sources_established": false,
+    "compatible_labelled20_photo_roster_established": false,
+    "expert_responses": 0,
+    "online_Form_edits": 0,
+    "source": "docs/wb314-mst-evaluation-requirement-2026-11-18.md"
   }
 }

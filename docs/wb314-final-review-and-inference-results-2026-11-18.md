@@ -1,5 +1,7 @@
 # Frozen WB314: changed-output feedback accepted, research inference connected
 
+**Subsequent18November instrument update:** the user supplied a respondent link and its complete public form definition was successfully read. A version-specific20-pair local draft is prepared, with a neutral-ID adaptation awaiting the user's decision; no expert collection or online edits occurred. See [expert-form preparation](wb314-expert-feedback-preparation-2026-11-18.md). The instrument-access wait described later in this record is historical.
+
 The user reported: "Done. saved as truehue-wb314-final-changed-review-2026-11-18". The genuine Downloads JSON was imported without editing its bytes. SHA256: `f5fd57d48cf86e59d169e194c0a3a72a9d6b446765e9226f5254f861d9dc1ca7`. The manifest, exact22-case changed-output roster, model seal, parent artifacts, displayed PNG hashes and46-event replay all match. The final answers include a changed selection on case02; the original event history is preserved, not replaced by fabricated consistent selections.
 
 ## Genuine feedback on the frozen predictor
