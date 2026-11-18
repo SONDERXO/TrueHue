@@ -889,16 +889,56 @@
         "source_or_output_pixels_modified": false,
         "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f"
       }
+    },
+    "MSTE_packet_v2_preparation_and_presentation": {
+      "local_source": "outputs/wb314_mste_development_packet_v2_area/packet_status.json",
+      "source_sha256": "776fd19efb6c7564bca2b7ce48c7ea3f373c719bf3230f1ea3dfc5b96d0d253d",
+      "values": {
+        "passed": true,
+        "pairs": 20,
+        "subjects": 13,
+        "publisher_MST_categories": 10,
+        "condition_counts": {
+          "combined_under": 10,
+          "combined_over": 10
+        },
+        "official_label_Form_slot_source_joins": 20,
+        "independently_replayed_routes": 20,
+        "independently_replayed_RGB8": 20,
+        "protected_outside_checks": 20,
+        "full_frame_PNG_checks": 20,
+        "exact_native_face_crop_checks": 20,
+        "original_source_hash_checks": 20,
+        "changed_controls_from_v1": 3,
+        "new_fits": 0,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "normalization": "256 whole-frame INTER_AREA before masks and prediction",
+        "presentation": "same saved reference face_box both panels, native pixels, post-inference",
+        "distribution_ready": false,
+        "appearance_concern_resolved": false,
+        "questions_changed": false,
+        "Form_edits": 0,
+        "uploads": 0,
+        "expert_responses": 0,
+        "new_user_ratings": 0,
+        "independent_final_evaluation": false,
+        "known_support_limitations_retained": true,
+        "reference_attempts": 20,
+        "reference_failures": 0,
+        "replacements": 0,
+        "reference_process_exit_code": 0,
+        "prediction_process_exit_code": 0
+      }
     }
   },
   "expert_preparation_status": {
     "neutral_id_draft_approved": false,
-    "status": "on_hold_MST_requirement_retained",
+    "status": "neutral_ID_draft_held; subsequent_MSTE_V2_draft_technical_pass_collection_held",
     "independent_reference_MST_labels_for_current11_sources_established": false,
-    "compatible_labelled20_photo_roster_established": false,
+    "compatible_labelled20_photo_roster_established": true,
     "expert_responses": 0,
     "online_Form_edits": 0,
-    "source": "docs/wb314-mst-evaluation-requirement-2026-11-18.md"
+    "source": "docs/wb314-mste-packet-preparation-repair-results-2026-11-19.md"
   },
   "expert_development_readiness": {
     "source": "docs/wb314-expert-development-stage-clarification-2026-11-18.md",
@@ -909,12 +949,16 @@
     "existing_questions_scale_MST_structure_retained": true,
     "expert_responses": 0,
     "final_qualification_complete": false,
-    "latest_source": "docs/wb314-mste-development-feedback-results-2026-11-19.md",
+    "latest_source": "docs/wb314-mste-packet-preparation-repair-results-2026-11-19.md",
     "MST_labelled_packet_technical_checks_pass": true,
     "MST_labelled_packet_collection_ready": false,
     "release_approval_received": false,
     "known_mask_findings": true,
     "user_reports_sharpened_overexposed_appearance": true,
-    "pair_and_side_clarification_pending": true
+    "pair_and_side_clarification_pending": false,
+    "V2_preparation_repair_complete": true,
+    "V2_appearance_and_release_input_pending": true,
+    "V1_preserved": true,
+    "model_changed": false
   }
 }

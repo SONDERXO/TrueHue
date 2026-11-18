@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 565673,
-      "sha256": "4bbad49b6ac97682ce9409f9b10aa6e4dcff19b8820a3dbfa5cc370cbdefd610"
+      "bytes": 567854,
+      "sha256": "cffbf7069c3722f6e745dd3894baee506303d90bec9bda0abeb9ca49dea189e8"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 17571,
-      "sha256": "2e14f431240f301afb7d90c135e7d90c9034fd180cfc907c5db4b2864915b4c9"
+      "bytes": 18037,
+      "sha256": "84b1d3411b8dd792faccb2942633b2005b8abfd626fc9d62c1b7e7d1b1282f27"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 79131,
-      "sha256": "bfe5f7f367abdcd0c95f5b8fedc5e02f430e3ee875f74d79c4e759848d268563"
+      "bytes": 81312,
+      "sha256": "e89730ff930b3f10734323935afdcb9c1b032333521973fd63fa5163380c0ffe"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 4186,
-      "sha256": "1c66cc3a7764ff83ea6bd989eaac55b002c5ed7cfb086ef4e7e793a4e52ee1a5"
+      "bytes": 5003,
+      "sha256": "12c642759e94874882fc945b4164339c2636b40e90f58896999d99a793f9e40e"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 149864,
-      "sha256": "469f2fee33ac8f39ab28e2779f58ee59580cfeb58e79e46cea439c44bc29dc38"
+      "bytes": 150258,
+      "sha256": "fda119c81c6de5284b4c9998d4aead3f713c4526fc5fb7fb42befd315eed6bfb"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 31379,
-      "sha256": "338cea2d082a47a6f2bce2a8164284334909414564342af61babc004b02ddaa9"
+      "bytes": 33264,
+      "sha256": "ebe903efb944c63126dbb90ee4a3c6e75fc5c1f3091b830fb58abcdca756d244"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "55e35afba943ba2e5253e15af22610c1962b39c4f123e2f18c69ff3762a7c22f"
+      "sha256": "ac1c391d13c7ee80ef867f1b6a23099043b902815a3609d07f1c5a28f24d685c"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 7448,
-      "sha256": "4e27ba5c520f2dd5c9054957b7f6f1b6803e30f6bbe8a188c85a0c895db42b36"
+      "bytes": 7808,
+      "sha256": "01943da7fa65b8cf46d4737b44f9994ddbebd7789e5905e7718c60200bda5ec1"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4889,6 +4889,16 @@
       "path": "docs/wb314-mste-evaluation-eligibility-results-2026-11-18.md",
       "bytes": 5040,
       "sha256": "313006a245f191dcd5829758f8de1e382880479dbe2317b8d0ba4b7413fd2434"
+    },
+    {
+      "path": "docs/wb314-mste-packet-preparation-repair-2026-11-19.md",
+      "bytes": 4715,
+      "sha256": "ee98688b6727f99461788ce5c876baabb698b9846972ce55d969bb7a18e9b562"
+    },
+    {
+      "path": "docs/wb314-mste-packet-preparation-repair-results-2026-11-19.md",
+      "bytes": 6204,
+      "sha256": "6ed70402c33a7f7c54175deefd3884645716b99013992a9fd234c95f7ddd6748"
     },
     {
       "path": "docs/wb314-single-predictor-protocol-2026-11-18.md",
@@ -9726,6 +9736,11 @@
       "sha256": "f912f7b069c1df86a75b77cd379f76c766a5ed5cde256228bd9a2dea471385be"
     },
     {
+      "path": "scripts/export_wb314_mste_area_draft.py",
+      "bytes": 11733,
+      "sha256": "c05cb4eb4c69363af3b8868dea259a6d6bf131af414c1e08b88c5d669b859099"
+    },
+    {
       "path": "scripts/extract_ppr_parameter_features.py",
       "bytes": 4312,
       "sha256": "519a37b1d744e5b661158844f58b59b92460cf8b9c047c156021200a02160df4"
@@ -9937,8 +9952,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 16397,
-      "sha256": "a82a2f9f32ff08a8acbbaafdfca8d2f287970277f9b0941963cdfeb9c3521e5f"
+      "bytes": 17246,
+      "sha256": "60276d26c50cc7035f00d3d7dd40e2a7743ff3a30449d42368705eb8a6b81ad1"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",
@@ -9989,6 +10004,11 @@
       "path": "scripts/record_source_bagged_review_and_support_diagnosis.py",
       "bytes": 8321,
       "sha256": "78cc02d6754db59a879210e587ff30c8c850f7586e5677f54e328b1fb97a3252"
+    },
+    {
+      "path": "scripts/repair_wb314_mste_packet_preparation.py",
+      "bytes": 8442,
+      "sha256": "0b7f60a606356e85904e0ffa61be748dd5275a7afafd3393c9e5eaf53008b2b3"
     },
     {
       "path": "scripts/report_wb_feature_direct_saved.py",

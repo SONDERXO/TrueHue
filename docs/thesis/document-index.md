@@ -927,6 +927,8 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [MST-labelled development-feedback packet for the frozen WB314 model](../wb314-mste-development-feedback-protocol-2026-11-18.md) — `docs/wb314-mste-development-feedback-protocol-2026-11-18.md`
 - [MST-labelled development-feedback draft prepared; release decision pending](../wb314-mste-development-feedback-results-2026-11-19.md) — `docs/wb314-mste-development-feedback-results-2026-11-19.md`
 - [Separate MST-E evaluation-cohort assessment: eligibility not established](../wb314-mste-evaluation-eligibility-results-2026-11-18.md) — `docs/wb314-mste-evaluation-eligibility-results-2026-11-18.md`
+- [Repair the development packet's downsampling and presentation](../wb314-mste-packet-preparation-repair-2026-11-19.md) — `docs/wb314-mste-packet-preparation-repair-2026-11-19.md`
+- [MST-labelled packet V2: preparation repaired, appearance review pending](../wb314-mste-packet-preparation-repair-results-2026-11-19.md) — `docs/wb314-mste-packet-preparation-repair-results-2026-11-19.md`
 - [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`
 - [One frozen WB314 predictor: fit complete, changed-output review pending](../wb314-single-predictor-results-2026-11-18.md) — `docs/wb314-single-predictor-results-2026-11-18.md`
 - [Whole-face correction and nostril-excluded measurement](../whole-face-support-results-2026-11-01.md) — `docs/whole-face-support-results-2026-11-01.md`
