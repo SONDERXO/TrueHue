@@ -1,7 +1,7 @@
 {
   "checkpoint": "2026-11-18",
   "publication_scope": "Research documentation/source on development branch; not a validated release",
-  "indexed_documents": 931,
+  "indexed_documents": 932,
   "source_python_files": 1465,
   "syntax_errors": [],
   "high_confidence_secret_findings": [],
@@ -48,7 +48,7 @@
   "locked_allocations_accessed": false,
   "original_proposal_and_current_editable_manuscript_included": false,
   "personal_appeal_material_included": false,
-  "latest_clarification": "Separate MST-E eligibility assessment complete; all10labels available,0newsubjects/0newindependentcohortadmissions; Form/model unchanged.",
+  "latest_clarification": "Frozen candidate ready for initial development expert feedback; MST-labelled material verification pending. Independent-final-cohort gate was applied too early; questions and model unchanged.",
   "current_changed_python_syntax_checks": [
     "scripts/assess_wb314_mste_evaluation_metadata.py",
     "scripts/prepare_thesis_web_handoff.py"

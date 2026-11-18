@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 560594,
-      "sha256": "46cb25de6cddb24f189a31e5f69c203399f020e86c6793a9c1997c2e1c7063fd"
+      "bytes": 562417,
+      "sha256": "fd9996db47753ffee5af56cdf714ac49c0237ce060756fa0368ce3e455439958"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 15869,
-      "sha256": "c3c5ae7ee8a528c265c9d99cb3b181f7bfeb1910487e2340c17a1fb9bd18a8fd"
+      "bytes": 16514,
+      "sha256": "0c2b2624c76a045ff97a6e3c25469c2c3bd66912e575d74f13ba11ab82bce71d"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 74052,
-      "sha256": "1ecd120a7002dafafd64db289d140134ceabfc51d6de319fabd6e0602595c427"
+      "bytes": 75875,
+      "sha256": "d91b84034a9b76cb6725903d57c7b4f452dc600ae45c4c0c471e9264c0fdba86"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4582,18 +4582,18 @@
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 149257,
-      "sha256": "06d8671edf3547673fe2c7cd332d0da0b3a79f60e919060113a3c557128770d0"
+      "bytes": 149463,
+      "sha256": "0bed2362badb270bb7586352c916145e8555e0fb867d202da853386066842a0b"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 26601,
-      "sha256": "4b21e1e623e5e38b4408ff70a43759a1033cd1dfb35ab9e1e0dd18c9338f0d7e"
+      "bytes": 27134,
+      "sha256": "602f4a941309b53f90b71897f6fd4ec43cbb5af229ac208719ce4886d141b621"
     },
     {
       "path": "docs/thesis/publication-check.json",
-      "bytes": 2112,
-      "sha256": "fbf71933a0c541de50f68494651d635810e7be347b199765fc3a6b664cfb3d6d"
+      "bytes": 2166,
+      "sha256": "11c833a2d5ea4a968d6b74c4ca6269f3acfc00ec4dff9bc08d29b066989b1d72"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4854,6 +4854,11 @@
       "path": "docs/wb-remaining-underexposure-review-results-2026-11-18.md",
       "bytes": 2944,
       "sha256": "bea83f4771ddf0716cf7d44c88d83eeb34a8c82b1be965995a14826461158089"
+    },
+    {
+      "path": "docs/wb314-expert-development-stage-clarification-2026-11-18.md",
+      "bytes": 3211,
+      "sha256": "34ff74ea7fad80306d8a57bbd717badc30c2338cff03b2feb7cf71e507759ac0"
     },
     {
       "path": "docs/wb314-expert-feedback-preparation-2026-11-18.md",

@@ -810,5 +810,15 @@
     "expert_responses": 0,
     "online_Form_edits": 0,
     "source": "docs/wb314-mst-evaluation-requirement-2026-11-18.md"
+  },
+  "expert_development_readiness": {
+    "source": "docs/wb314-expert-development-stage-clarification-2026-11-18.md",
+    "source_sha256": "34ff74ea7fad80306d8a57bbd717badc30c2338cff03b2feb7cf71e507759ac0",
+    "model_candidate_ready_for_initial_feedback": true,
+    "MST_labelled_review_packet_verified_ready": false,
+    "untouched_final_cohort_required_before_initial_feedback": false,
+    "existing_questions_scale_MST_structure_retained": true,
+    "expert_responses": 0,
+    "final_qualification_complete": false
   }
 }
