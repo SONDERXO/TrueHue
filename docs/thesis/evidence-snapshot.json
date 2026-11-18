@@ -1026,6 +1026,66 @@
         "rating_transfer": false,
         "independent_final_evaluation": false
       }
+    },
+    "MSTE_normal_photo_preview": {
+      "local_source": "outputs/wb314_normal_photo_preview_v1/summary.json",
+      "source_sha256": "9984986593caa5bd31456d4b6051cacd4377c5cd0df2e2e792ba08094e888428",
+      "values": {
+        "passed": true,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "cases": 20,
+        "subjects": 13,
+        "MST_categories": 10,
+        "input_role": "undistorted_normal_photographs",
+        "exact_unchanged_outputs": 10,
+        "changed_outputs": 10,
+        "logical_model_calls": 20,
+        "portable_route_checks": 20,
+        "exact_scalar_RGB8_checks": 20,
+        "input_immutability_checks": 20,
+        "protected_outside_checks": 20,
+        "PNG_roundtrips": 60,
+        "new_fits": 0,
+        "new_source_portrait_decodes": 0,
+        "synthetic_distortion_calls": 0,
+        "mask_inference": 0,
+        "model_changed": false,
+        "high_resolution_output": false,
+        "expert_responses": 0,
+        "new_human_ratings": 0,
+        "improvement_on_naturally_faulty_photos_established": false,
+        "independent_final_validation": false,
+        "automatic_new_photo_masking_qualified": false,
+        "Form_edits": 0,
+        "automatic_expert_packet_replacement": false
+      }
+    },
+    "MSTE_normal_photo_interpretation": {
+      "local_source": "outputs/wb314_normal_photo_preview_v1/independent_audit_and_interpretation.json",
+      "source_sha256": "25afb917473d9c6de75cdb64f4b9f737887d3f15e0e13c221651ee5e951c1b5c",
+      "values": {
+        "passed": true,
+        "cases": 20,
+        "exact_input_outputs": 10,
+        "changed_outputs": 10,
+        "normal_inputs_selecting_brightening_gain": 9,
+        "brightening_gain_values": [
+          1.4142135623730954,
+          1.4142135623730956
+        ],
+        "all20_normal_inputs_join_cached_undistorted_references": true,
+        "independent_protected_outside_checks": 20,
+        "exact_embedded_PNG_bytes": 40,
+        "contact_sheets_viewed": 5,
+        "assistant_visual_concern": "Normal photos01and02show conspicuous brightening/highlight expansion although already bright; this is a preservation concern, not a user/expert categorical rating.",
+        "general_improvement_on_normal_photos_established": false,
+        "no_failure_gate_retrofitted": true,
+        "model_changed": false,
+        "expert_packet_automatically_replaced": false,
+        "new_audit_model_calls": 0,
+        "new_fits": 0,
+        "interactive_browser_tested": false
+      }
     }
   },
   "expert_preparation_status": {
@@ -1071,6 +1131,21 @@
     "clean_reference_retained_for_quantitative_metrics": true,
     "intro_clarification_pending": true,
     "round_id": "wb314_mste_v2_before_after_development_round1_2026_11_19",
-    "prior_target_output_feedback_transferred": false
+    "prior_target_output_feedback_transferred": false,
+    "latest_model_behavior_source": "docs/wb314-normal-photo-preview-results-2026-11-19.md",
+    "normal_photo_reliability_established": false,
+    "normal_photo_preservation_concern": true,
+    "synthetic_feedback_is_not_normal_photo_validation": true
+  },
+  "normal_photo_behavior": {
+    "source": "docs/wb314-normal-photo-preview-results-2026-11-19.md",
+    "cases": 20,
+    "unchanged": 10,
+    "changed": 10,
+    "brightening_controls": 9,
+    "normal_preservation_concern": true,
+    "normal_photo_reliability_established": false,
+    "full_resolution_path_qualified": false,
+    "expert_packet_automatically_changed": false
   }
 }
