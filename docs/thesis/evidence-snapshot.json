@@ -1086,6 +1086,70 @@
         "new_fits": 0,
         "interactive_browser_tested": false
       }
+    },
+    "WB314_headroom_cap_assessment": {
+      "local_source": "outputs/wb314_exposure_headroom_assessment_v1/summary.json",
+      "source_sha256": "023974838e4d9f4129325120bc629b29bffa9129111cc0617d24605acf39c595",
+      "values": {
+        "passed": false,
+        "gates": {
+          "final66_exact": false,
+          "synthetic20_exact": true,
+          "original10_normal_identities_preserved": true,
+          "both_normal01_02_capped": true,
+          "both_normal01_02_definite_overflow_removed": true,
+          "normal_overflow_not_increased": true
+        },
+        "cases": 106,
+        "changed_outputs_by_group": {
+          "final66": 1,
+          "synthetic20": 0,
+          "normal20": 3
+        },
+        "capped_controls_by_group": {
+          "final66": 1,
+          "synthetic20": 0,
+          "normal20": 3
+        },
+        "new_model_calls": 0,
+        "new_fits": 0,
+        "scalar_changed_control_checks": 4,
+        "protected_outside_checks": 106,
+        "raw_and_guarded_normal_target_overflow": [
+          {
+            "key": "image_pair_01",
+            "raw": 475,
+            "guarded": 0
+          },
+          {
+            "key": "image_pair_02",
+            "raw": 1026,
+            "guarded": 0
+          }
+        ],
+        "auto_wrapper_integration_permitted": false,
+        "original_tree_unchanged": true,
+        "all_normal_correction_necessity_solved": false,
+        "new_human_ratings": 0,
+        "scientific_or_final_adoption": false
+      }
+    },
+    "WB314_headroom_independent_audit": {
+      "local_source": "outputs/wb314_exposure_headroom_assessment_v1/independent_audit.json",
+      "source_sha256": "09dcac1dab617c7ee150b15480141c47b7a8b276ae2a45e2c21ce2e760f6f024",
+      "values": {
+        "passed": true,
+        "guard_assessment_screen_pass": false,
+        "all106_protection_and_old_output_checks": true,
+        "original66_input_artifact_hash_joins": true,
+        "independent_scalar_headroom_bounds": 4,
+        "focused_triple_PNG_checks": 4,
+        "focused_embedded_PNG_checks": 4,
+        "active_wrapper_changed": false,
+        "model_changed": false,
+        "new_fits": 0,
+        "new_model_calls": 0
+      }
     }
   },
   "expert_preparation_status": {
@@ -1147,5 +1211,18 @@
     "normal_photo_reliability_established": false,
     "full_resolution_path_qualified": false,
     "expert_packet_automatically_changed": false
+  },
+  "repair_candidate_status": {
+    "source": "docs/wb314-highlight-headroom-repair-results-2026-11-19.md",
+    "kind": "fixed_quantization_aware_positive_exposure_cap",
+    "declared_screen_pass": false,
+    "prior86_exact_outputs_preserved": 85,
+    "prior_outputs_changed": 1,
+    "prior_changed_output_max_channel_difference": 1,
+    "normal_outputs_changed": 3,
+    "appearance_input_pending": true,
+    "active_wrapper_changed": false,
+    "candidate_adopted": false,
+    "all_normal_correction_necessity_solved": false
   }
 }

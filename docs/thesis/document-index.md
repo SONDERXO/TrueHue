@@ -925,6 +925,8 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [The frozen candidate is ready for development-stage expert feedback](../wb314-expert-development-stage-clarification-2026-11-18.md) — `docs/wb314-expert-development-stage-clarification-2026-11-18.md`
 - [Existing expert form: read successfully; minimal alignment draft](../wb314-expert-feedback-preparation-2026-11-18.md) — `docs/wb314-expert-feedback-preparation-2026-11-18.md`
 - [Frozen WB314: changed-output feedback accepted, research inference connected](../wb314-final-review-and-inference-results-2026-11-18.md) — `docs/wb314-final-review-and-inference-results-2026-11-18.md`
+- [One mathematical highlight-headroom repair assessment](../wb314-highlight-headroom-repair-protocol-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-protocol-2026-11-19.md`
+- [Highlight-headroom candidate: overflow reduced, exact-parity screen failed](../wb314-highlight-headroom-repair-results-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-results-2026-11-19.md`
 - [Larger expert comparisons: same V2 results, four-times viewing scale](../wb314-larger-expert-presentation-2026-11-19.md) — `docs/wb314-larger-expert-presentation-2026-11-19.md`
 - [MST remains required; neutral-ID feedback draft is on hold](../wb314-mst-evaluation-requirement-2026-11-18.md) — `docs/wb314-mst-evaluation-requirement-2026-11-18.md`
 - [MST-labelled development-feedback packet for the frozen WB314 model](../wb314-mste-development-feedback-protocol-2026-11-18.md) — `docs/wb314-mste-development-feedback-protocol-2026-11-18.md`
