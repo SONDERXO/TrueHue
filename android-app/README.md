@@ -1,5 +1,9 @@
 # SkinToneCorrection — Android app (thesis)
 
+**WB314 preparation, 19 November 2026.** The Java WB314 renderer is available as a standalone component. A JVM check matched Python exactly on 32,000 generated RGB8 outputs across five control sets, including identity, positive and negative exposure, colour balance and feathered alpha. It also rejected an application mask that assigned nonzero alpha to a protected pixel. Run `scripts/verify_android_wb314_renderer.py --jdk <JDK> --output-dir <new-local-folder>` from the project root with the Python research environment.
+
+The current Android app still runs the older pipeline. Integration requires the selected model and matching feature and mask implementations, original-size decode and export, and a physical-device check of parity, memory use and latency. The standalone check covers already decoded opaque pixels and supplied masks.
+
 Latest: [5 November consultation demo polish and rebuild](../docs/android-consultation-update-2026-11-05.md).
 Before/trial toggle and expandable mask;18JVM tests pass, lint0errors/45warnings.
 Updated UI has not been checked on a connected device. Existing models/pipeline

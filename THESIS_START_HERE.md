@@ -8,6 +8,8 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Standing synchronization rule:** every model feature/change is followed by a repository update with its code, actual checks, evidence and limitations. See [repository update policy](docs/thesis/repository-update-policy.md). For thesis editing, retrieve the current branch checkpoint rather than relying on a previously read revision or older upload bundle.
 
+**Android renderer preparation.** The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. Phone integration, original-size Android export and device measurement remain pending. The Android app currently uses the older pipeline. See [Android implementation status](android-app/README.md).
+
 **Development round sent.** The researcher reports sending the Form and awaiting responses. One local rendering check has now verified a real changed output at original size using cached predictions. Protected and outside-support pixels were preserved. The known brightening concern was visible at full size. See the follow-up in [original-resolution output](docs/wb314-original-resolution-output-2026-11-19.md).
 
 **Development round version verified.** The frozen tree and all 20 local comparison PNGs match the release record. A fresh public Form capture confirms the updated introduction, consent and all 20 pair sections with image, rating, preference and comment items. The exact live image pixels remain unverified. The [completion plan](docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md) now records the development version and the final evaluation design, including the outstanding final roster, mapper and proposal-procedure decisions.
