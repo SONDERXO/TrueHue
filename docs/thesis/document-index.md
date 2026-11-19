@@ -923,6 +923,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [One background-balanced WB314 repair assessment](../wb314-background-balance-protocol-2026-11-19.md) — `docs/wb314-background-balance-protocol-2026-11-19.md`
 - [Background-balanced necessity repair rejected](../wb314-background-balance-results-2026-11-19.md) — `docs/wb314-background-balance-results-2026-11-19.md`
 - [Expert pairing corrected to the user's intended before/after comparison](../wb314-before-after-expert-pairing-2026-11-19.md) — `docs/wb314-before-after-expert-pairing-2026-11-19.md`
+- [Completion blockers and two planned expert rounds](../wb314-completion-blockers-and-two-round-plan-2026-11-19.md) — `docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md`
 - [WB314 V2 released for initial development feedback; Form insertion pending](../wb314-development-feedback-round1-release-2026-11-19.md) — `docs/wb314-development-feedback-round1-release-2026-11-19.md`
 - [The frozen candidate is ready for development-stage expert feedback](../wb314-expert-development-stage-clarification-2026-11-18.md) — `docs/wb314-expert-development-stage-clarification-2026-11-18.md`
 - [Existing expert form: read successfully; minimal alignment draft](../wb314-expert-feedback-preparation-2026-11-18.md) — `docs/wb314-expert-feedback-preparation-2026-11-18.md`

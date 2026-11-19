@@ -165,6 +165,16 @@ def main():
          'expert_model_unchanged', 'expert_upload_hashes_unchanged', 'user_photos_used_for_training',
          'user_photo_candidate_predictions', 'new_sources', 'new_mask_inference', 'model_adopted',
          'correction_fix_complete', 'qualification_complete', 'gates', 'by_view_role'])
+    specs['WB314_completion_and_two_round_plan'] = (
+        'outputs/wb314_completion_plan_v1/summary.json',
+        ['plan_prepared', 'planned_expert_rounds', 'development_rounds', 'final_expert_rounds',
+         'final_round_also_reviews_refined_system', 'automatic_third_round', 'success_guaranteed',
+         'blockers_listed', 'ITA_MST_retained', 'final_decision_tree_retained', 'exposure_and_colour_retained',
+         'original_size_output_completed', 'native_execution_completed', 'automatic_necessity_repair_verified',
+         'current_MST_transfer_validated', 'cleared_independent_final_cohort_established',
+         'current_model_phone_qualification_complete', 'existing_method_extensions_need_honest_reporting',
+         'new_experiments', 'new_fits', 'new_photo_reads', 'new_ratings', 'Form_edits', 'invitations_sent',
+         'model_changed', 'expert_images_changed', 'qualification_complete'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))

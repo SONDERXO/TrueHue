@@ -1610,6 +1610,39 @@
           }
         }
       }
+    },
+    "WB314_completion_and_two_round_plan": {
+      "local_source": "outputs/wb314_completion_plan_v1/summary.json",
+      "source_sha256": "416e23059446ddb9d0c2b169b46b9adbf6a989010365b5592d3620b5d2b96667",
+      "values": {
+        "plan_prepared": true,
+        "planned_expert_rounds": 2,
+        "development_rounds": 1,
+        "final_expert_rounds": 1,
+        "final_round_also_reviews_refined_system": true,
+        "automatic_third_round": false,
+        "success_guaranteed": false,
+        "blockers_listed": 6,
+        "ITA_MST_retained": true,
+        "final_decision_tree_retained": true,
+        "exposure_and_colour_retained": true,
+        "original_size_output_completed": true,
+        "native_execution_completed": true,
+        "automatic_necessity_repair_verified": false,
+        "current_MST_transfer_validated": false,
+        "cleared_independent_final_cohort_established": false,
+        "current_model_phone_qualification_complete": false,
+        "existing_method_extensions_need_honest_reporting": true,
+        "new_experiments": 0,
+        "new_fits": 0,
+        "new_photo_reads": 0,
+        "new_ratings": 0,
+        "Form_edits": 0,
+        "invitations_sent": 0,
+        "model_changed": false,
+        "expert_images_changed": false,
+        "qualification_complete": false
+      }
     }
   },
   "expert_preparation_status": {

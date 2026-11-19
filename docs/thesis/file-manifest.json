@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 592756,
-      "sha256": "566084a550debe3ddbb8f6675f389d2c8713af4c6a2908a48ae445294c9321bb"
+      "bytes": 594846,
+      "sha256": "0e541c05cd0a3c9c8b3146d4ac76bc4defb70618c60934e93ae5d15d553fdf5d"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 24189,
-      "sha256": "5d21fe0e7e1ca06efbfd54da2a00625b57b8a594aafb0aadd9d1b7846ad06cf8"
+      "bytes": 25089,
+      "sha256": "1bcebeba19c575b98f9558ab03f1caa276fac48c603f1a7891dbe14423dc6120"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -1607,8 +1607,8 @@
     },
     {
       "path": "docs/expert-feedback-refinement-policy.md",
-      "bytes": 1889,
-      "sha256": "7b00a28eb612578ed7ac9a0c3037f006e004ba2a32340eb06398cd247210a7c3"
+      "bytes": 3361,
+      "sha256": "637e3d126c36bc24ca32285d608d879da36235028c8ada84531a1ad52a35bde7"
     },
     {
       "path": "docs/expert-status-brief-2026-11-17.md",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 106214,
-      "sha256": "56f2de24c6676cbb8f231045d49360933220812ff9c5b4c26b10020989a19db5"
+      "bytes": 108304,
+      "sha256": "1fd1b7c706fb6373fb14d5024de236e6370f258541dd77dc273a6f89800ce670"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 13671,
-      "sha256": "3c7f1a986ad7a50a90bb16badd8be8e60dbf81f476f549c6e3e8de02f8143f9e"
+      "bytes": 14501,
+      "sha256": "1ff53d26e60d26a1928798ab55d94b5f1f2e4bcb05169754e08caa4cf33b073a"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 153236,
-      "sha256": "717e8de4f1d8ffb619d1b7d470b5eec8da3bfd746cae44f7b190066a23d9f0ec"
+      "bytes": 153424,
+      "sha256": "b5c7073cb3045ce6c92cad45cfe05e585f46e891e977be9f69020acdf05fe1c6"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 62127,
-      "sha256": "6b79a8cab174a476e9be18dc7b6f1ba9b4ea94ae9e6cb886dd3c2c8acbf53460"
+      "bytes": 63486,
+      "sha256": "6214b5e0e495f6d335c5e010f42bfa517f6effa16643b2b7874b4e76b2c26b3d"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "67105b96797be31fcd31972d451bdb17951a3a8de5d93098c86f5edf495aa452"
+      "sha256": "776d37366a0ee4cad145629959d298ddb2d100a0797a1209193377a7dd722403"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 11499,
-      "sha256": "a275a8c58b7ddfc4dcbb9614588ef555d70c4ffcc1d997cee6371dfd47d7250d"
+      "bytes": 11778,
+      "sha256": "e7bff473c4258e5f810799ef7ea6a0b249d28df8319690bb8d4c03831d904237"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4869,6 +4869,11 @@
       "path": "docs/wb314-before-after-expert-pairing-2026-11-19.md",
       "bytes": 5269,
       "sha256": "1c1e9aec6356455c06ebd5db2904c59da3d6c01dccb9f2f82357c8f6fd9d38a4"
+    },
+    {
+      "path": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md",
+      "bytes": 11597,
+      "sha256": "fcca50167d524a2b0e818f61ff1eae246e2d5fe9f08656229c5daf7e375e0cac"
     },
     {
       "path": "docs/wb314-development-feedback-round1-release-2026-11-19.md",
@@ -10072,8 +10077,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 29301,
-      "sha256": "4da072fcf9aed0e38611ff218acbdd93fcb3edeb651fea00549fd0e3a9b10c85"
+      "bytes": 30224,
+      "sha256": "e5b4cfbf9c218601bc3b7e3919385b45bc37cdb128e4e2b8cbe6cc89b995a6fc"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",

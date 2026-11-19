@@ -1,10 +1,20 @@
 # Professional feedback and model refinement
 
+## Current scheduling decision - 19 November 2026
+
+The user now requests **one development-feedback round and one final expert evaluation**, while retaining the study. Follow [the completion blockers and two-round plan](wb314-completion-blockers-and-two-round-plan-2026-11-19.md).
+
+Plan round1on one fixed development version, consolidate the justified refinements, then freeze the selected final method/model/images/procedure. Round2is the final appraisal of that version and also serves as the expert review of the refined system. The revised-result review in historical step4below is therefore not an automatically scheduled third round in addition to final appraisal. Keep developmental and final evidence distinct; do not tune on final outcomes or relabel previously exposed cases as independent final data.
+
+Two rounds are the planned budget, not a promise that both will pass. A material failure in final appraisal remains a failure. No unreviewed later output inherits the previous version's final ratings, and no further collection or major method change is automatically authorized. MST/ITA, one final decision tree, exposure and colour goals, the existing questionnaire and approved protection/output requirements remain retained. Final-data eligibility and other scientific blockers remain explicit; the plan is not their validation. Reviewer invitations and participation are not assumed or sent by this update.
+
+## Historical sequence - 31 October 2026
+
 31 October2026 — explicit user clarification. This supersedes any interpretation
 of earlier notes that would prohibit refinement after professionals first see
 the results. It does not start expert evaluation immediately.
 
-The adopted sequence is:
+The 31 October sequence was:
 
 1. Obtain a good initial correction model. The currently rejected candidates
    do not meet that condition; passing software tests alone is insufficient.
