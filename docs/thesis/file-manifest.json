@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 25637,
-      "sha256": "a338ba1c877f20b9e3867b1d4ff4487d9997a154d46d686d31676efde54aee4a"
+      "bytes": 26551,
+      "sha256": "11365d187772998d0c641d4fddef4ce05d2d058803f75587089774f91233ea81"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -32,8 +32,8 @@
     },
     {
       "path": "android-app/README.md",
-      "bytes": 8541,
-      "sha256": "bfe40bb5a316e0f173a5ae905518cabd3c26127349bb67f006115d0a71b7e392"
+      "bytes": 10276,
+      "sha256": "6cc8d917ca89738035194ff69e6c5266245a893558882ce714bcc3dbfda53efb"
     },
     {
       "path": "android-app/app/build.gradle.kts",
@@ -42,8 +42,8 @@
     },
     {
       "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/OnDevicePipelineTest.kt",
-      "bytes": 3081,
-      "sha256": "3a6a45f369720c42ff91d288003f73047bac813ccbfd0b57d2aa797470766e88"
+      "bytes": 5309,
+      "sha256": "ea5bc8ae5f529b6df36a0aab7a4be3936cbeb24497f47efca194dcf51a0588f0"
     },
     {
       "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/ReliabilityTest.kt",
@@ -67,13 +67,13 @@
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/ImageRepository.kt",
-      "bytes": 6422,
-      "sha256": "2c509e2c0af9a6320cf39b75c27c1405e133fc0daa46f66c3a2a510fccab9de3"
+      "bytes": 7919,
+      "sha256": "70fd0a1b584bd7df728af52f64d45c0fdfdd2ea05bea26e3053ed758e22792ef"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/OnDevicePipeline.kt",
-      "bytes": 11499,
-      "sha256": "5659f7d9344b353161910ed1989f70c5f25d185773213166421fa7dff8d64114"
+      "bytes": 12768,
+      "sha256": "fcf8ea4247e79c513ed1cbc249b9b6fa9c7ab636bf56def245c6c0c380e41142"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ml/DevelopmentMath.kt",
@@ -107,8 +107,8 @@
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/result/ResultScreen.kt",
-      "bytes": 4682,
-      "sha256": "1f8cbeffd708bfec2f6c0063f20295ffcd26ed535897e14ce13686a4d27577fb"
+      "bytes": 4696,
+      "sha256": "af42d78a471dd089b660475b481869b2d7366579a18eca5e3120c05f6e29ccbd"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/splash/SplashScreen.kt",
@@ -4577,8 +4577,8 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 14501,
-      "sha256": "1ff53d26e60d26a1928798ab55d94b5f1f2e4bcb05169754e08caa4cf33b073a"
+      "bytes": 15517,
+      "sha256": "4e2c457cda5e7bbe67f277fd7ac7236e9b5e2613d03592a630c4395719600172"
     },
     {
       "path": "docs/thesis/document-index.md",
@@ -4593,7 +4593,7 @@
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "776d37366a0ee4cad145629959d298ddb2d100a0797a1209193377a7dd722403"
+      "sha256": "7331164f827eab227d54e4d8b20f5e836bf91d548bc5c9946c2e0818814b60c8"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4977,8 +4977,8 @@
     },
     {
       "path": "docs/wb314-original-resolution-output-2026-11-19.md",
-      "bytes": 4775,
-      "sha256": "b09bbabcf3b57d7ab8376a851d367433bfb6879fa4707c7db875f63d8eca9c3c"
+      "bytes": 6019,
+      "sha256": "79cd876d6ef48b96ccc301ff450610d2fa4bf286569e9eb97d3c9c14b8b3ae96"
     },
     {
       "path": "docs/wb314-single-photo-runner-2026-11-19.md",
@@ -10434,6 +10434,11 @@
       "path": "scripts/verify_affine_capacity_comparison.py",
       "bytes": 3141,
       "sha256": "772fab8ec0670290fd1af4c079b261bdc730773862e58d876a048117fd9da276"
+    },
+    {
+      "path": "scripts/verify_android_wb314_renderer.py",
+      "bytes": 4192,
+      "sha256": "744aae826332f680ae46184c1cb984116f10ad71268045e9cd3b300c82415846"
     },
     {
       "path": "scripts/verify_blue_axis_feasibility.py",
