@@ -1,5 +1,7 @@
 # SkinToneCorrection — Android app (thesis)
 
+**WB314 automatic research masks, 19 November 2026.** Starting from two saved normalized images, Android matched Python's detector boxes, parser categories, FaceOcc visibility, measurement masks, protection masks, correction support and application alpha. All 18 JVM and five emulator tests passed. Connecting these generated masks to WB314 in the picker and checking a physical phone remain pending. See [mask verification](../docs/android-wb314-mask-pipeline-2026-11-19.md).
+
 **WB314 FaceOcc alignment and reprojection, 19 November 2026.** Android detected matching landmarks from two saved detector boxes and returned the same visibility masks as Python on both images. The second alignment differed by one code level in two RGB channel values. Dense parsing and the full research mask rules still need integration before enabling WB314 in the picker. See [geometry verification](../docs/android-faceocc-geometry-2026-11-19.md).
 
 **WB314 FaceOcc network, 19 November 2026.** OpenCV 5.0.0 on an API 35 emulator ran the pinned FaceOcc export on two saved aligned images. Every visibility decision agreed with Python across 131,072 pixels. See [FaceOcc verification](../docs/android-faceocc-research-port-2026-11-19.md).
@@ -8,7 +10,7 @@
 
 Build and JVM unit tests also passed. To reproduce the emulator check, prepare a private fixture with `scripts/prepare_android_wb314_parity_fixture.py`, stage the ten fixture files in the debug app's private `files/wb314_parity` directory using a binary-safe transfer, and compare their SHA-256 digests. Run `Wb314ResearchParityTest` with the `wb314ManifestSha` instrumentation argument set to the local manifest digest. An initial text-altering transfer was rejected by the asset check before inference. The run after byte-for-byte staging passed.
 
-The app's regular photo picker still uses the older trial model. The WB314 renderer currently receives measurement, application and protection masks. Automatic masking still requires the matching parser and support rules. Device memory and latency remain to be measured.
+The app's regular photo picker still uses the older trial model. The WB314 renderer currently receives measurement, application and protection masks. The research generator now produces these masks from a normalized image. Device memory and latency remain to be measured.
 
 **WB314 white-balance port, 19 November 2026.** A local JVM check with the pinned WB_sRGB research assets matched all 726 float32 coefficients from the 20 saved development images and two generated inputs. The check also rejected a flat image with unavailable histogram support. Run `scripts/verify_android_wb314_white_balance.py --jdk <JDK> --output-dir outputs/<new-local-folder>` to reproduce it. The Java calculation adapts Mahmoud Afifi et al.'s [WB_sRGB](https://github.com/mahmoudnafifi/WB_sRGB/tree/98340313cc7d1728e286ad9ba03e8f9a0e8b82c5) under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). The pinned assets and resulting parity bank stay in local research outputs.
 
