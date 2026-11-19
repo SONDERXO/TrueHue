@@ -1,5 +1,9 @@
 # SkinToneCorrection — Android app (thesis)
 
+**WB314 tree loader, 19 November 2026.** The Android code can load the frozen 314-feature tree using its expected SHA-256 digest and check the order and range of its five output controls. The compiled loader matched Python exactly on 86 saved development vectors and 27 float32 threshold probes. It rejected an incorrect digest, an invalid feature count and a NaN input. The debug build and 18 JVM unit tests passed. Run `scripts/verify_android_wb314_tree.py --jdk <JDK> --output-dir <new-local-folder>` after building the debug app and its JVM tests.
+
+The verification uses supplied feature vectors on a JVM. The app's photo path uses the older model. WB314 photo integration requires the exact ordered feature pipeline, including the 33 white-balance coefficients, and matching measurement, application and protection masks. The loader checks vector width. Its caller owns feature ordering.
+
 **Original-size export, 19 November 2026.** The Android prototype saves its corrected PNG at the photo's upright dimensions. Detection and measurement use a 256 × 256 analysis image. The app maps the mask back to the original frame and applies the current correction directly to those pixels. Files that exceed the available memory budget produce an error. The selected-skin preview displays the analysis mask.
 
 The debug APK built with JDK 21. Eighteen JVM unit tests and three API 35 emulator tests passed. The export test used a 2304 × 512 fixture derived from the existing reference image. It verified the saved dimensions, an actual correction inside the mapped mask, and exact preservation outside that mask. The test also ran alongside the previous square reference-pixel and no-face tests. Physical-phone memory, latency and the selected WB314 pipeline still require device verification.
