@@ -40,6 +40,16 @@
       "original_size_export_run": false,
       "adopted": false
     },
+    "shared_opencv_component_check": {
+      "fixtures": 2,
+      "graphs": 2,
+      "float32_values_compared": 33336,
+      "float32_bit_mismatches": 26771,
+      "max_absolute_difference": 0.00006103515625,
+      "exact_tensor_parity_passed": false,
+      "mask_or_export_tested": false,
+      "adopted": false
+    },
     "python_replay_vs_saved_landmark_mismatches": 0,
     "adjusted_live_landmark_max_displacement_analysis_pixels": 0.012717792630380587,
     "adjusted_application_support_mismatches": 6,

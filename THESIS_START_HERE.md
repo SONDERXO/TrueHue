@@ -12,6 +12,8 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Huawei runtime candidate rejected.** The temporary MediaPipe 1.0.0 build repeated the same aggregate mask differences as 0.10.35 in both saved cases. It stopped at the mask check. The physical-device preservation requirement remains failed and the Android app remains a research prototype. [Runtime comparison](docs/android-wb314-huawei-check-2026-11-19.md#one-native-runtime-candidate)
 
+**Shared landmark runtime component check.** The same detector and landmark graphs ran through OpenCV on Windows and Huawei, but 26,771 of 33,336 float32 outputs differed in their bits on identical input tensors. This failed exact component parity. No replacement mask pipeline was adopted. [Shared engine result](docs/android-wb314-huawei-check-2026-11-19.md#shared-opencv-component-check)
+
 **Android WB314 picker.** The local research build now connects automatic masks to the frozen model and exports the upright original-size PNG. Two saved 512 × 768 input-to-export fixtures matched Python on controls, mask support and every output pixel. The adjusted case changed 40,902 pixels while preserving every protected and outside-support pixel. The other case was pixel-identical. Physical-phone checks are pending. See [picker verification](docs/android-wb314-picker-2026-11-19.md).
 
 **Android prototype export.** The earlier trial pipeline preserved dimensions and all pixels outside the mapped mask on a 2304 × 512 emulator fixture. The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. See [Android implementation status](android-app/README.md).
