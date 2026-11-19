@@ -3,6 +3,7 @@ package com.example.skintonecorrection
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Debug
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.GlassesChoice
@@ -27,6 +28,7 @@ class Wb314PickerParityTest {
         val fixture = File(context.filesDir, "wb314_picker_test")
         val receipt = File(fixture, "result.txt").apply { writeText("") }
         val repository = ImageRepository(context)
+        val failures = mutableListOf<String>()
         for (name in listOf("adjusted", "preserved")) {
             val input = File(fixture, "${name}_input.png")
             val result = repository.runCorrection(Uri.fromFile(input), GlassesChoice.OPAQUE)
@@ -35,6 +37,7 @@ class Wb314PickerParityTest {
             assertEquals(Wb314PhotoPipeline.MODEL_SHA, report.getString("model_sha256"))
             assertEquals("opaque", report.getString("glasses_choice"))
             assertEquals(name == "preserved", report.getBoolean("identity_controls"))
+            val processingPssKib = Debug.getPss()
             val exported = File(fixture, "${name}_export.png")
             repository.export(requireNotNull(result.corrected), Uri.fromFile(exported))
             val before = bitmap(input)
@@ -44,8 +47,8 @@ class Wb314PickerParityTest {
             try {
                 val width = before.width
                 val height = before.height
-                assertEquals(512, width)
-                assertEquals(768, height)
+                assertEquals(width, expected.width)
+                assertEquals(height, expected.height)
                 assertEquals(width, output.width)
                 assertEquals(height, output.height)
                 assertEquals(256, mask.width)
@@ -59,28 +62,38 @@ class Wb314PickerParityTest {
                     val leaf = data.readInt()
                     assertEquals(-1, data.read())
                     val maskPixels = pixels(mask)
-                    val inputPixels = pixels(before)
-                    val actualPixels = pixels(output)
-                    val expectedPixels = pixels(expected)
                     val maskMismatches = maskPixels.indices.count { (maskPixels[it] == -1) != (alpha[it] > 0.0) }
-                    val outputMismatches = expectedPixels.indices.count { expectedPixels[it] != actualPixels[it] }
+                    val inputRow = IntArray(width)
+                    val expectedRow = IntArray(width)
+                    val outputRow = IntArray(width)
+                    var outputMismatches = 0
                     var changed = 0
                     var changedOutside = 0
-                    for (i in inputPixels.indices) {
-                        if (actualPixels[i] != inputPixels[i]) {
-                            changed++
-                            val analysis = (i / width * 256 / height) * 256 + (i % width * 256 / width)
-                            if (protected[analysis] || alpha[analysis] == 0.0) changedOutside++
+                    var changedOutsideDeviceSupport = 0
+                    for (y in 0 until height) {
+                        before.getPixels(inputRow, 0, width, 0, y, width, 1)
+                        expected.getPixels(expectedRow, 0, width, 0, y, width, 1)
+                        output.getPixels(outputRow, 0, width, 0, y, width, 1)
+                        for (x in outputRow.indices) {
+                            if (outputRow[x] != expectedRow[x]) outputMismatches++
+                            if (outputRow[x] != inputRow[x]) {
+                                changed++
+                                val analysis = (y * 256 / height) * 256 + x * 256 / width
+                                if (protected[analysis] || alpha[analysis] == 0.0) changedOutside++
+                                if (maskPixels[analysis] != -1) changedOutsideDeviceSupport++
+                            }
                         }
                     }
                     receipt.appendText("$name width=$width height=$height mask_mismatches=$maskMismatches " +
-                        "python_pixel_mismatches=$outputMismatches changed_pixels=$changed outside_changes=$changedOutside\n")
+                        "python_pixel_mismatches=$outputMismatches changed_pixels=$changed outside_changes=$changedOutside " +
+                        "device_support_outside_changes=$changedOutsideDeviceSupport " +
+                        "processing_ms=${report.getDouble("elapsed_ms")} post_processing_pss_kib=$processingPssKib\n")
                     val actualControls = report.getJSONArray("controls")
                     assertArrayEquals(controls, DoubleArray(5) { actualControls.getDouble(it) }, 0.0)
                     assertEquals(leaf, report.getInt("leaf"))
-                    assertEquals("Correction support", 0, maskMismatches)
-                    assertEquals("Export pixels", 0, outputMismatches)
-                    assertEquals("Protected and outside pixels", 0, changedOutside)
+                    if (maskMismatches != 0 || outputMismatches != 0 || changedOutside != 0 || changedOutsideDeviceSupport != 0) {
+                        failures.add(name)
+                    }
                     assertEquals(name == "preserved", changed == 0)
                 }
             } finally {
@@ -97,6 +110,7 @@ class Wb314PickerParityTest {
                 }
             }
         }
+        assertTrue("Exact export parity failed for $failures. See result.txt.", failures.isEmpty())
     }
 
     private fun bitmap(file: File): Bitmap = requireNotNull(BitmapFactory.decodeFile(file.path))

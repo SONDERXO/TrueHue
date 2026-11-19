@@ -1,5 +1,7 @@
 # SkinToneCorrection — Android app (thesis)
 
+**Huawei physical-device check, 19 November 2026.** WB314 installed, launched and exported a 3072 × 4096 PNG on a Huawei nova 7i. The adjusted case failed Python parity after a difference in FaceOcc visibility. The identity case stayed pixel-identical. See [phone verification](../docs/android-wb314-huawei-check-2026-11-19.md).
+
 **WB314 photo picker, 19 November 2026.** The app now runs the frozen WB314 release with automatically generated masks and exports the original-size PNG. On the emulator, two complete URI-to-export cases matched Python exactly. The adjusted case changed 40,902 pixels and preserved protected and outside-support pixels. The identity case stayed pixel-identical. Use the local provisioning script with the debug APK. Physical-phone checks are pending. See [picker verification and setup](../docs/android-wb314-picker-2026-11-19.md).
 
 **WB314 automatic research masks, 19 November 2026.** Starting from two saved normalized images, Android matched Python's detector boxes, parser categories, FaceOcc visibility, measurement masks, protection masks, correction support and application alpha. All 18 JVM and five emulator tests passed. See [mask verification](../docs/android-wb314-mask-pipeline-2026-11-19.md).

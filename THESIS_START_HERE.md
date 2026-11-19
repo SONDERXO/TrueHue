@@ -8,6 +8,8 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Standing synchronization rule:** every model feature/change is followed by a repository update with its code, actual checks, evidence and limitations. See [repository update policy](docs/thesis/repository-update-policy.md). For thesis editing, retrieve the current branch checkpoint rather than relying on a previously read revision or older upload bundle.
 
+**Huawei physical-device check.** WB314 ran and exported an unchanged-size 3072 × 4096 PNG, but the adjusted fixture failed exact Python parity. Six analysis support pixels differed, and 768 original-resolution changes fell outside Python's allowed area. The identity fixture exported exactly. Physical-device qualification remains open. [Huawei evidence](docs/android-wb314-huawei-check-2026-11-19.md)
+
 **Android WB314 picker.** The local research build now connects automatic masks to the frozen model and exports the upright original-size PNG. Two saved 512 × 768 input-to-export fixtures matched Python on controls, mask support and every output pixel. The adjusted case changed 40,902 pixels while preserving every protected and outside-support pixel. The other case was pixel-identical. Physical-phone checks are pending. See [picker verification](docs/android-wb314-picker-2026-11-19.md).
 
 **Android prototype export.** The earlier trial pipeline preserved dimensions and all pixels outside the mapped mask on a 2304 × 512 emulator fixture. The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. See [Android implementation status](android-app/README.md).
