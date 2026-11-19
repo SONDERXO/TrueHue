@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 594846,
-      "sha256": "0e541c05cd0a3c9c8b3146d4ac76bc4defb70618c60934e93ae5d15d553fdf5d"
+      "bytes": 595631,
+      "sha256": "16de7ae8d91a2f0a62e0b53128fcf36abd9f988b50d01458f82476df76977063"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 25089,
-      "sha256": "1bcebeba19c575b98f9558ab03f1caa276fac48c603f1a7891dbe14423dc6120"
+      "bytes": 25637,
+      "sha256": "a338ba1c877f20b9e3867b1d4ff4487d9997a154d46d686d31676efde54aee4a"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 108304,
-      "sha256": "1fd1b7c706fb6373fb14d5024de236e6370f258541dd77dc273a6f89800ce670"
+      "bytes": 109089,
+      "sha256": "203669d5f4536e1e24f3df9bb020dc827a7b63f9d0826d8667d3bbc77cb5c123"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4872,8 +4872,8 @@
     },
     {
       "path": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md",
-      "bytes": 11597,
-      "sha256": "fcca50167d524a2b0e818f61ff1eae246e2d5fe9f08656229c5daf7e375e0cac"
+      "bytes": 15381,
+      "sha256": "3238e599a487b4cdde35c370d691c987d869dd77d70623eb6aaaffe313ae1419"
     },
     {
       "path": "docs/wb314-development-feedback-round1-release-2026-11-19.md",

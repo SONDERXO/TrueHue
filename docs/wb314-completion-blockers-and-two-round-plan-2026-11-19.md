@@ -8,6 +8,25 @@ Retain ITA and MST, one final decision-tree correction predictor, exposure AND c
 
 The existing research extensions must still be described honestly: WB314 has314features including frozen learned WB coefficients, a five-field luminance/chroma renderer, a declared half-stop task, and exposed FFHQ development data. These are not identical to the original traditional-feature/gamma-red-blue/FairFace-SCIN/Table2 description. Eleven source-held folds are not the proposed five-fold procedure or70/15/15partition. Recording the actual method does not retroactively satisfy an unimplemented requirement. Any remaining substantive mismatch needs an explicit decision; this plan makes no further major method change.
 
+## Development round version verified
+
+Use round `wb314_mste_normal_primary_development_round1_2026_11_19` and frozen WB314 SHA256 `7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f`. All 20 local PNGs and the release files match the original export receipt. The 20 pairs use the undistorted photographic input on the left and the primary correction on the right, with enlarged face crops from 256-pixel processing. The separate headroom alternative and later original-size research export are outside this round's presentation.
+
+A fresh read of the public Form confirms the updated comparison introduction, consent item, 20 MST pair sections, and one image, overall rating, preference question and comment field in each pair section. The item definitions, including the image references, match the prior public capture. The exact uploaded pixels remain unverified. Compare the respondent preview with the local upload map if there is any doubt about placement. The researcher handles distribution of the respondent link. Local verification receipt: `outputs/wb314_round1_version_check_v1/`.
+
+When responses arrive, report the overall 1–5 ratings and the four preference outcomes, with response counts. Keep “unable to judge” separate from “no preference.” For unchanged image pairs, comments about an exposure or colour issue identify possible missed corrections for investigation. A preference tie alone supplies no evidence that exposure was appropriate. For changed pairs, use comments and the saved masks and controls to distinguish inappropriate adjustments from application-boundary issues. This evidence informs the planned single refinement phase.
+
+## Final evaluation design record
+
+The following decisions carry forward the existing study. The data, final version and unresolved proposal details require an execution-ready record before final evaluation.
+
+| Set now | Still required before execution |
+| --- | --- |
+| Use the uncorrected input as primary comparator. Measure input-to-reference and output-to-reference CIEDE2000 on the same declared skin support. Report parameter MAE where known reference controls exist and label RGB image MAE separately. Report exposure and colour results separately, along with missed corrections, harms and unavailable cases. | Freeze the distortion conditions, exact scoring support, applicable controls and acceptance rules prospectively. The half-stop development recipe and the proposal's Table 2 regime have different condition definitions. |
+| Group by independently supplied reference MST, using categories 1–10 and pooled light 1–3, medium 4–7 and dark 8–10. Keep the subject as the unit when aggregating repeated photos or derivatives. Record the attempted and usable denominators for each group. | Bind permission, reference labels, source and subject membership, and prior exposure for a cleared final roster. The current 20 pairs cover previously exposed people, and the existing eligibility audit established zero independent final admissions. |
+| Assess inferred MST separately from restoration quality. Preserve the provenance of the current experimental mapper. | Resolve how the retained categorical ITA-to-MST requirement will be qualified and how the proposed 70/15/15 split and five-fold procedure will be met or explicitly reconciled. The current mapper and source-held development folds leave those items open. |
+| Freeze the selected model, masks, preprocessing, rendering, exact shown images and scoring rules before final appraisal. Use one final expert session after the planned refinement phase. | Bind the qualifying final version and its engineering and quantitative checks. Record genuine responses under that version and report the scope the roster actually supports. |
+
 ## Remaining blockers and what closes them
 
 | # | Blocker | Necessary action and acceptance outcome | Current solution status |
