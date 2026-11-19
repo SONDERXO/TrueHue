@@ -7,16 +7,48 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.ImageRepository
 import com.example.skintonecorrection.data.OnDevicePipeline
+import com.example.skintonecorrection.ml.Wb314Features
 import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.opencv.android.OpenCVLoader
+import org.opencv.core.CvType
+import org.opencv.core.Mat
+import org.opencv.core.Scalar
 import java.io.File
 
 /** Must run on an emulator/phone. Compilation alone is not a pass. */
 @RunWith(AndroidJUnit4::class)
 class OnDevicePipelineTest {
+    @Test fun wb314FeatureAssemblyMatchesPythonForGeneratedRgb() {
+        assertTrue(OpenCVLoader.initLocal())
+        val rgb = Mat(256, 256, CvType.CV_8UC3, Scalar(180.0, 100.0, 0.0))
+        try {
+            val coefficients = FloatArray(33) { it * 0.125f }
+            val actual = Wb314Features.extract(
+                rgb, ByteArray(256 * 256) { -1 }, doubleArrayOf(-90.0, 90.0),
+                doubleArrayOf(5.0, 5.0), coefficients
+            )
+            // Python features281 on this generated RGB image and constant test mapping.
+            val image = floatArrayOf(
+                50.5882f, 27f, 59f, 0.5712f, 5f, 0.5833765268325806f, -4.6151204109191895f,
+                50.58823776245117f, 50.58823776245117f, 50.58823776245117f, 1f, 0f, 100f, 100f, 100f
+            )
+            val expected = DoubleArray(314) { index ->
+                when {
+                    index < image.size -> image[index].toDouble()
+                    index >= 281 -> coefficients[index - 281].toDouble()
+                    else -> 0.0
+                }
+            }
+            assertArrayEquals(expected, actual, 0.0)
+        } finally {
+            rgb.release()
+        }
+    }
+
     @Test fun exportedCorrectionUsesOriginalPixelsAndDimensions() = runBlocking {
         val test = InstrumentationRegistry.getInstrumentation()
         val square = test.context.assets.open("pipeline_fixture/photo_used.png").use { BitmapFactory.decodeStream(it) }!!
