@@ -5,8 +5,11 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +22,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -33,11 +37,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.example.skintonecorrection.R
+import com.example.skintonecorrection.data.GlassesChoice
 import com.example.skintonecorrection.ui.SharedViewModel
 import kotlinx.coroutines.launch
 
@@ -143,11 +149,26 @@ fun HomeScreen(
 
             // ---- Buttons --------------------------------------------------------------
             Text(
-                text = "For the clearest demo, choose one front-facing person with a well-lit face. This build uses an older, unvalidated correction model; results may be wrong.",
+                text = "Choose a clear photo of one person facing the camera.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(modifier = Modifier.height(12.dp))
+            if (selectedUri != null) {
+                Column(Modifier.fillMaxWidth().selectableGroup()) {
+                    Text("Glasses in this photo", style = MaterialTheme.typography.titleSmall)
+                    for ((choice, label) in listOf(GlassesChoice.UNCERTAIN to "None or unsure",
+                        GlassesChoice.CLEAR to "Clear lenses", GlassesChoice.OPAQUE to "Opaque lenses")) {
+                        val selected = uiState.glasses == choice
+                        Row(Modifier.fillMaxWidth().selectable(selected = selected,
+                            onClick = { sharedViewModel.selectGlasses(choice) }, role = Role.RadioButton)
+                            .padding(vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
+                            RadioButton(selected = selected, onClick = null, modifier = Modifier.padding(end = 8.dp))
+                            Text(label)
+                        }
+                    }
+                }
+            }
             Button(
                 onClick = {
                     pickImageLauncher.launch(

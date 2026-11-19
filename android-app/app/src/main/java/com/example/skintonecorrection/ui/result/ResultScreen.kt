@@ -46,12 +46,12 @@ fun ResultScreen(sharedViewModel:SharedViewModel,onReSelect:()->Unit){
                     Text("The saved photo keeps its original dimensions and aspect ratio.",style=MaterialTheme.typography.bodySmall)
                 }
             }
-            OutlinedButton(onClick={showMask=!showMask},modifier=Modifier.fillMaxWidth()){Text(if(showMask) "Hide selected skin" else "Inspect selected skin")}
+            OutlinedButton(onClick={showMask=!showMask},modifier=Modifier.fillMaxWidth()){Text(if(showMask) "Hide correction mask" else "Inspect correction mask")}
             if(showMask){
-                Text("White pixels show where this prototype selected skin. Check for missing skin or unwanted areas before judging the correction.")
-                if(state.maskUri!=null)AsyncImage(model=state.maskUri,contentDescription="Selected skin mask: white indicates selected pixels",modifier=Modifier.fillMaxWidth().height(256.dp),contentScale=ContentScale.Fit)
+                Text("White pixels show where WB314 can apply correction.")
+                if(state.maskUri!=null)AsyncImage(model=state.maskUri,contentDescription="Correction mask",modifier=Modifier.fillMaxWidth().height(256.dp),contentScale=ContentScale.Fit)
             }
-            Text("This build uses the older correction model, which failed research quality checks. Skin-tone estimates and correction quality are unvalidated. Newer masking remains in Python development.",style=MaterialTheme.typography.bodySmall)
+            Text(state.message,style=MaterialTheme.typography.bodySmall)
             Text("Your original is unchanged. Processing stays on this phone; files leave the app only when you choose a save destination.",style=MaterialTheme.typography.bodySmall)
             if(message.isNotEmpty())Text(message)
             Button(onClick={imageExport.launch("truehue_experimental.png")},enabled=state.correctedImageUri!=null,modifier=Modifier.fillMaxWidth()){Text("Save trial image")}

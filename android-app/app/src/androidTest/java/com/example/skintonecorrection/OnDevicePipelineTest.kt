@@ -59,7 +59,9 @@ class OnDevicePipelineTest {
         val file = File(test.targetContext.cacheDir, "original_size_test.png")
         try {
             file.outputStream().use { check(original.compress(Bitmap.CompressFormat.PNG, 100, it)) }
-            val repository = ImageRepository(test.targetContext)
+            val repository = ImageRepository(test.targetContext) { bitmap, _, report ->
+                OnDevicePipeline(test.targetContext).run(bitmap, report)
+            }
             val result = repository.runCorrection(Uri.fromFile(file))
             assertTrue(result.message, result.success)
             val saved = File(test.targetContext.cacheDir, "original_size_export.png")
@@ -101,7 +103,8 @@ class OnDevicePipelineTest {
         val source=File(context.cacheDir,"no_face_test.png")
         val bitmap=Bitmap.createBitmap(256,256,Bitmap.Config.ARGB_8888)
         source.outputStream().use{bitmap.compress(Bitmap.CompressFormat.PNG,100,it)};bitmap.recycle()
-        val result=ImageRepository(context).runCorrection(Uri.fromFile(source))
+        val result=ImageRepository(context) { photo, _, report -> OnDevicePipeline(context).run(photo, report) }
+            .runCorrection(Uri.fromFile(source))
         assertFalse(result.success);assertNull(result.corrected)
         val report=JSONObject(File(result.report.path!!).readText())
         assertEquals("face_detection",report.getString("failed_stage"));assertEquals(0,report.getInt("face_count"))

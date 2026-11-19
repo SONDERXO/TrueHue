@@ -2,6 +2,22 @@
   "checkpoint": "2026-11-19",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
+  "android_wb314_picker": {
+    "source": "docs/android-wb314-picker-2026-11-19.md",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "runtime": "API 35 x86-64 emulator, locally provisioned research build",
+    "saved_development_fixtures": 2,
+    "output_dimensions": [512, 768],
+    "automatic_mask_support_mismatches": 0,
+    "exported_pixels_compared": 786432,
+    "python_output_pixel_mismatches": 0,
+    "nonidentity_pixels_changed": 40902,
+    "protected_or_outside_pixels_changed": 0,
+    "identity_pixels_changed": 0,
+    "jvm_tests_passed": 18,
+    "emulator_tests_passed": 5,
+    "physical_phone_tested": false
+  },
   "studies": {
     "wb314": {
       "local_source": "outputs/wb_feature_direct_prediction_v1/summary.json",

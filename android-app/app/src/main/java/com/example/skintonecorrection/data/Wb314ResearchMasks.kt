@@ -39,7 +39,7 @@ internal class Wb314ResearchMasks(
                       val masks: ResearchMaskRules.Result)
 
     /** Reuse the loaded graphs on one inference thread. A missing stage fails before correction. */
-    fun generate(bgr: Mat, glasses: ResearchMaskRules.Glasses): Result {
+    fun generate(bgr: Mat, glasses: GlassesChoice): Result {
         require(bgr.type() == CvType.CV_8UC3 && bgr.rows() == side && bgr.cols() == side)
         val face = detectFace(bgr)
         val landmarks = requireNotNull(FaceLandmarks.detect(context, bgr, face, landmarker)) {

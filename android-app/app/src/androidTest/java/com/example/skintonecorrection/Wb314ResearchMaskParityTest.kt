@@ -3,7 +3,7 @@ package com.example.skintonecorrection
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.OnDevicePipeline
-import com.example.skintonecorrection.data.ResearchMaskRules
+import com.example.skintonecorrection.data.GlassesChoice
 import com.example.skintonecorrection.data.Wb314ResearchMasks
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -36,7 +36,7 @@ class Wb314ResearchMaskParityTest {
             try {
                 DataInputStream(File(folder, "$name.bin").inputStream().buffered()).use { data ->
                     val box = Rect(data.readInt(), data.readInt(), data.readInt(), data.readInt())
-                    val glasses = ResearchMaskRules.Glasses.entries[data.readUnsignedByte()]
+                    val glasses = GlassesChoice.entries[data.readUnsignedByte()]
                     fun bytes(size: Int) = ByteArray(size).also { data.readFully(it) }
                     assertEquals(pixels * 3, frame.put(0, 0, bytes(pixels * 3)))
                     val categories = bytes(pixels)

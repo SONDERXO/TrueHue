@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.skintonecorrection.data.ImageRepository
+import com.example.skintonecorrection.data.GlassesChoice
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,21 +17,23 @@ enum class ProcessingState { IDLE, PROCESSING, SUCCESS, ERROR }
 data class SharedUiState(
     val selectedImageUri:Uri?=null,val correctedImageUri:Uri?=null,val photoUsedUri:Uri?=null,
     val maskUri:Uri?=null,val reportUri:Uri?=null,val processingState:ProcessingState=ProcessingState.IDLE,
-    val errorMessageRes:Int?=null,val message:String=""
+    val errorMessageRes:Int?=null,val message:String="", val glasses: GlassesChoice = GlassesChoice.UNCERTAIN
 )
 class SharedViewModel(application:Application):AndroidViewModel(application) {
     private val repository=ImageRepository(application)
     private val mutable=MutableStateFlow(SharedUiState());val uiState=mutable.asStateFlow()
     private var job:Job?=null;private var generation=0
     fun selectImage(uri:Uri){job?.cancel();generation++;mutable.value=SharedUiState(selectedImageUri=uri)}
+    fun selectGlasses(choice: GlassesChoice) { mutable.update { it.copy(glasses = choice) } }
     fun startProcessing(){
         val uri=mutable.value.selectedImageUri ?: return
         if(mutable.value.processingState==ProcessingState.PROCESSING)return
+        val glasses = mutable.value.glasses
         val token=++generation
         mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="Processing locally…")}
         job=viewModelScope.launch {
             try {
-                val result=repository.runCorrection(uri)
+                val result=repository.runCorrection(uri, glasses)
                 if(token==generation)mutable.update{it.copy(processingState=if(result.success)ProcessingState.SUCCESS else ProcessingState.ERROR,
                     correctedImageUri=result.corrected,photoUsedUri=result.input,maskUri=result.mask,reportUri=result.report,message=result.message)}
             }catch(cancelled:CancellationException){throw cancelled}

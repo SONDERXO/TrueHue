@@ -17,7 +17,7 @@ import java.security.DigestInputStream
 import java.security.MessageDigest
 import kotlin.math.floor
 
-/** Local research path. The caller supplies masks from the exact normalized input. */
+/** WB314 feature extraction and rendering with masks from the same normalized input. */
 internal class Wb314ResearchPipeline private constructor(
     private val tree: PortableRegressionTree,
     private val whiteBalance: Wb314WhiteBalance,
@@ -25,6 +25,7 @@ internal class Wb314ResearchPipeline private constructor(
     private val mstKnots: DoubleArray
 ) {
     data class Result(val bitmap: Bitmap, val features: DoubleArray, val controls: DoubleArray, val leaf: Int)
+    data class AutoResult(val correction: Result, val masks: ResearchMaskRules.Result)
 
     companion object {
         private const val SIDE = 256
@@ -73,29 +74,54 @@ internal class Wb314ResearchPipeline private constructor(
     fun correct(
         original: Bitmap, measurement: ByteArray, alpha: DoubleArray, protected: BooleanArray,
         normalizedRgbSha: String
-    ): Result {
+    ): Result = withNormalizedRgb(original) { rgb ->
+        val bytes = rgbBytes(rgb)
+        val actual = hex(MessageDigest.getInstance("SHA-256").digest(bytes))
+        require(actual == normalizedRgbSha) { "Masks belong to a different analysis image" }
+        correctNormalized(original, rgb, bytes, measurement, alpha, protected)
+    }
+
+    fun correct(original: Bitmap, generator: Wb314ResearchMasks, glasses: GlassesChoice): AutoResult =
+        withNormalizedRgb(original) { rgb ->
+            val bgr = Mat()
+            val masks = try {
+                Imgproc.cvtColor(rgb, bgr, Imgproc.COLOR_RGB2BGR)
+                generator.generate(bgr, glasses).masks
+            } finally {
+                bgr.release()
+            }
+            val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
+                masks.alpha, masks.protected)
+            AutoResult(correction, masks)
+        }
+
+    private fun correctNormalized(original: Bitmap, rgb: Mat, bytes: ByteArray, measurement: ByteArray,
+                                  alpha: DoubleArray, protected: BooleanArray): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
+        val features = Wb314Features.extract(rgb, measurement, itaKnots, mstKnots, whiteBalance.extract(bytes))
+        val controls = tree.predict(features)
+        return Result(render(original, alpha, protected, controls), features, controls, tree.leafId(features))
+    }
+
+    private fun rgbBytes(rgb: Mat) = ByteArray(PIXELS * 3).also { check(rgb.get(0, 0, it) == it.size) }
+
+    private fun <T> withNormalizedRgb(original: Bitmap, action: (Mat) -> T): T {
         val rgba = Mat()
         val resized = Mat()
         val rgb = Mat()
-        val features = try {
+        try {
             Utils.bitmapToMat(original, rgba)
             Imgproc.resize(rgba, resized, Size(SIDE.toDouble(), SIDE.toDouble()), 0.0, 0.0, Imgproc.INTER_AREA)
+            rgba.release()
             Imgproc.cvtColor(resized, rgb, Imgproc.COLOR_RGBA2RGB)
-            val bytes = ByteArray(PIXELS * 3)
-            check(rgb.get(0, 0, bytes) == bytes.size)
-            val actual = hex(MessageDigest.getInstance("SHA-256").digest(bytes))
-            require(actual == normalizedRgbSha) { "Masks belong to a different analysis image" }
-            Wb314Features.extract(rgb, measurement, itaKnots, mstKnots, whiteBalance.extract(bytes))
+            return action(rgb)
         } finally {
             rgb.release()
             resized.release()
             rgba.release()
         }
-        val controls = tree.predict(features)
-        return Result(render(original, alpha, protected, controls), features, controls, tree.leafId(features))
     }
 
     private fun render(original: Bitmap, alpha: DoubleArray, protected: BooleanArray, controls: DoubleArray): Bitmap {

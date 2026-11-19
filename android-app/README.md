@@ -1,8 +1,10 @@
 # SkinToneCorrection — Android app (thesis)
 
-**WB314 automatic research masks, 19 November 2026.** Starting from two saved normalized images, Android matched Python's detector boxes, parser categories, FaceOcc visibility, measurement masks, protection masks, correction support and application alpha. All 18 JVM and five emulator tests passed. Connecting these generated masks to WB314 in the picker and checking a physical phone remain pending. See [mask verification](../docs/android-wb314-mask-pipeline-2026-11-19.md).
+**WB314 photo picker, 19 November 2026.** The app now runs the frozen WB314 release with automatically generated masks and exports the original-size PNG. On the emulator, two complete URI-to-export cases matched Python exactly. The adjusted case changed 40,902 pixels and preserved protected and outside-support pixels. The identity case stayed pixel-identical. Use the local provisioning script with the debug APK. Physical-phone checks are pending. See [picker verification and setup](../docs/android-wb314-picker-2026-11-19.md).
 
-**WB314 FaceOcc alignment and reprojection, 19 November 2026.** Android detected matching landmarks from two saved detector boxes and returned the same visibility masks as Python on both images. The second alignment differed by one code level in two RGB channel values. Dense parsing and the full research mask rules still need integration before enabling WB314 in the picker. See [geometry verification](../docs/android-faceocc-geometry-2026-11-19.md).
+**WB314 automatic research masks, 19 November 2026.** Starting from two saved normalized images, Android matched Python's detector boxes, parser categories, FaceOcc visibility, measurement masks, protection masks, correction support and application alpha. All 18 JVM and five emulator tests passed. See [mask verification](../docs/android-wb314-mask-pipeline-2026-11-19.md).
+
+**WB314 FaceOcc alignment and reprojection, 19 November 2026.** Android detected matching landmarks from two saved detector boxes and returned the same visibility masks as Python on both images. The second alignment differed by one code level in two RGB channel values. See [geometry verification](../docs/android-faceocc-geometry-2026-11-19.md).
 
 **WB314 FaceOcc network, 19 November 2026.** OpenCV 5.0.0 on an API 35 emulator ran the pinned FaceOcc export on two saved aligned images. Every visibility decision agreed with Python across 131,072 pixels. See [FaceOcc verification](../docs/android-faceocc-research-port-2026-11-19.md).
 
@@ -10,11 +12,7 @@
 
 Build and JVM unit tests also passed. To reproduce the emulator check, prepare a private fixture with `scripts/prepare_android_wb314_parity_fixture.py`, stage the ten fixture files in the debug app's private `files/wb314_parity` directory using a binary-safe transfer, and compare their SHA-256 digests. Run `Wb314ResearchParityTest` with the `wb314ManifestSha` instrumentation argument set to the local manifest digest. An initial text-altering transfer was rejected by the asset check before inference. The run after byte-for-byte staging passed.
 
-The app's regular photo picker still uses the older trial model. The WB314 renderer currently receives measurement, application and protection masks. The research generator now produces these masks from a normalized image. Device memory and latency remain to be measured.
-
 **WB314 white-balance port, 19 November 2026.** A local JVM check with the pinned WB_sRGB research assets matched all 726 float32 coefficients from the 20 saved development images and two generated inputs. The check also rejected a flat image with unavailable histogram support. Run `scripts/verify_android_wb314_white_balance.py --jdk <JDK> --output-dir outputs/<new-local-folder>` to reproduce it. The Java calculation adapts Mahmoud Afifi et al.'s [WB_sRGB](https://github.com/mahmoudnafifi/WB_sRGB/tree/98340313cc7d1728e286ad9ba03e8f9a0e8b82c5) under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). The pinned assets and resulting parity bank stay in local research outputs.
-
-The active Android pipeline still uses the older trial model. Full WB314 processing requires matching face and occlusion masks, local research asset integration, and end-to-end device verification of the feature vector, output pixels, memory use and timing.
 
 **WB314 feature assembly, 19 November 2026.** Android has a component for the first 281 WB314 features from normalized RGB, OpenCV Lab and a supplied binary facial measurement mask. These include Lab/ITA, the mapped development MST score, scene summaries, facial green percentiles and colour histograms. The JVM arithmetic matched all 6,182 float32 values across 20 saved development cases and two generated inputs using Python OpenCV Lab bytes. One API 35 emulator test also matched the generated reference for Android OpenCV Lab conversion and assembled all 314 slots with 33 supplied test coefficients. The debug APK and all 18 JVM tests passed.
 
@@ -22,7 +20,7 @@ Run `scripts/verify_android_wb314_image_features.py --jdk <JDK> --output-dir <ne
 
 **WB314 tree loader, 19 November 2026.** The Android code can load the frozen 314-feature tree using its expected SHA-256 digest and check the order and range of its five output controls. The compiled loader matched Python exactly on 86 saved development vectors and 27 float32 threshold probes. It rejected an incorrect digest, an invalid feature count and a NaN input. The debug build and 18 JVM unit tests passed. Run `scripts/verify_android_wb314_tree.py --jdk <JDK> --output-dir <new-local-folder>` after building the debug app and its JVM tests.
 
-The verification uses supplied feature vectors on a JVM. The app's photo path uses the older model. WB314 photo integration requires the exact ordered feature pipeline, including the 33 white-balance coefficients, and matching measurement, application and protection masks. The loader checks vector width. Its caller owns feature ordering.
+This verification supplied feature vectors to the JVM tree loader. The loader checks vector width and the caller owns feature ordering.
 
 **Original-size export, 19 November 2026.** The Android prototype saves its corrected PNG at the photo's upright dimensions. Detection and measurement use a 256 × 256 analysis image. The app maps the mask back to the original frame and applies the current correction directly to those pixels. Files that exceed the available memory budget produce an error. The selected-skin preview displays the analysis mask.
 
@@ -30,7 +28,7 @@ The debug APK built with JDK 21. Eighteen JVM unit tests and three API 35 emulat
 
 **WB314 preparation, 19 November 2026.** The Java WB314 renderer is available as a standalone component. A JVM check matched Python exactly on 32,000 generated RGB8 outputs across five control sets, including identity, positive and negative exposure, colour balance and feathered alpha. It also rejected an application mask that assigned nonzero alpha to a protected pixel. Run `scripts/verify_android_wb314_renderer.py --jdk <JDK> --output-dir <new-local-folder>` from the project root with the Python research environment.
 
-The current Android app runs the older model and mask pipeline. Integration requires the selected model and matching feature and mask implementations, followed by a physical-device check of parity, memory use and latency. The standalone renderer check covers already decoded opaque pixels and supplied masks.
+The standalone renderer check covers already decoded opaque pixels and supplied masks.
 
 Latest: [5 November consultation demo polish and rebuild](../docs/android-consultation-update-2026-11-05.md).
 Before/trial toggle and expandable mask;18JVM tests pass, lint0errors/45warnings.

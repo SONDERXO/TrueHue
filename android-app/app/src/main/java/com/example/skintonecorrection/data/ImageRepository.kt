@@ -21,18 +21,23 @@ import java.util.UUID
 data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val report:Uri,val success:Boolean,val message:String)
 
 /** Local processing. Failure never returns the original as a corrected result. */
-class ImageRepository(private val context:Context) {
+class ImageRepository internal constructor(
+    private val context: Context,
+    private val pipeline: (Bitmap, GlassesChoice, JSONObject) -> PipelineImages
+) {
+    constructor(context: Context) : this(context, Wb314PhotoPipeline(context)::run)
+
     companion object { private val processingMutex=Mutex() }
-    suspend fun runCorrection(inputUri:Uri):CorrectionResult=withContext(Dispatchers.IO) {
-        processingMutex.withLock { coroutineContext.ensureActive();runLocked(inputUri) }
+    suspend fun runCorrection(inputUri:Uri, glasses: GlassesChoice = GlassesChoice.UNCERTAIN):CorrectionResult=withContext(Dispatchers.IO) {
+        processingMutex.withLock { coroutineContext.ensureActive();runLocked(inputUri, glasses) }
     }
-    private fun runLocked(inputUri:Uri):CorrectionResult {
+    private fun runLocked(inputUri:Uri, glasses: GlassesChoice):CorrectionResult {
         val folder=File(context.noBackupFilesDir,"runs/"+UUID.randomUUID());check(folder.mkdirs())
         val report=JSONObject().put("schema_version","truehue_android_run_v1").put("status","failed")
             .put("experimental",true).put("quality_gate_passed",false).put("platform_pixel_parity_verified",false)
             .put("run_id",folder.name).put("started_epoch_ms",System.currentTimeMillis())
             .put("original_file_modified",false).put("network_calls",false)
-            .put("notice","Older ten-source baseline; failed quality checks. MST is experimental. Android/Python pixel parity is not yet verified.")
+            .put("notice","Experimental research correction. Skin tone estimates and correction quality are unvalidated.")
         val started=System.nanoTime();var images:PipelineImages?=null;var message:String
         try {
             report.put("failed_stage","decode")
@@ -71,9 +76,10 @@ class ImageRepository(private val context:Context) {
                 throw error
             }
             if (upright !== decoded) decoded.recycle()
-            try { images=OnDevicePipeline(context).run(upright,report) }
+            try { images=pipeline(upright, glasses, report) }
             finally { if (images == null) upright.recycle() }
-            message="Experimental correction finished. Inspect the result; it may be wrong."
+            message=if (report.optBoolean("identity_controls")) "WB314 left this photo unchanged."
+                else "Experimental correction finished. Inspect the result."
         } catch (error: OutOfMemoryError) {
             report.put("status","failed")
             message="This photo could not be processed at its original size with the available memory."

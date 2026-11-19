@@ -13,6 +13,8 @@ import org.opencv.imgproc.Imgproc
 import kotlin.math.abs
 import kotlin.math.ceil
 
+enum class GlassesChoice { CLEAR, OPAQUE, UNCERTAIN }
+
 /** The 256 px Python WB314 support rules, with separate measurement and application. */
 internal object ResearchMaskRules {
     private const val SIDE = FaceOccGeometry.SIDE
@@ -31,15 +33,14 @@ internal object ResearchMaskRules {
     )
     private val nasalPolygons = listOf(intArrayOf(98, 97, 2, 94, 19, 64), intArrayOf(327, 326, 2, 94, 19, 294))
 
-    enum class Glasses { CLEAR, OPAQUE, UNCERTAIN }
     data class Result(val baseline: ByteArray, val measurement: ByteArray, val alpha: DoubleArray,
                       val protected: BooleanArray)
 
-    fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: Glasses): Result {
+    fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: GlassesChoice): Result {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(landmarks.size >= 468 && landmarks.all { abs(it.x) <= 1e6 && abs(it.y) <= 1e6 })
-        require(glasses != Glasses.UNCERTAIN || 6.toByte() !in categories) {
+        require(glasses != GlassesChoice.UNCERTAIN || 6.toByte() !in categories) {
             "Choose clear or opaque glasses before correction."
         }
         val outline = polygon(landmarks, oval, 1.0, false, 128)
@@ -64,7 +65,7 @@ internal object ResearchMaskRules {
             val face = outline[i] || (support[i] && !neck[i])
             protectedClass(categories[i].toInt()) || (face && visible[i] == 0.toByte())
         }
-        if (glasses == Glasses.CLEAR) applyClearLenses(veto, categories, support, outline)
+        if (glasses == GlassesChoice.CLEAR) applyClearLenses(veto, categories, support, outline)
         val selected = BooleanArray(PIXELS) { support[it] && !veto[it] }
         val ears = BooleanArray(PIXELS) { (categories[it] == 7.toByte() || categories[it] == 8.toByte()) && !veto[it] }
         val selectedWithEars = attached(BooleanArray(PIXELS) { selected[it] || ears[it] }, selected)

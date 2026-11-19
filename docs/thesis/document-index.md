@@ -52,6 +52,8 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Android emulator execution — 31 October 2026](../android-emulator-check-2026-10-31.md) — `docs/android-emulator-check-2026-10-31.md`
 - [Android integration checkpoint — 31 October 2026](../android-integration-2026-10-31.md) — `docs/android-integration-2026-10-31.md`
 - [Bounded Android reliability check — 31 October 2026](../android-reliability-check-2026-10-31.md) — `docs/android-reliability-check-2026-10-31.md`
+- [Android WB314 mask generation and verification](../android-wb314-mask-pipeline-2026-11-19.md) — `docs/android-wb314-mask-pipeline-2026-11-19.md`
+- [WB314 in the Android photo picker](../android-wb314-picker-2026-11-19.md) — `docs/android-wb314-picker-2026-11-19.md`
 - [Approved ear coverage integrated; brightness audit](../approved-ear-support-integration-2026-11-12.md) — `docs/approved-ear-support-integration-2026-11-12.md`
 - [Practical proposal: average source-bootstrap correction trees](../bagged-tree-correction-proposal-2026-11-13.md) — `docs/bagged-tree-correction-proposal-2026-11-13.md`
 - [Authorized fixed bagged-tree development protocol](../bagged-tree-fixed-protocol-2026-11-13.md) — `docs/bagged-tree-fixed-protocol-2026-11-13.md`
