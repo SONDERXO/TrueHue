@@ -1276,6 +1276,65 @@
         "independent_final_validation": false,
         "correction_model_finished": false
       }
+    },
+    "WB314_single_photo_runner_software": {
+      "local_source": "outputs/wb314_photo_runner_integration_v1/summary.json",
+      "source_sha256": "777f7254e05c991116ce5b0783b1e57128956191e6bce3f4be510bb8362fa27f",
+      "values": {
+        "passed": true,
+        "generated_integration_tests": 15,
+        "test_seconds": 10.3,
+        "preexisting_deprecation_warnings": 1,
+        "initial_default_temp_setup_errors": 14,
+        "initial_application_tests_executed": 0,
+        "workspace_temp_rerun_passed": true,
+        "cli_help_passed": true,
+        "existing_mask_dependency_hashes_verified": 34,
+        "existing_FaceOcc_environment_present": true,
+        "mask_contract_sha256": "89c7a3963dcc72bfa8c7b73433789b058093131662c88a6d30a7f25d791823fd",
+        "unchanged_existing_modules": 7,
+        "expert_upload_artifacts_unchanged": true,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "new_trained_model_calls": 0,
+        "new_mask_inference": 0,
+        "new_fits": 0,
+        "new_photographic_inputs": 0,
+        "generated_fixture_only": true,
+        "research_single_photo_runner_implemented": true,
+        "real_new_photo_pipeline_executed": false,
+        "actual_new_photo_mask_quality_validated": false,
+        "Android_defaults_changed": false,
+        "desktop_defaults_changed": false,
+        "headroom_applied_to_primary": false,
+        "expert_images_changed": false,
+        "qualification_complete": false
+      }
+    },
+    "WB314_expert_instrument_user_update": {
+      "local_source": "outputs/wb314_expert_instrument_update_v1/summary.json",
+      "source_sha256": "a6df418bb0d2150ee19ed302789ec1ba72c9458dac8a38e83117bb841a07173c",
+      "values": {
+        "passed": true,
+        "live_public_capture_verified": true,
+        "image_items": 20,
+        "MST_pair_sections": 20,
+        "quality_rating_items": 20,
+        "preference_items": 20,
+        "preference_options": 4,
+        "preference_choices_consistent": true,
+        "comments": 20,
+        "introduction_update_user_reported": true,
+        "introduction_update_fresh_network_verified": false,
+        "existing_consent_retention_requested": true,
+        "agent_live_edits": 0,
+        "expert_responses_accessed": 0,
+        "responses_submitted_by_agent": 0,
+        "invitations_sent_by_agent": 0,
+        "reviewer_invitations_confirmed": false,
+        "response_collection_started_confirmed": false,
+        "model_or_images_changed": false,
+        "preference_counts_separate_from_quality_MOS": true
+      }
     }
   },
   "expert_preparation_status": {

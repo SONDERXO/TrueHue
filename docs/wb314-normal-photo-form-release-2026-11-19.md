@@ -1,5 +1,11 @@
 # Normal-photo development-feedback package
 
+## Subsequent instrument update
+
+A later read-only public Form capture verifies that the user inserted 20 image items and added 20 consistent four-option preference questions, alongside the existing 20 overall quality ratings and comments. The user subsequently supplied the updated normal-photo comparison introduction directly in chat; that introduction change is user-reported, not a fresh network verification. Consent retention was requested. Image-item presence is verified, but the uploaded image pixels were not independently rebound to the local PNG hashes. No invitations, completed reviewer participation or received responses are confirmed. The agent sent no invitations and accessed no response data.
+
+The preference item is a categorical comparison; report its counts/percentages separately from the overall 1-5 quality ratings/MOS. Do not average option codes or count “unable to judge” as a tie or approval. The original export's `questions_changed=False` and `live_Form_updated=False` describe the agent's release action at that checkpoint; they do not deny these later user-made changes. Preserve that historical receipt and use this later instrument stage when describing collection. The model and selected local PNGs remain fixed.
+
 The current development-feedback selection is the 20 normal-input/main-output pairs from the non-replacing advisory preview. The local upload package copies only the main correction images; separate protected alternatives are excluded. This is a procedural release for feedback, not 20 individual appearance ratings, expert acceptance or final model adoption.
 
 ## Pairing and instrument

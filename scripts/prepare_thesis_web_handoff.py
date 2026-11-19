@@ -115,6 +115,25 @@ def main():
          'live_Form_step_pending', 'expert_responses_accessed', 'invitations_sent', 'responses_submitted',
          'new_fits', 'new_predictions', 'new_correction_renders', 'source_JPEG_reads',
          'new_human_ratings', 'independent_final_validation', 'correction_model_finished'])
+    specs['WB314_single_photo_runner_software'] = (
+        'outputs/wb314_photo_runner_integration_v1/summary.json',
+        ['passed', 'generated_integration_tests', 'test_seconds', 'preexisting_deprecation_warnings',
+         'initial_default_temp_setup_errors', 'initial_application_tests_executed', 'workspace_temp_rerun_passed',
+         'cli_help_passed', 'existing_mask_dependency_hashes_verified', 'existing_FaceOcc_environment_present',
+         'mask_contract_sha256', 'unchanged_existing_modules', 'expert_upload_artifacts_unchanged',
+         'model_sha256', 'new_trained_model_calls', 'new_mask_inference', 'new_fits', 'new_photographic_inputs',
+         'generated_fixture_only', 'research_single_photo_runner_implemented', 'real_new_photo_pipeline_executed',
+         'actual_new_photo_mask_quality_validated', 'Android_defaults_changed', 'desktop_defaults_changed',
+         'headroom_applied_to_primary', 'expert_images_changed', 'qualification_complete'])
+    specs['WB314_expert_instrument_user_update'] = (
+        'outputs/wb314_expert_instrument_update_v1/summary.json',
+        ['passed', 'live_public_capture_verified', 'image_items', 'MST_pair_sections', 'quality_rating_items',
+         'preference_items', 'preference_options', 'preference_choices_consistent', 'comments',
+         'introduction_update_user_reported', 'introduction_update_fresh_network_verified',
+         'existing_consent_retention_requested', 'agent_live_edits', 'expert_responses_accessed',
+         'responses_submitted_by_agent', 'invitations_sent_by_agent', 'reviewer_invitations_confirmed',
+         'response_collection_started_confirmed', 'model_or_images_changed',
+         'preference_counts_separate_from_quality_MOS'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))
