@@ -4,6 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
+| Actual two-photo native execution | `docs/wb314-two-photo-native-check-2026-11-19.md` | Existing `scripts/run_wb314_photo.py`; two user-selected photos, both identity outputs; execution verified, benefit/necessity unqualified |
 | Frozen-model single-photo research entry point | `docs/wb314-single-photo-runner-2026-11-19.md` | `scripts/run_wb314_photo.py`; `tests/test_wb314_photo_runner.py`; generated glue checks and dependency preflight, not native new-photo qualification |
 | Current normal-photo Form selection | `docs/wb314-normal-photo-form-release-2026-11-19.md` | `scripts/release_wb314_normal_form_packet.py`; 20 exact primary copies, official MST/Form joins; separate alternatives excluded; live insertion pending |
 | Proposal and method differences | `docs/proposal-scope-validation-2026-11-03.md`; `docs/paper-alignment-reaudit-2026-11-15.md`; `docs/panel-change-register.md` | `src/utilities/config.py`; `docs/implementation-plan.md` |

@@ -134,6 +134,18 @@ def main():
          'responses_submitted_by_agent', 'invitations_sent_by_agent', 'reviewer_invitations_confirmed',
          'response_collection_started_confirmed', 'model_or_images_changed',
          'preference_counts_separate_from_quality_MOS'])
+    specs['WB314_two_photo_native_execution'] = (
+        'outputs/wb314_user_photo_check_v1/summary.json',
+        ['passed', 'native_launches', 'native_launches_exit_zero', 'complete_correction_calls',
+         'mask_service_preparations', 'manifest_hash_checks_pass', 'source_files_unchanged',
+         'route_control_joins', 'output_exact_normalized_input', 'identity_controls',
+         'protected_outside_preservation', 'separate_candidates_exact_primary',
+         'comparison_pixel_roundtrips', 'exact_two_times_pixel_repeat_checks', 'model_sha256',
+         'new_fits', 'extra_model_reruns', 'guard_variants', 'expert_upload_artifacts_unchanged',
+         'official_MST_labels_available', 'subject_count_established', 'native_new_photo_path_executed',
+         'necessary_correction_decision_validated', 'actual_new_photo_mask_quality_validated',
+         'formal_independent_validation', 'expert_ratings', 'default_apps_changed',
+         'headroom_applied_to_primary', 'qualification_complete'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))

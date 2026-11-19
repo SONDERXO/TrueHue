@@ -1335,6 +1335,41 @@
         "model_or_images_changed": false,
         "preference_counts_separate_from_quality_MOS": true
       }
+    },
+    "WB314_two_photo_native_execution": {
+      "local_source": "outputs/wb314_user_photo_check_v1/summary.json",
+      "source_sha256": "a5dd2cfc4f3334905a450a086a54ab86137d845b12bc837579ba2f49a7a890a2",
+      "values": {
+        "passed": true,
+        "native_launches": 2,
+        "native_launches_exit_zero": 2,
+        "complete_correction_calls": 2,
+        "mask_service_preparations": 2,
+        "manifest_hash_checks_pass": true,
+        "source_files_unchanged": 2,
+        "route_control_joins": 2,
+        "output_exact_normalized_input": 2,
+        "identity_controls": 2,
+        "protected_outside_preservation": 2,
+        "separate_candidates_exact_primary": 2,
+        "comparison_pixel_roundtrips": 2,
+        "exact_two_times_pixel_repeat_checks": 8,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "new_fits": 0,
+        "extra_model_reruns": 0,
+        "guard_variants": 0,
+        "expert_upload_artifacts_unchanged": true,
+        "official_MST_labels_available": false,
+        "subject_count_established": false,
+        "native_new_photo_path_executed": true,
+        "necessary_correction_decision_validated": false,
+        "actual_new_photo_mask_quality_validated": false,
+        "formal_independent_validation": false,
+        "expert_ratings": 0,
+        "default_apps_changed": false,
+        "headroom_applied_to_primary": false,
+        "qualification_complete": false
+      }
     }
   },
   "expert_preparation_status": {

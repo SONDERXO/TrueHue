@@ -944,6 +944,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Frozen WB314 single-photo research runner](../wb314-single-photo-runner-2026-11-19.md) — `docs/wb314-single-photo-runner-2026-11-19.md`
 - [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`
 - [One frozen WB314 predictor: fit complete, changed-output review pending](../wb314-single-predictor-results-2026-11-18.md) — `docs/wb314-single-predictor-results-2026-11-18.md`
+- [Two user-selected photos: native pipeline execution complete](../wb314-two-photo-native-check-2026-11-19.md) — `docs/wb314-two-photo-native-check-2026-11-19.md`
 - [Whole-face correction and nostril-excluded measurement](../whole-face-support-results-2026-11-01.md) — `docs/whole-face-support-results-2026-11-01.md`
 - [Whole-photograph distortion and scene-feature comparison](../whole-scene-correction-protocol-2026-11-06.md) — `docs/whole-scene-correction-protocol-2026-11-06.md`
 - [Whole-photo distortions: scene features help recovery but worsen clean preservation](../whole-scene-correction-results-2026-11-06.md) — `docs/whole-scene-correction-results-2026-11-06.md`

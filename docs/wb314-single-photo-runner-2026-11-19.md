@@ -1,5 +1,7 @@
 # Frozen WB314 single-photo research runner
 
+**Later execution checkpoint:** the runner has now completed two full native runs on explicitly user-selected photos. Both outputs exactly preserve the normalized inputs because the existing tree selects identity controls. Read [two-photo native check](wb314-two-photo-native-check-2026-11-19.md). This supersedes the earlier “not yet executed” stopping point below; it does not establish correction benefit or final quality qualification. The runner itself is unchanged.
+
 `scripts/run_wb314_photo.py` connects one explicitly selected local photo to the existing masking service and frozen WB314 correction. Previously, the research predictor required already prepared arrays/masks while the desktop demo used older baseline controls. This new command supplies the missing research entry point without changing that demo or replacing the model under expert review.
 
 ## Actual processing path
