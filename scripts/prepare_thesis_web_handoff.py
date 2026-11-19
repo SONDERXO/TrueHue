@@ -146,6 +146,16 @@ def main():
          'necessary_correction_decision_validated', 'actual_new_photo_mask_quality_validated',
          'formal_independent_validation', 'expert_ratings', 'default_apps_changed',
          'headroom_applied_to_primary', 'qualification_complete'])
+    specs['WB314_original_resolution_output'] = (
+        'outputs/wb314_original_resolution_v1/summary.json',
+        ['passed', 'original_size_exports', 'source_output_shape_joins', 'PNG_exact_original_pixel_checks',
+         'original_source_files_unchanged', 'aspect_ratios_preserved', 'photo_resampling_for_output',
+         'mask_support_mapping_implemented', 'generated_tests', 'test_seconds',
+         'generated_nonidentity_render_checks', 'generated_full_pipeline_original_size_check',
+         'new_trained_model_calls', 'new_mask_inference', 'new_fits', 'cached_predictions_reused',
+         'model_sha256', 'expert_images_changed', 'desktop_Android_defaults_changed',
+         'headroom_applied_to_primary', 'original_resolution_mask_quality_validated',
+         'real_nonidentity_original_size_quality_validated', 'qualification_complete'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))

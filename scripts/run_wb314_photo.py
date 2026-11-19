@@ -1,8 +1,9 @@
 """Run the frozen research correction with the existing single-photo mask service.
 
 Explicit local input/output paths only. No fitting, downloads, dataset selection,
-app-default changes or expert-packet edits. Outputs remain 256-pixel research
-results; the separate headroom candidate never replaces the primary image.
+app-default changes or expert-packet edits. Analysis uses 256 pixels; primary
+outputs render on original pixels at original size. The separate headroom
+candidate never replaces the primary image.
 """
 import argparse
 import hashlib
@@ -17,6 +18,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 from src.demo.service import read_photo
+from src.correction.original_resolution import lift_analysis_support, render_original_rgb8
 from src.skin_masking.correction_preview import GLASSES_MODES, render_preview
 from wb314_headroom_advisory import WB314WithHeadroomAdvisory
 from wb314_research_predictor import MODEL_SHA256, validate_inputs
@@ -89,7 +91,9 @@ def run_photo(source, destination, *, glasses):
         normalization='whole_frame_256_INTER_AREA_BGR_then_explicit_RGB',
         new_fits=0, correction_calls_attempted=0, correction_calls_completed=0,
         qualification_complete=False, automatic_mask_quality_validated=False,
-        mst_mapping_validated=False, original_resolution_output=False,
+        mst_mapping_validated=False, original_resolution_output=True,
+        original_pixels_resized_for_output=False, original_aspect_ratio_preserved=True,
+        native_resolution_mask_accuracy_validated=False,
         headroom_applied_to_primary=False, app_defaults_changed=False,
         expert_packet_changed=False, fallback_to_legacy=False)
     try:
@@ -117,21 +121,39 @@ def run_photo(source, destination, *, glasses):
         alternative = result['headroom_candidate']
         if alternative is not None:
             check_output(alternative, rgb, alpha, protected)
+        report['failed_stage'] = 'original_resolution_render'
+        original_rgb = image[:, :, ::-1].copy()
+        original_alpha, original_protected = lift_analysis_support(alpha, protected, original_rgb.shape)
+        primary_original = render_original_rgb8(original_rgb, original_alpha, original_protected, result['controls'])
+        check_output(primary_original, original_rgb, original_alpha, original_protected)
+        candidate_original = None
+        if alternative is not None:
+            candidate_original = render_original_rgb8(original_rgb, original_alpha, original_protected,
+                                                     result['headroom_candidate_controls'])
+            check_output(candidate_original, original_rgb, original_alpha, original_protected)
         if sha(source) != source_hash:
             raise ValueError('Source photo changed during processing')
         report['failed_stage'] = 'export'
-        save_png(folder / 'primary_correction.png', result['output'][:, :, ::-1])
-        if alternative is not None:
-            save_png(folder / 'separate_headroom_candidate.png', alternative[:, :, ::-1])
+        save_png(folder / 'primary_correction.png', primary_original[:, :, ::-1])
+        save_png(folder / 'analysis_correction_256.png', result['output'][:, :, ::-1])
+        if candidate_original is not None:
+            save_png(folder / 'separate_headroom_candidate.png', candidate_original[:, :, ::-1])
+            save_png(folder / 'analysis_headroom_candidate_256.png', alternative[:, :, ::-1])
         save_png(folder / 'measurement_mask.png', measurement)
         save_png(folder / 'protected_mask.png', protected.astype(np.uint8) * 255)
         np.save(folder / 'application_alpha.npy', alpha, allow_pickle=False)
+        save_png(folder / 'original_protected_mask.png', original_protected.astype(np.uint8) * 255)
+        np.save(folder / 'original_application_alpha.npy', original_alpha, allow_pickle=False)
         report.update(status='research_output_ready', failed_stage=None,
             controls=result['controls'], features=result['features'], leaf=result['leaf'],
             feature_details=result.get('feature_details'),
             headroom_advisory=result['headroom_advisory'],
             separate_candidate_controls=result['headroom_candidate_controls'],
             primary_output='primary_correction.png',
+            output_shape=list(primary_original.shape), analysis_output='analysis_correction_256.png',
+            output_encoding='lossless_RGB8_PNG',
+            original_support_mapping='linear_alpha_with_nearest_membership_and_protection_v1',
+            headroom_advisory_scope='computed_on_256_analysis_not_original_resolution_highlight_guarantee',
             separate_candidate_output='separate_headroom_candidate.png' if alternative is not None else None,
             protected_and_outside_pixels_preserved=True, input_arrays_immutable=True)
         write_json(folder / 'report.json', report)

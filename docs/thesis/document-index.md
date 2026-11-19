@@ -941,6 +941,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Normal-photo development-feedback package](../wb314-normal-photo-form-release-2026-11-19.md) — `docs/wb314-normal-photo-form-release-2026-11-19.md`
 - [One direct preview on the existing20normal photographs](../wb314-normal-photo-preview-protocol-2026-11-19.md) — `docs/wb314-normal-photo-preview-protocol-2026-11-19.md`
 - [Direct normal-photo preview: ten unchanged, ten adjusted, brightening concern](../wb314-normal-photo-preview-results-2026-11-19.md) — `docs/wb314-normal-photo-preview-results-2026-11-19.md`
+- [Original-size output implemented](../wb314-original-resolution-output-2026-11-19.md) — `docs/wb314-original-resolution-output-2026-11-19.md`
 - [Frozen WB314 single-photo research runner](../wb314-single-photo-runner-2026-11-19.md) — `docs/wb314-single-photo-runner-2026-11-19.md`
 - [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`
 - [One frozen WB314 predictor: fit complete, changed-output review pending](../wb314-single-predictor-results-2026-11-18.md) — `docs/wb314-single-predictor-results-2026-11-18.md`

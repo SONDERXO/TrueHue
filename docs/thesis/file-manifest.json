@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 588982,
-      "sha256": "3fff8efd56014fd4f776d5c18352c83c1412ec342e785e667f4148898372a846"
+      "bytes": 590839,
+      "sha256": "81a9f6c8b0d51c628d739e74216dec4872c1fb252852d9a1d125d5daffea9bff"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 22545,
-      "sha256": "69366e813e28b5b7395f455003ab0654cbbd2258cb583ebf63456caea2377b62"
+      "bytes": 23286,
+      "sha256": "1f1a78b1eeb0d690932e6a59c7ad1792e88bf6f856053653a24c6c18ea73219b"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 102440,
-      "sha256": "642180e87324f647d38cc24a377ecd3ae040c9b98dbf801c4f9af79e8e82a723"
+      "bytes": 104297,
+      "sha256": "aa18bd49940951b32d2a74a5ac88ff915e774a9f42a29a5b8482c76cf042e5e0"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 12170,
-      "sha256": "92e44236fb5a25f0fa665f2c43d6a116d56d26d6c3f30bb32f9b759bdb937f3b"
+      "bytes": 12912,
+      "sha256": "aa6f22b1cffc9b9e890206eec5c29882b2abcbe93fd8362f5c08973f43c48d65"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 152765,
-      "sha256": "878a4ff288b89e9cb5264f06cb8c74af8603f4bfd1046c4252ed114de487c559"
+      "bytes": 152912,
+      "sha256": "4cffc0f98f3d42637e60e4bc0f13718c10d674c9cd3cd35c10be2a60e52c1c71"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 53773,
-      "sha256": "765740aa7b48053da82a3d063f74317871088d6e7f234183c7b3e84ce542a064"
+      "bytes": 55073,
+      "sha256": "ebccfeb12cbfbe61586fab24057d72bb8700f2ef1e7142d0632cd878b49c0966"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "19799aa9c1cdf9d91aabbb309f4d7c7a13cf2c441090f09c877b2bd8de3ee5da"
+      "sha256": "575d3cf1425cd9c46613ff5f181cd16c0bec977c976b4451dfb6a820681d4055"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 10923,
-      "sha256": "b7dd35224b9adcb1902df421b4da5a31c428a7a85c201c9fe446abc9bdd7ae8a"
+      "bytes": 11167,
+      "sha256": "3d318debbd60888a56031ad200b9c069ebffe23b04b55c9e8d5e62c18e100bb2"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4961,9 +4961,14 @@
       "sha256": "9908cf94ae863a5a8f3868638ee7054f0891dd63edfd74cc7d2a6d92cbe2ce7f"
     },
     {
+      "path": "docs/wb314-original-resolution-output-2026-11-19.md",
+      "bytes": 4775,
+      "sha256": "b09bbabcf3b57d7ab8376a851d367433bfb6879fa4707c7db875f63d8eca9c3c"
+    },
+    {
       "path": "docs/wb314-single-photo-runner-2026-11-19.md",
-      "bytes": 6260,
-      "sha256": "016a0f34bac92c2ea9c58fe1f88985a0305b34adb701dfbe1a6823929d7242f4"
+      "bytes": 6942,
+      "sha256": "45db3f088ad4e508a28ce6b88606215832f4db42edbc88437da00f1167251815"
     },
     {
       "path": "docs/wb314-single-predictor-protocol-2026-11-18.md",
@@ -10052,8 +10057,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 27585,
-      "sha256": "7f96b2a196f6146f7d34182be8221cf90dfe72f6bbd39143c98b0b46c6331945"
+      "bytes": 28450,
+      "sha256": "1516d778e435ac49d913829b71093d984b7448446d52bb001bb4a323ad21a33c"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",
@@ -10302,8 +10307,8 @@
     },
     {
       "path": "scripts/run_wb314_photo.py",
-      "bytes": 8515,
-      "sha256": "92a0dc49c0f7a1af1719cd4806efb513f395b48f2f0ca45d2ab475affe4c719b"
+      "bytes": 10320,
+      "sha256": "0b69d8b0a82bf96621dc36772f19dcbbac7e3988a024d9850fc0a4eaaab273de"
     },
     {
       "path": "scripts/run_wb_feature_direct_real.py",
@@ -10589,6 +10594,11 @@
       "path": "src/correction/development_mst_pipeline.py",
       "bytes": 4612,
       "sha256": "9dd5048e0ed30c27986212b8dc6f5c761e8698ee282f8ed2908eaca0f55cd534"
+    },
+    {
+      "path": "src/correction/original_resolution.py",
+      "bytes": 3185,
+      "sha256": "2c6f0fce05474609e8b32b87843ee40f7bc45d779403cdbbf94c59c40c854427"
     },
     {
       "path": "src/correction/seamless_blend.py",
@@ -12416,6 +12426,11 @@
       "sha256": "635a9255fa1a01f33eb605954caede862da923d648cdbd24cdbcd19367b9e098"
     },
     {
+      "path": "tests/test_original_resolution.py",
+      "bytes": 2835,
+      "sha256": "3995314d4b34203326622be23cd4a3e73b69bb7b1308b31e84cad38c05098ab9"
+    },
+    {
       "path": "tests/test_paper_gamma.py",
       "bytes": 1771,
       "sha256": "f7be262ae313dcb060f29f3845eff63ae260c180736614761c2eb39e7311a9ea"
@@ -12697,8 +12712,8 @@
     },
     {
       "path": "tests/test_wb314_photo_runner.py",
-      "bytes": 8690,
-      "sha256": "80f57e7e2197a16dc2d08c633754ae6c5064c0e82ad6e59e4f1bea21a679828a"
+      "bytes": 9480,
+      "sha256": "d1050c2e9591a384dfd9b62163957723576530729796f6cd007c896a2856aa35"
     },
     {
       "path": "tests/test_whole_scene_features.py",

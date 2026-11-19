@@ -54,13 +54,21 @@ def test_generated_file_to_masks_to_primary_export_preserves_channels_and_policy
     report = runner.run_photo(source, output, glasses='opaque')
     actual = cv2.imread(str(output / 'primary_correction.png'))[:, :, ::-1]
     candidate = cv2.imread(str(output / 'separate_headroom_candidate.png'))[:, :, ::-1]
-    np.testing.assert_array_equal(actual, seen['result']['output'])
-    np.testing.assert_array_equal(candidate, seen['result']['headroom_candidate'])
+    analysis = cv2.imread(str(output / 'analysis_correction_256.png'))[:, :, ::-1]
+    np.testing.assert_array_equal(analysis, seen['result']['output'])
+    original = cv2.imread(str(source))[:, :, ::-1]
+    assert actual.shape == candidate.shape == original.shape == (300, 420, 3)
+    full_alpha = np.load(output / 'original_application_alpha.npy', allow_pickle=False)
+    full_protected = cv2.imread(str(output / 'original_protected_mask.png'), 0) > 0
+    from src.model_training.luminance_chroma_operator import render_rgb8
+    np.testing.assert_array_equal(actual, render_rgb8(original, full_alpha, full_protected, seen['result']['controls']))
+    np.testing.assert_array_equal(candidate, render_rgb8(original, full_alpha, full_protected, seen['result']['headroom_candidate_controls']))
     assert not np.array_equal(actual, candidate)
-    np.testing.assert_array_equal(actual[p | (a == 0)], rgb[p | (a == 0)])
+    np.testing.assert_array_equal(actual[full_protected | (full_alpha == 0)], original[full_protected | (full_alpha == 0)])
     assert seen['constructs'] == seen['calls'] == 1 and seen['glasses'] == 'opaque'
     assert report['headroom_applied_to_primary'] is report['qualification_complete'] is False
     assert report['fallback_to_legacy'] is False and report['status'] == 'research_output_ready'
+    assert report['original_resolution_output'] and not report['original_pixels_resized_for_output']
     manifest = json.loads((output / 'manifest.json').read_text(encoding='utf-8'))
     assert all(runner.sha(output / name) == digest for name, digest in manifest['artifacts'].items())
     with pytest.raises(FileExistsError):

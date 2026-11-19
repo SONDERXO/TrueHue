@@ -1,8 +1,8 @@
 {
   "checkpoint": "2026-11-19",
   "publication_scope": "Research documentation/source on development branch; not a validated release",
-  "indexed_documents": 950,
-  "source_python_files": 1486,
+  "indexed_documents": 951,
+  "source_python_files": 1488,
   "syntax_errors": [],
   "high_confidence_secret_findings": [],
   "historical_non_UTF8_files_preserved": [

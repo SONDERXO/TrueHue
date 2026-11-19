@@ -1370,6 +1370,35 @@
         "headroom_applied_to_primary": false,
         "qualification_complete": false
       }
+    },
+    "WB314_original_resolution_output": {
+      "local_source": "outputs/wb314_original_resolution_v1/summary.json",
+      "source_sha256": "2f8b6d489b9746b77e36b8695eaf98b0e7d2c529e74457f445b2a4c8b1b77c05",
+      "values": {
+        "passed": true,
+        "original_size_exports": 2,
+        "source_output_shape_joins": 2,
+        "PNG_exact_original_pixel_checks": 2,
+        "original_source_files_unchanged": 2,
+        "aspect_ratios_preserved": 2,
+        "photo_resampling_for_output": false,
+        "mask_support_mapping_implemented": true,
+        "generated_tests": 24,
+        "test_seconds": 16.09,
+        "generated_nonidentity_render_checks": 3,
+        "generated_full_pipeline_original_size_check": true,
+        "new_trained_model_calls": 0,
+        "new_mask_inference": 0,
+        "new_fits": 0,
+        "cached_predictions_reused": 2,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "expert_images_changed": false,
+        "desktop_Android_defaults_changed": false,
+        "headroom_applied_to_primary": false,
+        "original_resolution_mask_quality_validated": false,
+        "real_nonidentity_original_size_quality_validated": false,
+        "qualification_complete": false
+      }
     }
   },
   "expert_preparation_status": {
