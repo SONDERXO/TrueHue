@@ -24,6 +24,12 @@ The next check gave the same two packed RGB crops to Python and to Huawei. The c
 
 The native Android Tasks dependency is 0.10.35. Google Maven's native `com.google.mediapipe:tasks-vision` metadata did not list 1.0.1 on 19 November 2026. The observations isolate the discrepancy to behavior after supplying the crop to the landmarker. They do not distinguish a runtime-version effect from a platform-specific numerical difference. No app dependency, correction logic or landmark coordinates were changed. [Google Maven metadata](https://dl.google.com/dl/android/maven2/com/google/mediapipe/tasks-vision/maven-metadata.xml)
 
+### One native runtime candidate
+
+A temporary ARM64 build resolved both MediaPipe `tasks-vision` and `tasks-core` to 1.0.0. The build used the same source and model assets for correction, with a separate app ID. It was installed on the same Huawei and ran the mask test once on the same two saved normalized inputs.
+
+The mask test failed. The aggregate counts and maximum alpha errors matched the 0.10.35 report on both fixtures. The adjusted case had seven visibility differences, six correction-support and protection differences, and 31 alpha differences. The identity case had one baseline and one final measurement difference, with exact application support and alpha. The candidate stopped at the mask check, so the 1.0.0 build produced no original-size export evidence. The temporary packages and their private fixtures were removed. The installed TrueHue prototype remains on 0.10.35, and the Huawei preservation requirement remains failed.
+
 The 3072 × 4096 run completed without an out-of-memory error, with post-processing PSS of 436,377 KiB. Its app elapsed time of about 120 seconds included a period when the operating system suspended the background test process. The process resumed after the app was brought to the foreground. In the smaller foreground runs, the reported processing times were 4.64 seconds for the first case and 1.15 seconds for the second. These timings describe the observed runs and do not qualify full-size latency or establish peak memory use.
 
 The strict comparison remains failed. The emulator result is still valid on its two fixtures. The frozen WB314 model and expert-feedback materials were held fixed. Device and fixture logs remain local. [Emulator comparison](android-wb314-picker-2026-11-19.md)

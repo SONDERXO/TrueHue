@@ -31,6 +31,15 @@
     "matched_binary_visibility_decisions_using_saved_aligned_rgb": 131072,
     "same_rgb_crop_digests_matched": 2,
     "huawei_bitmap_vs_packed_rgb_landmark_mismatches": 0,
+    "native_mediapipe_candidate": {
+      "version": "1.0.0",
+      "fixtures": 2,
+      "mask_parity_passed": false,
+      "aggregate_mask_differences_match_baseline": true,
+      "adjusted_application_support_mismatches": 6,
+      "original_size_export_run": false,
+      "adopted": false
+    },
     "python_replay_vs_saved_landmark_mismatches": 0,
     "adjusted_live_landmark_max_displacement_analysis_pixels": 0.012717792630380587,
     "adjusted_application_support_mismatches": 6,
