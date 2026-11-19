@@ -156,6 +156,15 @@ def main():
          'model_sha256', 'expert_images_changed', 'desktop_Android_defaults_changed',
          'headroom_applied_to_primary', 'original_resolution_mask_quality_validated',
          'real_nonidentity_original_size_quality_validated', 'qualification_complete'])
+    specs['WB314_background_balance_rejected'] = (
+        'outputs/wb314_background_balance_candidate_v1/summary.json',
+        ['assessment_executed', 'software_checks_passed', 'candidate_gate_passed', 'assessment_closed',
+         'candidate_rejected', 'final_fit_not_run', 'original_cases', 'source_groups', 'training_views',
+         'source_held_fits', 'new_context_WB_forwards', 'scalar_and_protection_checks', 'final_candidate_fits',
+         'generated_engineering_tests', 'original_baseline_aggregate_metric_joins', 'identity_changed_counts',
+         'expert_model_unchanged', 'expert_upload_hashes_unchanged', 'user_photos_used_for_training',
+         'user_photo_candidate_predictions', 'new_sources', 'new_mask_inference', 'model_adopted',
+         'correction_fix_complete', 'qualification_complete', 'gates', 'by_view_role'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))

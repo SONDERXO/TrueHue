@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 590839,
-      "sha256": "81a9f6c8b0d51c628d739e74216dec4872c1fb252852d9a1d125d5daffea9bff"
+      "bytes": 592756,
+      "sha256": "566084a550debe3ddbb8f6675f389d2c8713af4c6a2908a48ae445294c9321bb"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 23286,
-      "sha256": "1f1a78b1eeb0d690932e6a59c7ad1792e88bf6f856053653a24c6c18ea73219b"
+      "bytes": 24189,
+      "sha256": "5d21fe0e7e1ca06efbfd54da2a00625b57b8a594aafb0aadd9d1b7846ad06cf8"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 104297,
-      "sha256": "aa18bd49940951b32d2a74a5ac88ff915e774a9f42a29a5b8482c76cf042e5e0"
+      "bytes": 106214,
+      "sha256": "56f2de24c6676cbb8f231045d49360933220812ff9c5b4c26b10020989a19db5"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 12912,
-      "sha256": "aa6f22b1cffc9b9e890206eec5c29882b2abcbe93fd8362f5c08973f43c48d65"
+      "bytes": 13671,
+      "sha256": "3c7f1a986ad7a50a90bb16badd8be8e60dbf81f476f549c6e3e8de02f8143f9e"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 152912,
-      "sha256": "4cffc0f98f3d42637e60e4bc0f13718c10d674c9cd3cd35c10be2a60e52c1c71"
+      "bytes": 153236,
+      "sha256": "717e8de4f1d8ffb619d1b7d470b5eec8da3bfd746cae44f7b190066a23d9f0ec"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 55073,
-      "sha256": "ebccfeb12cbfbe61586fab24057d72bb8700f2ef1e7142d0632cd878b49c0966"
+      "bytes": 62127,
+      "sha256": "6b79a8cab174a476e9be18dc7b6f1ba9b4ea94ae9e6cb886dd3c2c8acbf53460"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "575d3cf1425cd9c46613ff5f181cd16c0bec977c976b4451dfb6a820681d4055"
+      "sha256": "67105b96797be31fcd31972d451bdb17951a3a8de5d93098c86f5edf495aa452"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 11167,
-      "sha256": "3d318debbd60888a56031ad200b9c069ebffe23b04b55c9e8d5e62c18e100bb2"
+      "bytes": 11499,
+      "sha256": "a275a8c58b7ddfc4dcbb9614588ef555d70c4ffcc1d997cee6371dfd47d7250d"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4854,6 +4854,16 @@
       "path": "docs/wb-remaining-underexposure-review-results-2026-11-18.md",
       "bytes": 2944,
       "sha256": "bea83f4771ddf0716cf7d44c88d83eeb34a8c82b1be965995a14826461158089"
+    },
+    {
+      "path": "docs/wb314-background-balance-protocol-2026-11-19.md",
+      "bytes": 4669,
+      "sha256": "fc9e290d0a0469ba4a854ba5bab50ffc5b3985375e8d4bfd6127b695a8f58d8b"
+    },
+    {
+      "path": "docs/wb314-background-balance-results-2026-11-19.md",
+      "bytes": 5052,
+      "sha256": "5be7bcb7a82cd6e6ed504c65f3b1d50a143d959fdef5e5e1fcc2716d3e31e75a"
     },
     {
       "path": "docs/wb314-before-after-expert-pairing-2026-11-19.md",
@@ -9546,6 +9556,11 @@
       "sha256": "459f561875336841603bd54b947a670579952fe77a7437b2e3de7acd6235c37b"
     },
     {
+      "path": "scripts/assess_wb314_background_balance.py",
+      "bytes": 12193,
+      "sha256": "094a4eb20bb562d0d4a5ffedd1880d0c1ff03742e0a1af4baa0649f2d732d753"
+    },
+    {
       "path": "scripts/assess_wb314_exposure_headroom.py",
       "bytes": 9523,
       "sha256": "e7869814830e9d46e1607ab64701f9f355bce34dec03bf62d340c755d7e8f4a7"
@@ -10057,8 +10072,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 28450,
-      "sha256": "1516d778e435ac49d913829b71093d984b7448446d52bb001bb4a323ad21a33c"
+      "bytes": 29301,
+      "sha256": "4da072fcf9aed0e38611ff218acbdd93fcb3edeb651fea00549fd0e3a9b10c85"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",
@@ -12704,6 +12719,11 @@
       "path": "tests/test_versioned_mouth_pipeline.py",
       "bytes": 1314,
       "sha256": "926f8e357fc9ddc4588d75d2852abf822ff16ff048300900b38bdb776f64a271"
+    },
+    {
+      "path": "tests/test_wb314_background_balance.py",
+      "bytes": 1795,
+      "sha256": "9682821acdb8222a7f89cc6106a73374c36ff8f8eb071afcb6947f5a81918ade"
     },
     {
       "path": "tests/test_wb314_headroom_advisory.py",

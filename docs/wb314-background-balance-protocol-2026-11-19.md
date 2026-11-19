@@ -1,0 +1,23 @@
+# One background-balanced WB314 repair assessment
+
+The user authorizes addressing the newly observed no-correction decisions while keeping the expert-review model fixed. This protocol defines one separate training-design assessment before constructing any new context images, extracting features or fitting a tree. It does not reopen a closed crop-feature, blanket-veto, threshold, source-acquisition or model-family study.
+
+## Mechanism and fixed intervention
+
+The frozen WB314 root uses whole-image full-channel fraction. All22fitting under/combined-under rows have zero fully bright pixels. The two new photo decisions follow a scene-only path to identity. This identifies a shortcut; it does not prove a replacement feature or brightness cutoff correct. The failed8November face-local context comparison remains closed and is not repeated.
+
+Use only the existing66cached camera-task rows from11exposed FFHQsources, with their existing measurement, alpha, protection, analytic targets and314features. For each existing input, retain every pixel where application alpha is positive OR facial measurement is selected. Outside that union, restore pixels from its same-source photographic reference. Thus the face needing correction and all scored application pixels stay byte-identical while background context changes. This is synthetic context balancing, not a new natural capture or independent person. Retain the original view. Deduplicate an exactly identical restored-background view. Each original case has total fitting weight1 divided equally among its distinct views, avoiding a role-weight change caused by duplicated identities.
+
+Recompute the same frozen281traditional features and33WBcoefficients for genuinely changed views only. Confirm the five facial Lab/ITA/MST features and four facial green summaries are exactly unchanged. No source JPEG, new mask, target optimizer, MST mapper fit, encoder fit, feature selection or new threshold is allowed. Keep the current ordinary depth4seed42CART settings and five target definitions. This repairs the training relation between facial correction and context; it does not require adding a separate runtime detector or gate.
+
+## Budget and sealing
+
+At most55new context-view feature extractions, exactly one predetermined view construction, no strength grid. Use the existing11source-held folds, holding out both views of every evaluation source. At most11weighted held fits, all native/portable routes and weighted leaf means independently checked. Seal all candidate and baseline held controls before scoring. The comparator is the existing source-held WB314 on the same original/context views, not the all-data tree tested on its own fitting rows. No user-photo vectors or expert data enter training, settings, fold membership or gate selection.
+
+Primary scoring is the existing alpha-positive RGB MAE and CIEDE2000, with equal original-case weight across its views. All rendered outputs must preserve protected/outside pixels and agree with the independent scalar renderer. Keep original-view results separate from restored-background results; do not pool them as more independent photos.
+
+The assessment passes only if: (1) original-view mean RGB/DE does not worsen versus the source-held comparator for ANY of the six roles, within1e-10 numerical tolerance; (2) original identity changed-output count does not increase; (3) under AND combined-under restored-background mean RGB/DE both strictly improve versus the comparator by more than1e-10; and (4) no role gains an additional harmful original view relative to uncorrected input in either metric. These are candidate nonregression/repair checks, not independent final validation or human preference.
+
+Only if all gates pass may one final all-development candidate be fitted, with the same weights/settings and no retry. Seal it before checking cached normal/user vectors. Its eleven original development identities must still render exactly to input. Preserve the expert tree and all its artifacts. A changed candidate appearance needs its own genuine review; old ratings cannot transfer. Failure closes this one assessment without another context construction, crop, feature subset, depth, threshold or refit queue. Do not call a failed assessment a completed correction fix.
+
+No locked contents/manifests, closed cohort, MST-E model training, external contact, questionnaire/image replacement, app-default change or automatic model promotion. Original-size output remains required for any later candidate presentation. Detailed images, user paths, per-case features and reviews remain private; publish aggregate results and honest limitations only.

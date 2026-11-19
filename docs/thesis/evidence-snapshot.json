@@ -1399,6 +1399,217 @@
         "real_nonidentity_original_size_quality_validated": false,
         "qualification_complete": false
       }
+    },
+    "WB314_background_balance_rejected": {
+      "local_source": "outputs/wb314_background_balance_candidate_v1/summary.json",
+      "source_sha256": "b1eea526055ca3c385fa6be1a4db9c094d3afeab4d86b3cfc91536f0488e21d0",
+      "values": {
+        "assessment_executed": true,
+        "software_checks_passed": true,
+        "candidate_gate_passed": false,
+        "assessment_closed": true,
+        "candidate_rejected": true,
+        "final_fit_not_run": true,
+        "original_cases": 66,
+        "source_groups": 11,
+        "training_views": 121,
+        "source_held_fits": 11,
+        "new_context_WB_forwards": 55,
+        "scalar_and_protection_checks": 242,
+        "final_candidate_fits": 0,
+        "generated_engineering_tests": 4,
+        "original_baseline_aggregate_metric_joins": 12,
+        "identity_changed_counts": {
+          "baseline": 2,
+          "candidate": 9
+        },
+        "expert_model_unchanged": true,
+        "expert_upload_hashes_unchanged": true,
+        "user_photos_used_for_training": false,
+        "user_photo_candidate_predictions": 0,
+        "new_sources": 0,
+        "new_mask_inference": 0,
+        "model_adopted": false,
+        "correction_fix_complete": false,
+        "qualification_complete": false,
+        "gates": {
+          "original_nonregression_identity": false,
+          "no_extra_harm_identity": false,
+          "original_nonregression_colour_only": false,
+          "no_extra_harm_colour_only": false,
+          "original_nonregression_exposure_under": true,
+          "no_extra_harm_exposure_under": false,
+          "original_nonregression_exposure_over": false,
+          "no_extra_harm_exposure_over": false,
+          "original_nonregression_combined_under": false,
+          "no_extra_harm_combined_under": false,
+          "original_nonregression_combined_over": false,
+          "no_extra_harm_combined_over": false,
+          "identity_changed_count_nonincrease": false,
+          "context_improvement_exposure_under": true,
+          "context_improvement_combined_under": true
+        },
+        "by_view_role": {
+          "original": {
+            "identity": {
+              "input": {
+                "RGB": 0.0,
+                "DE": 0.0
+              },
+              "baseline": {
+                "RGB": 3.7256188141143607,
+                "DE": 1.4713631386571102
+              },
+              "candidate": {
+                "RGB": 15.633030436996256,
+                "DE": 5.347221738335881
+              }
+            },
+            "colour_only": {
+              "input": {
+                "RGB": 6.564273678188644,
+                "DE": 4.884807728033301
+              },
+              "baseline": {
+                "RGB": 2.475544410597806,
+                "DE": 0.9010370336408219
+              },
+              "candidate": {
+                "RGB": 7.430684674287872,
+                "DE": 2.8011110475105716
+              }
+            },
+            "exposure_under": {
+              "input": {
+                "RGB": 20.409570401114532,
+                "DE": 6.834916333727034
+              },
+              "baseline": {
+                "RGB": 11.251094112664138,
+                "DE": 4.552454190834767
+              },
+              "candidate": {
+                "RGB": 9.259992274925109,
+                "DE": 3.5744039238550966
+              }
+            },
+            "exposure_over": {
+              "input": {
+                "RGB": 23.045731111519014,
+                "DE": 7.268453911043178
+              },
+              "baseline": {
+                "RGB": 1.5971290832782374,
+                "DE": 0.8110697057656295
+              },
+              "candidate": {
+                "RGB": 8.32231943579531,
+                "DE": 4.328108905200262
+              }
+            },
+            "combined_under": {
+              "input": {
+                "RGB": 21.49731309702761,
+                "DE": 9.29998983588886
+              },
+              "baseline": {
+                "RGB": 7.57018499798883,
+                "DE": 3.7430059539725415
+              },
+              "candidate": {
+                "RGB": 8.476427386406222,
+                "DE": 3.86991213937183
+              }
+            },
+            "combined_over": {
+              "input": {
+                "RGB": 21.953088524080286,
+                "DE": 7.600608926606441
+              },
+              "baseline": {
+                "RGB": 1.2492873253321888,
+                "DE": 0.5351635075198118
+              },
+              "candidate": {
+                "RGB": 7.044290837654913,
+                "DE": 3.449443599438149
+              }
+            }
+          },
+          "reference_background": {
+            "colour_only": {
+              "input": {
+                "RGB": 6.564273678188644,
+                "DE": 4.884807728033301
+              },
+              "baseline": {
+                "RGB": 8.67603193493659,
+                "DE": 4.913300000392096
+              },
+              "candidate": {
+                "RGB": 15.73589817195317,
+                "DE": 5.242037182554495
+              }
+            },
+            "exposure_under": {
+              "input": {
+                "RGB": 20.409570401114532,
+                "DE": 6.834916333727034
+              },
+              "baseline": {
+                "RGB": 17.809540975749073,
+                "DE": 6.024496267000373
+              },
+              "candidate": {
+                "RGB": 9.259992274925109,
+                "DE": 3.5744039238550966
+              }
+            },
+            "exposure_over": {
+              "input": {
+                "RGB": 23.045731111519014,
+                "DE": 7.268453911043178
+              },
+              "baseline": {
+                "RGB": 21.3785208020054,
+                "DE": 7.274245749278313
+              },
+              "candidate": {
+                "RGB": 7.254534211311299,
+                "DE": 3.575716043540605
+              }
+            },
+            "combined_under": {
+              "input": {
+                "RGB": 21.49731309702761,
+                "DE": 9.29998983588886
+              },
+              "baseline": {
+                "RGB": 16.086241938608367,
+                "DE": 7.290700676818975
+              },
+              "candidate": {
+                "RGB": 8.476427386406222,
+                "DE": 3.86991213937183
+              }
+            },
+            "combined_over": {
+              "input": {
+                "RGB": 21.953088524080286,
+                "DE": 7.600608926606441
+              },
+              "baseline": {
+                "RGB": 19.69822263667387,
+                "DE": 6.782053050844885
+              },
+              "candidate": {
+                "RGB": 9.513131047400941,
+                "DE": 3.9123657385731416
+              }
+            }
+          }
+        }
+      }
     }
   },
   "expert_preparation_status": {

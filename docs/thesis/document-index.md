@@ -920,6 +920,8 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Complete the existing WB314 exposure review](../wb-remaining-exposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-exposure-review-protocol-2026-11-18.md`
 - [Remaining nine WB314 underexposure outputs](../wb-remaining-underexposure-review-protocol-2026-11-18.md) — `docs/wb-remaining-underexposure-review-protocol-2026-11-18.md`
 - [Complete WB314 pure-underexposure development review](../wb-remaining-underexposure-review-results-2026-11-18.md) — `docs/wb-remaining-underexposure-review-results-2026-11-18.md`
+- [One background-balanced WB314 repair assessment](../wb314-background-balance-protocol-2026-11-19.md) — `docs/wb314-background-balance-protocol-2026-11-19.md`
+- [Background-balanced necessity repair rejected](../wb314-background-balance-results-2026-11-19.md) — `docs/wb314-background-balance-results-2026-11-19.md`
 - [Expert pairing corrected to the user's intended before/after comparison](../wb314-before-after-expert-pairing-2026-11-19.md) — `docs/wb314-before-after-expert-pairing-2026-11-19.md`
 - [WB314 V2 released for initial development feedback; Form insertion pending](../wb314-development-feedback-round1-release-2026-11-19.md) — `docs/wb314-development-feedback-round1-release-2026-11-19.md`
 - [The frozen candidate is ready for development-stage expert feedback](../wb314-expert-development-stage-clarification-2026-11-18.md) — `docs/wb314-expert-development-stage-clarification-2026-11-18.md`

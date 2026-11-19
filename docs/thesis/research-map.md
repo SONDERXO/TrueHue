@@ -4,6 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
+| Rejected background-balanced necessity repair | `docs/wb314-background-balance-protocol-2026-11-19.md`; `docs/wb314-background-balance-results-2026-11-19.md` | `scripts/assess_wb314_background_balance.py`; `tests/test_wb314_background_balance.py`; one training design/11held fits, gate failed,0final candidate fits/no adoption |
 | Original-size research output | `docs/wb314-original-resolution-output-2026-11-19.md` | `src/correction/original_resolution.py`; `scripts/run_wb314_photo.py`;24focused tests; original pixels rendered directly, masks mapped from256analysis |
 | Actual two-photo native execution | `docs/wb314-two-photo-native-check-2026-11-19.md` | Existing `scripts/run_wb314_photo.py`; two user-selected photos, both identity outputs; execution verified, benefit/necessity unqualified |
 | Frozen-model single-photo research entry point | `docs/wb314-single-photo-runner-2026-11-19.md` | `scripts/run_wb314_photo.py`; `tests/test_wb314_photo_runner.py`; generated glue checks and dependency preflight, not native new-photo qualification |
