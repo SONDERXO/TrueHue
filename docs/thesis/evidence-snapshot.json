@@ -27,6 +27,9 @@
     "camera_sized_export_pixel_mismatches": 8995,
     "camera_sized_changes_outside_python_allowed_area": 768,
     "adjusted_visibility_mismatches": 7,
+    "adjusted_visibility_mismatches_using_saved_python_landmarks": 0,
+    "matched_binary_visibility_decisions_using_saved_aligned_rgb": 131072,
+    "adjusted_live_landmark_max_displacement_analysis_pixels": 0.012717792630380587,
     "adjusted_application_support_mismatches": 6,
     "identity_export_pixel_mismatches": 0,
     "full_size_latency_qualified": false

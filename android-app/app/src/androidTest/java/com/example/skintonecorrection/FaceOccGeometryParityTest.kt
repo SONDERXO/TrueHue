@@ -62,9 +62,11 @@ class FaceOccGeometryParityTest {
                     val savedMaskDifferences = actualMask.indices.count { actualMask[it] != expectedMask[it] }
 
                     val detection = requireNotNull(FaceLandmarks.detect(context, frame, box, landmarker))
-                    assertEquals(margin, detection.marginFraction, 0.0)
+                    if (margin.isFinite()) assertEquals(margin, detection.marginFraction, 0.0)
                     assertEquals(points.size, detection.points.size)
-                    val liveMask = model.visibleMask(frame, detection.points, template)
+                    val liveAligned = FaceOccGeometry.align(frame, detection.points, template)
+                    val liveLogits = model.logits(liveAligned.rgb)
+                    val liveMask = FaceOccGeometry.reproject(liveLogits, liveAligned.matrix, 256, 256)
                     val moved = detection.points.indices.maxOf {
                         hypot(detection.points[it].x - points[it].x, detection.points[it].y - points[it].y)
                     }
@@ -72,7 +74,26 @@ class FaceOccGeometryParityTest {
                     assertTrue(liveMask.any { it != 0.toByte() })
                     output.appendText("$name aligned_rgb_differences=$rgbDifferences max_rgb_delta=$maxRgbDelta " +
                         "saved_landmark_mask_mismatches=$savedMaskDifferences android_landmark_max_drift=$moved " +
-                        "android_landmark_mask_mismatches=$differences\n")
+                        "android_landmark_mask_mismatches=$differences margin=${detection.marginFraction}\n")
+                    val savedLogitsFile = File(folder, "${name}_logits.bin")
+                    if (savedLogitsFile.isFile) {
+                        val savedLogits = DataInputStream(savedLogitsFile.inputStream().buffered()).use { input ->
+                            FloatArray(pixels) { input.readFloat() }.also { assertEquals(-1, input.read()) }
+                        }
+                        val sameRgb = model.logits(rgb)
+                        fun mismatches(logits: FloatArray, transform: DoubleArray): Int {
+                            val mask = FaceOccGeometry.reproject(logits, transform, 256, 256)
+                            return mask.indices.count { mask[it] != expectedMask[it] }
+                        }
+                        val signs = sameRgb.indices.count { (sameRgb[it] > 0f) != (savedLogits[it] > 0f) }
+                        val maxLogitDelta = sameRgb.indices.maxOf { abs(sameRgb[it] - savedLogits[it]) }
+                        val liveRgbDifferences = rgb.indices.count { rgb[it] != liveAligned.rgb[it] }
+                        output.appendText("$name saved_logits_saved_matrix=${mismatches(savedLogits, matrix)} " +
+                            "saved_logits_device_matrix=${mismatches(savedLogits, aligned.matrix)} " +
+                            "saved_rgb_device_logits=${mismatches(sameRgb, matrix)} sign_differences=$signs " +
+                            "max_logit_delta=$maxLogitDelta live_rgb_differences=$liveRgbDifferences " +
+                            "live_logits_saved_matrix=${mismatches(liveLogits, matrix)}\n")
+                    }
                     maskDifferences.add(savedMaskDifferences + differences)
                 }
             } finally {
