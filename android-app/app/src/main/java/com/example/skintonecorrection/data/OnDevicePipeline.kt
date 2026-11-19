@@ -2,11 +2,6 @@ package com.example.skintonecorrection.data
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.google.mediapipe.framework.image.BitmapImageBuilder
-import com.google.mediapipe.tasks.core.BaseOptions
-import com.google.mediapipe.tasks.core.Delegate
-import com.google.mediapipe.tasks.vision.core.RunningMode
-import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarker
 import com.example.skintonecorrection.ml.DevelopmentMath
 import com.example.skintonecorrection.ml.PortableTreeAsset
 import org.json.JSONObject
@@ -68,34 +63,11 @@ class OnDevicePipeline(private val context: Context) {
             val rect=Rect(x,y,w,h);report.put("face_box",org.json.JSONArray(listOf(x,y,w,h)))
             val roi=tracked(square.submat(rect));val crop=tracked(roi.clone())
             report.put("failed_stage","landmarks")
-            // Own a verified direct buffer for the entire native graph lifetime, independent
-            // of Activity/AssetManager recreation and mapped APK resources.
-            val modelBuffer=java.nio.ByteBuffer.allocateDirect(assets.getValue("face_landmarker.task").size)
-            modelBuffer.put(assets.getValue("face_landmarker.task"));modelBuffer.rewind()
-            val options=FaceLandmarker.FaceLandmarkerOptions.builder()
-                .setBaseOptions(BaseOptions.builder().setModelAssetBuffer(modelBuffer).setDelegate(Delegate.CPU).build())
-                .setRunningMode(RunningMode.IMAGE).setNumFaces(1).setMinFaceDetectionConfidence(.5f).build()
             val polygons=manifest.getJSONArray("landmark_regions")
-            var points: List<Point>?=null
-            FaceLandmarker.createFromOptions(context,options).use { landmarker ->
-                for (fraction in listOf(0.0,.5,1.5,-1.0)) {
-                    val pad=if(fraction<0) 256 else (fraction*maxOf(w,h)).toInt()
-                    val left=if(fraction<0) 0 else maxOf(0,x-pad);val top=if(fraction<0) 0 else maxOf(0,y-pad)
-                    val right=if(fraction<0) 256 else minOf(256,x+w+pad);val bottom=if(fraction<0) 256 else minOf(256,y+h+pad)
-                    val sub=tracked(square.submat(Rect(left,top,right-left,bottom-top)))
-                    val converted=mat();Imgproc.cvtColor(sub,converted,Imgproc.COLOR_BGR2RGBA)
-                    val frame=Bitmap.createBitmap(sub.cols(),sub.rows(),Bitmap.Config.ARGB_8888);Utils.matToBitmap(converted,frame)
-                    val mp=BitmapImageBuilder(frame).build()
-                    val detected=try { landmarker.detect(mp).faceLandmarks() } finally { mp.close();frame.recycle() }
-                    if (detected.isNotEmpty()) {
-                        points=detected[0].map { Point(it.x().toDouble()*sub.cols()+left-x,it.y().toDouble()*sub.rows()+top-y) }
-                        report.put("landmark_margin_fraction",fraction);break
-                    }
-                }
-            }
-            // Keep the backing buffer reachable until after close() drains the graph.
-            check(modelBuffer.capacity()==assets.getValue("face_landmarker.task").size)
-            val landmarks=points ?: error("Face details could not be measured. Try a sharper, front-facing photo.")
+            val detection = FaceLandmarks.detect(context, square, rect, assets.getValue("face_landmarker.task"))
+                ?: error("Face details could not be measured. Try a sharper, front-facing photo.")
+            report.put("landmark_margin_fraction", detection.marginFraction)
+            val landmarks = detection.points.map { Point(it.x - x, it.y - y) }
             report.put("failed_stage","skin_mask")
             val hsv=mat();val ycc=mat();Imgproc.cvtColor(crop,hsv,Imgproc.COLOR_BGR2HSV);Imgproc.cvtColor(crop,ycc,Imgproc.COLOR_BGR2YCrCb)
             val hm=mat();val ym=mat();Core.inRange(hsv,Scalar(0.0,48.0,0.0),Scalar(20.0,255.0,255.0),hm)

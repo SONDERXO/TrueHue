@@ -2,6 +2,7 @@ package com.example.skintonecorrection.data
 
 import org.opencv.core.CvType
 import org.opencv.core.Mat
+import org.opencv.core.Point
 import org.opencv.dnn.Dnn
 import org.opencv.dnn.Net
 import java.io.File
@@ -33,6 +34,11 @@ internal class FaceOccResearchModel private constructor(private val net: Net) {
             net.setPreferableTarget(Dnn.DNN_TARGET_CPU)
             return FaceOccResearchModel(net)
         }
+    }
+
+    fun visibleMask(bgr: Mat, landmarks: List<Point>, template: DoubleArray): ByteArray {
+        val aligned = FaceOccGeometry.align(bgr, landmarks, template)
+        return FaceOccGeometry.reproject(logits(aligned.rgb), aligned.matrix, bgr.cols(), bgr.rows())
     }
 
     fun logits(rgb: ByteArray): FloatArray {
