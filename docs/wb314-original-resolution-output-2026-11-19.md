@@ -1,5 +1,11 @@
 # Original-size output implemented
 
+## Follow-up check on a real changed output
+
+The researcher reports sending the development Form and awaiting responses. While that round is open, a separate local engineering check reused the saved controls and masks for one existing development photo with documented excessive brightening. The source hash, exact 256-pixel input and cached primary render all matched before export. The lossless original-size PNG was 3072 × 4080, changed 1,303,600 pixels inside mapped application support, and preserved every protected or outside-support pixel. The PNG round trip was exact. The check decoded one already-bound JPEG and used zero new predictions, mask inference calls or fits. The frozen model and all existing review package hashes matched after export.
+
+The side-by-side preview still shows conspicuous brightening of the face and neck. The export passes geometry and pixel-preservation checks. Correction quality and mask accuracy remain unresolved. This case was selected to check an already-known failure, so it supplies no estimate of how frequently the problem occurs. The photos and detailed bindings are stored locally in `output/wb314-original-size-changed-check-2026-11-19/` and `outputs/wb314_original_size_changed_check_v1/`.
+
 The user requests corrected files at the original dimensions and aspect ratio, without resizing or stretching the output photograph. The research runner now renders the existing predicted controls on the original decoded RGB pixels. It does not enlarge the 256-pixel corrected preview to create the output.
 
 ## Processing and geometry
