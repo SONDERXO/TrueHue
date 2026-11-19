@@ -938,6 +938,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Separate MST-E evaluation-cohort assessment: eligibility not established](../wb314-mste-evaluation-eligibility-results-2026-11-18.md) — `docs/wb314-mste-evaluation-eligibility-results-2026-11-18.md`
 - [Repair the development packet's downsampling and presentation](../wb314-mste-packet-preparation-repair-2026-11-19.md) — `docs/wb314-mste-packet-preparation-repair-2026-11-19.md`
 - [MST-labelled packet V2: preparation repaired, appearance review pending](../wb314-mste-packet-preparation-repair-results-2026-11-19.md) — `docs/wb314-mste-packet-preparation-repair-results-2026-11-19.md`
+- [Normal-photo development-feedback package](../wb314-normal-photo-form-release-2026-11-19.md) — `docs/wb314-normal-photo-form-release-2026-11-19.md`
 - [One direct preview on the existing20normal photographs](../wb314-normal-photo-preview-protocol-2026-11-19.md) — `docs/wb314-normal-photo-preview-protocol-2026-11-19.md`
 - [Direct normal-photo preview: ten unchanged, ten adjusted, brightening concern](../wb314-normal-photo-preview-results-2026-11-19.md) — `docs/wb314-normal-photo-preview-results-2026-11-19.md`
 - [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`

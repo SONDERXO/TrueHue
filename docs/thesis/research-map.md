@@ -4,6 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
+| Current normal-photo Form selection | `docs/wb314-normal-photo-form-release-2026-11-19.md` | `scripts/release_wb314_normal_form_packet.py`; 20 exact primary copies, official MST/Form joins; separate alternatives excluded; live insertion pending |
 | Proposal and method differences | `docs/proposal-scope-validation-2026-11-03.md`; `docs/paper-alignment-reaudit-2026-11-15.md`; `docs/panel-change-register.md` | `src/utilities/config.py`; `docs/implementation-plan.md` |
 | Face/skin measurement and application support | `docs/face-mask-coverage-repair-results.md`; `docs/manual-mask-refinement-route-2026-11-09.md`; `docs/approved-ear-support-integration-2026-11-12.md` | `src/skin_masking/`; `src/demo/current_masking.py`; `src/demo/manual_refinement.py` |
 | ITA and MST | `docs/mst-method-retained.md`; `docs/refined-mst-assessment-results-2026-11-10.md`; `docs/reviewed-contextual-validation-results-2026-11-10.md`; `docs/combined-reviewed-mst-validation-results-2026-11-11.md`; `docs/calibration-residual-review-results-2026-11-11.md` | `src/ita_estimation/`; associated numbered preparation/verification scripts |

@@ -1242,6 +1242,40 @@
         "research_advisory_integrated": true,
         "scoped_cap_automatically_adopted": false
       }
+    },
+    "WB314_normal_photo_Form_release": {
+      "local_source": "outputs/wb314_normal_photo_expert_form_release_v1/summary.json",
+      "source_sha256": "027d9c848e158e2f42bf89dfc34dd1ac290512d96d8811bb4e62e92bc03b077b",
+      "values": {
+        "passed": true,
+        "round_id": "wb314_mste_normal_primary_development_round1_2026_11_19",
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "pairs": 20,
+        "subjects": 13,
+        "publisher_MST_categories": 10,
+        "exact_primary_PNG_copies": 20,
+        "exact_official_label_Form_slot_joins": 20,
+        "embedded_PNG_byte_checks": 20,
+        "normal_inputs_without_added_synthetic_distortion": true,
+        "protected_alternatives_included": false,
+        "questions_changed": false,
+        "existing_instrument_definitions_verified": true,
+        "intro_clarification_prepared": true,
+        "live_Form_updated": false,
+        "Form_images_inserted_by_agent": 0,
+        "connected_document_sessions": 0,
+        "live_Form_step_pending": true,
+        "expert_responses_accessed": 0,
+        "invitations_sent": 0,
+        "responses_submitted": 0,
+        "new_fits": 0,
+        "new_predictions": 0,
+        "new_correction_renders": 0,
+        "source_JPEG_reads": 0,
+        "new_human_ratings": 0,
+        "independent_final_validation": false,
+        "correction_model_finished": false
+      }
     }
   },
   "expert_preparation_status": {

@@ -105,6 +105,16 @@ def main():
         'WB314_facial_headroom_scope': ('outputs/wb314_facial_headroom_assessment_v1/summary.json', ['passed', 'gates', 'cases', 'model_sha256', 'policy', 'guard_module_sha256', 'prior_outputs_exact', 'prior_outputs', 'expected_normal_outputs_exact', 'normal_outputs', 'changed_controls', 'changed_control_scalar_checks', 'protected_outside_checks', 'input_immutability_checks', 'new_model_inference', 'new_fits', 'source_JPEG_decodes', 'mask_inference', 'automatic_integration_permitted', 'general_correction_necessity_proven', 'final_qualification_complete', 'expert_Form_changed', 'new_human_ratings']),
         'WB314_non_replacing_headroom_advisory': ('outputs/wb314_headroom_advisory_integration_v1/final_summary.json', ['passed', 'finalized', 'cached_cases', 'primary_RGB8_exact_previous', 'primary_controls_features_exact', 'candidate_exact_existing_scoped_outputs', 'separate_candidate_differences', 'input_immutability_checks', 'primary_and_candidate_arrays_independent', 'native_constructor_without_inference', 'cached_base_replay_calls', 'new_trained_model_or_encoder_inference', 'new_fits', 'new_guard_variant', 'headroom_applied_to_primary', 'automatic_highlight_repair', 'original_scoped_screen_pass', 'primary_policy', 'advisory_policy', 'model_sha256', 'primary_pipeline_qualification_complete', 'Android_defaults_changed', 'expert_Form_changed', 'new_human_ratings', 'generated_wrapper_tests', 'generated_fixture_and_sequence_issue_recorded', 'production_wrapper_unchanged_after_cached_replay', 'primary_preview_PNG_byte_joins', 'candidate_preview_PNG_checks', 'embedded_PNG_byte_and_dimension_checks', 'research_advisory_integrated', 'scoped_cap_automatically_adopted']),
     }
+    specs['WB314_normal_photo_Form_release'] = (
+        'outputs/wb314_normal_photo_expert_form_release_v1/summary.json',
+        ['passed', 'round_id', 'model_sha256', 'pairs', 'subjects', 'publisher_MST_categories',
+         'exact_primary_PNG_copies', 'exact_official_label_Form_slot_joins', 'embedded_PNG_byte_checks',
+         'normal_inputs_without_added_synthetic_distortion', 'protected_alternatives_included',
+         'questions_changed', 'existing_instrument_definitions_verified', 'intro_clarification_prepared',
+         'live_Form_updated', 'Form_images_inserted_by_agent', 'connected_document_sessions',
+         'live_Form_step_pending', 'expert_responses_accessed', 'invitations_sent', 'responses_submitted',
+         'new_fits', 'new_predictions', 'new_correction_renders', 'source_JPEG_reads',
+         'new_human_ratings', 'independent_final_validation', 'correction_model_finished'])
     for name, (source, keys) in specs.items():
         p = ROOT / source
         data = json.loads(p.read_text(encoding='utf-8'))
