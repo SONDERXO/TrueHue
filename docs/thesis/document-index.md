@@ -924,7 +924,11 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [WB314 V2 released for initial development feedback; Form insertion pending](../wb314-development-feedback-round1-release-2026-11-19.md) — `docs/wb314-development-feedback-round1-release-2026-11-19.md`
 - [The frozen candidate is ready for development-stage expert feedback](../wb314-expert-development-stage-clarification-2026-11-18.md) — `docs/wb314-expert-development-stage-clarification-2026-11-18.md`
 - [Existing expert form: read successfully; minimal alignment draft](../wb314-expert-feedback-preparation-2026-11-18.md) — `docs/wb314-expert-feedback-preparation-2026-11-18.md`
+- [Approved facial-measurement headroom scope specification](../wb314-facial-headroom-scope-proposal-2026-11-19.md) — `docs/wb314-facial-headroom-scope-proposal-2026-11-19.md`
+- [Facial-measurement scope assessment: one normal expectation fails](../wb314-facial-headroom-scope-results-2026-11-19.md) — `docs/wb314-facial-headroom-scope-results-2026-11-19.md`
 - [Frozen WB314: changed-output feedback accepted, research inference connected](../wb314-final-review-and-inference-results-2026-11-18.md) — `docs/wb314-final-review-and-inference-results-2026-11-18.md`
+- [Research headroom advisory integrated; primary edits unchanged](../wb314-headroom-advisory-integration-2026-11-19.md) — `docs/wb314-headroom-advisory-integration-2026-11-19.md`
+- [Clarified development feedback and public-safe status](../wb314-headroom-user-feedback-2026-11-19.md) — `docs/wb314-headroom-user-feedback-2026-11-19.md`
 - [One mathematical highlight-headroom repair assessment](../wb314-highlight-headroom-repair-protocol-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-protocol-2026-11-19.md`
 - [Highlight-headroom candidate: overflow reduced, exact-parity screen failed](../wb314-highlight-headroom-repair-results-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-results-2026-11-19.md`
 - [Larger expert comparisons: same V2 results, four-times viewing scale](../wb314-larger-expert-presentation-2026-11-19.md) — `docs/wb314-larger-expert-presentation-2026-11-19.md`

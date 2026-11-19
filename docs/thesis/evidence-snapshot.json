@@ -1150,6 +1150,98 @@
         "new_fits": 0,
         "new_model_calls": 0
       }
+    },
+    "WB314_headroom_confirmed_feedback": {
+      "local_source": "outputs/wb314_exposure_headroom_user_feedback_v1/publication_aggregate_summary.json",
+      "source_sha256": "2140451dc6ae54973d9cc6312807d607e4da29c2e700dea141d3dfbbdb371db3",
+      "values": {
+        "passed": true,
+        "clarification_complete": true,
+        "user_feedback_mixed": true,
+        "cap_adopted": false,
+        "active_model_changed": false,
+        "old_screen_still_failed": true,
+        "model_necessity_detection_proven": false,
+        "new_model_calls": 0,
+        "new_fits": 0,
+        "new_guard_variants": 0,
+        "guard_pixel_scope_diagnosis_complete": true,
+        "existing11_FFHQ_masks_available_hash_verified": true,
+        "followon_scope_proposal_executed": false
+      }
+    },
+    "WB314_facial_headroom_scope": {
+      "local_source": "outputs/wb314_facial_headroom_assessment_v1/summary.json",
+      "source_sha256": "92f9b7571246023d68b70c4840bf7251b69d7681db03158c42dd454778d7c391",
+      "values": {
+        "passed": false,
+        "gates": {
+          "all86_prior_outputs_exact": true,
+          "all20_expected_normal_outputs_exact": false,
+          "all10_normal_identities_preserved": true,
+          "protected_outside_and_inputs_preserved": true,
+          "old_global_screen_remains_failed": true
+        },
+        "cases": 106,
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "policy": "facial_measurement_luminance_headroom_v1",
+        "guard_module_sha256": "57503767419b6e8c65b363e459b5e724c62707c1f9ebf2d4e45a7fe10c87f909",
+        "prior_outputs_exact": 86,
+        "prior_outputs": 86,
+        "expected_normal_outputs_exact": 19,
+        "normal_outputs": 20,
+        "changed_controls": 2,
+        "changed_control_scalar_checks": 2,
+        "protected_outside_checks": 106,
+        "input_immutability_checks": 106,
+        "new_model_inference": 0,
+        "new_fits": 0,
+        "source_JPEG_decodes": 0,
+        "mask_inference": 0,
+        "automatic_integration_permitted": false,
+        "general_correction_necessity_proven": false,
+        "final_qualification_complete": false,
+        "expert_Form_changed": false,
+        "new_human_ratings": 0
+      }
+    },
+    "WB314_non_replacing_headroom_advisory": {
+      "local_source": "outputs/wb314_headroom_advisory_integration_v1/final_summary.json",
+      "source_sha256": "d85816ba268f2277e951c81be531bcc6b431547b17e886debad56d2821d300a0",
+      "values": {
+        "passed": true,
+        "finalized": true,
+        "cached_cases": 106,
+        "primary_RGB8_exact_previous": 106,
+        "primary_controls_features_exact": 106,
+        "candidate_exact_existing_scoped_outputs": 106,
+        "separate_candidate_differences": 2,
+        "input_immutability_checks": 106,
+        "primary_and_candidate_arrays_independent": true,
+        "native_constructor_without_inference": true,
+        "cached_base_replay_calls": 106,
+        "new_trained_model_or_encoder_inference": 0,
+        "new_fits": 0,
+        "new_guard_variant": false,
+        "headroom_applied_to_primary": false,
+        "automatic_highlight_repair": false,
+        "original_scoped_screen_pass": false,
+        "primary_policy": "unchanged_frozen_tree",
+        "advisory_policy": "facial_measurement_luminance_headroom_v1",
+        "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+        "primary_pipeline_qualification_complete": false,
+        "Android_defaults_changed": false,
+        "expert_Form_changed": false,
+        "new_human_ratings": 0,
+        "generated_wrapper_tests": 7,
+        "generated_fixture_and_sequence_issue_recorded": true,
+        "production_wrapper_unchanged_after_cached_replay": true,
+        "primary_preview_PNG_byte_joins": 20,
+        "candidate_preview_PNG_checks": 2,
+        "embedded_PNG_byte_and_dimension_checks": 22,
+        "research_advisory_integrated": true,
+        "scoped_cap_automatically_adopted": false
+      }
     }
   },
   "expert_preparation_status": {
@@ -1213,16 +1305,16 @@
     "expert_packet_automatically_changed": false
   },
   "repair_candidate_status": {
-    "source": "docs/wb314-highlight-headroom-repair-results-2026-11-19.md",
-    "kind": "fixed_quantization_aware_positive_exposure_cap",
-    "declared_screen_pass": false,
-    "prior86_exact_outputs_preserved": 85,
-    "prior_outputs_changed": 1,
-    "prior_changed_output_max_channel_difference": 1,
-    "normal_outputs_changed": 3,
-    "appearance_input_pending": true,
-    "active_wrapper_changed": false,
-    "candidate_adopted": false,
-    "all_normal_correction_necessity_solved": false
+    "source": "docs/wb314-headroom-advisory-integration-2026-11-19.md",
+    "mode": "non_replacing_advisory",
+    "research_advisory_integrated": true,
+    "primary_image_or_controls_changed": false,
+    "primary_cached_exact": 106,
+    "scoped_candidates_exact_existing": 106,
+    "automatic_headroom_cap_adopted": false,
+    "both_prior_cap_screens_remain_failed": true,
+    "automatic_normal_photo_overcorrection_fixed": false,
+    "private_case_decision_pending": false,
+    "per_image_feedback_public": false
   }
 }

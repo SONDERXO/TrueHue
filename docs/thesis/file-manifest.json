@@ -7,8 +7,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 582180,
-      "sha256": "0934cfb376e51cee4867e7f5a75f64e38528b12f0eaa45de6198483ecea0fddb"
+      "bytes": 583950,
+      "sha256": "e0c573d2a2fb79717946eaaace8be50f3e887318ce9a6976e4e2d7b0842fa959"
     },
     {
       "path": "PROJECT.html",
@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 20595,
-      "sha256": "eaef8d83f1ec77fe734b703d8949a0f48625862294fe8901cdac7ea6a4e7f5f7"
+      "bytes": 20676,
+      "sha256": "283c4c8e40a8589e1790ba8d1af586c850afc1780a0d2e076a5c48fa44e81a80"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -3957,8 +3957,8 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 95638,
-      "sha256": "7ca6abcf87963d024a4b166fd62174adcc0381f5a0ff49bf73225884a98f1de7"
+      "bytes": 97408,
+      "sha256": "01cf3375733e1d78b5faa93cc0c66c2318bf9f806672b4ef3c0312ca7a10a90c"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4577,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 8460,
-      "sha256": "cabfb12188e56586f7b5919ae0e3c2fc81997f22804b7683e58fa35c4bf46e60"
+      "bytes": 10496,
+      "sha256": "717dad6e9073b5fd5332b94a7eb79c90ddfab42a607344484aa6793f7b1b87aa"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 151594,
-      "sha256": "c68a60ba547169bae2475ee642afdd00ea646a18fc20034375d7ba7f43f80166"
+      "bytes": 152302,
+      "sha256": "9fe22fddb580e787f1d7448463f8f0b4d41ef03f8988df94d9638e55d5316908"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 44003,
-      "sha256": "8096126f5576fcc6ffa70881b86448d26d12b7baad440734211fa3ee91241c78"
+      "bytes": 48149,
+      "sha256": "d17ed6e6fe882b8fae5012b72c6db0eb210d157e0b0de31d3c329f3593227303"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "d699a075b90d5dc080310bcfe528d2088561315e5eabee60c9b20ee0e61cb9d8"
+      "sha256": "f9ffcfe16a85327001c2e6b02a0cef2f0555228d37a5d2d18481f417d1ed928f"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4602,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 9368,
-      "sha256": "1bae275a853942fbccba51ea66c54e0ec8b9218e881beaf9f9e4329df6a592a5"
+      "bytes": 10190,
+      "sha256": "47adbd65315b12a6a51232aa7fe25c16cb1901289005c4b2d029e8b68dd3d706"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4876,9 +4876,29 @@
       "sha256": "bda1346c3d59e9ed987722a441242237e40d5399b91ad77106f84bf7dc8ca0e4"
     },
     {
+      "path": "docs/wb314-facial-headroom-scope-proposal-2026-11-19.md",
+      "bytes": 3107,
+      "sha256": "a710d96f704a50964aeee4e4cd850cd992341f966093dfa6aee59f7deb884faa"
+    },
+    {
+      "path": "docs/wb314-facial-headroom-scope-results-2026-11-19.md",
+      "bytes": 4108,
+      "sha256": "58d176d254d35e63c583a8d0406f5ca13cd60e71707ddcc3f815b4b7c0b4a38b"
+    },
+    {
       "path": "docs/wb314-final-review-and-inference-results-2026-11-18.md",
       "bytes": 7198,
       "sha256": "4491ce4feeb5a31908068e5e21d02926f22f372fcd7a27740ceac2dc8d6d1333"
+    },
+    {
+      "path": "docs/wb314-headroom-advisory-integration-2026-11-19.md",
+      "bytes": 4915,
+      "sha256": "312618ed29e7546eb1fe4a98bde6601141461e3ae7f2552541a44160f7dd631d"
+    },
+    {
+      "path": "docs/wb314-headroom-user-feedback-2026-11-19.md",
+      "bytes": 2202,
+      "sha256": "02df785f2c1bbc43a6dbd5cc55930ab2f904ef846d464d52b9fe5f3caf7cb5ab"
     },
     {
       "path": "docs/wb314-highlight-headroom-repair-protocol-2026-11-19.md",
@@ -9511,6 +9531,11 @@
       "sha256": "e7869814830e9d46e1607ab64701f9f355bce34dec03bf62d340c755d7e8f4a7"
     },
     {
+      "path": "scripts/assess_wb314_facial_headroom.py",
+      "bytes": 7618,
+      "sha256": "ba73ec70b7a358306511609362c029c45492466004f1231eb086fecce8f9f696"
+    },
+    {
       "path": "scripts/assess_wb314_mste_evaluation_metadata.py",
       "bytes": 6977,
       "sha256": "93d05901b840bd2c2346b198723725692394fe3eb429d908cff2da57b1ac531b"
@@ -9706,6 +9731,11 @@
       "sha256": "4f113bbbd7c340fad95a0893554db9fd0ffa1becc380507580bdd17107c316ae"
     },
     {
+      "path": "scripts/check_wb314_headroom_advisory.py",
+      "bytes": 9820,
+      "sha256": "4819107ca53ac342059a7b3f8faa5372ad05e95ebb68837a579dba7c97cca3d0"
+    },
+    {
       "path": "scripts/check_wb314_research_inference.py",
       "bytes": 7884,
       "sha256": "4126e333b3852a69dee28a171cc9f56c796876bd56eba04e25efd807e30fbb06"
@@ -9804,6 +9834,11 @@
       "path": "scripts/finalize_piq23_feature_receipt.py",
       "bytes": 2367,
       "sha256": "6ea2f2b5e1c11940a1ba11904971f679cc932b9edddf4e0fdc602df9415216a0"
+    },
+    {
+      "path": "scripts/finalize_wb314_headroom_advisory.py",
+      "bytes": 4514,
+      "sha256": "c5f9e7fe5accaeb2af7d46b870b982f2509a3352d104094aac4829dc433ca3ca"
     },
     {
       "path": "scripts/finalize_wb314_predictor.py",
@@ -10002,8 +10037,8 @@
     },
     {
       "path": "scripts/prepare_thesis_web_handoff.py",
-      "bytes": 21528,
-      "sha256": "ab00cddda091080f58ff7be2a4fd6f2b91f5e9943f1d1f95e3bcd0f2fddb90ef"
+      "bytes": 23902,
+      "sha256": "1f01c67791ee136938d9b05d469bc661090f4827ef98f4cb1198aac0efae67d2"
     },
     {
       "path": "scripts/prepare_wb314_expert_feedback.py",
@@ -10469,6 +10504,11 @@
       "path": "scripts/verify_wb_cue_assessment_saved.py",
       "bytes": 3402,
       "sha256": "439bbe3e063b14c27ef403c57f94b2c0f71f81ff2fd789306de6ce7cab24dfa7"
+    },
+    {
+      "path": "scripts/wb314_headroom_advisory.py",
+      "bytes": 2833,
+      "sha256": "1ac72460155dcb7df8b1158f02682233eaff3ddf61de73d67cf4a7113320376e"
     },
     {
       "path": "scripts/wb314_research_predictor.py",
@@ -11169,6 +11209,11 @@
       "path": "src/model_training/facial_endpoint_features.py",
       "bytes": 973,
       "sha256": "c8abf2cdb9f3a243c898209c44c24498bf3ef32247ccc7254eec47c86d7d44bd"
+    },
+    {
+      "path": "src/model_training/facial_exposure_headroom.py",
+      "bytes": 1718,
+      "sha256": "57503767419b6e8c65b363e459b5e724c62707c1f9ebf2d4e45a7fe10c87f909"
     },
     {
       "path": "src/model_training/five_control_feature_preparation.py",
@@ -12056,6 +12101,11 @@
       "sha256": "eb4f5c4b01387448038f903f303a06ed894eec6311f2ed4671975d2bfc65b2c4"
     },
     {
+      "path": "tests/test_facial_exposure_headroom.py",
+      "bytes": 2273,
+      "sha256": "ae401d7d5b2d75367ec3c50a69cb31bdd615d0c878d02301ea929860df553304"
+    },
+    {
       "path": "tests/test_facial_hair_exclusion.py",
       "bytes": 2780,
       "sha256": "3e6e2213691944f0792655ebd078ac032a381bb24819bd82b8ff8f9290fd5f7e"
@@ -12614,6 +12664,11 @@
       "path": "tests/test_versioned_mouth_pipeline.py",
       "bytes": 1314,
       "sha256": "926f8e357fc9ddc4588d75d2852abf822ff16ff048300900b38bdb776f64a271"
+    },
+    {
+      "path": "tests/test_wb314_headroom_advisory.py",
+      "bytes": 2986,
+      "sha256": "48db70e90bd4127357cd1ca6510d4fc0163a464b86394db88abaff1b808ceb4d"
     },
     {
       "path": "tests/test_whole_scene_features.py",
