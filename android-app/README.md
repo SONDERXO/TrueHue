@@ -1,8 +1,12 @@
 # SkinToneCorrection — Android app (thesis)
 
+**Original-size export, 19 November 2026.** The Android prototype saves its corrected PNG at the photo's upright dimensions. Detection and measurement use a 256 × 256 analysis image. The app maps the mask back to the original frame and applies the current correction directly to those pixels. Files that exceed the available memory budget produce an error. The selected-skin preview displays the analysis mask.
+
+The debug APK built with JDK 21. Eighteen JVM unit tests and three API 35 emulator tests passed. The export test used a 2304 × 512 fixture derived from the existing reference image. It verified the saved dimensions, an actual correction inside the mapped mask, and exact preservation outside that mask. The test also ran alongside the previous square reference-pixel and no-face tests. Physical-phone memory, latency and the selected WB314 pipeline still require device verification.
+
 **WB314 preparation, 19 November 2026.** The Java WB314 renderer is available as a standalone component. A JVM check matched Python exactly on 32,000 generated RGB8 outputs across five control sets, including identity, positive and negative exposure, colour balance and feathered alpha. It also rejected an application mask that assigned nonzero alpha to a protected pixel. Run `scripts/verify_android_wb314_renderer.py --jdk <JDK> --output-dir <new-local-folder>` from the project root with the Python research environment.
 
-The current Android app still runs the older pipeline. Integration requires the selected model and matching feature and mask implementations, original-size decode and export, and a physical-device check of parity, memory use and latency. The standalone check covers already decoded opaque pixels and supplied masks.
+The current Android app runs the older model and mask pipeline. Integration requires the selected model and matching feature and mask implementations, followed by a physical-device check of parity, memory use and latency. The standalone renderer check covers already decoded opaque pixels and supplied masks.
 
 Latest: [5 November consultation demo polish and rebuild](../docs/android-consultation-update-2026-11-05.md).
 Before/trial toggle and expandable mask;18JVM tests pass, lint0errors/45warnings.

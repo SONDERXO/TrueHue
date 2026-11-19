@@ -8,7 +8,7 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Standing synchronization rule:** every model feature/change is followed by a repository update with its code, actual checks, evidence and limitations. See [repository update policy](docs/thesis/repository-update-policy.md). For thesis editing, retrieve the current branch checkpoint rather than relying on a previously read revision or older upload bundle.
 
-**Android renderer preparation.** The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. Phone integration, original-size Android export and device measurement remain pending. The Android app currently uses the older pipeline. See [Android implementation status](android-app/README.md).
+**Android prototype export.** Original-size PNG export now runs through the app with its older model and mask pipeline. The 2304 × 512 emulator fixture preserved dimensions and all pixels outside the mapped mask. Eighteen JVM unit tests and three emulator tests passed. The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. Integration of the selected model and physical-phone verification remain pending. See [Android implementation status](android-app/README.md).
 
 **Development round sent.** The researcher reports sending the Form and awaiting responses. One local rendering check has now verified a real changed output at original size using cached predictions. Protected and outside-support pixels were preserved. The known brightening concern was visible at full size. See the follow-up in [original-resolution output](docs/wb314-original-resolution-output-2026-11-19.md).
 

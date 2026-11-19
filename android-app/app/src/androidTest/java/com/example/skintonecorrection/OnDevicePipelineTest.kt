@@ -17,6 +17,53 @@ import java.io.File
 /** Must run on an emulator/phone. Compilation alone is not a pass. */
 @RunWith(AndroidJUnit4::class)
 class OnDevicePipelineTest {
+    @Test fun exportedCorrectionUsesOriginalPixelsAndDimensions() = runBlocking {
+        val test = InstrumentationRegistry.getInstrumentation()
+        val square = test.context.assets.open("pipeline_fixture/photo_used.png").use { BitmapFactory.decodeStream(it) }!!
+        val width = 2304
+        val height = 512
+        val original = Bitmap.createScaledBitmap(square, width, height, false)
+        square.recycle()
+        val file = File(test.targetContext.cacheDir, "original_size_test.png")
+        try {
+            file.outputStream().use { check(original.compress(Bitmap.CompressFormat.PNG, 100, it)) }
+            val repository = ImageRepository(test.targetContext)
+            val result = repository.runCorrection(Uri.fromFile(file))
+            assertTrue(result.message, result.success)
+            val saved = File(test.targetContext.cacheDir, "original_size_export.png")
+            repository.export(result.corrected!!, Uri.fromFile(saved))
+            val output = BitmapFactory.decodeFile(saved.path)!!
+            val mask = BitmapFactory.decodeFile(result.mask!!.path)!!
+            try {
+                assertEquals(width, output.width)
+                assertEquals(height, output.height)
+                var unchangedOutside = 0
+                var changedInside = 0
+                val before = IntArray(width)
+                val after = IntArray(width)
+                for (y in 0 until height) {
+                    original.getPixels(before, 0, width, 0, y, width, 1)
+                    output.getPixels(after, 0, width, 0, y, width, 1)
+                    for (x in 0 until width) {
+                        if (mask.getPixel(x / 9, y / 2) == -1) {
+                            if (before[x] != after[x]) changedInside++
+                        } else {
+                            assertEquals(before[x], after[x])
+                            unchangedOutside++
+                        }
+                    }
+                }
+                assertTrue(changedInside > 0)
+                assertTrue(unchangedOutside > 0)
+            } finally {
+                output.recycle()
+                mask.recycle()
+            }
+        } finally {
+            original.recycle()
+        }
+    }
+
     @Test fun noFaceFailsWithReportAndWithoutCorrectedImage()=runBlocking {
         val context=InstrumentationRegistry.getInstrumentation().targetContext
         val source=File(context.cacheDir,"no_face_test.png")

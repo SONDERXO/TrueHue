@@ -55,10 +55,10 @@ class OnDevicePipeline(private val context: Context) {
         try {
             report.put("failed_stage","resize")
             val rgba = mat();Utils.bitmapToMat(bitmap,rgba)
-            val full = mat();Imgproc.cvtColor(rgba,full,Imgproc.COLOR_RGBA2BGR)
-            val square = mat();Imgproc.resize(full,square,Size(256.0,256.0),0.0,0.0,Imgproc.INTER_LINEAR)
-            val inputRgba = mat();Imgproc.cvtColor(square,inputRgba,Imgproc.COLOR_BGR2RGBA)
-            val input = Bitmap.createBitmap(256,256,Bitmap.Config.ARGB_8888);Utils.matToBitmap(inputRgba,input)
+            val analysisRgba = mat()
+            Imgproc.resize(rgba,analysisRgba,Size(256.0,256.0),0.0,0.0,Imgproc.INTER_LINEAR)
+            rgba.release()
+            val square = mat();Imgproc.cvtColor(analysisRgba,square,Imgproc.COLOR_RGBA2BGR)
             report.put("failed_stage","face_detection")
             val detector = FaceDetectorYN.create(extracted("face_detection_yunet.onnx").absolutePath,"",Size(256.0,256.0),.85f,.3f,5000)
             val faces = mat();detector.detect(square,faces);report.put("face_count",faces.rows())
@@ -137,14 +137,54 @@ class OnDevicePipeline(private val context: Context) {
             report.put("features",org.json.JSONArray(vector.toList())).put("feature_names",org.json.JSONArray(features)).put("mst_estimate",mst)
             report.put("failed_stage","correction")
             val parameters=tree.predict(vector);report.put("parameters",org.json.JSONArray(parameters.toList()))
-            val inputPixels=IntArray(256*256);input.getPixels(inputPixels,0,256,0,0,256,256)
-            val correctedPixels=inputPixels.copyOf();val maskPixels=IntArray(256*256){0xff000000.toInt()};var changed=0
-            for (yy in 0 until h) for(xx in 0 until w) if(selected[yy*w+xx].toInt()!=0) {
-                val i=(y+yy)*256+x+xx;maskPixels[i]=-1;correctedPixels[i]=DevelopmentMath.correct(inputPixels[i],parameters)
-                if(correctedPixels[i]!=inputPixels[i])changed++
+            val maskPixels = IntArray(256 * 256) { 0xff000000.toInt() }
+            for (yy in 0 until h) for (xx in 0 until w) {
+                if (selected[yy * w + xx].toInt() != 0) maskPixels[(y + yy) * 256 + x + xx] = -1
             }
-            report.put("changed_pixels",changed).put("status","experimental_success").remove("failed_stage")
-            return PipelineImages(input,Bitmap.createBitmap(maskPixels,256,256,Bitmap.Config.ARGB_8888),Bitmap.createBitmap(correctedPixels,256,256,Bitmap.Config.ARGB_8888))
+            val previewMask = Bitmap.createBitmap(maskPixels, 256, 256, Bitmap.Config.ARGB_8888)
+            val corrected = try {
+                renderOriginalSize(bitmap, maskPixels) { DevelopmentMath.correct(it, parameters) }
+            } catch (error: Throwable) {
+                previewMask.recycle()
+                throw error
+            }
+            report.put("changed_pixels",corrected.changed)
+                .put("output_width",bitmap.width).put("output_height",bitmap.height)
+                .put("application_mask_mapping","nearest_from_square256")
+                .put("status","experimental_success").remove("failed_stage")
+            return PipelineImages(bitmap,previewMask,corrected.bitmap)
         } finally { owned.asReversed().forEach { it.release() } }
+    }
+}
+
+internal data class OriginalSizeRender(val bitmap: Bitmap, val changed: Int)
+
+/** Resize mask coordinates only. Use one row of scratch storage for original pixels. */
+internal fun renderOriginalSize(input: Bitmap, mask: IntArray, correct: (Int) -> Int): OriginalSizeRender {
+    require(mask.size == 256 * 256)
+    val width = input.width
+    val height = input.height
+    val output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).apply {
+        density = input.density
+    }
+    try {
+        val row = IntArray(width)
+        val maskX = IntArray(width) { (it.toLong() * 256 / width).toInt() }
+        var changed = 0
+        for (y in 0 until height) {
+            input.getPixels(row, 0, width, 0, y, width, 1)
+            val maskRow = (y.toLong() * 256 / height).toInt() * 256
+            for (x in row.indices) {
+                if (mask[maskRow + maskX[x]] != -1) continue
+                val pixel = correct(row[x])
+                if (pixel != row[x]) changed++
+                row[x] = pixel
+            }
+            output.setPixels(row, 0, width, 0, y, width, 1)
+        }
+        return OriginalSizeRender(output, changed)
+    } catch (error: Throwable) {
+        output.recycle()
+        throw error
     }
 }

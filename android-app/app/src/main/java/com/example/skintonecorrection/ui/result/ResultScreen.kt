@@ -43,7 +43,7 @@ fun ResultScreen(sharedViewModel:SharedViewModel,onReSelect:()->Unit){
                         FilterChip(selected=!showTrial,onClick={showTrial=false},label={Text("Before")})
                         FilterChip(selected=showTrial,onClick={showTrial=true},label={Text("Trial correction")})
                     }
-                    Text("Both views use the same 256 × 256 working image.",style=MaterialTheme.typography.bodySmall)
+                    Text("The saved photo keeps its original dimensions and aspect ratio.",style=MaterialTheme.typography.bodySmall)
                 }
             }
             OutlinedButton(onClick={showMask=!showMask},modifier=Modifier.fillMaxWidth()){Text(if(showMask) "Hide selected skin" else "Inspect selected skin")}

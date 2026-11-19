@@ -44,10 +44,15 @@ class ImageRepository(private val context:Context) {
             report.put("source_sha256",hash(bytes))
             val bounds=BitmapFactory.Options().apply{inJustDecodeBounds=true};BitmapFactory.decodeByteArray(bytes,0,bytes.size,bounds)
             require(bounds.outWidth>0 && bounds.outHeight>0){"This file could not be decoded as a photo."}
-            var sample=1;while(maxOf(bounds.outWidth,bounds.outHeight)/sample>2048)sample*=2
-            report.put("decoded_sampling",sample).put("source_width",bounds.outWidth).put("source_height",bounds.outHeight)
-                .put("decode_policy","Android subsampling to max2048 edge, EXIF orientation, then OpenCV square256; Python pixel parity pending")
-            val decoded=BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply{inSampleSize=sample;inPreferredConfig=Bitmap.Config.ARGB_8888})
+            val runtime = Runtime.getRuntime()
+            val headroom = runtime.maxMemory() - (runtime.totalMemory() - runtime.freeMemory())
+            val pixels = bounds.outWidth.toLong() * bounds.outHeight
+            require(pixels <= (headroom - 16L * 1024 * 1024) / 16) {
+                "This photo is too large to process at its original size on this phone."
+            }
+            report.put("decoded_sampling",1).put("source_width",bounds.outWidth).put("source_height",bounds.outHeight)
+                .put("decode_policy","Original dimensions, EXIF orientation, square256 analysis")
+            val decoded=BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply{inPreferredConfig=Bitmap.Config.ARGB_8888})
                 ?: error("The selected photo could not be decoded.")
             val orientation=bytes.inputStream().use { ExifInterface(it).getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_NORMAL) }
             report.put("exif_orientation",orientation)
@@ -59,10 +64,20 @@ class ImageRepository(private val context:Context) {
                 7->{matrix.setRotate(-90f);matrix.postScale(-1f,1f)}
                 8->matrix.setRotate(-90f)
             }
-            val upright=Bitmap.createBitmap(decoded,0,0,decoded.width,decoded.height,matrix,true)
+            val upright = try {
+                Bitmap.createBitmap(decoded,0,0,decoded.width,decoded.height,matrix,false)
+            } catch (error: Throwable) {
+                decoded.recycle()
+                throw error
+            }
+            if (upright !== decoded) decoded.recycle()
             try { images=OnDevicePipeline(context).run(upright,report) }
-            finally { if(upright!==decoded)upright.recycle();decoded.recycle() }
+            finally { if (images == null) upright.recycle() }
             message="Experimental correction finished. Inspect the result; it may be wrong."
+        } catch (error: OutOfMemoryError) {
+            report.put("status","failed")
+            message="This photo could not be processed at its original size with the available memory."
+            report.put("reason",message)
         } catch(error:LinkageError){
             report.put("status","failed");message="The local image engine is unavailable on this device. Save the report for diagnosis."
             report.put("reason",message).put("native_error",error.javaClass.simpleName);images=null
@@ -76,11 +91,32 @@ class ImageRepository(private val context:Context) {
                 val file=File(folder,name);file.outputStream().use { check(image.compress(Bitmap.CompressFormat.PNG,100,it)) }
                 return Uri.fromFile(file)
             }
-            try {input=save("photo_used.png",result.input);mask=save("skin_mask.png",result.mask);corrected=save("experimental_correction.png",result.corrected)}
+            try {
+                val beforeFile = save("photo_used.png",result.input)
+                val maskFile = save("skin_mask.png",result.mask)
+                val correctedFile = save("experimental_correction.png",result.corrected)
+                input = beforeFile
+                mask = maskFile
+                corrected = correctedFile
+            } catch (error: Exception) {
+                message = "The result could not be stored. Check available storage and try again."
+                report.put("status","failed").put("failed_stage","save").put("reason",message)
+            }
             finally{result.input.recycle();result.mask.recycle();result.corrected.recycle()}
         }
         report.put("elapsed_ms",(System.nanoTime()-started)/1e6).put("timing_scope","Includes asset initialization; not a benchmark")
-        val files=JSONObject();folder.listFiles()?.forEach { files.put(it.name,hash(it.readBytes())) };report.put("output_sha256",files)
+        val files=JSONObject();folder.listFiles()?.forEach { file ->
+            val digest = MessageDigest.getInstance("SHA-256")
+            file.inputStream().use { stream ->
+                val buffer = ByteArray(8192)
+                var count = stream.read(buffer)
+                while (count != -1) {
+                    digest.update(buffer, 0, count)
+                    count = stream.read(buffer)
+                }
+            }
+            files.put(file.name,digest.digest().joinToString(""){"%02x".format(it)})
+        };report.put("output_sha256",files)
         val reportFile=File(folder,"report.json");reportFile.writeText(report.toString(2))
         return CorrectionResult(input,mask,corrected,Uri.fromFile(reportFile),corrected!=null,message)
     }
