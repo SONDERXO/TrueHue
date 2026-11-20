@@ -2,6 +2,18 @@
   "checkpoint": "2026-11-19",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
+  "wb314_proposal_alignment": {
+    "source": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#cross-check-against-the-proposal",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "frozen_tree_split_nodes": 9,
+    "split_nodes_using_explicit_ita": 0,
+    "split_nodes_using_explicit_mst_score": 0,
+    "proposal_correction_scope": "Face only",
+    "research_correction_support_may_include_associated_neck": true,
+    "final_evaluation_direction_researcher_approved": true,
+    "exact_final_table_2_recipe_and_disparity_formula_resolved": false,
+    "required_formal_acceptance_verified": false
+  },
   "android_wb314_picker": {
     "source": "docs/android-wb314-picker-2026-11-19.md",
     "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
