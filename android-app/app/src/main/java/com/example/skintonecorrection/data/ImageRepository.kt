@@ -21,6 +21,8 @@ import java.util.UUID
 data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val report:Uri,val success:Boolean,val message:String,
                             val needsGlassesChoice: Boolean = false, val identityControls: Boolean = false)
 
+enum class CorrectionStage { PREPARING, CORRECTING, SAVING }
+
 /** Local processing. Failure never returns the original as a corrected result. */
 class ImageRepository internal constructor(
     private val context: Context,
@@ -29,10 +31,14 @@ class ImageRepository internal constructor(
     constructor(context: Context) : this(context, Wb314PhotoPipeline(context)::run)
 
     companion object { private val processingMutex=Mutex() }
-    suspend fun runCorrection(inputUri:Uri, glasses: GlassesChoice = GlassesChoice.UNCERTAIN):CorrectionResult=withContext(Dispatchers.IO) {
-        processingMutex.withLock { coroutineContext.ensureActive();runLocked(inputUri, glasses) }
+    suspend fun runCorrection(
+        inputUri: Uri,
+        glasses: GlassesChoice = GlassesChoice.UNCERTAIN,
+        onStage: (CorrectionStage) -> Unit = {}
+    ): CorrectionResult = withContext(Dispatchers.IO) {
+        processingMutex.withLock { coroutineContext.ensureActive();runLocked(inputUri, glasses, onStage) }
     }
-    private fun runLocked(inputUri:Uri, glasses: GlassesChoice):CorrectionResult {
+    private fun runLocked(inputUri: Uri, glasses: GlassesChoice, onStage: (CorrectionStage) -> Unit): CorrectionResult {
         val folder=File(context.noBackupFilesDir,"runs/"+UUID.randomUUID());check(folder.mkdirs())
         val report=JSONObject().put("schema_version","truehue_android_run_v1").put("status","failed")
             .put("experimental",true).put("quality_gate_passed",false).put("platform_pixel_parity_verified",false)
@@ -78,7 +84,10 @@ class ImageRepository internal constructor(
                 throw error
             }
             if (upright !== decoded) decoded.recycle()
-            try { images=pipeline(upright, glasses, report) }
+            try {
+                onStage(CorrectionStage.CORRECTING)
+                images = pipeline(upright, glasses, report)
+            }
             finally { if (images == null) upright.recycle() }
             message=if (report.optBoolean("identity_controls")) "WB314 left this photo unchanged."
                 else "Experimental correction finished. Inspect the result."
@@ -91,7 +100,7 @@ class ImageRepository internal constructor(
             message="This photo could not be processed at its original size with the available memory."
             report.put("reason",message)
         } catch(error:LinkageError){
-            report.put("status","failed");message="The local image engine is unavailable on this device. Save the report for diagnosis."
+            report.put("status","failed");message="The local image engine is unavailable on this device."
             report.put("reason",message).put("native_error",error.javaClass.simpleName);images=null
         } catch(error:Exception){
             report.put("status","failed");message=error.message ?: "The photo could not be processed. Try another photo."
@@ -104,6 +113,7 @@ class ImageRepository internal constructor(
                 return Uri.fromFile(file)
             }
             try {
+                onStage(CorrectionStage.SAVING)
                 val beforeFile = save("photo_used.png",result.input)
                 val maskFile = save("skin_mask.png",result.mask)
                 val correctedFile = save("experimental_correction.png",result.corrected)

@@ -1,6 +1,6 @@
 # SkinToneCorrection — Android app (thesis)
 
-**TrueHue layout, 20 November 2026.** The app follows the supplied Figma screens with a teal Home, separate selected-photo review, on-device progress and a draggable before/after comparison. Results show the actual output status and PNG size. The system picker, glasses prompt, comparison and save flow were exercised on API 35. [UI verification](../docs/android-wb314-picker-2026-11-19.md#figma-inspired-layout-20-november-2026)
+**TrueHue layout, 20 November 2026.** The app follows the supplied Figma screens with a teal Home, separate selected-photo review, on-device progress and a draggable before/after comparison. Results show the entire photo at its original aspect ratio. **Save photo** exports at the original upright dimensions. [UI verification](../docs/android-wb314-picker-2026-11-19.md#figma-inspired-layout-20-november-2026)
 
 **Glasses prompt, 20 November 2026.** Choose how to handle possible glasses during processing and continue with the same photo. The Android system picker, prompt and result screen were checked on the API 35 emulator. All 18 JVM and five emulator tests passed. [Glasses workflow](../docs/android-wb314-picker-2026-11-19.md#glasses-prompt-20-november-2026)
 

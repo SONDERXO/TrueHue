@@ -8,7 +8,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -44,50 +43,27 @@ fun ResultScreen(sharedViewModel: SharedViewModel, onBack: () -> Unit, onReSelec
     LaunchedEffect(before, after) { if (before == null || after == null) onBack() }
     if (before == null || after == null) return
     var message by rememberSaveable(after) { mutableStateOf("") }
-    var showMask by rememberSaveable(after) { mutableStateOf(false) }
     val info = photoInfo(after)
     val imageExport = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("image/png")) { destination ->
         if (destination != null) sharedViewModel.export(after, destination) { message = it }
     }
-    val reportExport = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { destination ->
-        val source = state.reportUri
-        if (destination != null && source != null) sharedViewModel.export(source, destination) { message = it }
-    }
-
     WorkflowPage(actions = {
-        WorkflowAction("Save full-size PNG", { imageExport.launch("truehue_correction.png") })
+        WorkflowAction("Save photo", { imageExport.launch("truehue_correction.png") })
         WorkflowAction("Try another photo", onReSelect, primary = false)
     }) {
         WorkflowHeader("Your results", onBack)
+        info?.let { PhotoComparison(before, after, it.width.toFloat() / it.height) }
         val unchanged = state.identityControls
         InfoPanel(if (unchanged) "No correction applied" else "Correction complete",
-            if (unchanged) "WB314 kept the original appearance." else "Compare with the original before saving.")
-        PhotoComparison(before, after, info?.let { it.width.toFloat() / it.height })
-        Surface(Modifier.fillMaxWidth(), shape = PhotoShape) {
-            Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text("Your export", style = MaterialTheme.typography.titleSmall)
-                Text(info?.let { "${it.resolution} · PNG" } ?: "Original size · PNG",
-                    style = MaterialTheme.typography.bodyMedium)
-            }
-        }
+            if (unchanged) "The original appearance was preserved." else "Your photo is ready to save.")
         if (message.isNotEmpty()) Text(message, style = MaterialTheme.typography.bodySmall)
-        state.maskUri?.let { mask ->
-            TextButton(onClick = { showMask = !showMask }) {
-                Text(if (showMask) "Hide correction mask" else "Inspect correction mask")
-            }
-            if (showMask) {
-                AsyncImage(mask, "Correction mask. White areas may be corrected.", Modifier.fillMaxWidth().height(220.dp),
-                    contentScale = ContentScale.Fit)
-            }
-        }
-        if (state.reportUri != null) TextButton(onClick = { reportExport.launch("truehue_report.json") }) { Text("Save report") }
     }
 }
 
 @Composable
-private fun PhotoComparison(before: Uri, after: Uri, ratio: Float?) {
+private fun PhotoComparison(before: Uri, after: Uri, aspectRatio: Float) {
     var split by rememberSaveable(before, after) { mutableFloatStateOf(.5f) }
-    val previewLimit = (LocalConfiguration.current.screenHeightDp * .28f).coerceIn(144f, 320f).dp
+    val previewLimit = (LocalConfiguration.current.screenHeightDp * .48f).coerceIn(180f, 560f).dp
     Surface(Modifier.fillMaxWidth(), shape = PhotoShape) {
         Column(Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Row(Modifier.fillMaxWidth().padding(bottom = 10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -95,12 +71,8 @@ private fun PhotoComparison(before: Uri, after: Uri, ratio: Float?) {
                 Text("After", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
             }
             BoxWithConstraints(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                val aspect = ratio ?: 1f
-                val photoWidth = maxWidth
-                val height = (photoWidth / aspect).coerceIn(100.dp, previewLimit)
-                val scale = if (photoWidth / aspect > previewLimit) ContentScale.Crop else ContentScale.Fit
-                Box(Modifier.width(photoWidth).height(height).clip(RoundedCornerShape(12.dp))
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                val photoWidth = maxWidth.coerceAtMost(previewLimit * aspectRatio)
+                Box(Modifier.width(photoWidth).aspectRatio(aspectRatio)
                     .pointerInput(before, after) {
                         detectHorizontalDragGestures(
                             onDragStart = { split = (it.x / size.width).coerceIn(0f, 1f) }
@@ -108,10 +80,10 @@ private fun PhotoComparison(before: Uri, after: Uri, ratio: Float?) {
                             split = (change.position.x / size.width).coerceIn(0f, 1f)
                         }
                     }) {
-                    AsyncImage(after, "Corrected photo", Modifier.matchParentSize(), contentScale = scale)
+                    AsyncImage(after, "Corrected photo", Modifier.matchParentSize(), contentScale = ContentScale.Fit)
                     AsyncImage(before, "Original photo", Modifier.matchParentSize().drawWithContent {
                         clipRect(right = size.width * split) { this@drawWithContent.drawContent() }
-                    }, contentScale = scale)
+                    }, contentScale = ContentScale.Fit)
                     Canvas(Modifier.matchParentSize()) {
                         val x = size.width * split
                         drawLine(Color.White, Offset(x, 0f), Offset(x, size.height), strokeWidth = 2.dp.toPx())

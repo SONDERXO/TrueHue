@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.example.skintonecorrection.data.CorrectionStage
 import com.example.skintonecorrection.data.GlassesChoice
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedUiState
@@ -51,6 +52,7 @@ class Wb314GlassesFlowTest {
             assertEquals(pending.message, ProcessingState.NEEDS_GLASSES_CHOICE, pending.processingState)
             assertEquals(glasses, pending.selectedImageUri)
             assertNull(pending.correctedImageUri)
+            assertEquals(CorrectionStage.CORRECTING, pending.correctionStage)
             val pendingReport = report(pending)
             assertEquals("needs_glasses_choice", pendingReport.getString("status"))
             assertEquals(0, pendingReport.getJSONObject("output_sha256").length())
@@ -59,6 +61,7 @@ class Wb314GlassesFlowTest {
             val corrected = settled()
             assertEquals(corrected.message, ProcessingState.SUCCESS, corrected.processingState)
             assertEquals(glasses, corrected.selectedImageUri)
+            assertEquals(CorrectionStage.SAVING, corrected.correctionStage)
             val correctedReport = report(corrected)
             assertEquals("clear", correctedReport.getString("glasses_choice"))
             assertEquals(pendingReport.getString("source_sha256"), correctedReport.getString("source_sha256"))
@@ -69,6 +72,7 @@ class Wb314GlassesFlowTest {
             val direct = settled()
             assertEquals(direct.message, ProcessingState.SUCCESS, direct.processingState)
             assertEquals(ordinary, direct.selectedImageUri)
+            assertEquals(CorrectionStage.SAVING, direct.correctionStage)
             assertEquals("uncertain", report(direct).getString("glasses_choice"))
             assertOriginalDimensions(ordinary, requireNotNull(direct.correctedImageUri))
         } finally {

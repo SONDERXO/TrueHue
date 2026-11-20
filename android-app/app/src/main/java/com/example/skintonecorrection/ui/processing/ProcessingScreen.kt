@@ -1,7 +1,6 @@
 package com.example.skintonecorrection.ui.processing
 
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -17,7 +16,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.example.skintonecorrection.R
+import com.example.skintonecorrection.data.CorrectionStage
 import com.example.skintonecorrection.data.GlassesChoice
+import com.example.skintonecorrection.ui.BrandMark
 import com.example.skintonecorrection.ui.PhotoShape
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedViewModel
@@ -26,11 +27,6 @@ import com.example.skintonecorrection.ui.WorkflowAction
 @Composable
 fun ProcessingScreen(sharedViewModel: SharedViewModel, onProcessingFinished: () -> Unit, onBack: () -> Unit) {
     val state by sharedViewModel.uiState.collectAsStateWithLifecycle()
-    var savedMessage by remember { mutableStateOf("") }
-    val saveReport = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { destination ->
-        val source = state.reportUri
-        if (destination != null && source != null) sharedViewModel.export(source, destination) { savedMessage = it }
-    }
     LaunchedEffect(state.processingState) {
         when (state.processingState) {
             ProcessingState.SUCCESS -> onProcessingFinished()
@@ -46,14 +42,7 @@ fun ProcessingScreen(sharedViewModel: SharedViewModel, onProcessingFinished: () 
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 when (state.processingState) {
-                    ProcessingState.PROCESSING -> {
-                        CircularProgressIndicator(Modifier.size(106.dp), strokeWidth = 7.dp,
-                            trackColor = MaterialTheme.colorScheme.surfaceVariant)
-                        Spacer(Modifier.height(16.dp))
-                        Text("Processing photo", style = MaterialTheme.typography.titleLarge)
-                        Text("Your photo is processed on this device.", style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
-                    }
+                    ProcessingState.PROCESSING -> CorrectionProgress(state.correctionStage)
                     ProcessingState.NEEDS_GLASSES_CHOICE -> {
                         AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(180.dp)
                             .clip(PhotoShape), contentScale = ContentScale.Fit)
@@ -70,14 +59,32 @@ fun ProcessingScreen(sharedViewModel: SharedViewModel, onProcessingFinished: () 
                         Text(state.message.ifEmpty { stringResource(R.string.error_processing_failed) },
                             color = MaterialTheme.colorScheme.error, textAlign = TextAlign.Center)
                         WorkflowAction("Back to photo", onBack)
-                        if (state.reportUri != null) TextButton(onClick = { saveReport.launch("truehue_failure_report.json") }) {
-                            Text("Save failure report")
-                        }
-                        if (savedMessage.isNotEmpty()) Text(savedMessage)
                     }
                     ProcessingState.IDLE, ProcessingState.SUCCESS -> Unit
                 }
             }
         }
     }
+}
+
+@Composable
+private fun CorrectionProgress(stage: CorrectionStage) {
+    val (percentage, detail) = when (stage) {
+        CorrectionStage.PREPARING -> 0 to "Preparing your photo…"
+        CorrectionStage.CORRECTING -> 33 to "Analyzing your photo and adjusting exposure and colour…"
+        CorrectionStage.SAVING -> 67 to "Getting your result ready…"
+    }
+    val fill by animateFloatAsState(percentage / 100f, label = "Correction progress")
+    BrandMark()
+    Text("Processing photo", style = MaterialTheme.typography.titleLarge)
+    Text(detail, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
+    Column(Modifier.widthIn(max = 320.dp).fillMaxWidth().padding(vertical = 6.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text("$percentage%", Modifier.align(Alignment.End), color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.titleLarge)
+        LinearProgressIndicator(progress = { fill }, modifier = Modifier.fillMaxWidth().height(8.dp),
+            trackColor = MaterialTheme.colorScheme.surfaceVariant)
+    }
+    Text("Your photo stays on this device.", style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
 }

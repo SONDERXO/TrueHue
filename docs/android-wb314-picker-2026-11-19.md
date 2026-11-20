@@ -14,9 +14,11 @@ A later Huawei nova 7i check completed 3072 × 4096 export but failed exact Pyth
 
 ## Figma-inspired layout, 20 November 2026
 
-The Android interface follows the researcher-supplied Home, Select, Process and Results screenshots. Home explains local processing and opens the Android photo picker. The selected-photo screen presents the actual image, encoded dimensions and file format. Processing uses an indeterminate progress ring and retains the existing glasses choice. Results show a draggable split and accessible slider, output status, saved dimensions and original-size PNG export through the Android document picker. The split can crop the preview to fit compact displays. The export uses the full image.
+The Android interface follows the researcher-supplied Home, Select, Process and Results screenshots. Home explains local processing and opens the Android photo picker. The selected-photo screen presents the actual image, encoded dimensions and file format. Processing shows a progress bar and status text as the app opens the photo, runs the correction and prepares the result. The percentages indicate completed stages of work. The existing glasses choice remains available. Results show the entire upright image at its original aspect ratio, with a draggable split and accessible slider. **Save photo** exports an original-size PNG through the Android document picker. The Results page omits file details and diagnostic controls.
 
 The compact API 35 emulator displayed the four screens, accepted the existing protected-glasses choice, moved the comparison divider and saved a PNG through Android's system UI. For the saved adjusted fixture, the resulting 512 × 768 PNG matched the existing Python reference pixel for pixel, including 40,902 pixels changed from the uncorrected input. The updated build passed 18 JVM tests and five emulator tests. This is interface evidence for the frozen research pipeline. Physical-device preservation qualification remains open.
+
+After the full-photo layout revision, the emulator showed the processing percentage and status text, fit the 512 × 768 portrait into a 205 × 308 comparison frame and saved it through **Save photo**. The saved PNG again matched the Python reference at 512 × 768. Eighteen JVM tests and five emulator tests passed, including stage checks on the glasses pause and successful correction paths.
 
 ## Glasses prompt, 20 November 2026
 

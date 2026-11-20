@@ -4,6 +4,7 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.skintonecorrection.data.CorrectionStage
 import com.example.skintonecorrection.data.ImageRepository
 import com.example.skintonecorrection.data.GlassesChoice
 import kotlinx.coroutines.CancellationException
@@ -18,12 +19,14 @@ data class SharedUiState(
     val selectedImageUri:Uri?=null,val correctedImageUri:Uri?=null,val photoUsedUri:Uri?=null,
     val maskUri:Uri?=null,val reportUri:Uri?=null,val processingState:ProcessingState=ProcessingState.IDLE,
     val errorMessageRes:Int?=null,val message:String="", val glasses: GlassesChoice = GlassesChoice.UNCERTAIN,
-    val identityControls: Boolean = false
+    val identityControls: Boolean = false,
+    val correctionStage: CorrectionStage = CorrectionStage.PREPARING
 )
 class SharedViewModel(application:Application):AndroidViewModel(application) {
     private val repository=ImageRepository(application)
     private val mutable=MutableStateFlow(SharedUiState());val uiState=mutable.asStateFlow()
-    private var job:Job?=null;private var generation=0
+    private var job:Job?=null
+    @Volatile private var generation=0
     fun selectImage(uri:Uri){job?.cancel();generation++;mutable.value=SharedUiState(selectedImageUri=uri)}
     fun continueWithGlasses(choice: GlassesChoice) {
         if (mutable.value.processingState != ProcessingState.NEEDS_GLASSES_CHOICE || choice == GlassesChoice.UNCERTAIN) return
@@ -35,10 +38,15 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
         if(mutable.value.processingState==ProcessingState.PROCESSING)return
         val glasses = mutable.value.glasses
         val token=++generation
-        mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="Processing locally…",identityControls=false)}
+        mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="",identityControls=false,
+            correctionStage = CorrectionStage.PREPARING)}
         job=viewModelScope.launch {
             try {
-                val result=repository.runCorrection(uri, glasses)
+                val result = repository.runCorrection(uri, glasses) { stage ->
+                    mutable.update { state ->
+                        if (token == generation) state.copy(correctionStage = stage) else state
+                    }
+                }
                 val next = when {
                     result.needsGlassesChoice -> ProcessingState.NEEDS_GLASSES_CHOICE
                     result.success -> ProcessingState.SUCCESS
