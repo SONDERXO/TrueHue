@@ -22,6 +22,17 @@ When responses arrive, report the overall 1–5 ratings and the four preference 
 
 Before selecting photos, reconcile this proposed protocol with the approved 70/15/15 split, five-fold validation and Table 2 conditions. The completed source-held runs used a different procedure. Final cohort eligibility, approved conditions and the final system freeze are pending.
 
+### Draft evaluation revision for approval
+
+> We propose reporting the 11 source-held WB314 runs as model development and replacing the proposed 70/15/15 split and five-fold procedure with a documented development set and a separate final evaluation cohort. Every final-test subject will be new to training, tuning and development review. All photographs and derived variants of a subject will stay together. After development feedback and any justified refinement, we will freeze the model and test protocol before evaluating the final cohort. We will compare the corrected and uncorrected images under declared exposure and colour conditions, verify preservation outside the permitted application area, and report results by independent reference MST group. We will report final expert ratings separately from quantitative results.
+
+| Decision for the thesis process | Recommended treatment |
+| --- | --- |
+| Split and folds | Approve the subject-disjoint final test and the accurate description of the 11 completed development folds. If the approved split and folds are required, define their training, model-selection and test roles before scheduling any new runs. |
+| Table 2 test conditions | Carry forward Table 2 as the starting point for controlled test inputs. Confirm the exact exposure and colour operations, severity by reference MST group, affected regions, and clean reference before testing. Score gamma, brightness and contrast challenges by image restoration and preservation. Use parameter MAE only for controls with a defined reference in WB314's parameterization. Record any change to Table 2 explicitly, including any proposed use of the development half-stop recipe. |
+
+The draft is prepared for review. Formal acceptance, the condition matrix and final cohort eligibility are open. The development-feedback round continues on the version already sent.
+
 The following decisions carry forward the existing study. The data, final version and unresolved proposal details require an execution-ready record before final evaluation.
 
 | Set now | Still required before execution |
