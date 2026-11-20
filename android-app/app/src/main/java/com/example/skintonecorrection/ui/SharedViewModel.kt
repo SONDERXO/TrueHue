@@ -4,6 +4,7 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.skintonecorrection.R
 import com.example.skintonecorrection.data.CorrectionStage
 import com.example.skintonecorrection.data.ImageRepository
 import com.example.skintonecorrection.data.GlassesChoice
@@ -56,7 +57,8 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
                     correctedImageUri=result.corrected,photoUsedUri=result.input,maskUri=result.mask,reportUri=result.report,message=result.message,
                     identityControls=result.identityControls)}
             }catch(cancelled:CancellationException){throw cancelled}
-            catch(error:Exception){if(token==generation)mutable.update{it.copy(processingState=ProcessingState.ERROR,message="The app could not finish: "+(error.message ?: "unknown error"))}}
+            catch(error:Exception){if(token==generation)mutable.update{it.copy(processingState=ProcessingState.ERROR,
+                message=getApplication<Application>().getString(R.string.error_processing_failed))}}
         }
     }
     fun export(source:Uri,destination:Uri,onFinished:(String)->Unit){viewModelScope.launch {

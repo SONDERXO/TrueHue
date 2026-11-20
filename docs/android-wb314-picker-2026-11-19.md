@@ -22,9 +22,13 @@ After the full-photo layout revision, the emulator showed the processing percent
 
 ## Glasses prompt, 20 November 2026
 
-The photo picker starts processing with glasses type unknown. When the parser flags possible glasses, the processing screen offers clear lenses or keeping the detected area protected. A choice resumes processing on the selected photo. Images with no glasses flag go directly to the result. The existing clear and protected mask rules are used after the choice.
+The photo picker starts processing with glasses type unknown. Only a parser glasses label inside the detected face can trigger the question. The screen offers **No glasses**, **Clear glasses**, and **Tinted glasses or unsure**. Each choice resumes the selected photo. **No glasses** dismisses the question and retains the conservative protection for any disputed pixels. A false label inside the face may still prompt.
 
-The API 35 emulator exercised the Android system photo picker, displayed the glasses prompt and reached the result screen after choosing clear lenses. The focused `Wb314GlassesFlowTest` used two saved inputs. It verified that the paused run saved no corrected image, the clear-lenses retry used the identical source digest and original dimensions, and the input with no parser glasses flag completed directly at its original dimensions. Both APKs built, with 18 JVM tests and five emulator tests passing. The test fixtures stayed local.
+The processing screen shows plain-language guidance for cases such as unclear facial features, insufficient visible skin and an unreadable photo. **Choose another photo** opens the system picker directly. Technical error details remain in the private run record.
+
+The updated build passed 18 JVM and seven emulator tests. Focused tests checked that a background label does not prompt, both **Clear glasses** and **No glasses** resume the same photo at its original dimensions, and technical exception text is restricted to the private report.
+
+The initial API 35 emulator check exercised the Android system photo picker, displayed the glasses prompt and reached the result screen after choosing clear lenses. The focused `Wb314GlassesFlowTest` used two saved inputs. It verified that the paused run saved no corrected image, the clear-lenses retry used the identical source digest and original dimensions, and the input with no parser glasses flag completed directly at its original dimensions. Both APKs built, with 18 JVM tests and five emulator tests passing. The test fixtures stayed local.
 
 ## Verification on 19 November 2026
 

@@ -25,7 +25,12 @@ import com.example.skintonecorrection.ui.SharedViewModel
 import com.example.skintonecorrection.ui.WorkflowAction
 
 @Composable
-fun ProcessingScreen(sharedViewModel: SharedViewModel, onProcessingFinished: () -> Unit, onBack: () -> Unit) {
+fun ProcessingScreen(
+    sharedViewModel: SharedViewModel,
+    onProcessingFinished: () -> Unit,
+    onBack: () -> Unit,
+    onPickPhoto: () -> Unit
+) {
     val state by sharedViewModel.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(state.processingState) {
         when (state.processingState) {
@@ -44,21 +49,24 @@ fun ProcessingScreen(sharedViewModel: SharedViewModel, onProcessingFinished: () 
                 when (state.processingState) {
                     ProcessingState.PROCESSING -> CorrectionProgress(state.correctionStage)
                     ProcessingState.NEEDS_GLASSES_CHOICE -> {
-                        AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(180.dp)
+                        AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(156.dp)
                             .clip(PhotoShape), contentScale = ContentScale.Fit)
                         Text(stringResource(R.string.glasses_prompt_title), style = MaterialTheme.typography.titleLarge)
                         Text(stringResource(R.string.glasses_prompt_hint), textAlign = TextAlign.Center)
-                        WorkflowAction(stringResource(R.string.glasses_protected),
-                            { sharedViewModel.continueWithGlasses(GlassesChoice.OPAQUE) })
+                        WorkflowAction(stringResource(R.string.glasses_none),
+                            { sharedViewModel.continueWithGlasses(GlassesChoice.NONE) })
                         WorkflowAction(stringResource(R.string.glasses_clear),
                             { sharedViewModel.continueWithGlasses(GlassesChoice.CLEAR) }, primary = false)
+                        WorkflowAction(stringResource(R.string.glasses_protected),
+                            { sharedViewModel.continueWithGlasses(GlassesChoice.OPAQUE) }, primary = false)
                         TextButton(onClick = onBack) { Text("Back to photo") }
                     }
                     ProcessingState.ERROR -> {
                         Text("Couldn’t process this photo", style = MaterialTheme.typography.titleLarge)
                         Text(state.message.ifEmpty { stringResource(R.string.error_processing_failed) },
                             color = MaterialTheme.colorScheme.error, textAlign = TextAlign.Center)
-                        WorkflowAction("Back to photo", onBack)
+                        WorkflowAction("Choose another photo", onPickPhoto)
+                        TextButton(onClick = onBack) { Text("Back to photo") }
                     }
                     ProcessingState.IDLE, ProcessingState.SUCCESS -> Unit
                 }

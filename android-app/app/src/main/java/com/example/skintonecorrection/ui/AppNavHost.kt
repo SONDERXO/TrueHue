@@ -56,7 +56,8 @@ fun AppNavHost(sharedViewModel: SharedViewModel = viewModel()) {
                 onProcessingFinished = {
                     navController.navigate(Routes.RESULT) { popUpTo(Routes.HOME) }
                 },
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onPickPhoto = pickPhoto
             )
         }
         composable(Routes.RESULT) {

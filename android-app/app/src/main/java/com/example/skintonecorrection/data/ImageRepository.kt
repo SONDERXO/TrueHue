@@ -5,7 +5,10 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
+import androidx.annotation.StringRes
 import androidx.exifinterface.media.ExifInterface
+import com.example.skintonecorrection.R
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.ensureActive
@@ -15,6 +18,7 @@ import kotlin.coroutines.coroutineContext
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileNotFoundException
 import java.security.MessageDigest
 import java.util.UUID
 
@@ -22,6 +26,9 @@ data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val 
                             val needsGlassesChoice: Boolean = false, val identityControls: Boolean = false)
 
 enum class CorrectionStage { PREPARING, CORRECTING, SAVING }
+
+internal class PhotoProcessingException(@StringRes val userMessage: Int, diagnostic: String) :
+    IllegalArgumentException(diagnostic)
 
 /** Local processing. Failure never returns the original as a corrected result. */
 class ImageRepository internal constructor(
@@ -51,22 +58,30 @@ class ImageRepository internal constructor(
             report.put("failed_stage","decode")
             val bytes=context.contentResolver.openInputStream(inputUri)?.use { stream ->
                 val out=ByteArrayOutputStream();val buffer=ByteArray(8192);var n=stream.read(buffer)
-                while(n!=-1){require(out.size()+n<=32*1024*1024){"This file is too large. Choose a smaller photo."};out.write(buffer,0,n);n=stream.read(buffer)}
+                while (n != -1) {
+                    if (out.size() + n > 32 * 1024 * 1024) {
+                        throw PhotoProcessingException(R.string.error_photo_too_large, "Input exceeds the file size limit")
+                    }
+                    out.write(buffer, 0, n)
+                    n = stream.read(buffer)
+                }
                 out.toByteArray()
-            } ?: error("The selected photo could not be opened. Select it again.")
+            } ?: throw PhotoProcessingException(R.string.error_photo_unavailable, "Photo stream is unavailable")
             report.put("source_sha256",hash(bytes))
             val bounds=BitmapFactory.Options().apply{inJustDecodeBounds=true};BitmapFactory.decodeByteArray(bytes,0,bytes.size,bounds)
-            require(bounds.outWidth>0 && bounds.outHeight>0){"This file could not be decoded as a photo."}
+            if (bounds.outWidth <= 0 || bounds.outHeight <= 0) {
+                throw PhotoProcessingException(R.string.error_photo_unreadable, "Could not decode photo dimensions")
+            }
             val runtime = Runtime.getRuntime()
             val headroom = runtime.maxMemory() - (runtime.totalMemory() - runtime.freeMemory())
             val pixels = bounds.outWidth.toLong() * bounds.outHeight
-            require(pixels <= (headroom - 16L * 1024 * 1024) / 16) {
-                "This photo is too large to process at its original size on this phone."
+            if (pixels > (headroom - 16L * 1024 * 1024) / 16) {
+                throw PhotoProcessingException(R.string.error_photo_too_large, "Insufficient memory for original dimensions")
             }
             report.put("decoded_sampling",1).put("source_width",bounds.outWidth).put("source_height",bounds.outHeight)
                 .put("decode_policy","Original dimensions, EXIF orientation, square256 analysis")
             val decoded=BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply{inPreferredConfig=Bitmap.Config.ARGB_8888})
-                ?: error("The selected photo could not be decoded.")
+                ?: throw PhotoProcessingException(R.string.error_photo_unreadable, "Photo decoder returned no bitmap")
             val orientation=bytes.inputStream().use { ExifInterface(it).getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_NORMAL) }
             report.put("exif_orientation",orientation)
             val matrix=Matrix()
@@ -95,16 +110,27 @@ class ImageRepository internal constructor(
             needsGlassesChoice = true
             message = requireNotNull(request.message)
             report.put("status", "needs_glasses_choice").put("reason", message).remove("failed_stage")
+        } catch (cancelled: CancellationException) {
+            throw cancelled
         } catch (error: OutOfMemoryError) {
             report.put("status","failed")
-            message="This photo could not be processed at its original size with the available memory."
-            report.put("reason",message)
+            message = context.getString(R.string.error_photo_too_large)
+            report.put("reason", "Insufficient memory for original dimensions")
         } catch(error:LinkageError){
-            report.put("status","failed");message="The local image engine is unavailable on this device."
-            report.put("reason",message).put("native_error",error.javaClass.simpleName);images=null
+            message = context.getString(R.string.error_correction_unavailable)
+            report.put("status", "failed").put("reason", error.message ?: error.javaClass.simpleName)
+                .put("native_error", error.javaClass.simpleName)
         } catch(error:Exception){
-            report.put("status","failed");message=error.message ?: "The photo could not be processed. Try another photo."
-            report.put("reason",message);images=null
+            val stage = report.optString("failed_stage")
+            val messageRes = when {
+                error is PhotoProcessingException -> error.userMessage
+                stage == "wb314_assets" -> R.string.error_correction_unavailable
+                stage == "decode" && (error is FileNotFoundException || error is SecurityException) -> R.string.error_photo_unavailable
+                stage == "decode" -> R.string.error_photo_unreadable
+                else -> R.string.error_processing_failed
+            }
+            message = context.getString(messageRes)
+            report.put("status", "failed").put("reason", error.message ?: error.javaClass.simpleName)
         }
         var input:Uri?=null;var mask:Uri?=null;var corrected:Uri?=null
         images?.let { result ->
@@ -121,8 +147,9 @@ class ImageRepository internal constructor(
                 mask = maskFile
                 corrected = correctedFile
             } catch (error: Exception) {
-                message = "The result could not be stored. Check available storage and try again."
-                report.put("status","failed").put("failed_stage","save").put("reason",message)
+                message = context.getString(R.string.error_result_storage)
+                report.put("status", "failed").put("failed_stage", "save")
+                    .put("reason", error.message ?: error.javaClass.simpleName)
             }
             finally{result.input.recycle();result.mask.recycle();result.corrected.recycle()}
         }

@@ -1,11 +1,13 @@
 package com.example.skintonecorrection.data
 
+import com.example.skintonecorrection.R
 import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.core.MatOfInt
 import org.opencv.core.MatOfPoint
 import org.opencv.core.MatOfPoint2f
 import org.opencv.core.Point
+import org.opencv.core.Rect
 import org.opencv.core.Scalar
 import org.opencv.core.Size
 import org.opencv.geometry.Geometry
@@ -13,7 +15,7 @@ import org.opencv.imgproc.Imgproc
 import kotlin.math.abs
 import kotlin.math.ceil
 
-enum class GlassesChoice { CLEAR, OPAQUE, UNCERTAIN }
+enum class GlassesChoice { CLEAR, OPAQUE, UNCERTAIN, NONE }
 
 internal class GlassesChoiceRequired : IllegalArgumentException("Choose how to handle detected glasses.")
 
@@ -42,9 +44,10 @@ internal object ResearchMaskRules {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(landmarks.size >= 468 && landmarks.all { abs(it.x) <= 1e6 && abs(it.y) <= 1e6 })
-        requireGlassesChoice(categories, glasses)
         val outline = polygon(landmarks, oval, 1.0, false, 128)
-        require(outline.any { it }) { "Face outline is outside the image" }
+        if (outline.none { it }) {
+            throw PhotoProcessingException(R.string.error_face_unclear, "Face outline is outside the image")
+        }
         val anatomical = featurePolygons.map { polygon(landmarks, it, 1.0, true, 1) }
         val nasalPolygonsRaster = nasalPolygons.map { polygon(landmarks, it, .1, true, 1) }
         val nasal = dilate(BooleanArray(PIXELS) { i -> nasalPolygonsRaster.any { it[i] } }, 1, Imgproc.MORPH_RECT)
@@ -69,7 +72,9 @@ internal object ResearchMaskRules {
         val selected = BooleanArray(PIXELS) { support[it] && !veto[it] }
         val ears = BooleanArray(PIXELS) { (categories[it] == 7.toByte() || categories[it] == 8.toByte()) && !veto[it] }
         val selectedWithEars = attached(BooleanArray(PIXELS) { selected[it] || ears[it] }, selected)
-        require(selectedWithEars.any { it }) { "No correction support remains after protection" }
+        if (selectedWithEars.none { it }) {
+            throw PhotoProcessingException(R.string.error_face_covered, "No correction support remains after protection")
+        }
         val width = maxOf(2, ceil(bounds.width * .03).toInt())
         val distance = distances(selectedWithEars)
         val alpha = DoubleArray(PIXELS) { i ->
@@ -80,12 +85,19 @@ internal object ResearchMaskRules {
         return Result(binary(baseline), binary(measurement), alpha, veto)
     }
 
-    fun requireGlassesChoice(categories: ByteArray, glasses: GlassesChoice) {
-        if (glasses == GlassesChoice.UNCERTAIN && 6.toByte() in categories) throw GlassesChoiceRequired()
+    fun requireGlassesChoice(categories: ByteArray, face: Rect, glasses: GlassesChoice) {
+        if (glasses != GlassesChoice.UNCERTAIN) return
+        for (y in face.y until face.y + face.height) {
+            for (x in face.x until face.x + face.width) {
+                if (categories[y * SIDE + x] == 6.toByte()) throw GlassesChoiceRequired()
+            }
+        }
     }
 
     private fun requireMeasurement(mask: BooleanArray) {
-        require(mask.count { it } >= 1_000) { "Insufficient facial measurement support" }
+        if (mask.count { it } < 1_000) {
+            throw PhotoProcessingException(R.string.error_face_covered, "Insufficient facial measurement support")
+        }
     }
 
     private fun protectedClass(label: Int) = when (label) {
@@ -147,7 +159,9 @@ internal object ResearchMaskRules {
         val raster = Mat.zeros(SIDE * RASTER_SCALE, SIDE * RASTER_SCALE, CvType.CV_8UC1)
         val downsampled = Mat()
         try {
-            require(abs(Geometry.contourArea(contour)) >= minArea) { "Degenerate facial geometry" }
+            if (abs(Geometry.contourArea(contour)) < minArea) {
+                throw PhotoProcessingException(R.string.error_face_unclear, "Degenerate facial geometry")
+            }
             var fill = high
             if (hull) {
                 Geometry.convexHull(high, hullIndices)

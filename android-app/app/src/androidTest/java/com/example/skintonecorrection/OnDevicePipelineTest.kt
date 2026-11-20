@@ -7,6 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.ImageRepository
 import com.example.skintonecorrection.data.OnDevicePipeline
+import com.example.skintonecorrection.data.PhotoProcessingException
 import com.example.skintonecorrection.ml.Wb314Features
 import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
@@ -110,6 +111,40 @@ class OnDevicePipelineTest {
         assertEquals("face_detection",report.getString("failed_stage"));assertEquals(0,report.getInt("face_count"))
         assertFalse(report.getBoolean("platform_pixel_parity_verified"))
     }
+
+    @Test fun photoErrorsGiveAdviceAndKeepDiagnosticsPrivate() = runBlocking {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val source = File.createTempFile("photo_error_", ".png", context.cacheDir)
+        val bitmap = Bitmap.createBitmap(16, 16, Bitmap.Config.ARGB_8888)
+        try {
+            source.outputStream().use { check(bitmap.compress(Bitmap.CompressFormat.PNG, 100, it)) }
+            val failures = listOf(
+                PhotoProcessingException(R.string.error_face_unclear, "Degenerate facial geometry") to R.string.error_face_unclear,
+                PhotoProcessingException(R.string.error_face_covered, "Insufficient facial measurement support") to R.string.error_face_covered,
+                IllegalStateException("Internal image engine error") to R.string.error_processing_failed
+            )
+            for ((failure, expectedMessage) in failures) {
+                val result = ImageRepository(context) { _, _, report ->
+                    report.put("failed_stage", "wb314_mask_and_correction")
+                    throw failure
+                }.runCorrection(Uri.fromFile(source))
+                val reportFile = File(requireNotNull(result.report.path))
+                try {
+                    assertFalse(result.success)
+                    assertNull(result.corrected)
+                    assertEquals(context.getString(expectedMessage), result.message)
+                    assertEquals(failure.message, JSONObject(reportFile.readText()).getString("reason"))
+                } finally {
+                    reportFile.delete()
+                    reportFile.parentFile?.delete()
+                }
+            }
+        } finally {
+            bitmap.recycle()
+            source.delete()
+        }
+    }
+
     @Test fun fixedKnownDevelopmentExampleMatchesPythonPixels(){
         val instrumentation=InstrumentationRegistry.getInstrumentation()
         val input=instrumentation.context.assets.open("pipeline_fixture/photo_used.png").use{BitmapFactory.decodeStream(it)}!!

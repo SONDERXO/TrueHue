@@ -17,10 +17,11 @@
     <string name="processing_title">Processing image…</string>
     <string name="processing_hint">Detecting the face, selecting skin, estimating ITA/MST and applying the experimental tree locally.</string>
     <string name="processing_done">Done! Preparing results…</string>
-    <string name="glasses_prompt_title">Possible glasses</string>
-    <string name="glasses_prompt_hint">Choose clear lenses if you want correction through them. For sunglasses or if you’re unsure, keep the detected area protected.</string>
-    <string name="glasses_clear">Continue with clear lenses</string>
-    <string name="glasses_protected">Keep glasses protected</string>
+    <string name="glasses_prompt_title">Is the person wearing glasses?</string>
+    <string name="glasses_prompt_hint">We spotted an area that might be glasses. Choose what you see in the photo.</string>
+    <string name="glasses_none">No glasses</string>
+    <string name="glasses_clear">Clear glasses</string>
+    <string name="glasses_protected">Tinted glasses or unsure</string>
 
     <!-- Result screen -->
     <string name="result_before">Original</string>
@@ -33,7 +34,16 @@
     <!-- Errors -->
     <string name="error_no_image_found">No valid image found</string>
     <string name="error_no_image_selected">No image selected</string>
-    <string name="error_processing_failed">Processing failed. Please try again.</string>
+    <string name="error_processing_failed">Something went wrong. Try again or choose a different photo.</string>
+    <string name="error_no_face">We couldn’t find a face. Choose a clear portrait with one person facing the camera.</string>
+    <string name="error_multiple_faces">We found more than one face. Choose a photo with just one person.</string>
+    <string name="error_face_unclear">We couldn’t clearly see the facial features. Try a closer, well-lit photo with the whole face visible.</string>
+    <string name="error_face_covered">We couldn’t find enough visible skin to make an adjustment. Try a photo with more of the face showing.</string>
+    <string name="error_photo_too_large">This photo is too large for your phone to process at its original size. Choose a smaller photo.</string>
+    <string name="error_photo_unavailable">We couldn’t open this photo. Select it again from your gallery.</string>
+    <string name="error_photo_unreadable">We couldn’t read this file as a photo. Try a different image, such as a JPEG or PNG.</string>
+    <string name="error_correction_unavailable">Photo correction couldn’t start. Reopen TrueHue and try again. If it keeps happening, check the app setup.</string>
+    <string name="error_result_storage">We couldn’t save the result. Free up some storage and try again.</string>
     <string name="back_to_home">Back to Home</string>
     <string name="go_back">Go Back</string>
 </resources>

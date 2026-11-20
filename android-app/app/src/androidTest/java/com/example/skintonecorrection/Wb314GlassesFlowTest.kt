@@ -10,6 +10,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.CorrectionStage
 import com.example.skintonecorrection.data.GlassesChoice
+import com.example.skintonecorrection.data.GlassesChoiceRequired
+import com.example.skintonecorrection.data.ResearchMaskRules
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedUiState
 import com.example.skintonecorrection.ui.SharedViewModel
@@ -23,10 +25,24 @@ import org.junit.Assert.*
 import org.junit.Assume.assumeTrue
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.opencv.core.Rect
 import java.io.File
 
 @RunWith(AndroidJUnit4::class)
 class Wb314GlassesFlowTest {
+    @Test fun aBackgroundLabelDoesNotTriggerTheGlassesQuestion() {
+        val categories = ByteArray(256 * 256)
+        val face = Rect(40, 50, 80, 100)
+        categories[49 * 256 + 40] = 6
+        ResearchMaskRules.requireGlassesChoice(categories, face, GlassesChoice.UNCERTAIN)
+
+        categories[50 * 256 + 40] = 6
+        assertThrows(GlassesChoiceRequired::class.java) {
+            ResearchMaskRules.requireGlassesChoice(categories, face, GlassesChoice.UNCERTAIN)
+        }
+        ResearchMaskRules.requireGlassesChoice(categories, face, GlassesChoice.NONE)
+    }
+
     @Test fun pausesForGlassesAndContinuesWithSamePhoto() = runBlocking {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         assumeTrue(InstrumentationRegistry.getArguments().getString("wb314GlassesFixture") == "true")
@@ -66,6 +82,19 @@ class Wb314GlassesFlowTest {
             assertEquals("clear", correctedReport.getString("glasses_choice"))
             assertEquals(pendingReport.getString("source_sha256"), correctedReport.getString("source_sha256"))
             assertOriginalDimensions(glasses, requireNotNull(corrected.correctedImageUri))
+
+            withContext(Dispatchers.Main) { vm.selectImage(glasses); vm.startProcessing() }
+            val confirmation = settled()
+            assertEquals(ProcessingState.NEEDS_GLASSES_CHOICE, confirmation.processingState)
+            assertEquals(pendingReport.getString("source_sha256"), report(confirmation).getString("source_sha256"))
+            withContext(Dispatchers.Main) { vm.continueWithGlasses(GlassesChoice.NONE) }
+            val noGlasses = settled()
+            assertEquals(noGlasses.message, ProcessingState.SUCCESS, noGlasses.processingState)
+            assertEquals(glasses, noGlasses.selectedImageUri)
+            val noGlassesReport = report(noGlasses)
+            assertEquals("none", noGlassesReport.getString("glasses_choice"))
+            assertEquals(pendingReport.getString("source_sha256"), noGlassesReport.getString("source_sha256"))
+            assertOriginalDimensions(glasses, requireNotNull(noGlasses.correctedImageUri))
 
             val ordinary = Uri.fromFile(File(fixture, "ordinary_input.png"))
             withContext(Dispatchers.Main) { vm.selectImage(ordinary); vm.startProcessing() }

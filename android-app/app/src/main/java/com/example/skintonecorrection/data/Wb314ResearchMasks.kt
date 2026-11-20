@@ -1,6 +1,7 @@
 package com.example.skintonecorrection.data
 
 import android.content.Context
+import com.example.skintonecorrection.R
 import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.core.Rect
@@ -42,11 +43,10 @@ internal class Wb314ResearchMasks(
     fun generate(bgr: Mat, glasses: GlassesChoice): Result {
         require(bgr.type() == CvType.CV_8UC3 && bgr.rows() == side && bgr.cols() == side)
         val face = detectFace(bgr)
-        val landmarks = requireNotNull(FaceLandmarks.detect(context, bgr, face, landmarker)) {
-            "Required landmarks unavailable"
-        }
+        val landmarks = FaceLandmarks.detect(context, bgr, face, landmarker)
+            ?: throw PhotoProcessingException(R.string.error_face_unclear, "Required landmarks unavailable")
         val categories = parser.categories(bgr)
-        ResearchMaskRules.requireGlassesChoice(categories, glasses)
+        ResearchMaskRules.requireGlassesChoice(categories, face, glasses)
         val visible = faceOcc.visibleMask(bgr, landmarks.points, template)
         val masks = ResearchMaskRules.build(categories, landmarks.points, visible, glasses)
         return Result(face, categories, visible, masks)
@@ -58,13 +58,18 @@ internal class Wb314ResearchMasks(
             detector.detect(bgr, detected)
             // Each output row is 15 scalar CV_32F entries, with confidence at column 14.
             val faces = (0 until detected.rows()).filter { row -> detected.get(row, 14)[0] >= .85f.toDouble() }
-            require(faces.size == 1) { "Exactly one face required" }
+            if (faces.size != 1) {
+                val message = if (faces.isEmpty()) R.string.error_no_face else R.string.error_multiple_faces
+                throw PhotoProcessingException(message, "Expected one face, found ${faces.size}")
+            }
             val row = faces.single()
             val x = detected.get(row, 0)[0].toInt().coerceIn(0, side)
             val y = detected.get(row, 1)[0].toInt().coerceIn(0, side)
             val width = minOf(detected.get(row, 2)[0].toInt(), side - x).coerceAtLeast(1)
             val height = minOf(detected.get(row, 3)[0].toInt(), side - y).coerceAtLeast(1)
-            require(x + width <= side && y + height <= side) { "Face box outside analysis frame" }
+            if (x + width > side || y + height > side) {
+                throw PhotoProcessingException(R.string.error_face_unclear, "Face box outside analysis frame")
+            }
             return Rect(x, y, width, height)
         } finally {
             detected.release()
