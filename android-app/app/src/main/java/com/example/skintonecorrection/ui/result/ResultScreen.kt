@@ -49,8 +49,10 @@ fun ResultScreen(sharedViewModel: SharedViewModel, onBack: () -> Unit, onReSelec
         if (destination != null) sharedViewModel.export(after, destination) { message = it }
     }
     WorkflowPage(actions = {
-        WorkflowAction("Save photo", { imageExport.launch("truehue_correction.png") })
-        WorkflowAction("Try another photo", onReSelect, primary = false)
+        if (!state.identityControls) {
+            WorkflowAction("Save photo", { imageExport.launch("truehue_correction.png") })
+        }
+        WorkflowAction("Try another photo", onReSelect, primary = state.identityControls)
     }) {
         WorkflowHeader("Your results", onBack)
         if (state.identityControls) {

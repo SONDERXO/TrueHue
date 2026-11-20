@@ -2,9 +2,9 @@
 
 The picker passes the selected photo and glasses choice to WB314. The app decodes the photo at full size, applies EXIF orientation and makes one 256 × 256 area-resized analysis image. That image feeds both automatic mask generation and feature extraction for the frozen WB314 tree. The renderer maps the selected support to the upright original and exports a PNG at its original dimensions. Protected and outside-support pixels receive no correction. The mask preview shows the analysis-resolution application support.
 
-Choose clear or opaque lenses when appropriate. If the parser detects glasses and the selection is unsure, the app asks for a choice before applying correction. When WB314 selects identity controls, Results opens with **Photo kept unchanged** and explains that TrueHue kept the original brightness and colour. It shows one full-photo preview and offers the usual save action. The message reports the model’s decision on that photo.
+Choose clear or opaque lenses when appropriate. If the parser detects glasses and the selection is unsure, the app asks for a choice before applying correction. When WB314 selects identity controls, Results opens with **Photo kept unchanged** and explains that TrueHue kept the original brightness and colour. It shows one full-photo preview and offers **Try another photo**. **Save photo** is available on corrected results. The message reports the model’s decision on that photo.
 
-On 21 November, the API 35 emulator showed the explanation, full photo and save button together for a known identity case. All 18 JVM tests passed. The build installed and opened on the Huawei with all eight model assets verified.
+In the initial 21 November unchanged-message build, the API 35 emulator showed the explanation and full photo for a known identity case. All 18 JVM tests passed. The build installed and opened on the Huawei with all eight model assets verified. The later button change was checked on both unchanged and corrected emulator results, including opening the save dialog for a corrected photo. The updated build installed and opened on the Huawei.
 
 ## Local research build
 
