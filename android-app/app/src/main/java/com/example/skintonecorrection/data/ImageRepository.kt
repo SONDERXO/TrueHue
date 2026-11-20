@@ -19,7 +19,7 @@ import java.security.MessageDigest
 import java.util.UUID
 
 data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val report:Uri,val success:Boolean,val message:String,
-                            val needsGlassesChoice: Boolean = false)
+                            val needsGlassesChoice: Boolean = false, val identityControls: Boolean = false)
 
 /** Local processing. Failure never returns the original as a corrected result. */
 class ImageRepository internal constructor(
@@ -130,7 +130,8 @@ class ImageRepository internal constructor(
             files.put(file.name,digest.digest().joinToString(""){"%02x".format(it)})
         };report.put("output_sha256",files)
         val reportFile=File(folder,"report.json");reportFile.writeText(report.toString(2))
-        return CorrectionResult(input,mask,corrected,Uri.fromFile(reportFile),corrected!=null,message,needsGlassesChoice)
+        return CorrectionResult(input,mask,corrected,Uri.fromFile(reportFile),corrected!=null,message,needsGlassesChoice,
+            corrected != null && report.optBoolean("identity_controls"))
     }
     suspend fun export(source:Uri,destination:Uri)=withContext(Dispatchers.IO) {
         context.contentResolver.openInputStream(source).use { input ->

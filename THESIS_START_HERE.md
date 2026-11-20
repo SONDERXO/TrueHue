@@ -24,6 +24,8 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Android glasses prompt.** The app pauses and asks how to handle glasses when the parser flags them. After a choice it processes the same photo. Emulator checks exercised the system picker and verified original-size results on the prompt and direct paths. This is an app workflow change. [Glasses workflow](docs/android-wb314-picker-2026-11-19.md#glasses-prompt-20-november-2026)
 
+**Android interface update.** The four Figma-inspired screens include selected-photo metadata, on-device processing and a before/after slider. An original-size PNG saved through the updated emulator interface matched the existing Python reference for the adjusted fixture. [UI verification](docs/android-wb314-picker-2026-11-19.md#figma-inspired-layout-20-november-2026)
+
 **Android prototype export.** The earlier trial pipeline preserved dimensions and all pixels outside the mapped mask on a 2304 × 512 emulator fixture. The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. See [Android implementation status](android-app/README.md).
 
 **Android WB314 tree loader.** The compiled loader matched Python's leaf and five controls on all 86 saved development vectors and 27 threshold probes. This establishes JVM parity for supplied inputs.

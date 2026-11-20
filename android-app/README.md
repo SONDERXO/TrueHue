@@ -1,5 +1,7 @@
 # SkinToneCorrection — Android app (thesis)
 
+**TrueHue layout, 20 November 2026.** The app follows the supplied Figma screens with a teal Home, separate selected-photo review, on-device progress and a draggable before/after comparison. Results show the actual output status and PNG size. The system picker, glasses prompt, comparison and save flow were exercised on API 35. [UI verification](../docs/android-wb314-picker-2026-11-19.md#figma-inspired-layout-20-november-2026)
+
 **Glasses prompt, 20 November 2026.** Choose how to handle possible glasses during processing and continue with the same photo. The Android system picker, prompt and result screen were checked on the API 35 emulator. All 18 JVM and five emulator tests passed. [Glasses workflow](../docs/android-wb314-picker-2026-11-19.md#glasses-prompt-20-november-2026)
 
 **Huawei physical-device check, 19 November 2026.** WB314 installed, launched and exported a 3072 × 4096 PNG on a Huawei nova 7i. The adjusted case failed Python parity after a difference in FaceOcc visibility. The identity case stayed pixel-identical. See [phone verification](../docs/android-wb314-huawei-check-2026-11-19.md).

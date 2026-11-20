@@ -1,170 +1,53 @@
 package com.example.skintonecorrection.ui.home
 
-import android.net.Uri
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
-import com.example.skintonecorrection.R
-import com.example.skintonecorrection.ui.SharedViewModel
-import kotlinx.coroutines.launch
+import com.example.skintonecorrection.ui.BrandMark
+import com.example.skintonecorrection.ui.InfoPanel
+import com.example.skintonecorrection.ui.WorkflowAction
+import com.example.skintonecorrection.ui.WorkflowPage
 
-/**
- * Home / gallery-selection screen.
- *
- * Responsibilities (all handled here for now):
- *  - Open the Android Photo Picker when "Select Photo" is tapped.
- *  - Show a preview of the chosen image (or a placeholder).
- *  - Confirm the selection with a Snackbar that includes the picked URI.
- *  - Enable "Process Image" once a photo exists, then hand off to the Processing screen.
- *
- * The URI is stored in the shared [SharedViewModel] so later screens can use it.
- */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
-    sharedViewModel: SharedViewModel,
-    onProcessClick: () -> Unit,
-) {
-    val uiState by sharedViewModel.uiState.collectAsStateWithLifecycle()
-
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    val context = LocalContext.current
-
-    // System Photo Picker (works on all API 24+ devices; on Android 13+ it uses the
-    // native photo picker, on older versions the compat library falls back gracefully).
-    // NOTE: no storage permission is required - the picker grants per-URI read access.
-    val pickImageLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.PickVisualMedia()
-    ) { uri: Uri? ->
-        when (uri) {
-            // User cancelled, or the picker could not resolve an image.
-            null -> scope.launch {
-                snackbarHostState.showSnackbar(context.getString(R.string.photo_selection_cancelled))
-            }
-            else -> {
-                // Store the selection and confirm it (placeholder behaviour per the
-                // milestone: just report the URI, no processing yet).
-                sharedViewModel.selectImage(uri)
-                scope.launch {
-                    snackbarHostState.showSnackbar(context.getString(R.string.photo_selected))
-                }
+fun HomeScreen(onPickPhoto: () -> Unit) {
+    WorkflowPage(actions = { WorkflowAction("Select photo from gallery", onPickPhoto) }) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            BrandMark()
+            Column {
+                Text("TrueHue", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+                Text("On-device portrait correction", style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
-    }
-
-    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) }) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 24.dp, vertical = 32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            // ---- Title + description -------------------------------------------------
-            Text(
-                text = stringResource(R.string.app_title),
-                style = MaterialTheme.typography.headlineMedium,
-                textAlign = TextAlign.Center,
+        Text("Correct facial exposure and colour in a portrait. Compare the result with the original before saving.",
+            color = MaterialTheme.colorScheme.onSurfaceVariant)
+        InfoPanel("Private by design", "Your photos are processed on your phone.")
+        Column(verticalArrangement = Arrangement.spacedBy(13.dp)) {
+            Text("How it works", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            val steps = listOf(
+                "Choose a portrait" to "Use a clear photo of one person.",
+                "Apply correction" to "TrueHue finds the face and adjusts exposure and colour.",
+                "Compare and save" to "Review the difference, then save a full-size copy."
             )
-            Spacer(modifier = Modifier.height(12.dp))
-            Text(
-                text = stringResource(R.string.home_description),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // ---- Selected photo preview (or placeholder) -----------------------------
-            val selectedUri = uiState.selectedImageUri
-            if (selectedUri != null) {
-                Card(modifier = Modifier.fillMaxWidth()) {
-                    AsyncImage(
-                        model = selectedUri,
-                        contentDescription = stringResource(R.string.selected_photo_preview),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(240.dp),
-                        contentScale = ContentScale.Fit,
-                    )
+            steps.forEachIndexed { index, (title, detail) ->
+                Row(horizontalArrangement = Arrangement.spacedBy(11.dp)) {
+                    Surface(shape = CircleShape, color = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary) {
+                        Box(Modifier.size(25.dp), contentAlignment = Alignment.Center) {
+                            Text((index + 1).toString(), style = MaterialTheme.typography.labelSmall)
+                        }
+                    }
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(title, style = MaterialTheme.typography.titleSmall)
+                        Text(detail, style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
                 }
-            } else {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(240.dp)
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = stringResource(R.string.no_photo_selected),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // ---- Buttons --------------------------------------------------------------
-            Text(
-                text = "Choose a clear photo of one person facing the camera.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-            Button(
-                onClick = {
-                    pickImageLauncher.launch(
-                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                    )
-                },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(text = stringResource(R.string.select_photo))
-            }
-            Spacer(modifier = Modifier.height(12.dp))
-            Button(
-                onClick = onProcessClick,
-                enabled = selectedUri != null && uiState.processingState != com.example.skintonecorrection.ui.ProcessingState.PROCESSING,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(text = stringResource(R.string.process_image))
             }
         }
     }

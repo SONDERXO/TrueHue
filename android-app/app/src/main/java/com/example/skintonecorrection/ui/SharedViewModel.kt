@@ -17,7 +17,8 @@ enum class ProcessingState { IDLE, PROCESSING, NEEDS_GLASSES_CHOICE, SUCCESS, ER
 data class SharedUiState(
     val selectedImageUri:Uri?=null,val correctedImageUri:Uri?=null,val photoUsedUri:Uri?=null,
     val maskUri:Uri?=null,val reportUri:Uri?=null,val processingState:ProcessingState=ProcessingState.IDLE,
-    val errorMessageRes:Int?=null,val message:String="", val glasses: GlassesChoice = GlassesChoice.UNCERTAIN
+    val errorMessageRes:Int?=null,val message:String="", val glasses: GlassesChoice = GlassesChoice.UNCERTAIN,
+    val identityControls: Boolean = false
 )
 class SharedViewModel(application:Application):AndroidViewModel(application) {
     private val repository=ImageRepository(application)
@@ -34,7 +35,7 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
         if(mutable.value.processingState==ProcessingState.PROCESSING)return
         val glasses = mutable.value.glasses
         val token=++generation
-        mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="Processing locally…")}
+        mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="Processing locally…",identityControls=false)}
         job=viewModelScope.launch {
             try {
                 val result=repository.runCorrection(uri, glasses)
@@ -44,7 +45,8 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
                     else -> ProcessingState.ERROR
                 }
                 if(token==generation)mutable.update{it.copy(processingState=next,
-                    correctedImageUri=result.corrected,photoUsedUri=result.input,maskUri=result.mask,reportUri=result.report,message=result.message)}
+                    correctedImageUri=result.corrected,photoUsedUri=result.input,maskUri=result.mask,reportUri=result.report,message=result.message,
+                    identityControls=result.identityControls)}
             }catch(cancelled:CancellationException){throw cancelled}
             catch(error:Exception){if(token==generation)mutable.update{it.copy(processingState=ProcessingState.ERROR,message="The app could not finish: "+(error.message ?: "unknown error"))}}
         }

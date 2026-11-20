@@ -12,6 +12,12 @@ The APK contains the app code. The WB314 model, mapping, white-balance bank, par
 
 A later Huawei nova 7i check completed 3072 × 4096 export but failed exact Python parity and protection. [Physical-phone evidence](android-wb314-huawei-check-2026-11-19.md)
 
+## Figma-inspired layout, 20 November 2026
+
+The Android interface follows the researcher-supplied Home, Select, Process and Results screenshots. Home explains local processing and opens the Android photo picker. The selected-photo screen presents the actual image, encoded dimensions and file format. Processing uses an indeterminate progress ring and retains the existing glasses choice. Results show a draggable split and accessible slider, output status, saved dimensions and original-size PNG export through the Android document picker. The split can crop the preview to fit compact displays. The export uses the full image.
+
+The compact API 35 emulator displayed the four screens, accepted the existing protected-glasses choice, moved the comparison divider and saved a PNG through Android's system UI. For the saved adjusted fixture, the resulting 512 × 768 PNG matched the existing Python reference pixel for pixel, including 40,902 pixels changed from the uncorrected input. The updated build passed 18 JVM tests and five emulator tests. This is interface evidence for the frozen research pipeline. Physical-device preservation qualification remains open.
+
 ## Glasses prompt, 20 November 2026
 
 The photo picker starts processing with glasses type unknown. When the parser flags possible glasses, the processing screen offers clear lenses or keeping the detected area protected. A choice resumes processing on the selected photo. Images with no glasses flag go directly to the result. The existing clear and protected mask rules are used after the choice.
