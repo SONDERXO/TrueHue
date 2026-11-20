@@ -18,7 +18,7 @@ When responses arrive, report the overall 1–5 ratings and the four preference 
 
 ## Final evaluation design record
 
-**Preferred protocol, 20 November 2026.** Keep the completed source-held WB314 runs as development evidence. Evaluate the final frozen correction system once on a subject-disjoint test cohort. A final-test subject must have had no role in training, tuning, or development review. Keep each person's photos and derived variants together. Assess correction against the uncorrected input under the declared exposure, colour and preservation conditions, report by independent reference MST group, and report final expert ratings separately from quantitative scores.
+**Researcher-approved direction, 20 November 2026.** The researcher approved reporting the 11 completed WB314 source-held folds as development evidence and evaluating the final frozen correction system once on a subject-disjoint test cohort. A final-test subject must have had no role in training, tuning, or development review. Keep each person's photos and derived variants together. Assess correction against the uncorrected input under the declared exposure, colour and preservation conditions, report by independent reference MST group, and report final expert ratings separately from quantitative scores.
 
 Before selecting photos, reconcile this proposed protocol with the approved 70/15/15 split, five-fold validation and Table 2 conditions. The completed source-held runs used a different procedure. Final cohort eligibility, approved conditions and the final system freeze are pending.
 
@@ -31,7 +31,7 @@ Before selecting photos, reconcile this proposed protocol with the approved 70/1
 | Split and folds | Approve the subject-disjoint final test and the accurate description of the 11 completed development folds. If the approved split and folds are required, define their training, model-selection and test roles before scheduling any new runs. |
 | Table 2 test conditions | Carry forward Table 2 as the starting point for controlled test inputs. Confirm the exact exposure and colour operations, severity by reference MST group, affected regions, and clean reference before testing. Score gamma, brightness and contrast challenges by image restoration and preservation. Use parameter MAE only for controls with a defined reference in WB314's parameterization. Record any change to Table 2 explicitly, including any proposed use of the development half-stop recipe. |
 
-The draft is prepared for review. Formal acceptance, the condition matrix and final cohort eligibility are open. The development-feedback round continues on the version already sent.
+The researcher approved this direction. Any formal acceptance required by the thesis process remains unverified. The exact test condition matrix and final cohort eligibility are open. The development-feedback round continues on the version already sent.
 
 The following decisions carry forward the existing study. The data, final version and unresolved proposal details require an execution-ready record before final evaluation.
 
