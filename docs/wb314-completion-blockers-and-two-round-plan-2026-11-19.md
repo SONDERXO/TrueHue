@@ -18,6 +18,10 @@ When responses arrive, report the overall 1–5 ratings and the four preference 
 
 ## Final evaluation design record
 
+**Preferred protocol, 20 November 2026.** Keep the completed source-held WB314 runs as development evidence. Evaluate the final frozen correction system once on a subject-disjoint test cohort. A final-test subject must have had no role in training, tuning, or development review. Keep each person's photos and derived variants together. Assess correction against the uncorrected input under the declared exposure, colour and preservation conditions, report by independent reference MST group, and report final expert ratings separately from quantitative scores.
+
+Before selecting photos, reconcile this proposed protocol with the approved 70/15/15 split, five-fold validation and Table 2 conditions. The completed source-held runs used a different procedure. Final cohort eligibility, approved conditions and the final system freeze are pending.
+
 The following decisions carry forward the existing study. The data, final version and unresolved proposal details require an execution-ready record before final evaluation.
 
 | Set now | Still required before execution |
