@@ -22,11 +22,13 @@ import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import com.example.skintonecorrection.R
 import com.example.skintonecorrection.ui.InfoPanel
 import com.example.skintonecorrection.ui.PhotoShape
 import com.example.skintonecorrection.ui.SharedViewModel
@@ -43,7 +45,6 @@ fun ResultScreen(sharedViewModel: SharedViewModel, onBack: () -> Unit, onReSelec
     LaunchedEffect(before, after) { if (before == null || after == null) onBack() }
     if (before == null || after == null) return
     var message by rememberSaveable(after) { mutableStateOf("") }
-    val info = photoInfo(after)
     val imageExport = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("image/png")) { destination ->
         if (destination != null) sharedViewModel.export(after, destination) { message = it }
     }
@@ -52,10 +53,22 @@ fun ResultScreen(sharedViewModel: SharedViewModel, onBack: () -> Unit, onReSelec
         WorkflowAction("Try another photo", onReSelect, primary = false)
     }) {
         WorkflowHeader("Your results", onBack)
-        info?.let { PhotoComparison(before, after, it.width.toFloat() / it.height) }
-        val unchanged = state.identityControls
-        InfoPanel(if (unchanged) "No correction applied" else "Correction complete",
-            if (unchanged) "The original appearance was preserved." else "Your photo is ready to save.")
+        if (state.identityControls) {
+            InfoPanel(stringResource(R.string.result_unchanged_title), stringResource(R.string.result_unchanged_detail))
+            val heightLimit = (LocalConfiguration.current.screenHeightDp * .40f).coerceIn(160f, 480f).dp
+            Surface(Modifier.fillMaxWidth(), shape = PhotoShape) {
+                AsyncImage(
+                    model = before,
+                    contentDescription = stringResource(R.string.result_before),
+                    modifier = Modifier.fillMaxWidth().padding(12.dp).heightIn(max = heightLimit),
+                    contentScale = ContentScale.Fit
+                )
+            }
+        } else {
+            val info = photoInfo(after)
+            info?.let { PhotoComparison(before, after, it.width.toFloat() / it.height) }
+            InfoPanel("Correction complete", "Your photo is ready to save.")
+        }
         if (message.isNotEmpty()) Text(message, style = MaterialTheme.typography.bodySmall)
     }
 }

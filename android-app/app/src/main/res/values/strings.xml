@@ -25,6 +25,8 @@
 
     <!-- Result screen -->
     <string name="result_before">Original</string>
+    <string name="result_unchanged_title">Photo kept unchanged</string>
+    <string name="result_unchanged_detail">TrueHue analyzed your photo and chose to keep its original brightness and colour.</string>
     <string name="result_after">Trial correction</string>
     <string name="result_hint">Compare the trial correction with the working input and inspect the selected skin. Correction quality is not validated.</string>
     <string name="reselect_photo">Re-select Photo</string>
