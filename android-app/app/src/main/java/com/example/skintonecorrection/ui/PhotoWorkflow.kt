@@ -13,18 +13,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.skintonecorrection.R
 import java.io.IOException
 import java.util.Locale
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlin.math.cos
-import kotlin.math.sin
 
 internal val PhotoShape = RoundedCornerShape(20.dp)
 
@@ -78,16 +77,8 @@ internal fun WorkflowHeader(title: String, onBack: () -> Unit) {
 @Composable
 internal fun BrandMark() {
     Surface(color = MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(14.dp)) {
-        val ink = MaterialTheme.colorScheme.onPrimary
-        Canvas(Modifier.size(48.dp)) {
-            drawCircle(ink, radius = 4.dp.toPx(), style = Stroke(1.4.dp.toPx()))
-            for (ray in 0 until 8) {
-                val angle = ray * Math.PI / 4.0
-                val direction = Offset(cos(angle).toFloat(), sin(angle).toFloat())
-                drawLine(ink, center + direction * 8.dp.toPx(), center + direction * 11.dp.toPx(),
-                    strokeWidth = 1.5.dp.toPx(), cap = StrokeCap.Round)
-            }
-        }
+        Icon(painterResource(R.drawable.truehue_mark), contentDescription = null,
+            modifier = Modifier.size(48.dp), tint = MaterialTheme.colorScheme.onPrimary)
     }
 }
 

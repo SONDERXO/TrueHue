@@ -7,4 +7,9 @@
         ui/theme/Theme.kt (SkinToneCorrectionTheme).
     -->
     <style name="Theme.SkinToneCorrection" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.SkinToneCorrection.Launch" parent="Theme.SkinToneCorrection">
+        <item name="android:windowBackground">@drawable/truehue_launch_background</item>
+        <item name="android:statusBarColor">@color/truehue_teal</item>
+        <item name="android:navigationBarColor">@color/truehue_teal</item>
+    </style>
 </resources>

@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.SkinToneCorrection.Launch" parent="Theme.SkinToneCorrection">
+        <item name="android:windowBackground">@color/truehue_teal</item>
+        <item name="android:windowSplashScreenBackground">@color/truehue_teal</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/truehue_mark</item>
+    </style>
+</resources>

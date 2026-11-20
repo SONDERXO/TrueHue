@@ -1,11 +1,15 @@
 package com.example.skintonecorrection.ui.processing
 
-import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.EaseOutCubic
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animate
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,6 +27,7 @@ import com.example.skintonecorrection.ui.PhotoShape
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedViewModel
 import com.example.skintonecorrection.ui.WorkflowAction
+import kotlinx.coroutines.delay
 
 @Composable
 fun ProcessingScreen(
@@ -32,9 +37,26 @@ fun ProcessingScreen(
     onPickPhoto: () -> Unit
 ) {
     val state by sharedViewModel.uiState.collectAsStateWithLifecycle()
-    LaunchedEffect(state.processingState) {
+    var percent by rememberSaveable(state.selectedImageUri) { mutableFloatStateOf(1f) }
+    val (estimateLimit, estimateMillis, detail) = when (state.correctionStage) {
+        CorrectionStage.PREPARING -> Triple(12f, 1_800, "Preparing your photo…")
+        CorrectionStage.CORRECTING -> Triple(91f, 45_000, "Analyzing your photo and adjusting exposure and colour…")
+        CorrectionStage.SAVING -> Triple(99f, 2_500, "Getting your result ready…")
+    }
+    LaunchedEffect(state.processingState, state.correctionStage) {
         when (state.processingState) {
-            ProcessingState.SUCCESS -> onProcessingFinished()
+            ProcessingState.PROCESSING -> if (percent < estimateLimit) {
+                animate(percent, estimateLimit, animationSpec = tween(estimateMillis, easing = EaseOutCubic)) { value, _ ->
+                    percent = value
+                }
+            }
+            ProcessingState.SUCCESS -> {
+                animate(percent, 100f, animationSpec = tween(420, easing = LinearEasing)) { value, _ ->
+                    percent = value
+                }
+                delay(150)
+                onProcessingFinished()
+            }
             ProcessingState.IDLE -> onBack()
             else -> Unit
         }
@@ -47,7 +69,8 @@ fun ProcessingScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 when (state.processingState) {
-                    ProcessingState.PROCESSING -> CorrectionProgress(state.correctionStage)
+                    ProcessingState.PROCESSING -> CorrectionProgress(percent, detail)
+                    ProcessingState.SUCCESS -> CorrectionProgress(percent, "Opening your result…")
                     ProcessingState.NEEDS_GLASSES_CHOICE -> {
                         AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(156.dp)
                             .clip(PhotoShape), contentScale = ContentScale.Fit)
@@ -68,7 +91,7 @@ fun ProcessingScreen(
                         WorkflowAction("Choose another photo", onPickPhoto)
                         TextButton(onClick = onBack) { Text("Back to photo") }
                     }
-                    ProcessingState.IDLE, ProcessingState.SUCCESS -> Unit
+                    ProcessingState.IDLE -> Unit
                 }
             }
         }
@@ -76,21 +99,20 @@ fun ProcessingScreen(
 }
 
 @Composable
-private fun CorrectionProgress(stage: CorrectionStage) {
-    val (percentage, detail) = when (stage) {
-        CorrectionStage.PREPARING -> 0 to "Preparing your photo…"
-        CorrectionStage.CORRECTING -> 33 to "Analyzing your photo and adjusting exposure and colour…"
-        CorrectionStage.SAVING -> 67 to "Getting your result ready…"
-    }
-    val fill by animateFloatAsState(percentage / 100f, label = "Correction progress")
+private fun CorrectionProgress(percent: Float, detail: String) {
     BrandMark()
     Text("Processing photo", style = MaterialTheme.typography.titleLarge)
     Text(detail, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
     Column(Modifier.widthIn(max = 320.dp).fillMaxWidth().padding(vertical = 6.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text("$percentage%", Modifier.align(Alignment.End), color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleLarge)
-        LinearProgressIndicator(progress = { fill }, modifier = Modifier.fillMaxWidth().height(8.dp),
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically) {
+            Text("Estimated progress", style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("${percent.toInt()}%", color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleLarge)
+        }
+        LinearProgressIndicator(progress = { percent / 100f }, modifier = Modifier.fillMaxWidth().height(8.dp),
             trackColor = MaterialTheme.colorScheme.surfaceVariant)
     }
     Text("Your photo stays on this device.", style = MaterialTheme.typography.bodySmall,

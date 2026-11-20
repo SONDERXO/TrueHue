@@ -15,6 +15,7 @@ import com.example.skintonecorrection.ui.theme.SkinToneCorrectionTheme
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_SkinToneCorrection)
         super.onCreate(savedInstanceState)
         // Draw the Compose UI behind the system status/navigation bars so they use our theme colors.
         enableEdgeToEdge()

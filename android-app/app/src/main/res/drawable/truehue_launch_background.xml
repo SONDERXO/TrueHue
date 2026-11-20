@@ -1,0 +1,5 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/truehue_teal" />
+    <item android:width="144dp" android:height="144dp" android:gravity="center"
+        android:drawable="@drawable/truehue_mark" />
+</layer-list>

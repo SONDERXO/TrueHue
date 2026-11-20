@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Background color for the simple vector launcher icon. -->
-    <color name="ic_launcher_background">#6D4C41</color>
+    <color name="truehue_teal">#087E75</color>
 </resources>
