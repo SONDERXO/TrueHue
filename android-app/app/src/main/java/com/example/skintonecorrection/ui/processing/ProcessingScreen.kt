@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.example.skintonecorrection.R
+import com.example.skintonecorrection.data.GlassesChoice
 import com.example.skintonecorrection.ui.ProcessingState
 import com.example.skintonecorrection.ui.SharedViewModel
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -105,6 +107,20 @@ fun ProcessingScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
                     )
+                }
+
+                ProcessingState.NEEDS_GLASSES_CHOICE -> {
+                    Text(stringResource(R.string.glasses_prompt_title), style = MaterialTheme.typography.titleLarge)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(stringResource(R.string.glasses_prompt_hint), textAlign = TextAlign.Center)
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Button(onClick = { sharedViewModel.continueWithGlasses(GlassesChoice.CLEAR) },
+                        modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.glasses_clear)) }
+                    OutlinedButton(onClick = { sharedViewModel.continueWithGlasses(GlassesChoice.OPAQUE) },
+                        modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.glasses_protected)) }
+                    OutlinedButton(onClick = onBackToHome, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(R.string.back_to_home))
+                    }
                 }
 
                 ProcessingState.SUCCESS -> {

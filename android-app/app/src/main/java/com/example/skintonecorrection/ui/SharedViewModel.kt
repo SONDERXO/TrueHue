@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-enum class ProcessingState { IDLE, PROCESSING, SUCCESS, ERROR }
+enum class ProcessingState { IDLE, PROCESSING, NEEDS_GLASSES_CHOICE, SUCCESS, ERROR }
 data class SharedUiState(
     val selectedImageUri:Uri?=null,val correctedImageUri:Uri?=null,val photoUsedUri:Uri?=null,
     val maskUri:Uri?=null,val reportUri:Uri?=null,val processingState:ProcessingState=ProcessingState.IDLE,
@@ -24,7 +24,11 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
     private val mutable=MutableStateFlow(SharedUiState());val uiState=mutable.asStateFlow()
     private var job:Job?=null;private var generation=0
     fun selectImage(uri:Uri){job?.cancel();generation++;mutable.value=SharedUiState(selectedImageUri=uri)}
-    fun selectGlasses(choice: GlassesChoice) { mutable.update { it.copy(glasses = choice) } }
+    fun continueWithGlasses(choice: GlassesChoice) {
+        if (mutable.value.processingState != ProcessingState.NEEDS_GLASSES_CHOICE || choice == GlassesChoice.UNCERTAIN) return
+        mutable.update { it.copy(glasses = choice) }
+        startProcessing()
+    }
     fun startProcessing(){
         val uri=mutable.value.selectedImageUri ?: return
         if(mutable.value.processingState==ProcessingState.PROCESSING)return
@@ -34,7 +38,12 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
         job=viewModelScope.launch {
             try {
                 val result=repository.runCorrection(uri, glasses)
-                if(token==generation)mutable.update{it.copy(processingState=if(result.success)ProcessingState.SUCCESS else ProcessingState.ERROR,
+                val next = when {
+                    result.needsGlassesChoice -> ProcessingState.NEEDS_GLASSES_CHOICE
+                    result.success -> ProcessingState.SUCCESS
+                    else -> ProcessingState.ERROR
+                }
+                if(token==generation)mutable.update{it.copy(processingState=next,
                     correctedImageUri=result.corrected,photoUsedUri=result.input,maskUri=result.mask,reportUri=result.report,message=result.message)}
             }catch(cancelled:CancellationException){throw cancelled}
             catch(error:Exception){if(token==generation)mutable.update{it.copy(processingState=ProcessingState.ERROR,message="The app could not finish: "+(error.message ?: "unknown error"))}}

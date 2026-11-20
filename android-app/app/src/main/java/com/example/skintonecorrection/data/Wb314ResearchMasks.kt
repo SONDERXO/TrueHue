@@ -46,6 +46,7 @@ internal class Wb314ResearchMasks(
             "Required landmarks unavailable"
         }
         val categories = parser.categories(bgr)
+        ResearchMaskRules.requireGlassesChoice(categories, glasses)
         val visible = faceOcc.visibleMask(bgr, landmarks.points, template)
         val masks = ResearchMaskRules.build(categories, landmarks.points, visible, glasses)
         return Result(face, categories, visible, masks)

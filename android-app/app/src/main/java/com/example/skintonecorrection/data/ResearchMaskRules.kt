@@ -15,6 +15,8 @@ import kotlin.math.ceil
 
 enum class GlassesChoice { CLEAR, OPAQUE, UNCERTAIN }
 
+internal class GlassesChoiceRequired : IllegalArgumentException("Choose how to handle detected glasses.")
+
 /** The 256 px Python WB314 support rules, with separate measurement and application. */
 internal object ResearchMaskRules {
     private const val SIDE = FaceOccGeometry.SIDE
@@ -40,9 +42,7 @@ internal object ResearchMaskRules {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(landmarks.size >= 468 && landmarks.all { abs(it.x) <= 1e6 && abs(it.y) <= 1e6 })
-        require(glasses != GlassesChoice.UNCERTAIN || 6.toByte() !in categories) {
-            "Choose clear or opaque glasses before correction."
-        }
+        requireGlassesChoice(categories, glasses)
         val outline = polygon(landmarks, oval, 1.0, false, 128)
         require(outline.any { it }) { "Face outline is outside the image" }
         val anatomical = featurePolygons.map { polygon(landmarks, it, 1.0, true, 1) }
@@ -78,6 +78,10 @@ internal object ResearchMaskRules {
         }
         check(veto.indices.none { veto[it] && alpha[it] > 0.0 })
         return Result(binary(baseline), binary(measurement), alpha, veto)
+    }
+
+    fun requireGlassesChoice(categories: ByteArray, glasses: GlassesChoice) {
+        if (glasses == GlassesChoice.UNCERTAIN && 6.toByte() in categories) throw GlassesChoiceRequired()
     }
 
     private fun requireMeasurement(mask: BooleanArray) {

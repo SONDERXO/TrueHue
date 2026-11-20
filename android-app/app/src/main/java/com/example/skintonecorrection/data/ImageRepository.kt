@@ -18,7 +18,8 @@ import java.io.File
 import java.security.MessageDigest
 import java.util.UUID
 
-data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val report:Uri,val success:Boolean,val message:String)
+data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val report:Uri,val success:Boolean,val message:String,
+                            val needsGlassesChoice: Boolean = false)
 
 /** Local processing. Failure never returns the original as a corrected result. */
 class ImageRepository internal constructor(
@@ -39,6 +40,7 @@ class ImageRepository internal constructor(
             .put("original_file_modified",false).put("network_calls",false)
             .put("notice","Experimental research correction. Skin tone estimates and correction quality are unvalidated.")
         val started=System.nanoTime();var images:PipelineImages?=null;var message:String
+        var needsGlassesChoice = false
         try {
             report.put("failed_stage","decode")
             val bytes=context.contentResolver.openInputStream(inputUri)?.use { stream ->
@@ -80,6 +82,10 @@ class ImageRepository internal constructor(
             finally { if (images == null) upright.recycle() }
             message=if (report.optBoolean("identity_controls")) "WB314 left this photo unchanged."
                 else "Experimental correction finished. Inspect the result."
+        } catch (request: GlassesChoiceRequired) {
+            needsGlassesChoice = true
+            message = requireNotNull(request.message)
+            report.put("status", "needs_glasses_choice").put("reason", message).remove("failed_stage")
         } catch (error: OutOfMemoryError) {
             report.put("status","failed")
             message="This photo could not be processed at its original size with the available memory."
@@ -124,7 +130,7 @@ class ImageRepository internal constructor(
             files.put(file.name,digest.digest().joinToString(""){"%02x".format(it)})
         };report.put("output_sha256",files)
         val reportFile=File(folder,"report.json");reportFile.writeText(report.toString(2))
-        return CorrectionResult(input,mask,corrected,Uri.fromFile(reportFile),corrected!=null,message)
+        return CorrectionResult(input,mask,corrected,Uri.fromFile(reportFile),corrected!=null,message,needsGlassesChoice)
     }
     suspend fun export(source:Uri,destination:Uri)=withContext(Dispatchers.IO) {
         context.contentResolver.openInputStream(source).use { input ->

@@ -10,7 +10,13 @@ Install the debug APK and run `scripts/install_android_wb314_research_assets.ps1
 
 The APK contains the app code. The WB314 model, mapping, white-balance bank, parser, FaceOcc graph and test photos remain local. This is a research build. Physical-phone latency, memory and broader correction quality remain unqualified.
 
-A subsequent Huawei nova 7i check completed 3072 × 4096 export but failed exact Python parity and protection. [Physical-phone evidence](android-wb314-huawei-check-2026-11-19.md)
+A later Huawei nova 7i check completed 3072 × 4096 export but failed exact Python parity and protection. [Physical-phone evidence](android-wb314-huawei-check-2026-11-19.md)
+
+## Glasses prompt, 20 November 2026
+
+The photo picker starts processing with glasses type unknown. When the parser flags possible glasses, the processing screen offers clear lenses or keeping the detected area protected. A choice resumes processing on the selected photo. Images with no glasses flag go directly to the result. The existing clear and protected mask rules are used after the choice.
+
+The API 35 emulator exercised the Android system photo picker, displayed the glasses prompt and reached the result screen after choosing clear lenses. The focused `Wb314GlassesFlowTest` used two saved inputs. It verified that the paused run saved no corrected image, the clear-lenses retry used the identical source digest and original dimensions, and the input with no parser glasses flag completed directly at its original dimensions. Both APKs built, with 18 JVM tests and five emulator tests passing. The test fixtures stayed local.
 
 ## Verification on 19 November 2026
 

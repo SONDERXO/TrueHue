@@ -17,6 +17,10 @@
     <string name="processing_title">Processing image…</string>
     <string name="processing_hint">Detecting the face, selecting skin, estimating ITA/MST and applying the experimental tree locally.</string>
     <string name="processing_done">Done! Preparing results…</string>
+    <string name="glasses_prompt_title">Possible glasses</string>
+    <string name="glasses_prompt_hint">Choose clear lenses if you want correction through them. For sunglasses or if you’re unsure, keep the detected area protected.</string>
+    <string name="glasses_clear">Continue with clear lenses</string>
+    <string name="glasses_protected">Keep glasses protected</string>
 
     <!-- Result screen -->
     <string name="result_before">Original</string>
