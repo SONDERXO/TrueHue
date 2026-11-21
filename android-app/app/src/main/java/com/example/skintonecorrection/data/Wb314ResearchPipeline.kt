@@ -82,12 +82,13 @@ internal class Wb314ResearchPipeline private constructor(
     }
 
     fun correct(original: Bitmap, generator: Wb314ResearchMasks, glasses: GlassesChoice,
-                previewWidespreadExposure: Boolean = false): AutoResult =
+                previewWidespreadExposure: Boolean = false,
+                previewMaskBoundaryProtection: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val masks = try {
                 Imgproc.cvtColor(rgb, bgr, Imgproc.COLOR_RGB2BGR)
-                generator.generate(bgr, glasses).masks
+                generator.generate(bgr, glasses, previewMaskBoundaryProtection).masks
             } finally {
                 bgr.release()
             }

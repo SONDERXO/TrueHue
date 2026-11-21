@@ -11,12 +11,22 @@ internal class FaceOccResearchModel private constructor(private val net: Net) {
     companion object {
         private const val SIDE = 256
         private const val PIXELS = SIDE * SIDE
+        // Above the observed positive logits at the four unstable visibility decisions.
+        private const val APPLICATION_LOGIT_MARGIN = 1f / 32f
         fun load(graph: File, expectedSha: String) = FaceOccResearchModel(ResearchVision.loadCpu(graph, expectedSha))
     }
 
-    fun visibleMask(bgr: Mat, landmarks: List<Point>, template: DoubleArray): ByteArray {
+    data class Visibility(val measurement: ByteArray, val application: ByteArray)
+
+    fun visibility(bgr: Mat, landmarks: List<Point>, template: DoubleArray,
+                   protectUncertainBoundary: Boolean): Visibility {
         val aligned = FaceOccGeometry.align(bgr, landmarks, template)
-        return FaceOccGeometry.reproject(logits(aligned.rgb), aligned.matrix, bgr.cols(), bgr.rows())
+        val scores = logits(aligned.rgb)
+        val measurement = FaceOccGeometry.reproject(scores, aligned.matrix, bgr.cols(), bgr.rows())
+        val application = if (protectUncertainBoundary) {
+            FaceOccGeometry.reproject(scores, aligned.matrix, bgr.cols(), bgr.rows(), APPLICATION_LOGIT_MARGIN)
+        } else measurement
+        return Visibility(measurement, application)
     }
 
     fun logits(rgb: ByteArray): FloatArray {

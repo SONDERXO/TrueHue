@@ -95,9 +95,11 @@ internal object FaceOccGeometry {
         }
     }
 
-    /** Remove aligned padding, then inverse-warp the strict logit > 0 mask. */
-    fun reproject(logits: FloatArray, matrix: DoubleArray, width: Int, height: Int): ByteArray {
+    /** Remove aligned padding, then inverse-warp the visibility decision. */
+    fun reproject(logits: FloatArray, matrix: DoubleArray, width: Int, height: Int,
+                  minimumLogit: Float = 0f): ByteArray {
         require(logits.size == SIDE * SIDE && logits.all { it.isFinite() })
+        require(minimumLogit.isFinite() && minimumLogit >= 0f)
         require(matrix.size == 6 && matrix.all { it.isFinite() })
         require(width > 0 && height > 0 && kotlin.math.abs(matrix[0] * matrix[4] - matrix[1] * matrix[3]) >= 1e-12)
         val validSource = Mat(height, width, CvType.CV_8UC1, Scalar(255.0))
@@ -106,7 +108,7 @@ internal object FaceOccGeometry {
         val selected = Mat(SIDE, SIDE, CvType.CV_8UC1)
         val result = Mat()
         try {
-            selected.put(0, 0, ByteArray(logits.size) { if (logits[it] > 0f) 255.toByte() else 0 })
+            selected.put(0, 0, ByteArray(logits.size) { if (logits[it] > minimumLogit) 255.toByte() else 0 })
             transform.put(0, 0, *matrix)
             Imgproc.warpAffine(validSource, validAligned, transform, alignedSize, Imgproc.INTER_NEAREST)
             Core.bitwise_and(selected, validAligned, selected)

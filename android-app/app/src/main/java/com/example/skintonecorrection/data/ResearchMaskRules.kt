@@ -40,9 +40,13 @@ internal object ResearchMaskRules {
     data class Result(val baseline: ByteArray, val measurement: ByteArray, val alpha: DoubleArray,
                       val protected: BooleanArray)
 
-    fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: GlassesChoice): Result {
+    fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: GlassesChoice,
+              applicationVisibility: ByteArray = visible): Result {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
+        require(applicationVisibility.size == PIXELS && applicationVisibility.indices.all {
+            applicationVisibility[it] == 0.toByte() || applicationVisibility[it] == visible[it]
+        })
         require(landmarks.size >= 468 && landmarks.all { abs(it.x) <= 1e6 && abs(it.y) <= 1e6 })
         val outline = polygon(landmarks, oval, 1.0, false, 128)
         if (outline.none { it }) {
@@ -66,7 +70,7 @@ internal object ResearchMaskRules {
         val support = fillHoles(BooleanArray(PIXELS) { outline[it] || baseline[it] || neck[it] })
         val veto = BooleanArray(PIXELS) { i ->
             val face = outline[i] || (support[i] && !neck[i])
-            protectedClass(categories[i].toInt()) || (face && visible[i] == 0.toByte())
+            protectedClass(categories[i].toInt()) || (face && applicationVisibility[i] == 0.toByte())
         }
         if (glasses == GlassesChoice.CLEAR) applyClearLenses(veto, categories, support, outline)
         val selected = BooleanArray(PIXELS) { support[it] && !veto[it] }
