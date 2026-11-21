@@ -1,6 +1,6 @@
 # TrueHue: thesis-writing entry point
 
-**Evidence checkpoint: 19 November 2026. Research and qualification remain incomplete.**
+**Evidence checkpoint · 21 November 2026. Research and qualification remain incomplete.** The [current session handoff](docs/session-handoff-2026-11-21.md) summarizes the model, development feedback, device tests and stopping point.
 
 The user now authorizes starting thesis editing and preparing this repository for ChatGPT web. Older statements that manuscript work is paused are superseded for evidence-based drafting. This does not adopt a correction model, authorize invented results or make the thesis submission-ready. The editable manuscript has not been edited by this repository update; provide the current manuscript to the writing session.
 
@@ -14,7 +14,9 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Align the thesis to WB314, 20 November 2026.** The researcher directed the methods draft and evaluation to describe WB314 as implemented. The revision proposes the existing fixed WB314 exposure and colour conditions across reference MST groups and documents the differences in dataset roles, face and neck support, controls and direct ITA/MST split use. Any required formal acceptance and final test eligibility remain open. [WB314-aligned revision](docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#draft-evaluation-revision-for-approval)
 
-**Huawei physical-device check.** WB314 exported at 3072 × 4096, but the adjusted fixture failed exact Python parity. Six support pixels differed, leading to 768 full-resolution changes outside Python's allowed area. A controlled crop comparison localized the difference to live Huawei landmark computation. Huawei returned the same points from packed RGB and bitmap inputs, and the two runtimes received identical RGB crops. The identity fixture exported exactly. Physical-device qualification remains open. [Huawei evidence](docs/android-wb314-huawei-check-2026-11-19.md)
+**Latest Huawei previews.** On a 3000 × 4000 portrait, the exposure preview reduced newly clipped pixels from 267,139 to 213 and matched the research preview pixel for pixel with live masks. The later boundary-protection preview kept the same effective controls and clipping count. It reduced out-of-support pixel edits from 768 to zero on the previously failing 3072 × 4096 fixture, with zero outside edits across the three tested cases. Exact live-mask parity remains open. The normal installed picker still uses the previous build. [Exposure preview](docs/wb314-widespread-exposure-2026-11-21.md) · [Boundary preview](docs/android-wb314-huawei-boundary-protection-2026-11-21.md)
+
+**Original Huawei physical-device check.** The 19 November adjusted fixture failed exact Python parity. Six analysis support pixels differed, leading to 768 full-resolution changes outside Python's allowed area. The first confirmed difference arose in live landmark computation with identical RGB crops. The identity fixture exported exactly. This is the historical baseline for the latest preview. [Huawei evidence](docs/android-wb314-huawei-check-2026-11-19.md)
 
 **Huawei runtime candidate rejected.** The temporary MediaPipe 1.0.0 build repeated the same aggregate mask differences as 0.10.35 in both saved cases. It stopped at the mask check. The physical-device preservation requirement remains failed and the Android app remains a research prototype. [Runtime comparison](docs/android-wb314-huawei-check-2026-11-19.md#one-native-runtime-candidate)
 
@@ -38,7 +40,7 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Android mask generation.** A separate emulator check used two saved normalized photos and found their face boxes automatically. Android matched Python on both boxes and every parser, visibility, measurement, protection, support and alpha value. See [mask verification](docs/android-wb314-mask-pipeline-2026-11-19.md).
 
-**Development round sent.** The researcher reports sending the Form and is still waiting for responses. Draft the implemented Methods and verified development Results while expert ratings and final evaluation remain pending. Use the [ChatGPT web writing prompt](docs/thesis/chatgpt-writing-prompt.md) with the current manuscript.
+**Development responses received.** The researcher sent the Form and supplied an export that was analyzed locally. The exact response fields, interpretation and aggregate analysis are available in the private workspace. The response export used comparative judgments, which should be described in their actual format. Final expert appraisal remains pending. Use the [ChatGPT web writing prompt](docs/thesis/chatgpt-writing-prompt.md) with the current manuscript.
 
 **Development round version verified.** The frozen tree and all 20 local comparison PNGs match the release record. A fresh public Form capture confirms the updated introduction, consent and all 20 pair sections with image, rating, preference and comment items. The exact live image pixels remain unverified. The [completion plan](docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md) now records the development version and the final evaluation design, including the outstanding final roster, mapper and proposal-procedure decisions.
 

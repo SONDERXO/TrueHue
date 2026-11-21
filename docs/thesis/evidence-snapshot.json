@@ -1,7 +1,31 @@
 {
-  "checkpoint": "2026-11-19",
+  "checkpoint": "2026-11-21",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
+  "current_session_handoff": "docs/session-handoff-2026-11-21.md",
+  "latest_development_round_status": {
+    "round": "wb314_mste_normal_primary_development_round1_2026_11_19",
+    "responses_received_and_analyzed_locally": true,
+    "exported_judgments_comparative": true,
+    "live_uploaded_image_pixels_verified": false,
+    "final_expert_appraisal_completed": false
+  },
+  "android_wb314_huawei_previews": {
+    "brightness_source": "docs/wb314-widespread-exposure-2026-11-21.md",
+    "boundary_source": "docs/android-wb314-huawei-boundary-protection-2026-11-21.md",
+    "brightness_emulator_saved_mask_cases_exact": 8,
+    "brightness_live_huawei_portrait_dimensions": [3000, 4000],
+    "brightness_live_huawei_pixels_different_from_approved_preview": 0,
+    "brightness_portrait_newly_clipped_pixels_before": 267139,
+    "brightness_portrait_newly_clipped_pixels_after": 213,
+    "boundary_huawei_live_mask_cases_passed": 3,
+    "formerly_failing_fixture_outside_support_pixels_before": 768,
+    "formerly_failing_fixture_outside_support_pixels_after": 0,
+    "boundary_portrait_pixels_different_from_approved_preview": 3483,
+    "boundary_portrait_max_rgb_code_difference": 6,
+    "exact_live_mask_parity_qualified": false,
+    "previews_enabled_in_installed_picker": false
+  },
   "wb314_proposal_alignment": {
     "source": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#cross-check-against-the-proposal",
     "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",

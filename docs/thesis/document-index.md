@@ -5,6 +5,9 @@ Titles identify records; they do not certify completion or supersede later resul
 
 Personal appeal-letter material is excluded. Original file encodings are preserved in Git; the upload text uses decoded UTF-8 copies.
 
+- [TrueHue session handoff · 21 November 2026](../session-handoff-2026-11-21.md)
+- [Exposure reduction when clipping spreads across the measured face](../wb314-widespread-exposure-2026-11-21.md)
+- [Huawei FaceOcc boundary protection](../android-wb314-huawei-boundary-protection-2026-11-21.md)
 - [40048 image-right cheek gap](../40048-cheek-gap.md) — `docs/40048-cheek-gap.md`
 - [TrueHue continuation checkpoint](../CODEX-HANDOFF.md) — `docs/CODEX-HANDOFF.md`
 - [TrueHue documentation: start here](../README.md) — `docs/README.md`
