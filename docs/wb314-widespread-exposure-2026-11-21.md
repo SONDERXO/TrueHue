@@ -4,4 +4,12 @@ This development candidate checks how much of the measured face would newly reac
 
 All 47 related software tests passed. The assessment reused 38 saved development cases with one original-size portrait. It matched both earlier softened development outputs exactly and preserved all 35 other saved 256-pixel outputs exactly, including 11 identities, 22 underexposure cases and both useful-lighting examples. The full-size portrait used the RGB limit and had lower clipping and lower median luminance lift. Protected and outside-support pixels matched on all cases. The 35 unchanged outcomes were verified directly against the saved images.
 
-The candidate passed this development screen. The phone preview still awaits an appearance decision. Its full-size output came from the local research renderer using the saved masks. Generalization and Android parity remain open. The test uses the same selection that informed the cutoff.
+The candidate passed this development screen. The researcher preferred the full-size phone preview. The preview came from the local research renderer using saved masks. The test uses the same selection that informed the cutoff, so generalization remains open.
+
+## Android preview verification
+
+The Android research pipeline can run the rule through an explicit preview flag. The fixture uses eight inputs with saved research masks and expected outputs. The first emulator run reproduced all eight decisions and control values. Seven outputs matched exactly. The original-size output differed at two pixels by one channel code, with exact preservation of protected and outside-support pixels. Reconstructing the existing Android interpolation weights independently produced two differences. The research weights produced none in the same calculation. The preview now uses double-precision blend weights to match the research mapping.
+
+After that change, the Android 35 emulator matched the research exposure decisions, raw and effective controls, and every RGB pixel on all eight saved-mask cases, including the 3000 × 4000 portrait. All protected and outside-support pixels matched their inputs. Eighteen JVM tests and seven emulator tests passed. The latter include the saved-mask preview test, five existing pipeline checks and the existing default-renderer parity test on two 512 × 768 inputs.
+
+The phone preview was accepted for appearance during development. The Android comparison used saved masks to isolate the renderer. End-to-end qualification remains open for masks generated on the Huawei, which showed a support difference in the earlier physical-device check. The candidate is opt-in in the research pipeline. The frozen correction path still serves the Android photo picker and defines the submitted expert development round.

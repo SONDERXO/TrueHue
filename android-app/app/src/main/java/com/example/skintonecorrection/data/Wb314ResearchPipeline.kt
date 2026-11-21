@@ -15,7 +15,6 @@ import java.io.DataInputStream
 import java.io.File
 import java.security.DigestInputStream
 import java.security.MessageDigest
-import kotlin.math.floor
 
 /** WB314 feature extraction and rendering with masks from the same normalized input. */
 internal class Wb314ResearchPipeline private constructor(
@@ -24,7 +23,8 @@ internal class Wb314ResearchPipeline private constructor(
     private val itaKnots: DoubleArray,
     private val mstKnots: DoubleArray
 ) {
-    data class Result(val bitmap: Bitmap, val features: DoubleArray, val controls: DoubleArray, val leaf: Int)
+    data class Result(val bitmap: Bitmap, val features: DoubleArray, val controls: DoubleArray, val leaf: Int,
+                      val exposurePreview: Wb314ExposureDecision? = null)
     data class AutoResult(val correction: Result, val masks: ResearchMaskRules.Result)
 
     companion object {
@@ -73,15 +73,16 @@ internal class Wb314ResearchPipeline private constructor(
 
     fun correct(
         original: Bitmap, measurement: ByteArray, alpha: DoubleArray, protected: BooleanArray,
-        normalizedRgbSha: String
+        normalizedRgbSha: String, previewWidespreadExposure: Boolean = false
     ): Result = withNormalizedRgb(original) { rgb ->
         val bytes = rgbBytes(rgb)
         val actual = hex(MessageDigest.getInstance("SHA-256").digest(bytes))
         require(actual == normalizedRgbSha) { "Masks belong to a different analysis image" }
-        correctNormalized(original, rgb, bytes, measurement, alpha, protected)
+        correctNormalized(original, rgb, bytes, measurement, alpha, protected, previewWidespreadExposure)
     }
 
-    fun correct(original: Bitmap, generator: Wb314ResearchMasks, glasses: GlassesChoice): AutoResult =
+    fun correct(original: Bitmap, generator: Wb314ResearchMasks, glasses: GlassesChoice,
+                previewWidespreadExposure: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val masks = try {
@@ -91,18 +92,25 @@ internal class Wb314ResearchPipeline private constructor(
                 bgr.release()
             }
             val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
-                masks.alpha, masks.protected)
+                masks.alpha, masks.protected, previewWidespreadExposure)
             AutoResult(correction, masks)
         }
 
     private fun correctNormalized(original: Bitmap, rgb: Mat, bytes: ByteArray, measurement: ByteArray,
-                                  alpha: DoubleArray, protected: BooleanArray): Result {
+                                  alpha: DoubleArray, protected: BooleanArray,
+                                  previewWidespreadExposure: Boolean): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
         val features = Wb314Features.extract(rgb, measurement, itaKnots, mstKnots, whiteBalance.extract(bytes))
         val controls = tree.predict(features)
-        return Result(render(original, alpha, protected, controls), features, controls, tree.leafId(features))
+        val support = Wb314RenderSupport(original.width, original.height, alpha, protected,
+            researchPrecision = previewWidespreadExposure)
+        val preview = if (previewWidespreadExposure) {
+            Wb314WidespreadExposure.select(original, support, bytes, measurement, alpha, protected, controls)
+        } else null
+        val output = render(original, support, preview?.effectiveControls ?: controls)
+        return Result(output, features, controls, tree.leafId(features), preview)
     }
 
     private fun rgbBytes(rgb: Mat) = ByteArray(PIXELS * 3).also { check(rgb.get(0, 0, it) == it.size) }
@@ -124,25 +132,18 @@ internal class Wb314ResearchPipeline private constructor(
         }
     }
 
-    private fun render(original: Bitmap, alpha: DoubleArray, protected: BooleanArray, controls: DoubleArray): Bitmap {
+    private fun render(original: Bitmap, support: Wb314RenderSupport, controls: DoubleArray): Bitmap {
         val width = original.width
         val height = original.height
-        val xAxis = axis(width)
-        val yAxis = axis(height)
         val renderer = Wb314PixelRenderer(controls[0], controls[1], controls[2], controls[3], controls[4])
         val result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         try {
             val row = IntArray(width)
             for (y in 0 until height) {
-                val yy = yAxis[y]
                 original.getPixels(row, 0, width, 0, y, width, 1)
                 for (x in row.indices) {
-                    val xx = xAxis[x]
-                    val nearest = yy.nearest * SIDE + xx.nearest
-                    if (protected[nearest] || alpha[nearest] == 0.0) continue
-                    val a = blend(alpha[yy.low * SIDE + xx.low], alpha[yy.low * SIDE + xx.high], xx.weight)
-                    val b = blend(alpha[yy.high * SIDE + xx.low], alpha[yy.high * SIDE + xx.high], xx.weight)
-                    row[x] = renderer.render(row[x], blend(a, b, yy.weight).coerceIn(0.0, 1.0), false)
+                    val coverage = support.alphaAt(x, y)
+                    if (coverage > 0) row[x] = renderer.render(row[x], coverage, false)
                 }
                 result.setPixels(row, 0, width, 0, y, width, 1)
             }
@@ -153,15 +154,4 @@ internal class Wb314ResearchPipeline private constructor(
         }
     }
 
-    private data class Sample(val nearest: Int, val low: Int, val high: Int, val weight: Double)
-
-    private fun axis(size: Int) = Array(size) { i ->
-        val coordinate = ((i + 0.5) * SIDE / size - 0.5).toFloat()
-        val lo = floor(coordinate).toInt()
-        Sample((i.toLong() * SIDE / size).toInt(), lo.coerceIn(0, SIDE - 1),
-            (lo + 1).coerceIn(0, SIDE - 1), (coordinate - lo).toDouble())
-    }
-
-    private fun blend(a: Double, b: Double, weight: Double): Double =
-        a * (1.0 - weight).toFloat().toDouble() + b * weight
 }
