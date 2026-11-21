@@ -83,7 +83,8 @@ internal class Wb314ResearchPipeline private constructor(
 
     fun correct(original: Bitmap, generator: Wb314ResearchMasks, glasses: GlassesChoice,
                 previewWidespreadExposure: Boolean = false,
-                previewMaskBoundaryProtection: Boolean = false): AutoResult =
+                previewMaskBoundaryProtection: Boolean = false,
+                verifyLuminanceRgb: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val masks = try {
@@ -93,13 +94,13 @@ internal class Wb314ResearchPipeline private constructor(
                 bgr.release()
             }
             val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
-                masks.alpha, masks.protected, previewWidespreadExposure)
+                masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb)
             AutoResult(correction, masks)
         }
 
     private fun correctNormalized(original: Bitmap, rgb: Mat, bytes: ByteArray, measurement: ByteArray,
                                   alpha: DoubleArray, protected: BooleanArray,
-                                  previewWidespreadExposure: Boolean): Result {
+                                  previewWidespreadExposure: Boolean, verifyLuminanceRgb: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -108,7 +109,7 @@ internal class Wb314ResearchPipeline private constructor(
         val support = Wb314RenderSupport(original.width, original.height, alpha, protected,
             researchPrecision = previewWidespreadExposure)
         val preview = if (previewWidespreadExposure) {
-            Wb314WidespreadExposure.select(original, support, bytes, measurement, alpha, protected, controls)
+            Wb314WidespreadExposure.select(original, support, bytes, measurement, alpha, protected, controls, verifyLuminanceRgb)
         } else null
         val output = render(original, support, preview?.effectiveControls ?: controls)
         return Result(output, features, controls, tree.leafId(features), preview)

@@ -22,8 +22,8 @@
     },
     {
       "path": "THESIS_START_HERE.md",
-      "bytes": 26551,
-      "sha256": "11365d187772998d0c641d4fddef4ce05d2d058803f75587089774f91233ea81"
+      "bytes": 33467,
+      "sha256": "9cc63c80ffe68b436ecaec80db80b7378652be42fe495c06302c8cd848ad50c9"
     },
     {
       "path": "TrueHue.code-workspace",
@@ -32,18 +32,33 @@
     },
     {
       "path": "android-app/README.md",
-      "bytes": 10276,
-      "sha256": "6cc8d917ca89738035194ff69e6c5266245a893558882ce714bcc3dbfda53efb"
+      "bytes": 16098,
+      "sha256": "94f7aa92b69da0069b7d590d3b24787c5de190399db2ed2950473cdf1df8cdeb"
     },
     {
       "path": "android-app/app/build.gradle.kts",
-      "bytes": 3508,
-      "sha256": "be65bd41a12c37b10fdeae2a4b3d042bd152e8470f4b13b159055393980322b5"
+      "bytes": 4276,
+      "sha256": "c473266dda8c66f269546d0893f668abedd894b1b1091b8dcdc8cd15f7b32fc5"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/FaceLandmarkInputParityTest.kt",
+      "bytes": 4958,
+      "sha256": "c652a0cb7b453ef5ce2db2732b90a22c70ab74a628b2dc654a0c3a9d9c4d7e8d"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/FaceOccGeometryParityTest.kt",
+      "bytes": 6857,
+      "sha256": "cd309fe6a722c0516d47d5b6a9e993d6d5e049d4e14d2727a661216f4bb3a2c3"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/FaceOccResearchParityTest.kt",
+      "bytes": 2712,
+      "sha256": "a31186d712025e089c3e266a586392e61718a8bf372115c6dc3983ca8a11c479"
     },
     {
       "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/OnDevicePipelineTest.kt",
-      "bytes": 5309,
-      "sha256": "ea5bc8ae5f529b6df36a0aab7a4be3936cbeb24497f47efca194dcf51a0588f0"
+      "bytes": 8726,
+      "sha256": "119151aa9fc25fa3a033e5c2295ec08bb190787bf2d868e0d9b81dff1679ba5b"
     },
     {
       "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/ReliabilityTest.kt",
@@ -51,9 +66,44 @@
       "sha256": "8d8ed1b6a90c60d3c9475f63e5917dcafabc62d324aa5fa3c22ff6c0630e0bec"
     },
     {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/SharedLandmarkTensorParityTest.kt",
+      "bytes": 4846,
+      "sha256": "62656a3d6f9be874a6c894242aa8fe31435030beef9685a98fc7fc67e94210d2"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314ExposurePreviewTest.kt",
+      "bytes": 6595,
+      "sha256": "e0fa726997bc92ce75e8336183e04c645c4bda81165d14479bc894a5acb64cf5"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314GlassesFlowTest.kt",
+      "bytes": 6750,
+      "sha256": "33c916efcc0376291df9b2b4b667845fed388b8b3a0980ae9c9446a314467b2c"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314LiveExposurePreviewTest.kt",
+      "bytes": 15279,
+      "sha256": "67887302f130caef2c746302390b13fbff021b2f48038ebd432759d4cf52bd58"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314PickerParityTest.kt",
+      "bytes": 6621,
+      "sha256": "afa7914b276a73660e0f4c53d3a78008716a9c8c5b8acfbcf4fd15d6a0155d06"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314ResearchMaskParityTest.kt",
+      "bytes": 4216,
+      "sha256": "ed9e344998022f99eff85dc261d121fa35800c8397261b6886a692b136c8a03f"
+    },
+    {
+      "path": "android-app/app/src/androidTest/java/com/example/skintonecorrection/Wb314ResearchParityTest.kt",
+      "bytes": 4187,
+      "sha256": "cf179a4f7fac9f17c61a310470f723d3c5306e82837962bfe5a460a21260b14a"
+    },
+    {
       "path": "android-app/app/src/main/AndroidManifest.xml",
-      "bytes": 1930,
-      "sha256": "7ce5899856f581009408db6868a7b22561d0bbefb1c70ededfa4414623b8838f"
+      "bytes": 1995,
+      "sha256": "1f31d06195046db5f7085f154c30408089ec9755f788bf579783455fac4425aa"
     },
     {
       "path": "android-app/app/src/main/assets/decision_tree.json",
@@ -62,18 +112,68 @@
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/MainActivity.kt",
-      "bytes": 933,
-      "sha256": "161567af7b0e6d163e1c8249039be87ae4d05129eb762f4350bf42ccf9900a69"
+      "bytes": 985,
+      "sha256": "b33744bd835a4044b1b16cccb2b415f5f156bc6b7cf385e6fc31aef7ca647689"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/FaceLandmarks.kt",
+      "bytes": 3356,
+      "sha256": "9a0007921a64811db5f82f2ef63ffffb90df7b803d9bad4bbeb299819e8910f1"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/FaceOccGeometry.kt",
+      "bytes": 6246,
+      "sha256": "c78ea0439ba1a90343d95a0458e692b25cab7f2cde25da4c6a278f956a96e6a7"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/FaceOccResearchModel.kt",
+      "bytes": 2323,
+      "sha256": "629af3a41106f5c57ecba31688c0cf4d22a1b8144458bd85c5b63bed177c3570"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/ImageRepository.kt",
-      "bytes": 7919,
-      "sha256": "70fd0a1b584bd7df728af52f64d45c0fdfdd2ea05bea26e3053ed758e22792ef"
+      "bytes": 10360,
+      "sha256": "3d4ab6673b115eddfd7185d3659351132598f6409acfcfdfa4a99ee14f72ac2b"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/OnDevicePipeline.kt",
-      "bytes": 12768,
-      "sha256": "fcf8ea4247e79c513ed1cbc249b9b6fa9c7ab636bf56def245c6c0c380e41142"
+      "bytes": 10573,
+      "sha256": "f0b71f5d6e161ff947e7315c4fe2b1512b95b763aa96b5b6ddf080569df51d29"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/ResearchMaskRules.kt",
+      "bytes": 12171,
+      "sha256": "f1ecabf055caf71ccee6fda0cade3466244c767223d60bf45fb0da9c69110e7b"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/ResearchVision.kt",
+      "bytes": 4613,
+      "sha256": "1fbae34be7f4a1e62b7e369b4069a85c0597f97477b4c1d0f93e3762e38a8d7a"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/Wb314PhotoPipeline.kt",
+      "bytes": 3733,
+      "sha256": "42057fbf0d862b9d18bd15287154470b0b4f49db6205efbbf05bb283c46b35e4"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/Wb314RenderSupport.kt",
+      "bytes": 1909,
+      "sha256": "825c9545acae480b9634c4107bdd0415be0c1246a52ca9a3bb3a055e096f39cc"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/Wb314ResearchMasks.kt",
+      "bytes": 4082,
+      "sha256": "29c89fc90e6d682134f4c479cfc54fdb191b6fc6232f1a89b86198995bfbe1b1"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/Wb314ResearchPipeline.kt",
+      "bytes": 8181,
+      "sha256": "6f93095d48889f7ef39f78a6ce1013e744da0b179d721f852c0445cad4b21c6b"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/data/Wb314WidespreadExposure.kt",
+      "bytes": 5035,
+      "sha256": "11c5e00b8c5a1a55bd7b2a803b5857c9ad023359f7c921d2e6e3d56c3002a1cc"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ml/DevelopmentMath.kt",
@@ -82,48 +182,53 @@
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ml/PortableTreeAsset.kt",
-      "bytes": 3012,
-      "sha256": "95ca736b0ed68e80cd9ed48bf772d08776fd661330d9327077c3cb3f293eff7a"
+      "bytes": 4558,
+      "sha256": "b17521cf4552ecaad3400e885d618af3672d23b94cdb51363d0114d5ba7a6f40"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/ml/Wb314Features.kt",
+      "bytes": 1333,
+      "sha256": "b77e11c8c6718b159580adfabf2a7e4d2f259b9a8aae50db1707ba822c26790c"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/AppNavHost.kt",
-      "bytes": 3023,
-      "sha256": "ea85bcceade68df2e0a87332a4742e428a050fa95fb404423a4ffa975e9f4310"
+      "bytes": 2970,
+      "sha256": "c2a6d6cd5f49b8765327b5798a2b7151984bd65a4621b61ef3cb3f25ce16d388"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/PhotoWorkflow.kt",
+      "bytes": 5634,
+      "sha256": "e03c09c497a3d1e07bfcbd9f6ff44a2b0213570006c14579fc55ab19c129c256"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/SharedViewModel.kt",
-      "bytes": 2622,
-      "sha256": "73c05feb6a71eae979be640f3d10cf890269660db3eb23b3d993d2217d957e0e"
+      "bytes": 3828,
+      "sha256": "07732f2bc9728a592183c7ee73997318d57b6d5dad13354e11ebeecedec68e40"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/home/HomeScreen.kt",
-      "bytes": 7466,
-      "sha256": "63a50b71574dc809d33ebd9e46ecabfb9c2c42607f4bc2ec4bdcd6c511f731a1"
+      "bytes": 4414,
+      "sha256": "1ecde356ccf13007eaac47683fee9418eb3b0475198c57a41e549bb7fe92099e"
+    },
+    {
+      "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/home/SelectedPhotoScreen.kt",
+      "bytes": 2832,
+      "sha256": "dff728ff3be3ab94578c240ff769ef0f52575408f288915db273d72e2b8e0b09"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/processing/ProcessingScreen.kt",
-      "bytes": 6435,
-      "sha256": "fdb2fe0d7603b592da8923a0ff94afcb8001656cc870a1863b8dc843a101f573"
+      "bytes": 6483,
+      "sha256": "e04d8453e9147d5676b8d78a11153c1abfbb212e30750d544e2632f738213dfd"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/result/ResultScreen.kt",
-      "bytes": 4696,
-      "sha256": "af42d78a471dd089b660475b481869b2d7366579a18eca5e3120c05f6e29ccbd"
-    },
-    {
-      "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/splash/SplashScreen.kt",
-      "bytes": 1420,
-      "sha256": "d1d681161c8e102b3ba7aa1b62df75f5e6ce6ee541331822a6094cc45422b37a"
-    },
-    {
-      "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/theme/Color.kt",
-      "bytes": 1804,
-      "sha256": "bf0c101a214be15017d9da48bd67c45b1bcf40c2610103aafe7cf107a2959cf3"
+      "bytes": 7337,
+      "sha256": "da481dbd49c620fa424f41ee3edad30074dbdca063b1386715c833add8835d28"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/theme/Theme.kt",
-      "bytes": 3142,
-      "sha256": "e23a02a0829b3dce8802fde6400efb34740fbc49231075111d7297b174ef959f"
+      "bytes": 1655,
+      "sha256": "ac62334325bdb9a76a43ced358acede55d9eb519a0510c7ea72876714cd55880"
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/ui/theme/Type.kt",
@@ -132,28 +237,43 @@
     },
     {
       "path": "android-app/app/src/main/java/com/example/skintonecorrection/util/Constants.kt",
-      "bytes": 812,
-      "sha256": "475d151185e1145afda5e6fccb5e2cd773413405ade3d22f33543d2974c5959e"
+      "bytes": 200,
+      "sha256": "566b2340d8246b5c52aacfea147a67ecb49daf716c5260affc0634461f94f857"
     },
     {
       "path": "android-app/app/src/main/res/drawable/ic_launcher.xml",
-      "bytes": 804,
-      "sha256": "850842357763f9c29041f6288d48810b5f973f0520bc91079c8d16d2d21d4ffd"
+      "bytes": 232,
+      "sha256": "f8337d80f8ab15a9819610011a505c1e42779fefc11f9dd97bf799a7473b0c0e"
+    },
+    {
+      "path": "android-app/app/src/main/res/drawable/truehue_launch_background.xml",
+      "bytes": 271,
+      "sha256": "f817143c90b02d8f413b116eb187b684699037923851a31d8d920436a9ad9d35"
+    },
+    {
+      "path": "android-app/app/src/main/res/drawable/truehue_mark.xml",
+      "bytes": 529,
+      "sha256": "793e817fc697ac0474a025dcd86e8bb7c686d4878858407a790287472e67b236"
+    },
+    {
+      "path": "android-app/app/src/main/res/values-v31/themes.xml",
+      "bytes": 371,
+      "sha256": "1b95552daa7778fbf5f48b383c36647ff4e8369df63252d97fe4a1f857f81b6a"
     },
     {
       "path": "android-app/app/src/main/res/values/colors.xml",
-      "bytes": 187,
-      "sha256": "e2b579f273216ee10fa6922814bb3f047e4f85d37d95fcf6749bedb1f50f34da"
+      "bytes": 111,
+      "sha256": "8c2ace65950201daa6ac5ffa7c7ce2277cf01bc8793bda8bef2b215dd3ce79bb"
     },
     {
       "path": "android-app/app/src/main/res/values/strings.xml",
-      "bytes": 2013,
-      "sha256": "7f7f95f84c87b26abb43b7182e55aed18f64fc4381879db77a9bd67cec33baf5"
+      "bytes": 3857,
+      "sha256": "7a56ef825a6221a0f344b4f2a4ca9431af6e0d4b7e716c64b0e4d05559eb1e9b"
     },
     {
       "path": "android-app/app/src/main/res/values/themes.xml",
-      "bytes": 466,
-      "sha256": "301813ae00686acc95f3d74212d7a7595665ab421a8d987f8a5cc455d7be4cce"
+      "bytes": 800,
+      "sha256": "7bccc8ab4d0d7e44f926babb2c97aa76e658bb81b3a9eea2d0f0a90edb156660"
     },
     {
       "path": "android-app/app/src/test/java/com/example/skintonecorrection/ml/DevelopmentMathTest.kt",
@@ -436,6 +556,16 @@
       "sha256": "b5a78c4bbd7af31ee6046922755838092ec05fd0aebebab51badb9a5ffc0997d"
     },
     {
+      "path": "docs/android-faceocc-geometry-2026-11-19.md",
+      "bytes": 2906,
+      "sha256": "b84bf4dbc5cee9857c3ab9d767638662f0d1b5d7413f8311618178326f9ae92c"
+    },
+    {
+      "path": "docs/android-faceocc-research-port-2026-11-19.md",
+      "bytes": 2697,
+      "sha256": "d4a2bffc38ee41c551fe6071ca819766aef0f6653991243e6a14bb64966fc851"
+    },
+    {
       "path": "docs/android-integration-2026-10-31.md",
       "bytes": 6624,
       "sha256": "dd94df74e95db8abc13230fe31626b3f7dd19240186506ffa67275deeab281c7"
@@ -444,6 +574,26 @@
       "path": "docs/android-reliability-check-2026-10-31.md",
       "bytes": 4655,
       "sha256": "bde47d81f6f2b3ee2e0055dd11f9dd36b5a268f2520b5f090fdd715ceb787dc7"
+    },
+    {
+      "path": "docs/android-wb314-huawei-boundary-protection-2026-11-21.md",
+      "bytes": 2509,
+      "sha256": "62d682cacd9c5c3bf44a8862c8e6c21384a6cf9fc5f506678d374ec7ecca079d"
+    },
+    {
+      "path": "docs/android-wb314-huawei-check-2026-11-19.md",
+      "bytes": 7033,
+      "sha256": "c70cc7073f25656181846c5fb96a7a23ace1a2f0e7d12b0da13f06419be43acf"
+    },
+    {
+      "path": "docs/android-wb314-mask-pipeline-2026-11-19.md",
+      "bytes": 2867,
+      "sha256": "be0ff569ce663fe69818c69922db4b1b63807b92e299d3c0e88c3a91e0a10341"
+    },
+    {
+      "path": "docs/android-wb314-picker-2026-11-19.md",
+      "bytes": 11561,
+      "sha256": "448cf90bfd8fc051b7bbc991186ee3bc4934cad72bbdb8ae1b0df6bb06efdc77"
     },
     {
       "path": "docs/approved-ear-support-integration-2026-11-12.md",
@@ -3957,8 +4107,13 @@
     },
     {
       "path": "docs/session-handoff-2026-11-17.md",
-      "bytes": 109089,
-      "sha256": "203669d5f4536e1e24f3df9bb020dc827a7b63f9d0826d8667d3bbc77cb5c123"
+      "bytes": 120873,
+      "sha256": "520def196c21f565723564b49f91eb566f378b0864710736b8dcad3a9b5ea3fe"
+    },
+    {
+      "path": "docs/session-handoff-2026-11-21.md",
+      "bytes": 10983,
+      "sha256": "ca22a31eb7e15672769f869dbb2c1ab4f65e04a577ad3e4969c025e024636634"
     },
     {
       "path": "docs/setup-guide.md",
@@ -4577,23 +4732,23 @@
     },
     {
       "path": "docs/thesis/chatgpt-writing-prompt.md",
-      "bytes": 15517,
-      "sha256": "4e2c457cda5e7bbe67f277fd7ac7236e9b5e2613d03592a630c4395719600172"
+      "bytes": 16906,
+      "sha256": "f708995a466075f9677598ad3d2e09e4a948398f416291e0bb0351b22adff311"
     },
     {
       "path": "docs/thesis/document-index.md",
-      "bytes": 153424,
-      "sha256": "b5c7073cb3045ce6c92cad45cfe05e585f46e891e977be9f69020acdf05fe1c6"
+      "bytes": 154834,
+      "sha256": "33faf6298859e104a912ea9dcd45203548304441fc50c367011c2cec547fd0cf"
     },
     {
       "path": "docs/thesis/evidence-snapshot.json",
-      "bytes": 63486,
-      "sha256": "6214b5e0e495f6d335c5e010f42bfa517f6effa16643b2b7874b4e76b2c26b3d"
+      "bytes": 69054,
+      "sha256": "2cf555e66d3d8e18e821e86b8e19fad00a752ca37f766db9b26b75f44f8c5721"
     },
     {
       "path": "docs/thesis/publication-check.json",
       "bytes": 1791,
-      "sha256": "7331164f827eab227d54e4d8b20f5e836bf91d548bc5c9946c2e0818814b60c8"
+      "sha256": "7b25815c77272b30b327867f47dfefc9723f2b016e423ad100f6e561f077a4c1"
     },
     {
       "path": "docs/thesis/repository-update-policy.md",
@@ -4602,8 +4757,8 @@
     },
     {
       "path": "docs/thesis/research-map.md",
-      "bytes": 11778,
-      "sha256": "e7bff473c4258e5f810799ef7ea6a0b249d28df8319690bb8d4c03831d904237"
+      "bytes": 12724,
+      "sha256": "81fa5353ed2d16055f781ebad21245ebb26a330c3cca589bd6682572cc77b0fc"
     },
     {
       "path": "docs/third-party/faceocc-LICENSE.txt",
@@ -4872,8 +5027,8 @@
     },
     {
       "path": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md",
-      "bytes": 15381,
-      "sha256": "3238e599a487b4cdde35c370d691c987d869dd77d70623eb6aaaffe313ae1419"
+      "bytes": 30175,
+      "sha256": "25dd25854afb51216406d223798650446defe489c8e56360f7e716c7bb23dc54"
     },
     {
       "path": "docs/wb314-development-feedback-round1-release-2026-11-19.md",
@@ -4931,6 +5086,11 @@
       "sha256": "e9f36ea1d34897dd615eb47e1c5238e9f470956851ee1b1d8ef39b0d4108c56e"
     },
     {
+      "path": "docs/wb314-local-rgb-highlights-2026-11-21.md",
+      "bytes": 1855,
+      "sha256": "bb4255bfac446e42f6701fb35ef31fb697a9386f5bf6e8556d31b17598dad859"
+    },
+    {
       "path": "docs/wb314-mst-evaluation-requirement-2026-11-18.md",
       "bytes": 3156,
       "sha256": "c60b2cfd587f1a0e231287de6feb4dcd8cf9e47944132702e1c5a15558d06c77"
@@ -4981,6 +5141,11 @@
       "sha256": "79cd876d6ef48b96ccc301ff450610d2fa4bf286569e9eb97d3c9c14b8b3ae96"
     },
     {
+      "path": "docs/wb314-rgb-exposure-headroom-2026-11-21.md",
+      "bytes": 2130,
+      "sha256": "ab04699cba03f7a719eda2c8d4fbf2aedcd694434e401c0a6f17c17c0ad1618a"
+    },
+    {
       "path": "docs/wb314-single-photo-runner-2026-11-19.md",
       "bytes": 6942,
       "sha256": "45db3f088ad4e508a28ce6b88606215832f4db42edbc88437da00f1167251815"
@@ -4999,6 +5164,11 @@
       "path": "docs/wb314-two-photo-native-check-2026-11-19.md",
       "bytes": 4192,
       "sha256": "8c86f3364f6b2195cb942a58ca16636eac83e8f491263363dff300ae95f9a75f"
+    },
+    {
+      "path": "docs/wb314-widespread-exposure-2026-11-21.md",
+      "bytes": 3808,
+      "sha256": "09f2b8e77395f349a59d7297baa1a2c2a5efab8ec38b449c24151f29fa9b2a83"
     },
     {
       "path": "docs/whole-face-support-results-2026-11-01.md",
@@ -9576,9 +9746,24 @@
       "sha256": "ba73ec70b7a358306511609362c029c45492466004f1231eb086fecce8f9f696"
     },
     {
+      "path": "scripts/assess_wb314_local_rgb_highlights.py",
+      "bytes": 8842,
+      "sha256": "a76635416d376d2dc00a51b56ed1528d5b5a735dc5d222f8ea330c4d0cd91a12"
+    },
+    {
       "path": "scripts/assess_wb314_mste_evaluation_metadata.py",
       "bytes": 6977,
       "sha256": "93d05901b840bd2c2346b198723725692394fe3eb429d908cff2da57b1ac531b"
+    },
+    {
+      "path": "scripts/assess_wb314_rgb_exposure_headroom.py",
+      "bytes": 10141,
+      "sha256": "13160046508e96cbe326f00ca6e16211e2204c1a6af6283a69d4a196f41bbf22"
+    },
+    {
+      "path": "scripts/assess_wb314_widespread_exposure.py",
+      "bytes": 9171,
+      "sha256": "dd96cafae8c08326cffd587feca8028097c6b3968e26a48a02d3b2895836ca85"
     },
     {
       "path": "scripts/assess_wb_cue_portraits.py",
@@ -9946,6 +10131,11 @@
       "sha256": "73aa334374ea8fac1bbfa1ec9332448cc1a132cc023e3dfe749bd1c409a7ea77"
     },
     {
+      "path": "scripts/install_android_wb314_research_assets.ps1",
+      "bytes": 3239,
+      "sha256": "e535667ae5433a62903b59300689e2307dd1bdeed3fc84089384f9a7d0c03573"
+    },
+    {
       "path": "scripts/joint_cue_tree_workflow.py",
       "bytes": 8517,
       "sha256": "41f0c764af5d11c38a4e0fa18683319a6ecfea833e2383a83e23c5685209e8fd"
@@ -9979,6 +10169,26 @@
       "path": "scripts/prepare_acceptability_review.py",
       "bytes": 3792,
       "sha256": "4772123fecb0c7064502dfdf00da42f1a935d9f8fa6686d616304c11635260cc"
+    },
+    {
+      "path": "scripts/prepare_android_faceocc_fixture.py",
+      "bytes": 3350,
+      "sha256": "ecdbc681a15dad68c4bd8ab41296b035142f5980277ca3ced1fad932ee4e1ba3"
+    },
+    {
+      "path": "scripts/prepare_android_faceocc_geometry_fixture.py",
+      "bytes": 3424,
+      "sha256": "56b752badc9fc3e114ab0c1efbb1d10894b9aa0b9a1c97e43e1aeb83823e6d97"
+    },
+    {
+      "path": "scripts/prepare_android_wb314_mask_fixture.py",
+      "bytes": 2446,
+      "sha256": "2c6473e83586504dfe88f30392e2772a75042f2b4320726c74f26a0c455202da"
+    },
+    {
+      "path": "scripts/prepare_android_wb314_parity_fixture.py",
+      "bytes": 4123,
+      "sha256": "f2a4a75c990b05d74b15d9c3d6071d0f47043b92dd455c1529b4527b2346fc6f"
     },
     {
       "path": "scripts/prepare_black_preserving_feasibility.py",
@@ -10071,6 +10281,11 @@
       "sha256": "53aac79435a2a5805469b3a0ba2e0246d77ae9f867b1d9d785e15f9278f2ad58"
     },
     {
+      "path": "scripts/prepare_shared_landmark_tensor_fixture.py",
+      "bytes": 3604,
+      "sha256": "21ac27a35f4f066b75a8cdd77fd10952546c2e53664872fd15d6efd2cd7f334e"
+    },
+    {
       "path": "scripts/prepare_source_bagged_design.py",
       "bytes": 7217,
       "sha256": "ed9365dea47bb24fdb1d42341d39f35de3a7bbb2098c21a328f70ee0cc6fa104"
@@ -10084,6 +10299,11 @@
       "path": "scripts/prepare_wb314_expert_feedback.py",
       "bytes": 8093,
       "sha256": "804fbc37eeff651e13ba1e3903a3683ca93e920094a73766d9bdc2065964c06e"
+    },
+    {
+      "path": "scripts/prepare_wb314_exposure_preview_fixture.py",
+      "bytes": 5766,
+      "sha256": "6edead8097f12a51d4f992c96a25f58e07886c05feb732f4d6d821d0dc6a9738"
     },
     {
       "path": "scripts/prepare_wb314_final_review.py",
@@ -10436,9 +10656,24 @@
       "sha256": "772fab8ec0670290fd1af4c079b261bdc730773862e58d876a048117fd9da276"
     },
     {
+      "path": "scripts/verify_android_wb314_image_features.py",
+      "bytes": 4817,
+      "sha256": "c188371f120f33da064126e8d475f994b7c9e7ce24f2ee7345a2ef7bcb8f4338"
+    },
+    {
       "path": "scripts/verify_android_wb314_renderer.py",
       "bytes": 4192,
       "sha256": "744aae826332f680ae46184c1cb984116f10ad71268045e9cd3b300c82415846"
+    },
+    {
+      "path": "scripts/verify_android_wb314_tree.py",
+      "bytes": 5997,
+      "sha256": "fd6c5fa134fa02bb1b31988a4985096f1c1ca9872db0148da8bad73717a3a808"
+    },
+    {
+      "path": "scripts/verify_android_wb314_white_balance.py",
+      "bytes": 5265,
+      "sha256": "617f6d2cdb772251d04a0e1b634f43a7ca5c6838997661066ab0cb93996c3dc1"
     },
     {
       "path": "scripts/verify_blue_axis_feasibility.py",
@@ -11406,6 +11641,11 @@
       "sha256": "1497515977f09845f22a6bbf74e4874e31ce9f2c4c60a2093da0c50862a4d745"
     },
     {
+      "path": "src/model_training/local_rgb_highlights.py",
+      "bytes": 2447,
+      "sha256": "d359d6e29b5e788158f6aefe5abed86a3acb8e18b74e94a26a4008c69d32c52e"
+    },
+    {
       "path": "src/model_training/luminance_chroma_operator.py",
       "bytes": 4506,
       "sha256": "35251190de97c08392fa7ecd99a131e7b1bc0b86c8aacf2655f5cf06ca8f0ca5"
@@ -11501,6 +11741,11 @@
       "sha256": "81ba7bb4ab3ad0cb6f0c3add1c892db0613f74788788b201acd13a48c0276b35"
     },
     {
+      "path": "src/model_training/rgb_exposure_headroom.py",
+      "bytes": 2216,
+      "sha256": "64c2be9f710ff7ce3362b77c427285b4be1da28b85e4700e39939800deeb5d54"
+    },
+    {
       "path": "src/model_training/sclera_context.py",
       "bytes": 2842,
       "sha256": "f0163178d117f008c4343c82bbb1a0f1ccd90bce47bb1cb52e979d79a83ef3ee"
@@ -11569,6 +11814,11 @@
       "path": "src/model_training/whole_scene_features.py",
       "bytes": 939,
       "sha256": "7e7af0d8451ebe837f87ca217245657ea8870632d2c2df8582499d649ab06534"
+    },
+    {
+      "path": "src/model_training/widespread_exposure_headroom.py",
+      "bytes": 2772,
+      "sha256": "86ed89646ef9d50ad7d717e79a9e09efa5b76009b35c70dc9f8fe5ed70278d2a"
     },
     {
       "path": "src/skin_masking/__init__.py",
@@ -12346,6 +12596,11 @@
       "sha256": "221c332ac2e87d242b078946b267afaf868890c49f890eb4efb7c19f00f35885"
     },
     {
+      "path": "tests/test_local_rgb_highlights.py",
+      "bytes": 2135,
+      "sha256": "1b85b4a88ea4e24de22cdc10fcb584a5e8c69cdae987828d28bf167512b3e8c0"
+    },
+    {
       "path": "tests/test_lower_face_boundary.py",
       "bytes": 1568,
       "sha256": "207c150d59a14a34920b6d244cf026ef154c8ad1500059a43455a866664fbf1d"
@@ -12556,6 +12811,11 @@
       "sha256": "33982673004b848aebf8b6a3b3fbb67f787c7d95a1c383b3874ed6862b5d374e"
     },
     {
+      "path": "tests/test_rgb_exposure_headroom.py",
+      "bytes": 1601,
+      "sha256": "aa62a43aaf4432e6565ce69c9bb25403c1549ac5983ce0f94c41f545d3ad6ecd"
+    },
+    {
       "path": "tests/test_scin_download_candidates.py",
       "bytes": 15573,
       "sha256": "4d650ecb40e68a3fef39d81e5b9fd3a5e1edc0b5fb1d7228c6ead38cc3a156d3"
@@ -12749,6 +13009,11 @@
       "path": "tests/test_whole_scene_features.py",
       "bytes": 1341,
       "sha256": "37186a763f575dd3b5bdcf909124703c21b87ccacb68103cbd9a2684130a2d72"
+    },
+    {
+      "path": "tests/test_widespread_exposure_headroom.py",
+      "bytes": 2011,
+      "sha256": "c0caeffad77c97f7749ae34fd1d8ef911b36fe987c4a7f371df31b3d141728db"
     },
     {
       "path": "tests/test_ycrcb_candidate.py",

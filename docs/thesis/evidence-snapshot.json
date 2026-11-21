@@ -2,96 +2,6 @@
   "checkpoint": "2026-11-21",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
-  "current_session_handoff": "docs/session-handoff-2026-11-21.md",
-  "latest_development_round_status": {
-    "round": "wb314_mste_normal_primary_development_round1_2026_11_19",
-    "responses_received_and_analyzed_locally": true,
-    "exported_judgments_comparative": true,
-    "live_uploaded_image_pixels_verified": false,
-    "final_expert_appraisal_completed": false
-  },
-  "android_wb314_huawei_previews": {
-    "brightness_source": "docs/wb314-widespread-exposure-2026-11-21.md",
-    "boundary_source": "docs/android-wb314-huawei-boundary-protection-2026-11-21.md",
-    "brightness_emulator_saved_mask_cases_exact": 8,
-    "brightness_live_huawei_portrait_dimensions": [3000, 4000],
-    "brightness_live_huawei_pixels_different_from_approved_preview": 0,
-    "brightness_portrait_newly_clipped_pixels_before": 267139,
-    "brightness_portrait_newly_clipped_pixels_after": 213,
-    "boundary_huawei_live_mask_cases_passed": 3,
-    "formerly_failing_fixture_outside_support_pixels_before": 768,
-    "formerly_failing_fixture_outside_support_pixels_after": 0,
-    "boundary_portrait_pixels_different_from_approved_preview": 3483,
-    "boundary_portrait_max_rgb_code_difference": 6,
-    "exact_live_mask_parity_qualified": false,
-    "previews_enabled_in_installed_picker": false
-  },
-  "wb314_proposal_alignment": {
-    "source": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#cross-check-against-the-proposal",
-    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
-    "frozen_tree_split_nodes": 9,
-    "split_nodes_using_explicit_ita": 0,
-    "split_nodes_using_explicit_mst_score": 0,
-    "proposal_correction_scope": "Face only",
-    "research_correction_support_may_include_associated_neck": true,
-    "final_evaluation_direction_researcher_approved": true,
-    "exact_final_table_2_recipe_and_disparity_formula_resolved": false,
-    "required_formal_acceptance_verified": false
-  },
-  "android_wb314_picker": {
-    "source": "docs/android-wb314-picker-2026-11-19.md",
-    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
-    "runtime": "API 35 x86-64 emulator, locally provisioned research build",
-    "saved_development_fixtures": 2,
-    "output_dimensions": [512, 768],
-    "automatic_mask_support_mismatches": 0,
-    "exported_pixels_compared": 786432,
-    "python_output_pixel_mismatches": 0,
-    "nonidentity_pixels_changed": 40902,
-    "protected_or_outside_pixels_changed": 0,
-    "identity_pixels_changed": 0,
-    "jvm_tests_passed": 18,
-    "emulator_tests_passed": 5,
-    "physical_phone_tested": true
-  },
-  "android_wb314_huawei": {
-    "source": "docs/android-wb314-huawei-check-2026-11-19.md",
-    "device": "Huawei nova 7i, API 29, arm64-v8a",
-    "camera_sized_fixture_dimensions": [3072, 4096],
-    "original_size_export_completed": true,
-    "python_parity_passed": false,
-    "camera_sized_export_pixel_mismatches": 8995,
-    "camera_sized_changes_outside_python_allowed_area": 768,
-    "adjusted_visibility_mismatches": 7,
-    "adjusted_visibility_mismatches_using_saved_python_landmarks": 0,
-    "matched_binary_visibility_decisions_using_saved_aligned_rgb": 131072,
-    "same_rgb_crop_digests_matched": 2,
-    "huawei_bitmap_vs_packed_rgb_landmark_mismatches": 0,
-    "native_mediapipe_candidate": {
-      "version": "1.0.0",
-      "fixtures": 2,
-      "mask_parity_passed": false,
-      "aggregate_mask_differences_match_baseline": true,
-      "adjusted_application_support_mismatches": 6,
-      "original_size_export_run": false,
-      "adopted": false
-    },
-    "shared_opencv_component_check": {
-      "fixtures": 2,
-      "graphs": 2,
-      "float32_values_compared": 33336,
-      "float32_bit_mismatches": 26771,
-      "max_absolute_difference": 0.00006103515625,
-      "exact_tensor_parity_passed": false,
-      "mask_or_export_tested": false,
-      "adopted": false
-    },
-    "python_replay_vs_saved_landmark_mismatches": 0,
-    "adjusted_live_landmark_max_displacement_analysis_pixels": 0.012717792630380587,
-    "adjusted_application_support_mismatches": 6,
-    "identity_export_pixel_mismatches": 0,
-    "full_size_latency_qualified": false
-  },
   "studies": {
     "wb314": {
       "local_source": "outputs/wb_feature_direct_prediction_v1/summary.json",
@@ -1734,6 +1644,131 @@
         "qualification_complete": false
       }
     }
+  },
+  "current_session_handoff": "docs/session-handoff-2026-11-21.md",
+  "current_picker_candidate": {
+    "source": "docs/android-wb314-picker-2026-11-19.md#rgb-check-on-the-luminance-limit",
+    "app_version": "1.0-wb314-picker-test.2",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "local_and_installed_apk_sha256": "fdb6bca7b46582d9771aae995ab3b6fdce8b838e368910c00e1460a082f956fd",
+    "installed_asset_hashes_verified": 8,
+    "normal_picker_widespread_exposure_limit": true,
+    "normal_picker_faceocc_boundary_protection": true,
+    "luminance_limit_rgb_recheck": true,
+    "jvm_tests_passed": 18,
+    "huawei_instrumentation_tests_passed": 2,
+    "huawei_cases_preserving_dimensions_and_saved_support": 4,
+    "identity_and_approved_portrait_outputs_exact_to_picker_v1": 2,
+    "overbright_photo_dimensions": [
+      3000,
+      4000
+    ],
+    "overbright_photo_clipping_v1": 425471,
+    "overbright_photo_clipping_v2": 46380,
+    "overbright_photo_gain_v1": 1.3501288774902596,
+    "overbright_photo_gain_v2": 1.0048039476017498,
+    "exact_live_mask_parity_qualified": false,
+    "independent_mst_validation_completed": false,
+    "independent_final_roster_admitted": false,
+    "final_expert_appraisal_completed": false
+  },
+  "latest_development_round_status": {
+    "round": "wb314_mste_normal_primary_development_round1_2026_11_19",
+    "responses_received_and_analyzed_locally": true,
+    "exported_judgments_comparative": true,
+    "live_uploaded_image_pixels_verified": false,
+    "final_expert_appraisal_completed": false
+  },
+  "android_wb314_huawei_previews": {
+    "brightness_source": "docs/wb314-widespread-exposure-2026-11-21.md",
+    "boundary_source": "docs/android-wb314-huawei-boundary-protection-2026-11-21.md",
+    "brightness_emulator_saved_mask_cases_exact": 8,
+    "brightness_live_huawei_portrait_dimensions": [
+      3000,
+      4000
+    ],
+    "brightness_live_huawei_pixels_different_from_approved_preview": 0,
+    "brightness_portrait_newly_clipped_pixels_before": 267139,
+    "brightness_portrait_newly_clipped_pixels_after": 213,
+    "boundary_huawei_live_mask_cases_passed": 3,
+    "formerly_failing_fixture_outside_support_pixels_before": 768,
+    "formerly_failing_fixture_outside_support_pixels_after": 0,
+    "boundary_portrait_pixels_different_from_approved_preview": 3483,
+    "boundary_portrait_max_rgb_code_difference": 6,
+    "exact_live_mask_parity_qualified": false,
+    "previews_enabled_in_installed_picker": false
+  },
+  "wb314_proposal_alignment": {
+    "source": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#cross-check-against-the-proposal",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "frozen_tree_split_nodes": 9,
+    "split_nodes_using_explicit_ita": 0,
+    "split_nodes_using_explicit_mst_score": 0,
+    "proposal_correction_scope": "Face only",
+    "research_correction_support_may_include_associated_neck": true,
+    "final_evaluation_direction_researcher_approved": true,
+    "exact_final_table_2_recipe_and_disparity_formula_resolved": false,
+    "required_formal_acceptance_verified": false
+  },
+  "android_wb314_picker": {
+    "source": "docs/android-wb314-picker-2026-11-19.md",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "runtime": "API 35 x86-64 emulator, locally provisioned research build",
+    "saved_development_fixtures": 2,
+    "output_dimensions": [
+      512,
+      768
+    ],
+    "automatic_mask_support_mismatches": 0,
+    "exported_pixels_compared": 786432,
+    "python_output_pixel_mismatches": 0,
+    "nonidentity_pixels_changed": 40902,
+    "protected_or_outside_pixels_changed": 0,
+    "identity_pixels_changed": 0,
+    "jvm_tests_passed": 18,
+    "emulator_tests_passed": 5,
+    "physical_phone_tested": true
+  },
+  "android_wb314_huawei": {
+    "source": "docs/android-wb314-huawei-check-2026-11-19.md",
+    "device": "Huawei nova 7i, API 29, arm64-v8a",
+    "camera_sized_fixture_dimensions": [
+      3072,
+      4096
+    ],
+    "original_size_export_completed": true,
+    "python_parity_passed": false,
+    "camera_sized_export_pixel_mismatches": 8995,
+    "camera_sized_changes_outside_python_allowed_area": 768,
+    "adjusted_visibility_mismatches": 7,
+    "adjusted_visibility_mismatches_using_saved_python_landmarks": 0,
+    "matched_binary_visibility_decisions_using_saved_aligned_rgb": 131072,
+    "same_rgb_crop_digests_matched": 2,
+    "huawei_bitmap_vs_packed_rgb_landmark_mismatches": 0,
+    "native_mediapipe_candidate": {
+      "version": "1.0.0",
+      "fixtures": 2,
+      "mask_parity_passed": false,
+      "aggregate_mask_differences_match_baseline": true,
+      "adjusted_application_support_mismatches": 6,
+      "original_size_export_run": false,
+      "adopted": false
+    },
+    "shared_opencv_component_check": {
+      "fixtures": 2,
+      "graphs": 2,
+      "float32_values_compared": 33336,
+      "float32_bit_mismatches": 26771,
+      "max_absolute_difference": 6.103515625e-05,
+      "exact_tensor_parity_passed": false,
+      "mask_or_export_tested": false,
+      "adopted": false
+    },
+    "python_replay_vs_saved_landmark_mismatches": 0,
+    "adjusted_live_landmark_max_displacement_analysis_pixels": 0.012717792630380587,
+    "adjusted_application_support_mismatches": 6,
+    "identity_export_pixel_mismatches": 0,
+    "full_size_latency_qualified": false
   },
   "expert_preparation_status": {
     "neutral_id_draft_approved": false,

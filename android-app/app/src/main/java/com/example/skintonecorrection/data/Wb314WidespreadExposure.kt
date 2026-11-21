@@ -20,7 +20,8 @@ internal object Wb314WidespreadExposure {
         measurement: ByteArray,
         alpha: DoubleArray,
         protected: BooleanArray,
-        raw: DoubleArray
+        raw: DoubleArray,
+        verifyLuminanceRgb: Boolean
     ): Wb314ExposureDecision {
         var eligible = 0
         var clipped = 0
@@ -40,7 +41,8 @@ internal object Wb314WidespreadExposure {
         }
 
         val luminanceGain = facialLuminanceBound(analysisRgb, measurement, alpha, protected, raw)
-        if (luminanceGain >= 1 && luminanceGain < raw[1]) {
+        val hasLuminanceLimit = luminanceGain >= 1 && luminanceGain < raw[1]
+        if (hasLuminanceLimit && !verifyLuminanceRgb) {
             return Wb314ExposureDecision(raw.copyOf().apply { this[1] = luminanceGain },
                 eligible, clipped, "facial_luminance")
         }
@@ -57,15 +59,22 @@ internal object Wb314WidespreadExposure {
         }
         check(count == clipped)
         val effective = raw.copyOf()
-        var safe = 1.0
-        var unsafe = raw[1]
-        repeat(24) {
-            effective[1] = (safe + unsafe) / 2
+        fun clipsAt(gain: Double): Boolean {
+            effective[1] = gain
             val trial = renderer(effective)
-            if (affectedPixels.indices.any { hasFullChannel(trial.render(affectedPixels[it], affectedAlpha[it], false)) }) {
-                unsafe = effective[1]
+            return affectedPixels.indices.any { hasFullChannel(trial.render(affectedPixels[it], affectedAlpha[it], false)) }
+        }
+        if (hasLuminanceLimit && !clipsAt(luminanceGain)) {
+            return Wb314ExposureDecision(effective, eligible, clipped, "facial_luminance")
+        }
+        var safe = 1.0
+        var unsafe = if (hasLuminanceLimit) luminanceGain else raw[1]
+        repeat(24) {
+            val gain = (safe + unsafe) / 2
+            if (clipsAt(gain)) {
+                unsafe = gain
             } else {
-                safe = effective[1]
+                safe = gain
             }
         }
         effective[1] = safe

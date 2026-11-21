@@ -2,6 +2,7 @@ package com.example.skintonecorrection.data
 
 import android.content.Context
 import android.graphics.Bitmap
+import com.example.skintonecorrection.BuildConfig
 import org.json.JSONArray
 import org.json.JSONObject
 import org.opencv.android.OpenCVLoader
@@ -32,7 +33,10 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             .put("failed_stage", "wb314_assets")
         val available = models
         report.put("failed_stage", "wb314_mask_and_correction")
-        val auto = available.predictor.correct(upright, available.generator, glasses)
+        val pickerFixes = BuildConfig.WB314_PICKER_FIXES
+        val auto = available.predictor.correct(upright, available.generator, glasses,
+            previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
+            verifyLuminanceRgb = pickerFixes)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -41,11 +45,18 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             mask = Bitmap.createBitmap(preview, side, side, Bitmap.Config.ARGB_8888)
             val controls = auto.correction.controls
             report.put("leaf", auto.correction.leaf).put("controls", JSONArray(controls.toList()))
+                .put("picker_fixes", pickerFixes)
                 .put("identity_controls", controls.all { it == 1.0 })
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")
+            auto.correction.exposurePreview?.let { decision ->
+                report.put("effective_controls", JSONArray(decision.effectiveControls.toList()))
+                    .put("exposure_limit_method", decision.method)
+                    .put("eligible_face_pixels", decision.eligiblePixels)
+                    .put("raw_exposure_clipped_face_pixels", decision.exposureClippedPixels)
+            }
             return PipelineImages(upright, mask, corrected)
         } catch (error: Throwable) {
             mask?.recycle()

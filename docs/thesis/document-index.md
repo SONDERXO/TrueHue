@@ -5,9 +5,6 @@ Titles identify records; they do not certify completion or supersede later resul
 
 Personal appeal-letter material is excluded. Original file encodings are preserved in Git; the upload text uses decoded UTF-8 copies.
 
-- [TrueHue session handoff · 21 November 2026](../session-handoff-2026-11-21.md)
-- [Exposure reduction when clipping spreads across the measured face](../wb314-widespread-exposure-2026-11-21.md)
-- [Huawei FaceOcc boundary protection](../android-wb314-huawei-boundary-protection-2026-11-21.md)
 - [40048 image-right cheek gap](../40048-cheek-gap.md) — `docs/40048-cheek-gap.md`
 - [TrueHue continuation checkpoint](../CODEX-HANDOFF.md) — `docs/CODEX-HANDOFF.md`
 - [TrueHue documentation: start here](../README.md) — `docs/README.md`
@@ -53,11 +50,14 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [Android demonstration script — 31 October 2026](../android-demonstration-script-2026-10-31.md) — `docs/android-demonstration-script-2026-10-31.md`
 - [Build and test TrueHue on a phone](../android-device-testing.md) — `docs/android-device-testing.md`
 - [Android emulator execution — 31 October 2026](../android-emulator-check-2026-10-31.md) — `docs/android-emulator-check-2026-10-31.md`
+- [Android FaceOcc alignment and reprojection](../android-faceocc-geometry-2026-11-19.md) — `docs/android-faceocc-geometry-2026-11-19.md`
+- [Android FaceOcc research port](../android-faceocc-research-port-2026-11-19.md) — `docs/android-faceocc-research-port-2026-11-19.md`
 - [Android integration checkpoint — 31 October 2026](../android-integration-2026-10-31.md) — `docs/android-integration-2026-10-31.md`
 - [Bounded Android reliability check — 31 October 2026](../android-reliability-check-2026-10-31.md) — `docs/android-reliability-check-2026-10-31.md`
-- [Android WB314 mask generation and verification](../android-wb314-mask-pipeline-2026-11-19.md) — `docs/android-wb314-mask-pipeline-2026-11-19.md`
-- [WB314 in the Android photo picker](../android-wb314-picker-2026-11-19.md) — `docs/android-wb314-picker-2026-11-19.md`
+- [Huawei FaceOcc boundary protection](../android-wb314-huawei-boundary-protection-2026-11-21.md) — `docs/android-wb314-huawei-boundary-protection-2026-11-21.md`
 - [WB314 on Huawei nova 7i](../android-wb314-huawei-check-2026-11-19.md) — `docs/android-wb314-huawei-check-2026-11-19.md`
+- [Android WB314 research masks](../android-wb314-mask-pipeline-2026-11-19.md) — `docs/android-wb314-mask-pipeline-2026-11-19.md`
+- [WB314 in the Android photo picker](../android-wb314-picker-2026-11-19.md) — `docs/android-wb314-picker-2026-11-19.md`
 - [Approved ear coverage integrated; brightness audit](../approved-ear-support-integration-2026-11-12.md) — `docs/approved-ear-support-integration-2026-11-12.md`
 - [Practical proposal: average source-bootstrap correction trees](../bagged-tree-correction-proposal-2026-11-13.md) — `docs/bagged-tree-correction-proposal-2026-11-13.md`
 - [Authorized fixed bagged-tree development protocol](../bagged-tree-fixed-protocol-2026-11-13.md) — `docs/bagged-tree-fixed-protocol-2026-11-13.md`
@@ -753,6 +753,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [TrueHue continuation handoff — 10 November 2026](../session-handoff-2026-11-10.md) — `docs/session-handoff-2026-11-10.md`
 - [TrueHue consolidated handoff — 13 November 2026](../session-handoff-2026-11-13.md) — `docs/session-handoff-2026-11-13.md`
 - [TrueHue session handoff — 17 November 2026](../session-handoff-2026-11-17.md) — `docs/session-handoff-2026-11-17.md`
+- [TrueHue session handoff · 21 November 2026](../session-handoff-2026-11-21.md) — `docs/session-handoff-2026-11-21.md`
 - [Setup Guide](../setup-guide.md) — `docs/setup-guide.md`
 - [Fresh shared-core MST feature completion — 10 November 2026](../shared-core-mst-features-results-2026-11-10.md) — `docs/shared-core-mst-features-results-2026-11-10.md`
 - [Signed-benefit correction gate: fixed development comparison](../signed-benefit-gate-protocol-2026-11-07.md) — `docs/signed-benefit-gate-protocol-2026-11-07.md`
@@ -941,6 +942,7 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [One mathematical highlight-headroom repair assessment](../wb314-highlight-headroom-repair-protocol-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-protocol-2026-11-19.md`
 - [Highlight-headroom candidate: overflow reduced, exact-parity screen failed](../wb314-highlight-headroom-repair-results-2026-11-19.md) — `docs/wb314-highlight-headroom-repair-results-2026-11-19.md`
 - [Larger expert comparisons: same V2 results, four-times viewing scale](../wb314-larger-expert-presentation-2026-11-19.md) — `docs/wb314-larger-expert-presentation-2026-11-19.md`
+- [Local exposure attenuation at clipped highlights](../wb314-local-rgb-highlights-2026-11-21.md) — `docs/wb314-local-rgb-highlights-2026-11-21.md`
 - [MST remains required; neutral-ID feedback draft is on hold](../wb314-mst-evaluation-requirement-2026-11-18.md) — `docs/wb314-mst-evaluation-requirement-2026-11-18.md`
 - [MST-labelled development-feedback packet for the frozen WB314 model](../wb314-mste-development-feedback-protocol-2026-11-18.md) — `docs/wb314-mste-development-feedback-protocol-2026-11-18.md`
 - [MST-labelled development-feedback draft prepared; release decision pending](../wb314-mste-development-feedback-results-2026-11-19.md) — `docs/wb314-mste-development-feedback-results-2026-11-19.md`
@@ -951,10 +953,12 @@ Personal appeal-letter material is excluded. Original file encodings are preserv
 - [One direct preview on the existing20normal photographs](../wb314-normal-photo-preview-protocol-2026-11-19.md) — `docs/wb314-normal-photo-preview-protocol-2026-11-19.md`
 - [Direct normal-photo preview: ten unchanged, ten adjusted, brightening concern](../wb314-normal-photo-preview-results-2026-11-19.md) — `docs/wb314-normal-photo-preview-results-2026-11-19.md`
 - [Original-size output implemented](../wb314-original-resolution-output-2026-11-19.md) — `docs/wb314-original-resolution-output-2026-11-19.md`
+- [RGB-channel exposure limit assessment](../wb314-rgb-exposure-headroom-2026-11-21.md) — `docs/wb314-rgb-exposure-headroom-2026-11-21.md`
 - [Frozen WB314 single-photo research runner](../wb314-single-photo-runner-2026-11-19.md) — `docs/wb314-single-photo-runner-2026-11-19.md`
 - [One frozen WB314 research predictor](../wb314-single-predictor-protocol-2026-11-18.md) — `docs/wb314-single-predictor-protocol-2026-11-18.md`
 - [One frozen WB314 predictor: fit complete, changed-output review pending](../wb314-single-predictor-results-2026-11-18.md) — `docs/wb314-single-predictor-results-2026-11-18.md`
 - [Two user-selected photos: native pipeline execution complete](../wb314-two-photo-native-check-2026-11-19.md) — `docs/wb314-two-photo-native-check-2026-11-19.md`
+- [Exposure reduction when clipping spreads across the measured face](../wb314-widespread-exposure-2026-11-21.md) — `docs/wb314-widespread-exposure-2026-11-21.md`
 - [Whole-face correction and nostril-excluded measurement](../whole-face-support-results-2026-11-01.md) — `docs/whole-face-support-results-2026-11-01.md`
 - [Whole-photograph distortion and scene-feature comparison](../whole-scene-correction-protocol-2026-11-06.md) — `docs/whole-scene-correction-protocol-2026-11-06.md`
 - [Whole-photo distortions: scene features help recovery but worsen clean preservation](../whole-scene-correction-results-2026-11-06.md) — `docs/whole-scene-correction-results-2026-11-06.md`

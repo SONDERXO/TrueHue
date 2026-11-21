@@ -4,7 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
-| Current stopping point | [21 November handoff](../session-handoff-2026-11-21.md) | Development responses received and analyzed locally. The usual Huawei picker build was restored after preview testing. |
+| Current stopping point | [21 November handoff](../session-handoff-2026-11-21.md) · [Installed picker test v2](../android-wb314-picker-2026-11-19.md#rgb-check-on-the-luminance-limit) | Frozen WB314 candidate with both Huawei fixes and RGB clipping verification. Original expert round analyzed separately. Independent MST evaluation, final expert appraisal and complete device qualification are open. |
 | Brightness and application-boundary previews | [Brightness verification](../wb314-widespread-exposure-2026-11-21.md) · [Huawei boundary protection](../android-wb314-huawei-boundary-protection-2026-11-21.md) | `Wb314WidespreadExposure.kt`, `FaceOccResearchModel.kt`, `Wb314LiveExposurePreviewTest.kt`. Opt-in research paths with focused device evidence. |
 | Current blockers and two planned expert rounds | `docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md`; `docs/expert-feedback-refinement-policy.md` | Planning only: retain MST/ITA/tree, no new fit or study; final appraisal also reviews the refined frozen system |
 | Rejected background-balanced necessity repair | `docs/wb314-background-balance-protocol-2026-11-19.md`; `docs/wb314-background-balance-results-2026-11-19.md` | `scripts/assess_wb314_background_balance.py`; `tests/test_wb314_background_balance.py`; one training design/11held fits, gate failed,0final candidate fits/no adoption |

@@ -8,6 +8,32 @@ In the initial 21 November unchanged-message build, the API 35 emulator showed t
 
 ## Local research build
 
+For the Huawei picker test build, run `gradlew.bat -Pwb314PickerTest=true :app:assembleDebug` from `android-app/`. It appears as **TrueHue Picker Test** and installs alongside the usual app under `com.example.skintonecorrection.pickertest`. Provision its pinned local assets with `scripts/install_android_wb314_research_assets.ps1 -Serial <adb-serial> -PickerTest` from the repository root.
+
+The test build enables the [widespread-brightness limit](wb314-widespread-exposure-2026-11-21.md) and [FaceOcc application visibility margin](android-wb314-huawei-boundary-protection-2026-11-21.md) in the normal picker. The build flag defaults to off for regular debug builds and is off in release builds.
+
+On 21 November the separate APK installed on the Huawei, and all eight provisioned assets matched their pinned hashes. The usual APK also matched its pre-install checksum. All 18 JVM tests passed. One Huawei instrumentation test opened all three saved fixtures as local URIs through the same repository used by the picker. It ran the normal decoder and correction pipeline, wrote results and invoked the app's export method for both corrected photos. The check exercised the processing and export code directly.
+
+| Saved fixture | Output dimensions | Result | Pixels changed outside saved support | Newly clipped pixels |
+| --- | --- | --- | ---: | ---: |
+| Previous boundary failure | 3072 × 4096 | Corrected and exported | 0 | 126,756 |
+| Identity | 512 × 768 | Exact pixel match and unchanged result state | 0 | 0 |
+| Bright portrait | 3000 × 4000 | Corrected and exported | 0 | 213 |
+
+All three retained the expected raw tree controls. The boundary fixture also activated the facial luminance limit with both fixes enabled, reducing newly clipped pixels from 470,669 in the earlier boundary-only preview to 126,756. The bright portrait used the facial RGB limit and reproduced the earlier 213-pixel clipping count. Exact agreement between Huawei and Python masks remains open. The expert development round remains bound to its original WB314 release.
+
+### RGB check on the luminance limit
+
+A later 3000 × 4000 phone photo remained too bright in the picker test build. The same raw WB314 exposure gain of 1.414× that had been limited to 1.005× on the approved portrait was limited to 1.350× on the later shot. The latter used the luminance limit, which could leave individual RGB channels clipped.
+
+Picker test version `1.0-wb314-picker-test.2` checks the proposed luminance gain against the same original-resolution pixels that triggered the widespread-clipping rule. If any of those pixels would still clip in an RGB channel, the existing RGB search finds a lower exposure gain. The one-quarter trigger, raw tree controls, colour controls, and FaceOcc boundary margin are retained. The research preview keeps its recorded rule and the expert development release keeps its frozen outputs.
+
+On the Huawei, the standard processing and export path reproduced the reported photo's decoded input, saved application mask and raw controls. The new limit selected **1.005×** exposure. Newly clipped pixels over the full frame fell from **425,471 to 46,380**. The PNG remained 3000 × 4000, with zero edits outside the saved support. The researcher subsequently approved the appearance of this one photo in picker test v2.
+
+All 18 JVM tests and both Huawei instrumentation checks passed. The three saved fixtures retained their dimensions, raw controls and zero edits outside saved support. The approved bright portrait and identity fixture produced byte-identical correction PNGs to picker test v1. The previous boundary failure used the lower RGB limit and newly clipped pixels fell from 126,756 to 33,193. The Huawei's installed test APK matched the local build checksum, and the usual APK matched its earlier checksum. Only aggregate results are recorded here.
+
+The installed and local v2 APKs were reverified at SHA-256 `fdb6bca7b46582d9771aae995ab3b6fdce8b838e368910c00e1460a082f956fd`. All eight provisioned assets matched their pins, including the original WB314 tree (`7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f`). This build is the candidate to carry into final evaluation preparation. The appearance approval supplies one development observation. The final cohort, protocol, mapping validation and app qualification remain open under the [two-round completion plan](wb314-completion-blockers-and-two-round-plan-2026-11-19.md).
+
 Install the debug APK and run `scripts/install_android_wb314_research_assets.ps1 -Serial <adb-serial>`. The script checks the eight pinned local files before copying them, then verifies each copy in the app's private directory. It installs no photo fixtures. A debug install without the local assets reports that they are missing. There is no fallback to the older model in the picker.
 
 The APK contains the app code. The WB314 model, mapping, white-balance bank, parser, FaceOcc graph and test photos remain local. This is a research build. Physical-phone latency, memory and broader correction quality remain unqualified.

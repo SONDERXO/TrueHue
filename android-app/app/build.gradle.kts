@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)      // JetBrains Compose compiler plugin (Kotlin 2.0+)
 }
 
+val wb314PickerTest = providers.gradleProperty("wb314PickerTest").map { it.toBooleanStrict() }.orElse(false)
+
 android {
     namespace = "com.example.skintonecorrection"
     // Which Android SDK the code is compiled against.
@@ -22,10 +24,22 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders["pickerLabel"] = "@string/app_name"
     }
 
     buildTypes {
+        debug {
+            val enablePickerFixes = wb314PickerTest.get()
+            buildConfigField("boolean", "WB314_PICKER_FIXES", enablePickerFixes.toString())
+            if (enablePickerFixes) {
+                applicationIdSuffix = ".pickertest"
+                versionNameSuffix = "-wb314-picker-test.2"
+                resValue("string", "picker_app_name", "TrueHue Picker Test")
+                manifestPlaceholders["pickerLabel"] = "@string/picker_app_name"
+            }
+        }
         release {
+            buildConfigField("boolean", "WB314_PICKER_FIXES", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(
@@ -45,6 +59,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         // Enable Compose UI.
         compose = true
     }
