@@ -1,0 +1,7 @@
+# Exposure reduction when clipping spreads across the measured face
+
+This development candidate checks how much of the measured face would newly reach a full RGB channel because of positive exposure. The eligible area includes originally non-full, unprotected pixels with application support. The comparison holds colour controls constant at unit exposure. With at least one quarter of the eligible area affected, the rule uses the existing facial luminance adjustment when it can reduce exposure with other controls intact. Otherwise it uses the RGB headroom limit. The one-quarter cutoff was fixed before this run within a gap observed in the same exposed development cases.
+
+All 47 related software tests passed. The assessment reused 38 saved development cases with one original-size portrait. It matched both earlier softened development outputs exactly and preserved all 35 other saved 256-pixel outputs exactly, including 11 identities, 22 underexposure cases and both useful-lighting examples. The full-size portrait used the RGB limit and had lower clipping and lower median luminance lift. Protected and outside-support pixels matched on all cases. The 35 unchanged outcomes were verified directly against the saved images.
+
+The candidate passed this development screen. The phone preview still awaits an appearance decision. Its full-size output came from the local research renderer using the saved masks. Generalization and Android parity remain open. The test uses the same selection that informed the cutoff.
