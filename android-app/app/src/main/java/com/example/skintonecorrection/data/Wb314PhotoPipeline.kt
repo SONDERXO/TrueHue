@@ -39,7 +39,7 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
             verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
             softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
-            tonePositiveExposure = tonePositiveExposure)
+            tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -52,10 +52,12 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("edge_repair", BuildConfig.WB314_EDGE_REPAIR)
                 .put("soft_edge", BuildConfig.WB314_SOFT_EDGE)
                 .put("positive_exposure_toned", tonePositiveExposure)
+                .put("low_light_lift", auto.correction.lowLightLift)
                 .put("jaw_repair", BuildConfig.WB314_JAW_REPAIR)
                 .put("edge_repair_added_pixels", auto.masks.repairedApplication?.addedPixels ?: 0)
-                .put("identity_controls", controls.all { it == 1.0 })
+                .put("identity_controls", auto.correction.appliedControls.all { it == 1.0 })
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
+                .put("face_analysis_side", auto.visionSide)
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")

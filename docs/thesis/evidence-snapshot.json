@@ -1647,6 +1647,38 @@
   },
   "current_session_handoff": "docs/session-handoff-2026-11-21.md",
   "current_picker_candidate": {
+    "source": "docs/wb314-final-evaluation-preflight-2026-11-22.md",
+    "app_version": "1.0-wb314-soft-edge-test.5",
+    "app_id": "com.example.skintonecorrection.pickertest.soft",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "local_and_installed_apk_sha256": "04e2716d32df13cd3dbaa7efa2a28faff44f7eba86d8bb8329ecee32b0a7d5c4",
+    "installed_asset_hashes_verified": 8,
+    "manuscript_freeze_approved": true,
+    "jvm_tests_passed": 25,
+    "final_cohort_subjects_admitted": 0,
+    "independent_mst_validation_completed": false,
+    "final_expert_appraisal_completed": false,
+    "ut_austin": {
+      "attempted": 21,
+      "completed": 13,
+      "face_analysis_stops": 8,
+      "dim_or_backlit": {
+        "attempted": 6,
+        "lifted": 1,
+        "unchanged": 1,
+        "face_analysis_stops": 4
+      },
+      "lifted_photo_extra_clipping": 0,
+      "lifted_photo_changes_outside_support": 0,
+      "other_completed_outputs_pixel_exact": 12
+    },
+    "historical_huawei_regressions_pixel_exact": 4,
+    "synthetic_only_preflight": {
+      "condition_recipes_checked": 6,
+      "masked_metric_smoke_passed": true
+    }
+  },
+  "earlier_dimmer_picker_candidate": {
     "source": "docs/android-wb314-picker-2026-11-19.md#milder-positive-exposure",
     "app_version": "1.0-wb314-soft-edge-test.2",
     "app_id": "com.example.skintonecorrection.pickertest.soft",

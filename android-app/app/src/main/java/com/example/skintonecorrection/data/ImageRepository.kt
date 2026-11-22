@@ -27,7 +27,8 @@ data class CorrectionResult(val input:Uri?,val mask:Uri?,val corrected:Uri?,val 
 
 enum class CorrectionStage { PREPARING, CORRECTING, SAVING }
 
-internal class PhotoProcessingException(@StringRes val userMessage: Int, diagnostic: String) :
+internal class PhotoProcessingException(@StringRes val userMessage: Int, diagnostic: String,
+                                        val retryFaceAnalysis: Boolean = false) :
     IllegalArgumentException(diagnostic)
 
 /** Local processing. Failure never returns the original as a corrected result. */

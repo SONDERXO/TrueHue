@@ -21,7 +21,8 @@ internal object Wb314WidespreadExposure {
         alpha: DoubleArray,
         protected: BooleanArray,
         raw: DoubleArray,
-        verifyLuminanceRgb: Boolean
+        verifyLuminanceRgb: Boolean,
+        guardNearWhiteFace: Boolean = false
     ): Wb314ExposureDecision {
         var eligible = 0
         var clipped = 0
@@ -35,6 +36,11 @@ internal object Wb314WidespreadExposure {
         forEachEligible(original, support, measurement) { pixel, coverage ->
             eligible++
             if (raw[1] > 1 && clipsWithExposure(pixel, coverage)) clipped++
+        }
+        if (guardNearWhiteFace && raw[1] > 1.0 &&
+            Wb314ExposureToning.hasWidespreadNearWhite(analysisRgb, measurement)) {
+            // The tree's positive exposure and colour controls form one proposal.
+            return Wb314ExposureDecision(DoubleArray(raw.size) { 1.0 }, eligible, clipped, "near_white_face")
         }
         if (clipped == 0 || 4L * clipped < eligible) {
             return Wb314ExposureDecision(raw.copyOf(), eligible, clipped, "original")

@@ -208,7 +208,8 @@ internal object ResearchMaskRules {
 
     private fun requireMeasurement(mask: BooleanArray) {
         if (mask.count { it } < 1_000) {
-            throw PhotoProcessingException(R.string.error_face_covered, "Insufficient facial measurement support")
+            throw PhotoProcessingException(R.string.error_face_covered,
+                "Insufficient facial measurement support", retryFaceAnalysis = true)
         }
     }
 

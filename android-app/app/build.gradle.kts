@@ -54,7 +54,7 @@ android {
                 }
                 versionNameSuffix = when {
                     enableJawRepair -> "-wb314-jaw-test.1"
-                    enableSoftEdge -> "-wb314-soft-edge-test.2"
+                    enableSoftEdge -> "-wb314-soft-edge-test.5"
                     enableEdgeRepair -> "-wb314-edge-test.1"
                     else -> "-wb314-picker-test.2"
                 }

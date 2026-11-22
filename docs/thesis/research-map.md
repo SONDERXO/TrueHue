@@ -4,6 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
+| Frozen Huawei build and draft final protocol | [Freeze and scoring draft](../wb314-final-evaluation-preflight-2026-11-22.md) · [Severe backlight checks](../android-wb314-picker-2026-11-19.md#severe-backlight-exposure) | `Wb314LowLight.kt`, `Wb314ResearchPipeline.kt` and the frozen Android build. Independent evaluation remains pending. |
 | Current stopping point | [Session handoff](../session-handoff-2026-11-21.md) · [Installed Soft Edge Test v2](../android-wb314-picker-2026-11-19.md#milder-positive-exposure) | Frozen WB314 candidate with softer edges and milder brightening. Original expert round analyzed separately. Independent MST evaluation, final expert appraisal and complete device qualification are open. |
 | Brightness and application-boundary previews | [Brightness verification](../wb314-widespread-exposure-2026-11-21.md) · [Huawei boundary protection](../android-wb314-huawei-boundary-protection-2026-11-21.md) | `Wb314WidespreadExposure.kt`, `FaceOccResearchModel.kt`, `Wb314LiveExposurePreviewTest.kt`. Opt-in research paths with focused device evidence. |
 | Current blockers and two planned expert rounds | `docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md`; `docs/expert-feedback-refinement-policy.md` | Planning only: retain MST/ITA/tree, no new fit or study; final appraisal also reviews the refined frozen system |
