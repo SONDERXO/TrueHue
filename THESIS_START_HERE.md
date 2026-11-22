@@ -2,6 +2,8 @@
 
 **Evidence checkpoint · 22 November 2026. TrueHue Soft Edge Test 1.0-wb314-soft-edge-test.5 is frozen for the December 4 manuscript.** The researcher approved the demonstrated low-light lift and accepted the remaining limitation. The installed APK was verified on the Huawei. The [freeze and final scoring draft](docs/wb314-final-evaluation-preflight-2026-11-22.md) records the build, evidence and requirements for the final test. Independent MST evaluation and final expert appraisal remain pending.
 
+**MST manuscript scope.** Keep the original study goal and present the verified photo-correction results. Explain that TrueHue calculates ITA and estimates MST. All nine splits in the fitted WB314 tree use other features. Describe the estimate's unverified accuracy as a limitation. Claims about correction across skin-tone groups require results grouped by independently assigned reference MST labels. Formal decisions about the remaining evaluation procedure are still pending.
+
 The user now authorizes starting thesis editing and preparing this repository for ChatGPT web. Older statements that manuscript work is paused are superseded for evidence-based drafting. This does not adopt a correction model, authorize invented results or make the thesis submission-ready. The editable manuscript has not been edited by this repository update; provide the current manuscript to the writing session.
 
 Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-development-20261105`**. Do not assume `main` contains this checkpoint. Read this file and the linked current evidence before historical drafts or long session logs.

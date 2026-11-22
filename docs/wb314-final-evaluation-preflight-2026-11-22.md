@@ -12,6 +12,8 @@ The Laboratory for Image and Video Engineering at the University of Texas at Aus
 
 The researcher approved the direction of one final subject-disjoint evaluation. The following details apply to the proposed half-stop method once the broader thesis-method revision and final roster are accepted. This draft protects the final set from tuning and leaves the existing development round bound to its 20 original WB314 comparisons.
 
+The December 4 manuscript retains the original MST-related goal and can report the verified photo-correction results with the skin-tone estimation limitation. The current tree uses neither ITA nor the estimated MST field in a split. Independent MST estimation accuracy and correction performance by reference MST group remain pending. Acceptance of the manuscript's reporting scope leaves the proposed final procedure to be resolved through the thesis process.
+
 | Item | Rule to fix before the final test |
 | --- | --- |
 | Roster | Bind release permission for edited stills and controlled expert viewing, subject ID, original photo ID, and independent MST reference label and provenance. Exclude people used in training, tuning, mapping development or development review. Record group sizes and any missing levels before processing. |
