@@ -3,7 +3,10 @@ param(
     [ValidatePattern('^[A-Za-z0-9_.:-]+$')]
     [string]$Serial,
     [string]$Adb,
-    [switch]$PickerTest
+    [switch]$PickerTest,
+    [switch]$EdgeTest,
+    [switch]$SoftEdgeTest,
+    [switch]$JawTest
 )
 
 $ErrorActionPreference = 'Stop'
@@ -13,7 +16,10 @@ if (-not $Adb) {
 }
 $Adb = (Resolve-Path -LiteralPath $Adb).Path
 $package = 'com.example.skintonecorrection'
-if ($PickerTest) { $package += '.pickertest' }
+if ($JawTest) { $package += '.pickertest.jaw' }
+elseif ($SoftEdgeTest) { $package += '.pickertest.soft' }
+elseif ($EdgeTest) { $package += '.pickertest.edge' }
+elseif ($PickerTest) { $package += '.pickertest' }
 $destination = 'files/wb314_models'
 $assets = [ordered]@{
     'manifest.json' = @('outputs/wb314_android_research_parity_v1/manifest.json', 'b1146aff3c5a190b9e495c62caef44e573d28674cb5050c479051314593b8de6')

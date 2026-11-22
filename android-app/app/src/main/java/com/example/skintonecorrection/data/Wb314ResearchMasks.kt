@@ -40,7 +40,9 @@ internal class Wb314ResearchMasks(
                       val masks: ResearchMaskRules.Result)
 
     /** Reuse the loaded graphs on one inference thread. A missing stage fails before correction. */
-    fun generate(bgr: Mat, glasses: GlassesChoice, protectUncertainBoundary: Boolean = false): Result {
+    fun generate(bgr: Mat, glasses: GlassesChoice, protectUncertainBoundary: Boolean = false,
+                 repairSkinEdges: Boolean = false, softenEdge: Boolean = false,
+                 repairJaw: Boolean = false): Result {
         require(bgr.type() == CvType.CV_8UC3 && bgr.rows() == side && bgr.cols() == side)
         val face = detectFace(bgr)
         val landmarks = FaceLandmarks.detect(context, bgr, face, landmarker)
@@ -49,7 +51,7 @@ internal class Wb314ResearchMasks(
         ResearchMaskRules.requireGlassesChoice(categories, face, glasses)
         val visibility = faceOcc.visibility(bgr, landmarks.points, template, protectUncertainBoundary)
         val masks = ResearchMaskRules.build(categories, landmarks.points, visibility.measurement,
-            glasses, visibility.application)
+            glasses, visibility.application, repairSkinEdges, softenEdge, if (repairJaw) bgr else null)
         return Result(face, categories, visibility.measurement, masks)
     }
 

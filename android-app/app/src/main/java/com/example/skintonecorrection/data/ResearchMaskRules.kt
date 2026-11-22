@@ -38,10 +38,15 @@ internal object ResearchMaskRules {
     private val nasalPolygons = listOf(intArrayOf(98, 97, 2, 94, 19, 64), intArrayOf(327, 326, 2, 94, 19, 294))
 
     data class Result(val baseline: ByteArray, val measurement: ByteArray, val alpha: DoubleArray,
-                      val protected: BooleanArray)
+                      val protected: BooleanArray, val repairedApplication: ApplicationRepair? = null,
+                      val softEdge: Wb314SoftEdge? = null)
+
+    data class ApplicationRepair(val alpha: DoubleArray, val protected: BooleanArray, val addedPixels: Int,
+                                 val softEdge: Wb314SoftEdge? = null)
 
     fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: GlassesChoice,
-              applicationVisibility: ByteArray = visible): Result {
+              applicationVisibility: ByteArray = visible, repairSkinEdges: Boolean = false,
+              softenEdge: Boolean = false, jawImage: Mat? = null): Result {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(applicationVisibility.size == PIXELS && applicationVisibility.indices.all {
@@ -81,12 +86,115 @@ internal object ResearchMaskRules {
         }
         val width = maxOf(2, ceil(bounds.width * .03).toInt())
         val distance = distances(selectedWithEars)
-        val alpha = DoubleArray(PIXELS) { i ->
-            val t = (distance[i] / width).coerceIn(0f, 1f).toDouble()
-            if (selectedWithEars[i]) t * t * (3 - 2 * t) else 0.0
-        }
+        val alpha = feather(selectedWithEars, width, distance)
         check(veto.indices.none { veto[it] && alpha[it] > 0.0 })
-        return Result(binary(baseline), binary(measurement), alpha, veto)
+        val repair = when {
+            jawImage != null -> bridgeJaw(jawImage, selectedWithEars, categories, neck, veto, width)
+            repairSkinEdges -> repairApplication(selectedWithEars, categories, neck, veto, width)
+            else -> null
+        }
+        val softEdge = if (softenEdge) softEdge(distance, width) else null
+        return Result(binary(baseline), binary(measurement), alpha, veto, repair, softEdge)
+    }
+
+    private fun softEdge(distance: FloatArray, width: Int) =
+        Wb314SoftEdge(DoubleArray(PIXELS) { distance[it].toDouble() }, width)
+
+    private fun bridgeJaw(bgr: Mat, support: BooleanArray, categories: ByteArray, neck: BooleanArray,
+                          veto: BooleanArray, width: Int): ApplicationRepair? {
+        val lab = Mat()
+        val colors = FloatArray(PIXELS * 3)
+        try {
+            bgr.convertTo(lab, CvType.CV_32FC3, 1.0 / 255.0)
+            Imgproc.cvtColor(lab, lab, Imgproc.COLOR_BGR2Lab)
+            check(lab.get(0, 0, colors) == colors.size * Float.SIZE_BYTES)
+        } finally {
+            lab.release()
+        }
+        fun face(i: Int) = categories[i] == 1.toByte() || categories[i] == 10.toByte()
+        fun matches(a: Int, b: Int): Boolean {
+            var squared = 0.0f
+            for (c in 0..2) {
+                val delta = colors[a * 3 + c] - colors[b * 3 + c]
+                squared += delta * delta
+            }
+            return squared <= 144f
+        }
+        val additions = BooleanArray(PIXELS) { i ->
+            val x = i % SIDE
+            val y = i / SIDE
+            if (support[i] || (!face(i) && !neck[i]) || x !in 2 until SIDE - 2 || y !in 2 until SIDE - 2) {
+                false
+            } else {
+                jawOffsets.any { (dx, dy) ->
+                    val offset = dy * SIDE + dx
+                    val a = i - offset
+                    val b = i + offset
+                    support[a] && support[b] && ((face(a) && neck[b]) || (neck[a] && face(b))) &&
+                        matches(i, a) && matches(i, b)
+                }
+            }
+        }
+        val added = additions.count { it }
+        if (added == 0) return null
+        val joined = BooleanArray(PIXELS) { support[it] || additions[it] }
+        val distance = distances(joined)
+        return ApplicationRepair(feather(joined, width, distance),
+            BooleanArray(PIXELS) { veto[it] && !additions[it] }, added, softEdge(distance, width))
+    }
+
+    private val jawOffsets = listOf(1 to 0, 0 to 1, 1 to 1, 1 to -1, 2 to 0, 0 to 2,
+        2 to 1, 2 to -1, 1 to 2, 1 to -2, 2 to 2, 2 to -2)
+
+    private fun feather(support: BooleanArray, width: Int, distance: FloatArray = distances(support)): DoubleArray {
+        return DoubleArray(PIXELS) { i ->
+            val t = (distance[i] / width).coerceIn(0f, 1f).toDouble()
+            if (support[i]) t * t * (3 - 2 * t) else 0.0
+        }
+    }
+
+    private fun repairApplication(support: BooleanArray, categories: ByteArray, neck: BooleanArray,
+                                  veto: BooleanArray, width: Int): ApplicationRepair? {
+        val face = BooleanArray(PIXELS) { categories[it] == 1.toByte() || categories[it] == 10.toByte() }
+        val ear = BooleanArray(PIXELS) { categories[it] == 7.toByte() || categories[it] == 8.toByte() }
+        val nearFace = dilate(BooleanArray(PIXELS) { support[it] && face[it] }, 3, Imgproc.MORPH_ELLIPSE)
+        val nearNeck = dilate(BooleanArray(PIXELS) { support[it] && neck[it] }, 3, Imgproc.MORPH_ELLIPSE)
+        // Grow only from already accepted pixels of the same ear class.
+        val earExpansion = (7..8).map { label ->
+            dilate(BooleanArray(PIXELS) { support[it] && categories[it].toInt() == label },
+                3, Imgproc.MORPH_ELLIPSE)
+        }
+        val closed = closeSmallGaps(support)
+        val candidates = BooleanArray(PIXELS) { i ->
+            !support[i] && when {
+                ear[i] -> earExpansion[categories[i].toInt() - 7][i]
+                neck[i] -> nearNeck[i] && nearFace[i]
+                face[i] -> closed[i] && nearFace[i] && nearNeck[i]
+                else -> false
+            }
+        }
+        val connected = attached(BooleanArray(PIXELS) { support[it] || candidates[it] }, support)
+        val additions = BooleanArray(PIXELS) { connected[it] && !support[it] }
+        val count = additions.count { it }
+        if (count == 0) return null
+        return ApplicationRepair(feather(connected, width),
+            BooleanArray(PIXELS) { veto[it] && !additions[it] }, count)
+    }
+
+    private fun closeSmallGaps(support: BooleanArray): BooleanArray {
+        val input = maskMat(support)
+        val output = Mat()
+        val kernel = Imgproc.getStructuringElement(Imgproc.MORPH_ELLIPSE, Size(5.0, 5.0))
+        try {
+            Imgproc.morphologyEx(input, output, Imgproc.MORPH_CLOSE, kernel)
+            val pixels = ByteArray(PIXELS)
+            check(output.get(0, 0, pixels) == pixels.size)
+            return BooleanArray(PIXELS) { pixels[it] != 0.toByte() }
+        } finally {
+            input.release()
+            output.release()
+            kernel.release()
+        }
     }
 
     fun requireGlassesChoice(categories: ByteArray, face: Rect, glasses: GlassesChoice) {

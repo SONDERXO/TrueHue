@@ -6,6 +6,9 @@ plugins {
 }
 
 val wb314PickerTest = providers.gradleProperty("wb314PickerTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314EdgeTest = providers.gradleProperty("wb314EdgeTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314SoftEdgeTest = providers.gradleProperty("wb314SoftEdgeTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314JawTest = providers.gradleProperty("wb314JawTest").map { it.toBooleanStrict() }.orElse(false)
 
 android {
     namespace = "com.example.skintonecorrection"
@@ -30,16 +33,46 @@ android {
     buildTypes {
         debug {
             val enablePickerFixes = wb314PickerTest.get()
+            val enableEdgeRepair = wb314EdgeTest.get()
+            val enableSoftEdge = wb314SoftEdgeTest.get()
+            val enableJawRepair = wb314JawTest.get()
+            require(!enableEdgeRepair || enablePickerFixes) { "The edge test requires the picker test build." }
+            require(!enableJawRepair || enableSoftEdge) { "The jaw test requires the soft-edge test build." }
+            require(!enableSoftEdge || (enablePickerFixes && !enableEdgeRepair)) {
+                "The soft-edge test requires the picker test without support expansion."
+            }
             buildConfigField("boolean", "WB314_PICKER_FIXES", enablePickerFixes.toString())
+            buildConfigField("boolean", "WB314_EDGE_REPAIR", enableEdgeRepair.toString())
+            buildConfigField("boolean", "WB314_SOFT_EDGE", enableSoftEdge.toString())
+            buildConfigField("boolean", "WB314_JAW_REPAIR", enableJawRepair.toString())
             if (enablePickerFixes) {
-                applicationIdSuffix = ".pickertest"
-                versionNameSuffix = "-wb314-picker-test.2"
-                resValue("string", "picker_app_name", "TrueHue Picker Test")
+                applicationIdSuffix = when {
+                    enableJawRepair -> ".pickertest.jaw"
+                    enableSoftEdge -> ".pickertest.soft"
+                    enableEdgeRepair -> ".pickertest.edge"
+                    else -> ".pickertest"
+                }
+                versionNameSuffix = when {
+                    enableJawRepair -> "-wb314-jaw-test.1"
+                    enableSoftEdge -> "-wb314-soft-edge-test.2"
+                    enableEdgeRepair -> "-wb314-edge-test.1"
+                    else -> "-wb314-picker-test.2"
+                }
+                val appLabel = when {
+                    enableJawRepair -> "TrueHue Jaw Test"
+                    enableSoftEdge -> "TrueHue Soft Edge Test"
+                    enableEdgeRepair -> "TrueHue Edge Test"
+                    else -> "TrueHue Picker Test"
+                }
+                resValue("string", "picker_app_name", appLabel)
                 manifestPlaceholders["pickerLabel"] = "@string/picker_app_name"
             }
         }
         release {
             buildConfigField("boolean", "WB314_PICKER_FIXES", "false")
+            buildConfigField("boolean", "WB314_EDGE_REPAIR", "false")
+            buildConfigField("boolean", "WB314_SOFT_EDGE", "false")
+            buildConfigField("boolean", "WB314_JAW_REPAIR", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(

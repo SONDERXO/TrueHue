@@ -21,11 +21,15 @@ internal class Wb314RenderSupport(
     fun alphaAt(x: Int, y: Int): Double {
         val index = measurementIndex(x, y)
         if (protected[index] || alpha[index] == 0.0) return 0.0
+        return interpolate(alpha, x, y).coerceIn(0.0, 1.0)
+    }
+
+    fun interpolate(values: DoubleArray, x: Int, y: Int): Double {
         val xx = xAxis[x]
         val yy = yAxis[y]
-        val low = blend(alpha[yy.low * SIDE + xx.low], alpha[yy.low * SIDE + xx.high], xx)
-        val high = blend(alpha[yy.high * SIDE + xx.low], alpha[yy.high * SIDE + xx.high], xx)
-        return blend(low, high, yy).coerceIn(0.0, 1.0)
+        val low = blend(values[yy.low * SIDE + xx.low], values[yy.low * SIDE + xx.high], xx)
+        val high = blend(values[yy.high * SIDE + xx.low], values[yy.high * SIDE + xx.high], xx)
+        return blend(low, high, yy)
     }
 
     private fun axis(size: Int) = Array(size) { i ->

@@ -34,9 +34,12 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         val available = models
         report.put("failed_stage", "wb314_mask_and_correction")
         val pickerFixes = BuildConfig.WB314_PICKER_FIXES
+        val tonePositiveExposure = BuildConfig.WB314_SOFT_EDGE && !BuildConfig.WB314_JAW_REPAIR
         val auto = available.predictor.correct(upright, available.generator, glasses,
             previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
-            verifyLuminanceRgb = pickerFixes)
+            verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
+            softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
+            tonePositiveExposure = tonePositiveExposure)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -46,13 +49,19 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             val controls = auto.correction.controls
             report.put("leaf", auto.correction.leaf).put("controls", JSONArray(controls.toList()))
                 .put("picker_fixes", pickerFixes)
+                .put("edge_repair", BuildConfig.WB314_EDGE_REPAIR)
+                .put("soft_edge", BuildConfig.WB314_SOFT_EDGE)
+                .put("positive_exposure_toned", tonePositiveExposure)
+                .put("jaw_repair", BuildConfig.WB314_JAW_REPAIR)
+                .put("edge_repair_added_pixels", auto.masks.repairedApplication?.addedPixels ?: 0)
                 .put("identity_controls", controls.all { it == 1.0 })
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")
             auto.correction.exposurePreview?.let { decision ->
-                report.put("effective_controls", JSONArray(decision.effectiveControls.toList()))
+                report.put("effective_controls", JSONArray(auto.correction.appliedControls.toList()))
+                    .put("highlight_limited_gain", decision.effectiveControls[1])
                     .put("exposure_limit_method", decision.method)
                     .put("eligible_face_pixels", decision.eligiblePixels)
                     .put("raw_exposure_clipped_face_pixels", decision.exposureClippedPixels)

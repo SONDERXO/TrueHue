@@ -1,5 +1,5 @@
 {
-  "checkpoint": "2026-11-21",
+  "checkpoint": "2026-11-22",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
   "studies": {
@@ -1647,6 +1647,41 @@
   },
   "current_session_handoff": "docs/session-handoff-2026-11-21.md",
   "current_picker_candidate": {
+    "source": "docs/android-wb314-picker-2026-11-19.md#milder-positive-exposure",
+    "app_version": "1.0-wb314-soft-edge-test.2",
+    "app_id": "com.example.skintonecorrection.pickertest.soft",
+    "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
+    "local_and_installed_apk_sha256": "a6b8812e02ce389c39b1bcadba86be6f758396b8075959db9c8e19e9b6b5114b",
+    "installed_asset_hashes_verified": 8,
+    "inside_mask_soft_fade": true,
+    "positive_exposure_fraction_in_stops": 0.75,
+    "existing_stricter_exposure_limit_retained": true,
+    "jaw_mask_expansion_enabled": false,
+    "jvm_tests_passed": 22,
+    "huawei_cases_preserving_dimensions_and_saved_support": 4,
+    "identity_fixture_exact": true,
+    "reported_photo_previous_gain": 1.4142135623730956,
+    "reported_photo_current_gain": 1.29683955465101,
+    "reported_photo_previous_newly_clipped": 337089,
+    "reported_photo_current_newly_clipped": 162472,
+    "independent_mst_validation_completed": false,
+    "independent_final_roster_admitted": false,
+    "final_expert_appraisal_completed": false
+  },
+  "studio_restoration_pilot": {
+    "source": "docs/wb314-completion-blockers-and-two-round-plan-2026-11-19.md#22-november-qualification-checkpoint",
+    "app_version": "1.0-wb314-picker-test.2",
+    "datasets": ["MR2", "Face Research Lab London Set v5"],
+    "portrait_counts": [3, 3],
+    "total_cases": 36,
+    "underexposure_and_combined_under_improved": [6, 6],
+    "original_reference_outputs_changed": [3, 2],
+    "colour_only_worsened": [3, 1],
+    "cases_preserving_dimensions_and_saved_support": 36,
+    "independent_mst_labels_available": false,
+    "everyday_phone_reliability_established": false
+  },
+  "picker_v2_candidate_history": {
     "source": "docs/android-wb314-picker-2026-11-19.md#rgb-check-on-the-luminance-limit",
     "app_version": "1.0-wb314-picker-test.2",
     "model_sha256": "7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f",
