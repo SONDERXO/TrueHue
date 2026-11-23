@@ -1,5 +1,5 @@
 {
-  "checkpoint": "2026-11-22",
+  "checkpoint": "2026-11-23",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
   "studies": {
@@ -1699,6 +1699,100 @@
       "two_faces_reported": 1
     },
     "independent_final_validation": false
+  },
+  "london_correction_only_test": {
+    "source": "docs/thesis/conference-abstract-evidence-2026-11-23.md#controlled-test-on-the-frozen-manuscript-build",
+    "app_version": "1.0-wb314-soft-edge-test.5",
+    "device": "OPPO A94",
+    "portraits": 4,
+    "cases_completed": 24,
+    "check_scope": "Exploratory controlled studio restoration",
+    "scoring_region": "Fixed from each original portrait's saved application mask",
+    "conditions": {
+      "identity": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 1,
+        "improved_de": 0,
+        "mean_input_de": 0.0,
+        "mean_output_de": 1.394001145627835,
+        "new_clipping_pixels": 19,
+        "outside_pixels": 0
+      },
+      "colour_only": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 0,
+        "improved_de": 0,
+        "mean_input_de": 5.673143886230428,
+        "mean_output_de": 5.673143886230428,
+        "new_clipping_pixels": 0,
+        "outside_pixels": 0
+      },
+      "exposure_under": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 4,
+        "improved_de": 4,
+        "mean_input_de": 7.409914458338863,
+        "mean_output_de": 2.429218848754363,
+        "new_clipping_pixels": 0,
+        "outside_pixels": 0
+      },
+      "exposure_over": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 0,
+        "improved_de": 0,
+        "mean_input_de": 7.598770514095422,
+        "mean_output_de": 7.598770514095422,
+        "new_clipping_pixels": 0,
+        "outside_pixels": 0
+      },
+      "combined_under": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 4,
+        "improved_de": 4,
+        "mean_input_de": 10.109107866531494,
+        "mean_output_de": 2.916113036736867,
+        "new_clipping_pixels": 0,
+        "outside_pixels": 0
+      },
+      "combined_over": {
+        "attempted": 4,
+        "completed": 4,
+        "changed": 0,
+        "improved_de": 0,
+        "mean_input_de": 8.546640387929488,
+        "mean_output_de": 8.546640387929488,
+        "new_clipping_pixels": 0,
+        "outside_pixels": 0
+      }
+    },
+    "independent_mst_validation_completed": false,
+    "final_expert_appraisal_completed": false
+  },
+  "android_highlight_and_interface_test": {
+    "source": "docs/thesis/conference-abstract-evidence-2026-11-23.md#newer-highlight-test-build",
+    "current_test_app_version": "1.0-wb314-highlight-test.3",
+    "local_and_installed_apk_sha256": "5065b8b0fa5d66ea130d19915919ea77556aef18492079b2536f06eae2172ab6",
+    "frozen_manuscript_build_replaced": false,
+    "jvm_tests_passed": 28,
+    "everyday_portrait_repeat": {
+      "attempted": 21,
+      "completed": 17,
+      "face_analysis_stops": 4,
+      "matched_frozen_exports": 14,
+      "skipped_edits": 2,
+      "milder_edits": 1
+    },
+    "separate_UT_Austin_check": {
+      "attempted": 6,
+      "completed_unchanged": 3,
+      "face_analysis_stops": 3,
+      "judged_to_need_an_edit_and_kept_unchanged": 1
+    }
   },
   "earlier_dimmer_picker_candidate": {
     "source": "docs/android-wb314-picker-2026-11-19.md#milder-positive-exposure",
