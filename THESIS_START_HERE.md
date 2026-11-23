@@ -4,6 +4,8 @@
 
 **MST manuscript scope.** Keep the original study goal and present the verified photo-correction results. Explain that TrueHue calculates ITA and estimates MST. All nine splits in the fitted WB314 tree use other features. Describe the estimate's unverified accuracy as a limitation. Claims about correction across skin-tone groups require results grouped by independently assigned reference MST labels. Formal decisions about the remaining evaluation procedure are still pending.
 
+**OPPO phone check · 23 November 2026.** Two known test photos produced the same decoded outputs as on the Huawei. On six additional UT Austin photos, five stopped at face analysis and one exported unchanged. Present these counts as a separate small-batch development result on the frozen .5 build. [OPPO results](docs/android-wb314-picker-2026-11-19.md#oppo-a94-verification-and-six-photo-check)
+
 The user now authorizes starting thesis editing and preparing this repository for ChatGPT web. Older statements that manuscript work is paused are superseded for evidence-based drafting. This does not adopt a correction model, authorize invented results or make the thesis submission-ready. The editable manuscript has not been edited by this repository update; provide the current manuscript to the writing session.
 
 Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-development-20261105`**. Do not assume `main` contains this checkpoint. Read this file and the linked current evidence before historical drafts or long session logs.

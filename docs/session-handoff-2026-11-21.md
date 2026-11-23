@@ -4,6 +4,8 @@ Read [AGENTS.md](../AGENTS.md) first. Continue in the existing TrueHue workspace
 
 ## Exact stopping point
 
+**OPPO phone check, 23 November.** The OPPO A94 has the same frozen Soft Edge Test .5 APK and verified model assets. Two known cases matched the Huawei results pixel for pixel after decoding. Six new-to-TrueHue UT Austin attempts produced one unchanged export and five face-analysis stops. Use this small-batch evidence in the manuscript to document the face-analysis limitation. [OPPO results](android-wb314-picker-2026-11-19.md#oppo-a94-verification-and-six-photo-check)
+
 **Manuscript build freeze, 22 November.** The researcher approved the severe-backlight result and agreed to carry the remaining low-light limitation into the December 4 manuscript. The installed TrueHue Soft Edge Test `1.0-wb314-soft-edge-test.5` and eight assets were reverified. One of six dim or backlit portraits received a lift with zero newly clipped channels and zero changes outside support. One stayed unchanged and four stopped at face analysis. Continue final evaluation preparation from this exact build and the proposed scoring rules. The admitted final cohort remains empty. [Freeze and final scoring draft](wb314-final-evaluation-preflight-2026-11-22.md)
 
 **Earlier UT Austin follow-up, 22 November.** Version `1.0-wb314-soft-edge-test.3` stopped extra clipping on the already-bright portrait and recovered processing on one of five previously failed portraits. The 512-pixel retry kept the existing mask protection and measurement requirements. The closer parser crop was tested and set aside. [Phone results](android-wb314-picker-2026-11-19.md#ut-austin-mobile-photo-repairs)

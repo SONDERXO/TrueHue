@@ -96,6 +96,21 @@ Soft Edge Test `1.0-wb314-soft-edge-test.5` adds an exposure-only lift in the cu
 
 The 14 original and seven previously unprocessed UT Austin cases were checked against version .3 using the same inputs, alongside four earlier Huawei fixtures. Of six cases reviewed as dim or backlit, one received a slightly brighter result, one stayed unchanged, and four stopped at face analysis. The edit affected 25,189 pixels, with mean encoded luminance up 4.336 levels on those pixels and zero newly clipped channels or changes outside the saved mask. The other successful outputs and all saved masks matched version .3 byte for byte. The seven additional cases supplied three completed preservation checks and four repeated failures. All 25 unit tests passed. This is limited development evidence for severe backlight with a usable mask. Performance on broader low-light conditions and photos lacking enough facial evidence remains open.
 
+### OPPO A94 verification and six-photo check
+
+On 23 November 2026, the OPPO A94 running Android 13 used the frozen Soft Edge Test .5 APK and all eight verified model files. Two earlier Huawei cases matched on decoded input, saved mask and decoded export pixels. The backlit case retained the gentle lift with zero new clipping or edits outside support. The bright case stayed pixel-identical to its input.
+
+The follow-up used six previously unprocessed UT Austin LIVE In the Wild mobile photos. Files used in the 21-photo Huawei pilot were excluded. A single reviewer screened the originals for a prominent subject, recorded the judgments before seeing app outputs, and retained all six attempts. The instrumentation exercised the picker repository and existing export path on the OPPO.
+
+| Original-only judgment | Attempted | Unchanged export | Stopped in face analysis |
+| --- | ---: | ---: | ---: |
+| Acceptable | 2 | 0 | 2 |
+| Correction suggested | 3 | 0 | 3 |
+| Unsure | 1 | 1 | 0 |
+| Total | 6 | 1 | 5 |
+
+Three attempts stopped for insufficient facial measurement support. Face detection reported zero faces in one case and two faces in another. The completed export was identical to the 500 × 500 input. No improvement was observed in this batch. The five stops limit what the check can show about exposure and colour decisions. The six photos form a small convenience sample for development, and independent final validation remains pending. [UT Austin study and dataset citation](wb314-final-evaluation-preflight-2026-11-22.md#frozen-build-for-the-manuscript)
+
 Install the debug APK and run `scripts/install_android_wb314_research_assets.ps1 -Serial <adb-serial>`. The script checks the eight pinned local files before copying them, then verifies each copy in the app's private directory. It installs no photo fixtures. A debug install without the local assets reports that they are missing. There is no fallback to the older model in the picker.
 
 The APK contains the app code. The WB314 model, mapping, white-balance bank, parser, FaceOcc graph and test photos remain local. This is a research build. Physical-phone latency, memory and broader correction quality remain unqualified.

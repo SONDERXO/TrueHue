@@ -1678,6 +1678,28 @@
       "masked_metric_smoke_passed": true
     }
   },
+  "oppo_phone_checks": {
+    "source": "docs/android-wb314-picker-2026-11-19.md#oppo-a94-verification-and-six-photo-check",
+    "check_date": "2026-11-23",
+    "app_version": "1.0-wb314-soft-edge-test.5",
+    "device": "OPPO A94, Android 13",
+    "previous_huawei_cases_matching_decoded_pixels": 2,
+    "new_ut_austin_attempts": 6,
+    "original_only_judgments": {
+      "acceptable": 2,
+      "correction_suggested": 3,
+      "unsure": 1
+    },
+    "completed_unchanged": 1,
+    "improvements_observed": 0,
+    "face_analysis_stops": 5,
+    "stop_reasons": {
+      "insufficient_facial_measurement_support": 3,
+      "zero_faces_reported": 1,
+      "two_faces_reported": 1
+    },
+    "independent_final_validation": false
+  },
   "earlier_dimmer_picker_candidate": {
     "source": "docs/android-wb314-picker-2026-11-19.md#milder-positive-exposure",
     "app_version": "1.0-wb314-soft-edge-test.2",
