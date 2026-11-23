@@ -3,6 +3,8 @@ package com.example.skintonecorrection.data
 import android.content.Context
 import android.graphics.Bitmap
 import com.example.skintonecorrection.R
+import org.json.JSONArray
+import org.json.JSONObject
 import org.opencv.android.Utils
 import org.opencv.core.CvType
 import org.opencv.core.Mat
@@ -46,10 +48,17 @@ internal class Wb314ResearchMasks(
     /** Reuse the loaded graphs on one inference thread. A missing stage fails before correction. */
     fun generate(bgr: Mat, glasses: GlassesChoice, protectUncertainBoundary: Boolean = false,
                  repairSkinEdges: Boolean = false, softenEdge: Boolean = false,
-                 repairJaw: Boolean = false, originalForRetry: Bitmap? = null): Result {
+                 repairJaw: Boolean = false, originalForRetry: Bitmap? = null, attempts: JSONArray? = null): Result {
         require(bgr.type() == CvType.CV_8UC3 && bgr.rows() == side && bgr.cols() == side)
-        fun analyze(vision: Mat) = analyze(bgr, vision, glasses, protectUncertainBoundary,
-            repairSkinEdges, softenEdge, repairJaw)
+        fun analyze(vision: Mat): Result {
+            val attempt = attempts?.let { log -> JSONObject().put("vision_side", vision.cols()).also { log.put(it) } }
+            try {
+                return analyze(bgr, vision, glasses, protectUncertainBoundary, repairSkinEdges, softenEdge, repairJaw, attempt)
+            } catch (error: PhotoProcessingException) {
+                attempt?.put("reason", error.message)
+                throw error
+            }
+        }
         try {
             return analyze(bgr)
         } catch (error: PhotoProcessingException) {
@@ -73,9 +82,10 @@ internal class Wb314ResearchMasks(
 
     private fun analyze(bgr: Mat, vision: Mat, glasses: GlassesChoice,
                         protectUncertainBoundary: Boolean, repairSkinEdges: Boolean,
-                        softenEdge: Boolean, repairJaw: Boolean): Result {
+                        softenEdge: Boolean, repairJaw: Boolean, attempt: JSONObject?): Result {
         val visionSide = vision.cols()
         val detected = detectFace(vision)
+        attempt?.put("face_width", detected.width)?.put("face_height", detected.height)
         val landmarks = FaceLandmarks.detect(context, vision, detected, landmarker)
             ?: throw PhotoProcessingException(R.string.error_face_unclear, "Required landmarks unavailable",
                 retryFaceAnalysis = true)
@@ -93,7 +103,8 @@ internal class Wb314ResearchMasks(
         ResearchMaskRules.requireGlassesChoice(categories, face, glasses)
         val visibility = faceOcc.visibility(bgr, points, template, protectUncertainBoundary)
         val masks = ResearchMaskRules.build(categories, points, visibility.measurement,
-            glasses, visibility.application, repairSkinEdges, softenEdge, if (repairJaw) bgr else null)
+            glasses, visibility.application, repairSkinEdges, softenEdge, if (repairJaw) bgr else null,
+            recordMeasurement = attempt?.let { trace -> { key, count -> trace.put(key, count) } })
         return Result(face, categories, visibility.measurement, masks, visionSide)
     }
 

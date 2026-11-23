@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.example.skintonecorrection.R
 import java.io.IOException
@@ -36,7 +37,7 @@ internal fun WorkflowPage(
     Scaffold(
         containerColor = background,
         bottomBar = {
-            Surface(color = background) {
+            Surface(color = MaterialTheme.colorScheme.surface, shadowElevation = 3.dp) {
                 Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                     Column(
                         Modifier.widthIn(max = 480.dp).fillMaxWidth().navigationBarsPadding()
@@ -83,13 +84,14 @@ internal fun BrandMark() {
 }
 
 @Composable
-internal fun WorkflowAction(label: String, onClick: () -> Unit, enabled: Boolean = true, primary: Boolean = true) {
-    val modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp)
-    val shape = RoundedCornerShape(16.dp)
+internal fun WorkflowAction(label: String, onClick: () -> Unit, enabled: Boolean = true, primary: Boolean = true,
+                            labelStyle: TextStyle = MaterialTheme.typography.labelLarge) {
+    val modifier = Modifier.fillMaxWidth().heightIn(min = 54.dp)
+    val shape = RoundedCornerShape(18.dp)
     if (primary) {
-        Button(onClick = onClick, enabled = enabled, modifier = modifier, shape = shape) { Text(label) }
+        Button(onClick = onClick, enabled = enabled, modifier = modifier, shape = shape) { Text(label, style = labelStyle) }
     } else {
-        OutlinedButton(onClick = onClick, enabled = enabled, modifier = modifier, shape = shape) { Text(label) }
+        OutlinedButton(onClick = onClick, enabled = enabled, modifier = modifier, shape = shape) { Text(label, style = labelStyle) }
     }
 }
 

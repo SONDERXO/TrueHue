@@ -9,6 +9,7 @@ val wb314PickerTest = providers.gradleProperty("wb314PickerTest").map { it.toBoo
 val wb314EdgeTest = providers.gradleProperty("wb314EdgeTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314SoftEdgeTest = providers.gradleProperty("wb314SoftEdgeTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314JawTest = providers.gradleProperty("wb314JawTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314HighlightTest = providers.gradleProperty("wb314HighlightTest").map { it.toBooleanStrict() }.orElse(false)
 
 android {
     namespace = "com.example.skintonecorrection"
@@ -36,15 +37,20 @@ android {
             val enableEdgeRepair = wb314EdgeTest.get()
             val enableSoftEdge = wb314SoftEdgeTest.get()
             val enableJawRepair = wb314JawTest.get()
+            val enableHighlightGuard = wb314HighlightTest.get()
             require(!enableEdgeRepair || enablePickerFixes) { "The edge test requires the picker test build." }
             require(!enableJawRepair || enableSoftEdge) { "The jaw test requires the soft-edge test build." }
             require(!enableSoftEdge || (enablePickerFixes && !enableEdgeRepair)) {
                 "The soft-edge test requires the picker test without support expansion."
             }
+            require(!enableHighlightGuard || (enableSoftEdge && !enableJawRepair)) {
+                "The highlight test requires the soft-edge test without jaw expansion."
+            }
             buildConfigField("boolean", "WB314_PICKER_FIXES", enablePickerFixes.toString())
             buildConfigField("boolean", "WB314_EDGE_REPAIR", enableEdgeRepair.toString())
             buildConfigField("boolean", "WB314_SOFT_EDGE", enableSoftEdge.toString())
             buildConfigField("boolean", "WB314_JAW_REPAIR", enableJawRepair.toString())
+            buildConfigField("boolean", "WB314_HIGHLIGHT_TEST", enableHighlightGuard.toString())
             if (enablePickerFixes) {
                 applicationIdSuffix = when {
                     enableJawRepair -> ".pickertest.jaw"
@@ -53,6 +59,7 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
+                    enableHighlightGuard -> "-wb314-highlight-test.3"
                     enableJawRepair -> "-wb314-jaw-test.1"
                     enableSoftEdge -> "-wb314-soft-edge-test.5"
                     enableEdgeRepair -> "-wb314-edge-test.1"
@@ -73,6 +80,7 @@ android {
             buildConfigField("boolean", "WB314_EDGE_REPAIR", "false")
             buildConfigField("boolean", "WB314_SOFT_EDGE", "false")
             buildConfigField("boolean", "WB314_JAW_REPAIR", "false")
+            buildConfigField("boolean", "WB314_HIGHLIGHT_TEST", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(

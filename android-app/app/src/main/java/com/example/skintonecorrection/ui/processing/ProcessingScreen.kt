@@ -1,7 +1,5 @@
 package com.example.skintonecorrection.ui.processing
 
-import androidx.compose.animation.core.EaseOutCubic
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
@@ -38,25 +36,22 @@ fun ProcessingScreen(
 ) {
     val state by sharedViewModel.uiState.collectAsStateWithLifecycle()
     var percent by rememberSaveable(state.selectedImageUri) { mutableFloatStateOf(1f) }
-    val (estimateLimit, estimateMillis, detail) = when (state.correctionStage) {
-        CorrectionStage.PREPARING -> Triple(12f, 1_800, "Preparing your photo…")
-        CorrectionStage.CORRECTING -> Triple(91f, 45_000, "Analyzing your photo and adjusting exposure and colour…")
-        CorrectionStage.SAVING -> Triple(99f, 2_500, "Getting your result ready…")
+    val (limit, duration, detail) = when (state.correctionStage) {
+        CorrectionStage.PREPARING -> Triple(12f, 1800, "Preparing your photo…")
+        CorrectionStage.CORRECTING -> Triple(91f, 45000, "Checking the portrait and applying any adjustment…")
+        CorrectionStage.SAVING -> Triple(99f, 2500, "Getting your result ready…")
     }
     LaunchedEffect(state.processingState, state.correctionStage) {
         when (state.processingState) {
-            ProcessingState.PROCESSING -> if (percent < estimateLimit) {
-                animate(percent, estimateLimit, animationSpec = tween(estimateMillis, easing = EaseOutCubic)) { value, _ ->
-                    percent = value
-                }
+            ProcessingState.PROCESSING -> if (percent < limit) {
+                animate(percent, limit, animationSpec = tween(duration)) { value, _ -> percent = value }
             }
             ProcessingState.SUCCESS -> {
-                animate(percent, 100f, animationSpec = tween(420, easing = LinearEasing)) { value, _ ->
-                    percent = value
-                }
-                delay(150)
+                animate(percent, 100f, animationSpec = tween(350)) { value, _ -> percent = value }
+                delay(250)
                 onProcessingFinished()
             }
+            ProcessingState.NEEDS_GLASSES_CHOICE -> percent = 1f
             ProcessingState.IDLE -> onBack()
             else -> Unit
         }
@@ -69,20 +64,25 @@ fun ProcessingScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 when (state.processingState) {
-                    ProcessingState.PROCESSING -> CorrectionProgress(percent, detail)
-                    ProcessingState.SUCCESS -> CorrectionProgress(percent, "Opening your result…")
+                    ProcessingState.PROCESSING -> CorrectionProgress(detail, percent)
+                    ProcessingState.SUCCESS -> CorrectionProgress("Opening your result…", percent)
                     ProcessingState.NEEDS_GLASSES_CHOICE -> {
-                        AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(156.dp)
+                        val choiceStyle = MaterialTheme.typography.labelMedium
+                        AsyncImage(state.selectedImageUri, "Selected photo", Modifier.fillMaxWidth().height(120.dp)
                             .clip(PhotoShape), contentScale = ContentScale.Fit)
-                        Text(stringResource(R.string.glasses_prompt_title), style = MaterialTheme.typography.titleLarge)
-                        Text(stringResource(R.string.glasses_prompt_hint), textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.glasses_prompt_title), style = MaterialTheme.typography.titleMedium,
+                            textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.glasses_prompt_hint), style = MaterialTheme.typography.bodySmall,
+                            textAlign = TextAlign.Center)
                         WorkflowAction(stringResource(R.string.glasses_none),
-                            { sharedViewModel.continueWithGlasses(GlassesChoice.NONE) })
+                            { sharedViewModel.continueWithGlasses(GlassesChoice.NONE) }, labelStyle = choiceStyle)
                         WorkflowAction(stringResource(R.string.glasses_clear),
-                            { sharedViewModel.continueWithGlasses(GlassesChoice.CLEAR) }, primary = false)
+                            { sharedViewModel.continueWithGlasses(GlassesChoice.CLEAR) }, primary = false,
+                            labelStyle = choiceStyle)
                         WorkflowAction(stringResource(R.string.glasses_protected),
-                            { sharedViewModel.continueWithGlasses(GlassesChoice.OPAQUE) }, primary = false)
-                        TextButton(onClick = onBack) { Text("Back to photo") }
+                            { sharedViewModel.continueWithGlasses(GlassesChoice.OPAQUE) }, primary = false,
+                            labelStyle = choiceStyle)
+                        TextButton(onClick = onBack) { Text("Back to photo", style = choiceStyle) }
                     }
                     ProcessingState.ERROR -> {
                         Text("Couldn’t process this photo", style = MaterialTheme.typography.titleLarge)
@@ -99,22 +99,17 @@ fun ProcessingScreen(
 }
 
 @Composable
-private fun CorrectionProgress(percent: Float, detail: String) {
+private fun CorrectionProgress(detail: String, percent: Float) {
     BrandMark()
     Text("Processing photo", style = MaterialTheme.typography.titleLarge)
     Text(detail, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
-    Column(Modifier.widthIn(max = 320.dp).fillMaxWidth().padding(vertical = 6.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically) {
-            Text("Estimated progress", style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text("${percent.toInt()}%", color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.titleLarge)
+    Column(Modifier.widthIn(max = 280.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text("Estimated progress", style = MaterialTheme.typography.labelMedium)
+            Text("${percent.toInt()}%", style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary)
         }
-        LinearProgressIndicator(progress = { percent / 100f }, modifier = Modifier.fillMaxWidth().height(8.dp),
+        LinearProgressIndicator(progress = { percent / 100f }, modifier = Modifier.fillMaxWidth().height(6.dp),
             trackColor = MaterialTheme.colorScheme.surfaceVariant)
     }
-    Text("Your photo stays on this device.", style = MaterialTheme.typography.bodySmall,
-        color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
 }

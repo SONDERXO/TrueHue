@@ -1,12 +1,14 @@
 package com.example.skintonecorrection.data
 
 import android.graphics.Bitmap
+import com.example.skintonecorrection.data.Wb314HighlightGuard.newlyClips
 import com.example.skintonecorrection.ml.PortableRegressionTree
 import com.example.skintonecorrection.ml.PortableTreeAsset
 import com.example.skintonecorrection.ml.Wb314Features
 import com.example.skintonecorrection.ml.Wb314PixelRenderer
 import com.example.skintonecorrection.ml.Wb314WhiteBalance
 import org.json.JSONObject
+import org.json.JSONArray
 import org.opencv.android.Utils
 import org.opencv.core.Mat
 import org.opencv.core.Size
@@ -26,7 +28,7 @@ internal class Wb314ResearchPipeline private constructor(
     data class Result(val bitmap: Bitmap, val features: DoubleArray, val controls: DoubleArray, val leaf: Int,
                       val exposurePreview: Wb314ExposureDecision? = null,
                       val appliedControls: DoubleArray = exposurePreview?.effectiveControls ?: controls,
-                      val lowLightLift: Boolean = false)
+                      val lowLightLift: Boolean = false, val highlightCheck: String? = null)
     data class AutoResult(val correction: Result, val masks: ResearchMaskRules.Result, val visionSide: Int)
 
     companion object {
@@ -88,20 +90,21 @@ internal class Wb314ResearchPipeline private constructor(
                 previewMaskBoundaryProtection: Boolean = false,
                 verifyLuminanceRgb: Boolean = false, repairSkinEdges: Boolean = false,
                 softenEdge: Boolean = false, repairJaw: Boolean = false,
-                tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false): AutoResult =
+                tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
+                guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
                 Imgproc.cvtColor(rgb, bgr, Imgproc.COLOR_RGB2BGR)
                 generator.generate(bgr, glasses, previewMaskBoundaryProtection, repairSkinEdges, softenEdge,
-                    repairJaw, originalForRetry = original.takeIf { guardPhonePortraits })
+                    repairJaw, originalForRetry = original.takeIf { guardPhonePortraits }, attempts = faceAttempts)
             } finally {
                 bgr.release()
             }
             val masks = analysis.masks
             val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
                 masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb,
-                masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits)
+                masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits, guardLocalHighlights)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -112,7 +115,7 @@ internal class Wb314ResearchPipeline private constructor(
                                   previewWidespreadExposure: Boolean, verifyLuminanceRgb: Boolean = false,
                                   repair: ResearchMaskRules.ApplicationRepair? = null,
                                   softEdge: Wb314SoftEdge? = null, tonePositiveExposure: Boolean = false,
-                                  guardPhonePortraits: Boolean = false): Result {
+                                  guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -134,10 +137,24 @@ internal class Wb314ResearchPipeline private constructor(
         val lowLightLift = guardPhonePortraits && controls.all { it == 1.0 } &&
             Wb314LowLight.hasSevereBacklight(bytes, measurement, alpha) &&
             hasLowLightHeadroom(original, renderSupport)
-        val finalControls = if (lowLightLift) applied.copyOf().apply { this[1] = Wb314LowLight.gain } else applied
-        val output = render(original, renderSupport, finalControls,
-            repair?.softEdge ?: softEdge, if (repair?.softEdge == null) null else support, softEdge)
-        return Result(output, features, controls, tree.leafId(features), preview, finalControls, lowLightLift)
+        var finalControls = if (lowLightLift) applied.copyOf().apply { this[1] = Wb314LowLight.gain } else applied
+        fun renderProposal(checkHighlights: Boolean) = render(original, renderSupport, finalControls,
+            repair?.softEdge ?: softEdge, if (repair?.softEdge == null) null else support, softEdge, checkHighlights)
+        val checkHighlights = guardLocalHighlights && finalControls.any { it != 1.0 }
+        var highlightCheck = if (checkHighlights) "passed" else null
+        var output = renderProposal(checkHighlights)
+        if (output == null) {
+            finalControls = Wb314HighlightGuard.backedOff(finalControls)
+            highlightCheck = "reduced_edit"
+            output = renderProposal(true)
+        }
+        if (output == null) {
+            finalControls = DoubleArray(controls.size) { 1.0 }
+            highlightCheck = "kept_original"
+            output = checkNotNull(renderProposal(false))
+        }
+        return Result(output, features, controls, tree.leafId(features), preview, finalControls,
+            lowLightLift && highlightCheck != "kept_original", highlightCheck)
     }
 
     private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport): Boolean {
@@ -174,7 +191,7 @@ internal class Wb314ResearchPipeline private constructor(
 
     private fun render(original: Bitmap, support: Wb314RenderSupport, controls: DoubleArray,
                        softEdge: Wb314SoftEdge?, referenceSupport: Wb314RenderSupport?,
-                       referenceFade: Wb314SoftEdge?): Bitmap {
+                       referenceFade: Wb314SoftEdge?, checkHighlights: Boolean): Bitmap? {
         val width = original.width
         val height = original.height
         val renderer = Wb314PixelRenderer(controls[0], controls[1], controls[2], controls[3], controls[4])
@@ -201,6 +218,10 @@ internal class Wb314ResearchPipeline private constructor(
                                 referenceSupport.interpolate(referenceFade.distance, x, y))
                             if (newlyClips(base, blended)) row[x] = base
                         }
+                        if (checkHighlights && Wb314HighlightGuard.losesHighlight(input, row[x])) {
+                            result.recycle()
+                            return null
+                        }
                     }
                 }
                 result.setPixels(row, 0, width, 0, y, width, 1)
@@ -212,8 +233,4 @@ internal class Wb314ResearchPipeline private constructor(
         }
     }
 
-    private fun newlyClips(before: Int, after: Int): Boolean =
-        ((before ushr 16) and 255) < 255 && ((after ushr 16) and 255) == 255 ||
-            ((before ushr 8) and 255) < 255 && ((after ushr 8) and 255) == 255 ||
-            (before and 255) < 255 && (after and 255) == 255
 }

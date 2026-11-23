@@ -21,7 +21,9 @@ data class SharedUiState(
     val maskUri:Uri?=null,val reportUri:Uri?=null,val processingState:ProcessingState=ProcessingState.IDLE,
     val errorMessageRes:Int?=null,val message:String="", val glasses: GlassesChoice = GlassesChoice.UNCERTAIN,
     val identityControls: Boolean = false,
-    val correctionStage: CorrectionStage = CorrectionStage.PREPARING
+    val correctionStage: CorrectionStage = CorrectionStage.PREPARING,
+    val savingPhoto: Boolean = false,
+    val saveMessage: String = ""
 )
 class SharedViewModel(application:Application):AndroidViewModel(application) {
     private val repository=ImageRepository(application)
@@ -40,7 +42,7 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
         val glasses = mutable.value.glasses
         val token=++generation
         mutable.update{it.copy(processingState=ProcessingState.PROCESSING,correctedImageUri=null,reportUri=null,maskUri=null,photoUsedUri=null,message="",identityControls=false,
-            correctionStage = CorrectionStage.PREPARING)}
+            correctionStage = CorrectionStage.PREPARING, savingPhoto = false, saveMessage = "")}
         job=viewModelScope.launch {
             try {
                 val result = repository.runCorrection(uri, glasses) { stage ->
@@ -61,9 +63,22 @@ class SharedViewModel(application:Application):AndroidViewModel(application) {
                 message=getApplication<Application>().getString(R.string.error_processing_failed))}}
         }
     }
-    fun export(source:Uri,destination:Uri,onFinished:(String)->Unit){viewModelScope.launch {
-        try{repository.export(source,destination);onFinished("Saved to your chosen location.")}
-        catch(cancelled:CancellationException){throw cancelled}
-        catch(error:Exception){onFinished("Could not save. Choose another location.")}
-    }}
+    fun export(source: Uri, destination: Uri) {
+        val state = mutable.value
+        if (state.correctedImageUri != source || state.identityControls || state.savingPhoto) return
+        mutable.update { it.copy(savingPhoto = true, saveMessage = "") }
+        viewModelScope.launch {
+            val message = try {
+                repository.export(source, destination)
+                "Saved to your chosen location."
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                "Could not save. Choose another location."
+            }
+            mutable.update {
+                if (it.correctedImageUri == source) it.copy(savingPhoto = false, saveMessage = message) else it
+            }
+        }
+    }
 }

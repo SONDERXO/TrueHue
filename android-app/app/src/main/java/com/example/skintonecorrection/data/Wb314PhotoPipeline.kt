@@ -35,11 +35,15 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         report.put("failed_stage", "wb314_mask_and_correction")
         val pickerFixes = BuildConfig.WB314_PICKER_FIXES
         val tonePositiveExposure = BuildConfig.WB314_SOFT_EDGE && !BuildConfig.WB314_JAW_REPAIR
+        val faceAttempts = if (BuildConfig.WB314_HIGHLIGHT_TEST) JSONArray().also {
+            report.put("face_analysis_attempts", it)
+        } else null
         val auto = available.predictor.correct(upright, available.generator, glasses,
             previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
             verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
             softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
-            tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure)
+            tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure,
+            guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -61,6 +65,7 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")
+            auto.correction.highlightCheck?.let { report.put("highlight_check", it) }
             auto.correction.exposurePreview?.let { decision ->
                 report.put("effective_controls", JSONArray(auto.correction.appliedControls.toList()))
                     .put("highlight_limited_gain", decision.effectiveControls[1])

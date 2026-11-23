@@ -46,7 +46,8 @@ internal object ResearchMaskRules {
 
     fun build(categories: ByteArray, landmarks: List<Point>, visible: ByteArray, glasses: GlassesChoice,
               applicationVisibility: ByteArray = visible, repairSkinEdges: Boolean = false,
-              softenEdge: Boolean = false, jawImage: Mat? = null): Result {
+              softenEdge: Boolean = false, jawImage: Mat? = null,
+              recordMeasurement: ((String, Int) -> Unit)? = null): Result {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(applicationVisibility.size == PIXELS && applicationVisibility.indices.all {
@@ -63,11 +64,11 @@ internal object ResearchMaskRules {
         val skin = BooleanArray(PIXELS) { categories[it] == 1.toByte() || categories[it] == 10.toByte() }
         val associated = attached(skin, outline)
         val facial = BooleanArray(PIXELS) { i -> associated[i] && anatomical.none { it[i] } }
-        requireMeasurement(facial)
+        requireMeasurement(facial, "facial_pixels", recordMeasurement)
         val baseline = BooleanArray(PIXELS) { facial[it] && !nasal[it] }
-        requireMeasurement(baseline)
+        requireMeasurement(baseline, "baseline_pixels", recordMeasurement)
         val measurement = BooleanArray(PIXELS) { baseline[it] && visible[it] != 0.toByte() }
-        requireMeasurement(measurement)
+        requireMeasurement(measurement, "visible_pixels", recordMeasurement)
 
         // Neck association and blending width are based on the pre-FaceOcc, nostril-guarded mask.
         val bounds = bounds(baseline)
@@ -206,8 +207,10 @@ internal object ResearchMaskRules {
         }
     }
 
-    private fun requireMeasurement(mask: BooleanArray) {
-        if (mask.count { it } < 1_000) {
+    private fun requireMeasurement(mask: BooleanArray, stage: String, record: ((String, Int) -> Unit)?) {
+        val count = mask.count { it }
+        record?.invoke(stage, count)
+        if (count < 1_000) {
             throw PhotoProcessingException(R.string.error_face_covered,
                 "Insufficient facial measurement support", retryFaceAnalysis = true)
         }

@@ -1,5 +1,23 @@
 # WB314 freeze and final evaluation preflight
 
+## 23 November scope decision
+
+The researcher confirmed that a cleared photo collection with independently assigned Monk Skin Tone labels is unavailable and will report that as a limitation. The December 4 manuscript retains the skin-tone-related study goal. Correction results can describe the brightness and colour tests that were actually run. The accuracy of TrueHue's estimated skin tones and the consistency of its correction across reference skin-tone groups remain unmeasured independently.
+
+The researcher also selected a narrower correction-only test on unused Face Research Lab London Set portraits. This uses the frozen Soft Edge Test .5 build and the existing half-stop conditions. It evaluates controlled brightness and colour changes on these studio portraits. Reviewer materials from this test are for correction-only appraisal. The planned MST-stratified test and its final expert round remain deferred.
+
+### Completed correction-only test
+
+Soft Edge Test .5 completed 24 cases on the OPPO A94 from four London Set v5 subjects. All used the same six conditions at original dimensions. The four subjects were selected before processing and excluded the three documented London pilot subjects. Cross-dataset identity overlap remains unverified. The scoring region for each subject was fixed from the app's support on the original portrait before testing the altered inputs.
+
+All eight underexposed inputs moved closer to the clean reference, including all four with an additional colour cast. Mean CIEDE2000 error fell from 7.41 to 2.43 for exposure only and from 10.11 to 2.92 for exposure with colour. All four colour-only inputs and all eight overexposed inputs stayed unchanged. Three of four unaltered originals stayed unchanged. The edit to the fourth introduced clipping in at least one channel at 19 pixels. No export changed pixels outside its saved correction mask. These findings describe the four controlled studio portraits. The local expert-review draft contains all 20 altered-input pairs with exact original-size image panels. Expert ratings remain pending. [Face Research Lab London Set v5](https://doi.org/10.6084/m9.figshare.5047666.v5)
+
+### Evidence on unedited everyday portraits
+
+Everyday portrait correction is an intended use of the application. In a separate exploratory check on the OPPO A94, one reviewer judged 21 user-supplied photos before processing. Of the two photos judged to need correction, Soft Edge Test .5 modestly improved a backlit portrait. The other stopped during facial analysis. The subsequent Highlight Test kept the useful backlit result pixel-identical to .5, skipped two unwanted edits, and made a third edit milder.
+
+The manuscript can report that the application improved a naturally backlit portrait in this check. Reliability on everyday photos remains a limitation, including recognising when a correction is needed and processing faces under difficult conditions. The London studio test provides additional evidence for underexposure correction under controlled conditions.
+
 ## Frozen build for the manuscript
 
 On 22 November 2026, the researcher approved the severe-backlight example and agreed to hold further low-light tuning for the December 4 manuscript. The frozen local test build is TrueHue Soft Edge Test `1.0-wb314-soft-edge-test.5`, application ID `com.example.skintonecorrection.pickertest.soft`. The local APK and installed Huawei APK matched SHA-256 `04e2716d32df13cd3dbaa7efa2a28faff44f7eba86d8bb8329ecee32b0a7d5c4`. All eight installed assets matched their recorded hashes. The WB314 tree is `7e451825f36242145015723ea0923e291bf1d4513d177a6f07258b56ceaf794f`. The exact APK remains in the local evidence folder `outputs/wb314_low_light_candidate_v1/`. [Phone implementation and evidence](android-wb314-picker-2026-11-19.md#severe-backlight-exposure)
