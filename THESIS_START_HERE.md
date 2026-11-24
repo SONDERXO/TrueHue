@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Warm-cast decision check · 25 November 2026.** A classifier tested with portraits of the same person held together missed all three researcher-confirmed warm casts and made two unwanted colour proposals. Three separate offline cooling drafts were made from the confirmed labels. [Decision screen and draft reference checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#reducing-a-confirmed-warm-cast)
+
 **Six-portrait decision baseline · 25 November 2026.** On the OPPO, build .12 brightened one of six phone portraits that the researcher marked for edits. Four stayed unchanged and one stopped at facial measurement. An offline colour proposal failed its development screen. [Decision baseline and trial](docs/android-wb314-face-measurement-retry-2026-11-24.md#six-portrait-decision-baseline-and-colour-screen)
 
 **Missed decision on a new phone portrait · 25 November 2026.** Highlight Test .12 processed the new capture and returned it unchanged. A combined backlighting rule produced the same result. The OPPO was restored to .12. [Decision check and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#decision-check-on-a-new-indoor-portrait)

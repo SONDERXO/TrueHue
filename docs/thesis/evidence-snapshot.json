@@ -1793,6 +1793,22 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_confirmed_warm_direction_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#reducing-a-confirmed-warm-cast",
+    "reviewed_warm_casts": 3,
+    "colour_preservation_comparators": 3,
+    "subject_held_fits": 3,
+    "detected_original_casts": 0,
+    "unwanted_colour_proposals": 2,
+    "generated_casts": 6,
+    "generated_cast_source_scenes_detected": 2,
+    "decision_screen_passed": false,
+    "candidate_installed": false,
+    "draft_label_directed_renders": 3,
+    "draft_renders_with_outside_changes": 0,
+    "draft_renders_with_new_clipping": 0,
+    "reference_strength_approved": false
+  },
   "android_reviewed_phone_decisions_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#six-portrait-decision-baseline-and-colour-screen",
     "build": "1.0-wb314-highlight-test.12",

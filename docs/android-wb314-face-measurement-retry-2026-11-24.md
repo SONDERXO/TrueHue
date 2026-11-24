@@ -75,4 +75,12 @@ The researcher marked six original phone photos for correction before the .12 co
 
 An offline screen tested whether bright background samples could establish a common colour bias across three or more spatial tiles. The screen excluded saved correction support and abstained when a tile appeared neutral. The fixed gate required a proposal on at least two of the three completed colour misses and no proposal on either brightness-only portrait or one preserved comparison portrait. It proposed colour on one of the three misses and one brightness-only portrait. Four generated checks passed, including tests of a known cast and abstention under mixed lighting. The natural-photo screen failed. No candidate correction was rendered or installed. Highlight Test .12 remained on the OPPO.
 
+### Reducing a confirmed warm cast
+
+The researcher confirmed that the three completed colour misses all needed less yellow or orange. A fixed offline ridge candidate used three red-to-blue cues from the corrected region and the surrounding scene. The three warm portraits and a brightness-only portrait of the same person stayed together for the held prediction. The other brightness-only portrait and the leave-as-is portrait supplied the remaining groups. Six generated warm inputs stayed with their original scenes. This small development check used three fits and no locked allocations.
+
+The candidate missed all three original warm portraits, proposed unwanted colour changes on two of the three colour controls, and detected a generated cast on at least one variant for two of the three original scenes. It failed the decision check. No final fit or Android integration followed.
+
+A separate offline render used the researcher's labels to apply a mild cooling proposal to each of the three warm portraits. All retained their original dimensions, with zero changes outside the saved correction support and zero newly clipped channels relative to the colour-managed inputs. The mean encoded luminance change within support was 0.16 to 0.42 code levels out of 255. These are draft colour references with no researcher approval of strength. The two combined cases still require separate exposure work. The installed build and frozen study versions retain their recorded settings.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).
