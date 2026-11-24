@@ -1808,6 +1808,16 @@
     "newly_completed_changed_pixels": 0,
     "retry_edited_exports": 0,
     "jvm_tests_passed": 31,
+    "oppo_a94_development_check": {
+      "updated_in_place_from": "1.0-wb314-highlight-test.3",
+      "verified_model_files": 8,
+      "fixtures_completed": 3,
+      "backlit_changed_pixels": 25189,
+      "unchanged_exports": 2,
+      "newly_clipped_pixels": 0,
+      "outside_support_changes": 0,
+      "normal_picker_saved_png_verified": true
+    },
     "frozen_manuscript_build_replaced": false
   },
   "android_highlight_and_interface_test": {

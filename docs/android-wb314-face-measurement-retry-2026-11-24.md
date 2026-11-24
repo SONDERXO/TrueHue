@@ -21,4 +21,12 @@ The local test recovered one analysis path and added no corrected outputs. The s
 
 Build the separate picker test using `-Pwb314PickerTest=true -Pwb314SoftEdgeTest=true -Pwb314HighlightTest=true -Pwb314FaceMeasurementTest=true`. This is development evidence for the emulator picker. The manuscript freeze and the expert development round retain their recorded versions.
 
+## OPPO A94 check
+
+The OPPO A94 updated in place from Highlight Test .3 to .8 on Android 13. The application ID stayed the same. The installed APK matched the verified local build and all eight provisioned model files matched the emulator check.
+
+Three reused development fixtures ran through the normal picker repository. The severely backlit portrait changed on 25,189 pixels, matching the previous OPPO input, mask and export bytes. A well-balanced portrait stayed pixel-for-pixel unchanged. The smaller-face cast portrait reproduced the emulator's 771 visible pixels on its larger retry and exported pixel-for-pixel unchanged. All three files retained their 500 × 500 dimensions. No output introduced clipping or changed a pixel outside support. Colour correction for the smaller-face portrait remains unresolved. These three checks describe the test build on one device.
+
+The on-screen photo picker, glasses prompt, results view and Save action were also exercised with the backlit photo. The PNG saved to Downloads matched the instrumented correction byte for byte. The first automation attempt expected a seconds field in the picker timestamp. The OPPO picker displays minutes and requires a Done tap after selection, and the completed check used that flow.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).
