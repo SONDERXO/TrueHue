@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Six-portrait decision baseline · 25 November 2026.** On the OPPO, build .12 brightened one of six phone portraits that the researcher marked for edits. Four stayed unchanged and one stopped at facial measurement. An offline colour proposal failed its development screen. [Decision baseline and trial](docs/android-wb314-face-measurement-retry-2026-11-24.md#six-portrait-decision-baseline-and-colour-screen)
+
 **Missed decision on a new phone portrait · 25 November 2026.** Highlight Test .12 processed the new capture and returned it unchanged. A combined backlighting rule produced the same result. The OPPO was restored to .12. [Decision check and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#decision-check-on-a-new-indoor-portrait)
 
 **Automatic indoor lift strength · 25 November 2026.** Highlight Test .12 varies the lift with shadow depth under its existing indoor-lighting rule. The approved full-resolution OPPO result matched .11 byte for byte. [Strength rule and evidence](docs/android-wb314-face-measurement-retry-2026-11-24.md#automatic-indoor-lift-strength)

@@ -69,4 +69,10 @@ One local candidate, .13, tested whether near-white and moderately bright backgr
 
 This case shows a missed decision on a full-resolution camera input after successful face analysis. The next development check records decisions on originals before showing candidate outputs. It counts missed corrections, unnecessary edits and analysis stops separately and checks whether outputs improve portraits judged to need a change. The frozen manuscript build and development expert materials retain their recorded versions.
 
+### Six-portrait decision baseline and colour screen
+
+The researcher marked six original phone photos for correction before the .12 comparison. The OPPO brightened one, returned four unchanged at the established comparison precision, and stopped at facial measurement on one. Three of the completed portraits called for a colour correction and all three retained neutral colour controls. The labels identify the desired edit types. They give no quality judgment on the one brightened output. All six called for some edit, so this baseline does not estimate the frequency of unnecessary edits.
+
+An offline screen tested whether bright background samples could establish a common colour bias across three or more spatial tiles. The screen excluded saved correction support and abstained when a tile appeared neutral. The fixed gate required a proposal on at least two of the three completed colour misses and no proposal on either brightness-only portrait or one preserved comparison portrait. It proposed colour on one of the three misses and one brightness-only portrait. Four generated checks passed, including tests of a known cast and abstention under mixed lighting. The natural-photo screen failed. No candidate correction was rendered or installed. Highlight Test .12 remained on the OPPO.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

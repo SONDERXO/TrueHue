@@ -1793,6 +1793,22 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_reviewed_phone_decisions_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#six-portrait-decision-baseline-and-colour-screen",
+    "build": "1.0-wb314-highlight-test.12",
+    "researcher_labelled_photos": 6,
+    "leave_as_is_labels": 0,
+    "brightened": 1,
+    "unchanged_at_comparison_precision": 4,
+    "analysis_stops": 1,
+    "completed_colour_requests": 3,
+    "completed_colour_requests_with_colour_edit": 0,
+    "offline_colour_proposals_on_completed_colour_requests": 1,
+    "offline_colour_proposals_on_brightness_only_comparators": 1,
+    "offline_screen_passed": false,
+    "candidate_rendered": false,
+    "candidate_installed": false
+  },
   "android_mixed_backlight_decision_check_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#decision-check-on-a-new-indoor-portrait",
     "baseline_build": "1.0-wb314-highlight-test.12",
