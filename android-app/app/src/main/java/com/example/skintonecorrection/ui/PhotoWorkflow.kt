@@ -19,6 +19,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.skintonecorrection.R
 import java.io.IOException
@@ -31,7 +32,7 @@ internal val PhotoShape = RoundedCornerShape(20.dp)
 @Composable
 internal fun WorkflowPage(
     actions: @Composable ColumnScope.() -> Unit,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.(Dp) -> Unit
 ) {
     val background = MaterialTheme.colorScheme.background
     Scaffold(
@@ -40,8 +41,8 @@ internal fun WorkflowPage(
             Surface(color = MaterialTheme.colorScheme.surface, shadowElevation = 3.dp) {
                 Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                     Column(
-                        Modifier.widthIn(max = 480.dp).fillMaxWidth().navigationBarsPadding()
-                            .padding(horizontal = 20.dp, vertical = 12.dp),
+                        Modifier.widthIn(max = 440.dp).fillMaxWidth().navigationBarsPadding()
+                            .padding(horizontal = 18.dp, vertical = 10.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                         content = actions
                     )
@@ -49,13 +50,13 @@ internal fun WorkflowPage(
             }
         }
     ) { insets ->
-        Box(Modifier.fillMaxSize().padding(insets), contentAlignment = Alignment.TopCenter) {
+        BoxWithConstraints(Modifier.fillMaxSize().padding(insets), contentAlignment = Alignment.TopCenter) {
+            val viewportHeight = maxHeight
             Column(
-                Modifier.widthIn(max = 480.dp).fillMaxWidth().verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp, vertical = 14.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp),
-                content = content
-            )
+                Modifier.widthIn(max = 440.dp).fillMaxWidth().verticalScroll(rememberScrollState())
+                    .padding(horizontal = 18.dp, vertical = 12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) { content(viewportHeight) }
         }
     }
 }
@@ -76,17 +77,17 @@ internal fun WorkflowHeader(title: String, onBack: () -> Unit) {
 }
 
 @Composable
-internal fun BrandMark() {
+internal fun BrandMark(size: Dp = 48.dp) {
     Surface(color = MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(14.dp)) {
         Icon(painterResource(R.drawable.truehue_mark), contentDescription = null,
-            modifier = Modifier.size(48.dp), tint = MaterialTheme.colorScheme.onPrimary)
+            modifier = Modifier.size(size), tint = MaterialTheme.colorScheme.onPrimary)
     }
 }
 
 @Composable
 internal fun WorkflowAction(label: String, onClick: () -> Unit, enabled: Boolean = true, primary: Boolean = true,
                             labelStyle: TextStyle = MaterialTheme.typography.labelLarge) {
-    val modifier = Modifier.fillMaxWidth().heightIn(min = 54.dp)
+    val modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp)
     val shape = RoundedCornerShape(18.dp)
     if (primary) {
         Button(onClick = onClick, enabled = enabled, modifier = modifier, shape = shape) { Text(label, style = labelStyle) }

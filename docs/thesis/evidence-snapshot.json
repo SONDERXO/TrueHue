@@ -1,5 +1,5 @@
 {
-  "checkpoint": "2026-11-23",
+  "checkpoint": "2026-11-24",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
   "studies": {
@@ -1773,9 +1773,26 @@
     "independent_mst_validation_completed": false,
     "final_expert_appraisal_completed": false
   },
+  "android_face_measurement_retry_2026_11_24": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md",
+    "scope": "Local emulator development check on six previously used UT Austin portraits",
+    "baseline_version": "1.0-wb314-highlight-test.6",
+    "retry_test_version": "1.0-wb314-highlight-test.8",
+    "retry_apk_sha256": "a3ca1635c868280808c06c8d62119fd292d901e49a36fe20abc3e4f230890bde",
+    "attempted": 6,
+    "baseline_completed": 2,
+    "retry_completed": 3,
+    "retry_face_analysis_stops": 3,
+    "newly_completed": 1,
+    "newly_completed_visible_measurement_pixels": 771,
+    "newly_completed_changed_pixels": 0,
+    "retry_edited_exports": 0,
+    "jvm_tests_passed": 31,
+    "frozen_manuscript_build_replaced": false
+  },
   "android_highlight_and_interface_test": {
     "source": "docs/thesis/conference-abstract-evidence-2026-11-23.md#newer-highlight-test-build",
-    "current_test_app_version": "1.0-wb314-highlight-test.3",
+    "tested_app_version": "1.0-wb314-highlight-test.3",
     "local_and_installed_apk_sha256": "5065b8b0fa5d66ea130d19915919ea77556aef18492079b2536f06eae2172ab6",
     "frozen_manuscript_build_replaced": false,
     "jvm_tests_passed": 28,

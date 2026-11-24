@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Android development check · 24 November 2026.** A local emulator update recovered face analysis on one of six reused UT Austin portraits. The tree left its colour cast unchanged. The sideways portrait still stopped at landmark detection, and two photos with very little usable skin still stopped at measurement. [Test method and results](docs/android-wb314-face-measurement-retry-2026-11-24.md)
+
 **Conference abstract evidence · 23 November 2026.** The frozen Android build completed 24 controlled cases from four London Set portraits. All eight underexposed cases improved against their original references. The four colour-only cases and eight overexposure cases stayed unchanged. Use the [conference evidence and claim limits](docs/thesis/conference-abstract-evidence-2026-11-23.md) for the results, sample sizes and build versions.
 
 **Evidence checkpoint · 22 November 2026. TrueHue Soft Edge Test 1.0-wb314-soft-edge-test.5 is frozen for the December 4 manuscript.** The researcher approved the demonstrated low-light lift and accepted the remaining limitation. The installed APK was verified on the Huawei. The [freeze and final scoring draft](docs/wb314-final-evaluation-preflight-2026-11-22.md) records the build, evidence and requirements for the final test. Independent MST evaluation and final expert appraisal remain pending.
@@ -32,7 +34,7 @@ Repository: `SONDERXO/TrueHue`. Current research branch: **`ffhq-correction-deve
 
 **Android glasses prompt.** The app pauses and asks how to handle glasses when the parser flags them. After a choice it processes the same photo. Emulator checks exercised the system picker and verified original-size results on the prompt and direct paths. This is an app workflow change. [Glasses workflow](docs/android-wb314-picker-2026-11-19.md#glasses-prompt-20-november-2026)
 
-**Current Android test interface.** The simplified Highlight Test .3 build has one photo action on Home, a smaller glasses prompt, an estimated progress percentage and a full-photo before/after slider. Its APK was verified on the OPPO A94, and the emulator picker-to-save check exported the original 1350 × 1350 dimensions. The controlled London Set measurements use the earlier frozen Soft Edge Test .5 build. [Current build and checks](docs/thesis/conference-abstract-evidence-2026-11-23.md#newer-highlight-test-build)
+**Android interface check · 23 November 2026.** The Highlight Test .3 build was verified on the OPPO A94. The emulator picker-to-save check exported the original 1350 × 1350 dimensions. The current local emulator development build is Highlight Test .8. The controlled London Set measurements use the frozen Soft Edge Test .5 build. [Interface checks](docs/thesis/conference-abstract-evidence-2026-11-23.md#newer-highlight-test-build)
 
 **Android prototype export.** The earlier trial pipeline preserved dimensions and all pixels outside the mapped mask on a 2304 × 512 emulator fixture. The standalone Java WB314 renderer matched Python on 32,000 generated RGB8 outputs. See [Android implementation status](android-app/README.md).
 

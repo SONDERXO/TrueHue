@@ -25,6 +25,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkinToneCorrection">
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.camera"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/camera_capture_paths" />
+        </provider>
+
         <!--
             Single-activity app: MainActivity is the only activity. It hosts the entire
             Compose UI, and screen-to-screen navigation happens inside the NavHost

@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 
 /** First 281 WB314 inputs, in the frozen Python model's feature order. */
 public final class Wb314ImageFeatures {
+    public static final int DEFAULT_MINIMUM_MEASUREMENT_PIXELS = 1_000;
     private static final int PIXELS = 256 * 256;
     private static final float LAB_LIGHT_SCALE = 100f / 255f;
 
@@ -13,6 +14,14 @@ public final class Wb314ImageFeatures {
     /** RGB and encoded OpenCV Lab share the same 256x256 grid and row order. */
     public static float[] extract(byte[] rgb, byte[] lab, byte[] measurement,
                                   double[] itaKnots, double[] mstKnots) {
+        return extract(rgb, lab, measurement, itaKnots, mstKnots, DEFAULT_MINIMUM_MEASUREMENT_PIXELS);
+    }
+
+    static float[] extract(byte[] rgb, byte[] lab, byte[] measurement,
+                           double[] itaKnots, double[] mstKnots, int minimumMeasurementPixels) {
+        if (minimumMeasurementPixels <= 0 || minimumMeasurementPixels > DEFAULT_MINIMUM_MEASUREMENT_PIXELS) {
+            throw new IllegalArgumentException("Invalid facial measurement minimum");
+        }
         if (rgb.length != 3 * PIXELS || lab.length != rgb.length || measurement.length != PIXELS) {
             throw new IllegalArgumentException("Matching 256x256 RGB8, Lab8 and measurement required");
         }
@@ -46,7 +55,9 @@ public final class Wb314ImageFeatures {
                 throw new IllegalArgumentException("Measurement mask must be binary 0/255");
             }
         }
-        if (selected < 1000) throw new IllegalArgumentException("Too little facial measurement support");
+        if (selected < minimumMeasurementPixels) {
+            throw new IllegalArgumentException("Too little facial measurement support");
+        }
         double lMean = round4(sumFloat32(skinLight, 0, selected) / selected);
         double aMean = round4((float) aSum / selected);
         double bMean = round4((float) bSum / selected);

@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.skintonecorrection.ui.InfoPanel
@@ -24,11 +23,11 @@ import com.example.skintonecorrection.ui.photoInfo
 @Composable
 fun SelectedPhotoScreen(photo: Uri, onBack: () -> Unit, onPickPhoto: () -> Unit, onApply: () -> Unit) {
     val info = photoInfo(photo)
-    val previewHeight = (LocalConfiguration.current.screenHeightDp * .33f).coerceIn(190f, 310f).dp
     WorkflowPage(actions = {
         WorkflowAction("Apply correction", onApply)
         WorkflowAction("Choose a different photo", onPickPhoto, primary = false)
-    }) {
+    }) { viewportHeight ->
+        val previewHeight = (viewportHeight * .44f).coerceIn(120.dp, 246.dp)
         WorkflowHeader("Selected photo", onBack)
         AsyncImage(model = photo, contentDescription = "Selected photo",
             modifier = Modifier.fillMaxWidth().height(previewHeight).clip(PhotoShape)

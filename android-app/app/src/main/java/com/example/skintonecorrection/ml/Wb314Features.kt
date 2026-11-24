@@ -11,7 +11,8 @@ object Wb314Features {
         measurement: ByteArray,
         itaKnots: DoubleArray,
         mstKnots: DoubleArray,
-        whiteBalance: FloatArray
+        whiteBalance: FloatArray,
+        minimumMeasurementPixels: Int = Wb314ImageFeatures.DEFAULT_MINIMUM_MEASUREMENT_PIXELS
     ): DoubleArray {
         require(rgb.rows() == 256 && rgb.cols() == 256 && rgb.type() == CvType.CV_8UC3) {
             "256 x 256 RGB8 analysis image required"
@@ -26,7 +27,8 @@ object Wb314Features {
             Imgproc.cvtColor(rgb, lab, Imgproc.COLOR_RGB2Lab)
             val labBytes = ByteArray(rgbBytes.size)
             check(lab.get(0, 0, labBytes) == labBytes.size)
-            val image = Wb314ImageFeatures.extract(rgbBytes, labBytes, measurement, itaKnots, mstKnots)
+            val image = Wb314ImageFeatures.extract(rgbBytes, labBytes, measurement, itaKnots, mstKnots,
+                minimumMeasurementPixels)
             return DoubleArray(314) { if (it < 281) image[it].toDouble() else whiteBalance[it - 281].toDouble() }
         } finally {
             lab.release()

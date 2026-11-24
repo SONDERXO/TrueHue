@@ -5,6 +5,7 @@ import com.example.skintonecorrection.data.Wb314HighlightGuard.newlyClips
 import com.example.skintonecorrection.ml.PortableRegressionTree
 import com.example.skintonecorrection.ml.PortableTreeAsset
 import com.example.skintonecorrection.ml.Wb314Features
+import com.example.skintonecorrection.ml.Wb314ImageFeatures.DEFAULT_MINIMUM_MEASUREMENT_PIXELS
 import com.example.skintonecorrection.ml.Wb314PixelRenderer
 import com.example.skintonecorrection.ml.Wb314WhiteBalance
 import org.json.JSONObject
@@ -104,7 +105,8 @@ internal class Wb314ResearchPipeline private constructor(
             val masks = analysis.masks
             val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
                 masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb,
-                masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits, guardLocalHighlights)
+                masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
+                guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -115,11 +117,13 @@ internal class Wb314ResearchPipeline private constructor(
                                   previewWidespreadExposure: Boolean, verifyLuminanceRgb: Boolean = false,
                                   repair: ResearchMaskRules.ApplicationRepair? = null,
                                   softEdge: Wb314SoftEdge? = null, tonePositiveExposure: Boolean = false,
-                                  guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false): Result {
+                                  guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
+                                  minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
-        val features = Wb314Features.extract(rgb, measurement, itaKnots, mstKnots, whiteBalance.extract(bytes))
+        val features = Wb314Features.extract(rgb, measurement, itaKnots, mstKnots, whiteBalance.extract(bytes),
+            minimumMeasurement)
         val controls = tree.predict(features)
         val support = Wb314RenderSupport(original.width, original.height, alpha, protected,
             researchPrecision = previewWidespreadExposure)

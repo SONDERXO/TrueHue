@@ -2,6 +2,7 @@ package com.example.skintonecorrection.data
 
 import android.content.Context
 import android.graphics.Bitmap
+import com.example.skintonecorrection.BuildConfig
 import com.example.skintonecorrection.R
 import org.json.JSONArray
 import org.json.JSONObject
@@ -43,7 +44,7 @@ internal class Wb314ResearchMasks(
     }
 
     data class Result(val faceBox: Rect, val categories: ByteArray, val visibility: ByteArray,
-                      val masks: ResearchMaskRules.Result, val visionSide: Int)
+                      val masks: ResearchMaskRules.Result, val visionSide: Int, val minimumMeasurement: Int)
 
     /** Reuse the loaded graphs on one inference thread. A missing stage fails before correction. */
     fun generate(bgr: Mat, glasses: GlassesChoice, protectUncertainBoundary: Boolean = false,
@@ -102,10 +103,16 @@ internal class Wb314ResearchMasks(
         }
         ResearchMaskRules.requireGlassesChoice(categories, face, glasses)
         val visibility = faceOcc.visibility(bgr, points, template, protectUncertainBoundary)
+        val retryFaceArea = (face.width * face.height).takeIf {
+            BuildConfig.WB314_FACE_MEASUREMENT_TEST && visionSide > side
+        }
+        val minimumMeasurement = ResearchMaskRules.minimumMeasurementPixels(retryFaceArea)
+        if (retryFaceArea != null) attempt?.put("minimum_measurement_pixels", minimumMeasurement)
         val masks = ResearchMaskRules.build(categories, points, visibility.measurement,
             glasses, visibility.application, repairSkinEdges, softenEdge, if (repairJaw) bgr else null,
-            recordMeasurement = attempt?.let { trace -> { key, count -> trace.put(key, count) } })
-        return Result(face, categories, visibility.measurement, masks, visionSide)
+            recordMeasurement = attempt?.let { trace -> { key, count -> trace.put(key, count) } },
+            minimumMeasurement = minimumMeasurement)
+        return Result(face, categories, visibility.measurement, masks, visionSide, minimumMeasurement)
     }
 
     private fun detectFace(bgr: Mat): Rect {
