@@ -1773,6 +1773,26 @@
     "independent_mst_validation_completed": false,
     "final_expert_appraisal_completed": false
   },
+  "wb314_colour_cast_training_trial_2026_11_24": {
+    "source": "docs/wb314-colour-cast-training-results-2026-11-24.md",
+    "source_portraits": 11,
+    "added_synthetic_views": 44,
+    "source_held_fits": 11,
+    "verified_renders": 220,
+    "checks_passed": 8,
+    "checks_total": 21,
+    "clean_originals_edited_by_prior_source_held_recipe": 2,
+    "clean_originals_edited_by_candidate": 11,
+    "added_casts_with_both_errors_improved_on_held_inputs": {
+      "weaker_cool": 8,
+      "warm": 11,
+      "green": 4,
+      "magenta": 1
+    },
+    "candidate_rejected": true,
+    "final_fits": 0,
+    "deployed": false
+  },
   "android_face_measurement_retry_2026_11_24": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md",
     "scope": "Local emulator development check on six previously used UT Austin portraits",

@@ -5,6 +5,8 @@ Titles identify records; they do not certify completion or supersede later resul
 
 Personal appeal-letter material is excluded. Original file encodings are preserved in Git; the upload text uses decoded UTF-8 copies.
 
+- [WB314 colour-cast training trial protocol](../wb314-colour-cast-training-protocol-2026-11-24.md)
+- [WB314 colour-cast training trial results](../wb314-colour-cast-training-results-2026-11-24.md)
 - [Android face measurement retry on everyday portraits](../android-wb314-face-measurement-retry-2026-11-24.md)
 - [Conference abstract evidence and claim limits](conference-abstract-evidence-2026-11-23.md) — `docs/thesis/conference-abstract-evidence-2026-11-23.md`
 - [WB314 freeze and final evaluation preflight](../wb314-final-evaluation-preflight-2026-11-22.md) — `docs/wb314-final-evaluation-preflight-2026-11-22.md`

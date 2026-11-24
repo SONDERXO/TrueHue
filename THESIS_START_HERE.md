@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Colour-cast training trial · 24 November 2026.** Wider synthetic colour examples helped with warm casts in a source-held development test, but the candidate edited all 11 clean originals and made weaker cool casts worse on average. The candidate was rejected. [Training results and limits](docs/wb314-colour-cast-training-results-2026-11-24.md)
+
 **Android development check · 24 November 2026.** A local emulator update recovered face analysis on one of six reused UT Austin portraits. The tree left its colour cast unchanged. The sideways portrait still stopped at landmark detection, and two photos with very little usable skin still stopped at measurement. [Test method and results](docs/android-wb314-face-measurement-retry-2026-11-24.md)
 
 **Conference abstract evidence · 23 November 2026.** The frozen Android build completed 24 controlled cases from four London Set portraits. All eight underexposed cases improved against their original references. The four colour-only cases and eight overexposure cases stayed unchanged. Use the [conference evidence and claim limits](docs/thesis/conference-abstract-evidence-2026-11-23.md) for the results, sample sizes and build versions.

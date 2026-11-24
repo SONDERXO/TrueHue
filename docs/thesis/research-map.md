@@ -4,6 +4,7 @@ Read [the latest status](../../THESIS_START_HERE.md) first. This map identifies 
 
 | Topic | Evidence starting points | Implementation starting points |
 | --- | --- | --- |
+| Colour-cast training trial | [Fixed protocol](../wb314-colour-cast-training-protocol-2026-11-24.md) · [Rejected candidate results](../wb314-colour-cast-training-results-2026-11-24.md) | `scripts/assess_wb314_colour_cast_training.py`. Broader synthetic casts improved warm correction and increased edits to clean originals. |
 | Android face measurement retry | [Six-photo development check](../android-wb314-face-measurement-retry-2026-11-24.md) | `Wb314ResearchMasks.kt`, `ResearchMaskRules.kt`, `Wb314ImageFeatures.java`. The local picker test uses one shared minimum for mask and feature measurement on the larger retry. |
 | Conference abstract and Android evidence | [Results and claim limits](conference-abstract-evidence-2026-11-23.md) · [Controlled test and manuscript freeze](../wb314-final-evaluation-preflight-2026-11-22.md) | `Wb314ResearchPipeline.kt`, `Wb314HighlightGuard.kt`. The London Set metrics use Soft Edge Test .5. The separate interface evidence used Highlight Test .3. |
 | Frozen Huawei build and draft final protocol | [Freeze and scoring draft](../wb314-final-evaluation-preflight-2026-11-22.md) · [Severe backlight checks](../android-wb314-picker-2026-11-19.md#severe-backlight-exposure) | `Wb314LowLight.kt`, `Wb314ResearchPipeline.kt` and the frozen Android build. Independent evaluation remains pending. |
