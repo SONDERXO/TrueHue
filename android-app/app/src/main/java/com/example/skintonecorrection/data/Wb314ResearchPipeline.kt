@@ -147,6 +147,9 @@ internal class Wb314ResearchPipeline private constructor(
         val lowLightGain = when {
             proposedGain == null -> null
             hasLowLightHeadroom(original, renderSupport, proposedGain) -> proposedGain
+            proposedGain > Wb314LowLight.diffuseBaseGain &&
+                hasLowLightHeadroom(original, renderSupport, Wb314LowLight.diffuseBaseGain) ->
+                Wb314LowLight.diffuseBaseGain
             proposedGain > Wb314LowLight.gain && hasLowLightHeadroom(original, renderSupport, Wb314LowLight.gain) ->
                 Wb314LowLight.gain
             else -> null

@@ -2,6 +2,7 @@ package com.example.skintonecorrection.data
 
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -28,7 +29,7 @@ class Wb314LowLightTest {
         assertFalse(qualifies(58, 3, highlightsInMask = true))
     }
 
-    private fun diffuseBacklight(faceLower: Int, faceUpper: Int, litScene: Int, enabled: Boolean = true): Boolean {
+    private fun diffuseBacklight(faceLower: Int, faceUpper: Int, litScene: Int, enabled: Boolean = true): Double? {
         val levels = IntArray(40) { i -> when {
             i < 4 -> faceLower
             i < 8 -> faceUpper
@@ -38,16 +39,22 @@ class Wb314LowLightTest {
         val rgb = ByteArray(3 * levels.size) { levels[it / 3].toByte() }
         val measurement = ByteArray(levels.size) { if (it < 8) -1 else 0 }
         val alpha = DoubleArray(levels.size) { if (it < 8) 1.0 else 0.0 }
-        val gain = Wb314LowLight.proposedGain(rgb, measurement, alpha, enabled)
-        if (gain != null) assertEquals(Math.pow(2.0, 5.0 / 8.0), gain, 0.0)
-        return gain != null
+        return Wb314LowLight.proposedGain(rgb, measurement, alpha, enabled)
     }
 
     @Test fun diffuseBacklightRequiresBroadLightingAndFaceShadows() {
-        assertTrue(diffuseBacklight(47, 78, 8))
-        assertFalse(diffuseBacklight(47, 78, 8, enabled = false))
-        assertFalse(diffuseBacklight(47, 78, 7))
-        assertFalse(diffuseBacklight(78, 78, 8))
-        assertFalse(diffuseBacklight(47, 92, 8))
+        assertEquals(Math.pow(2.0, 5.0 / 8.0), diffuseBacklight(47, 78, 8)!!, 0.0)
+        assertNull(diffuseBacklight(47, 78, 8, enabled = false))
+        assertNull(diffuseBacklight(47, 78, 7))
+        assertNull(diffuseBacklight(78, 78, 8))
+        assertNull(diffuseBacklight(47, 92, 8))
+    }
+
+    @Test fun diffuseLiftIncreasesWithShadowDepthAndStopsAtOneStop() {
+        val ordinary = diffuseBacklight(47, 78, 8)!!
+        val deeper = diffuseBacklight(32, 78, 8)!!
+        val deepest = diffuseBacklight(18, 78, 8)!!
+        assertTrue(ordinary < deeper && deeper < deepest)
+        assertEquals(2.0, deepest, 0.0)
     }
 }

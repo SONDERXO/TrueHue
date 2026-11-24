@@ -1,5 +1,5 @@
 {
-  "checkpoint": "2026-11-24",
+  "checkpoint": "2026-11-25",
   "kind": "Selected aggregate evidence, not raw data or final qualification",
   "model_ready": false,
   "studies": {
@@ -1792,6 +1792,18 @@
     "candidate_rejected": true,
     "final_fits": 0,
     "deployed": false
+  },
+  "android_automatic_indoor_lift_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#automatic-indoor-lift-strength",
+    "device": "OPPO A94",
+    "build": "1.0-wb314-highlight-test.12",
+    "apk_sha256": "f30552ee75925e147c72e4af397360669df79d28e1dc878acc02c3a257cb160a",
+    "base_lift_stops": 0.625,
+    "maximum_lift_stops": 1.0,
+    "approved_full_resolution_output_identical": true,
+    "exact_oppo_regression_outputs": 3,
+    "higher_strengths_verified_on_generated_measurements": true,
+    "jvm_tests_passed": 35
   },
   "android_indoor_lift_strength_2026_11_24": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-indoor-lift",

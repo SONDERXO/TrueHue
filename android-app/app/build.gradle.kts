@@ -71,7 +71,7 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
-                    enableDiffuseBacklight -> "-wb314-highlight-test.11"
+                    enableDiffuseBacklight -> "-wb314-highlight-test.12"
                     enableFaceMeasurementRetry -> "-wb314-highlight-test.9"
                     enableHighlightGuard -> "-wb314-highlight-test.6"
                     enableJawRepair -> "-wb314-jaw-test.1"

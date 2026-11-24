@@ -1,11 +1,13 @@
 package com.example.skintonecorrection.data
 
 import kotlin.math.pow
+import kotlin.math.log2
 
 /** A bounded exposure-only proposal for severe backlight when WB314 selected identity. */
 internal object Wb314LowLight {
     val gain = 2.0.pow(3.0 / 8.0)
-    private val diffuseGain = 2.0.pow(5.0 / 8.0)
+    private const val DIFFUSE_BASE_STOPS = 5.0 / 8.0
+    val diffuseBaseGain = 2.0.pow(DIFFUSE_BASE_STOPS)
 
     fun proposedGain(rgb: ByteArray, measurement: ByteArray, alpha: DoubleArray,
                      allowDiffuseBacklight: Boolean = false): Double? {
@@ -40,7 +42,10 @@ internal object Wb314LowLight {
         if (faceUpper <= 0 || 8.0 * faceUpper > sceneHighlight) return null
         if (nearWhiteBackground) return gain
         val faceLower = linear(percentile(face, faceCount, 25))
-        return diffuseGain.takeIf { faceLower > 0 && faceUpper >= 2.0 * faceLower }
+        if (faceLower <= 0 || faceUpper < 2.0 * faceLower) return null
+        // Keep the verified lift for ordinary shadows. Give deeper shadows more lift, up to one stop.
+        val extraStops = (log2(faceUpper / faceLower) - 2.0).coerceAtLeast(0.0) / 4.0
+        return 2.0.pow((DIFFUSE_BASE_STOPS + extraStops).coerceAtMost(1.0))
     }
 
     private fun percentile(histogram: IntArray, count: Int, percent: Int): Int {

@@ -55,4 +55,10 @@ The researcher found the 3/8-stop result too subtle. Highlight Test .11 adds a q
 
 On the same OPPO capture at 4896 × 6528, the average luminance lift within the mask increased from 5.90 to 10.19 encoded code levels. The output brightened 4,715,105 pixels, with zero darkened or newly saturated pixels and zero changes outside the unchanged mask. The known near-white backlight and acceptable-lighting fixtures retained their previous output and mask bytes. All 34 Android unit tests passed. The in-place OPPO test build uses the same eight model files. The evidence covers one strength change on a reported indoor case and two regression checks.
 
+### Automatic indoor lift strength
+
+Highlight Test .12 adjusts strength for portraits that meet the existing indoor lighting rule. It retains the 5/8-stop lift when the difference between the 75th and 25th percentiles of facial luminance is at most two stops. Above that, it adds one quarter stop of lift for each additional stop of contrast within the measured face, capped at one stop. If the stronger lift fails the highlight check, the app can use the earlier 5/8-stop or 3/8-stop lift, subject to the same safety checks. The eligibility conditions and the near-white backlight path retain their earlier behaviour.
+
+On 25 November 2026, the OPPO A94 updated in place and verified all eight model files. The approved 4896 × 6528 photo, a near-white backlight fixture, and a well-lit portrait retained their exact input, mask and output bytes. All 35 Android unit tests passed, including tests for deeper generated shadows and the one-stop cap. The higher strengths were exercised on generated measurements. General reliability on naturally underexposed phone photos remains open.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).
