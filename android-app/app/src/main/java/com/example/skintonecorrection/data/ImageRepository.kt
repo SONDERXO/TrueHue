@@ -73,13 +73,14 @@ class ImageRepository internal constructor(
             if (bounds.outWidth <= 0 || bounds.outHeight <= 0) {
                 throw PhotoProcessingException(R.string.error_photo_unreadable, "Could not decode photo dimensions")
             }
+            report.put("source_width", bounds.outWidth).put("source_height", bounds.outHeight)
             val runtime = Runtime.getRuntime()
             val headroom = runtime.maxMemory() - (runtime.totalMemory() - runtime.freeMemory())
             val pixels = bounds.outWidth.toLong() * bounds.outHeight
-            if (pixels > (headroom - 16L * 1024 * 1024) / 16) {
+            if (!fitsOriginalPhoto(pixels, headroom)) {
                 throw PhotoProcessingException(R.string.error_photo_too_large, "Insufficient memory for original dimensions")
             }
-            report.put("decoded_sampling",1).put("source_width",bounds.outWidth).put("source_height",bounds.outHeight)
+            report.put("decoded_sampling",1)
                 .put("decode_policy","Original dimensions, EXIF orientation, square256 analysis")
             val decoded=BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply{inPreferredConfig=Bitmap.Config.ARGB_8888})
                 ?: throw PhotoProcessingException(R.string.error_photo_unreadable, "Photo decoder returned no bitmap")
@@ -180,4 +181,11 @@ class ImageRepository internal constructor(
         };Unit
     }
     private fun hash(bytes:ByteArray)=MessageDigest.getInstance("SHA-256").digest(bytes).joinToString(""){"%02x".format(it)}
+}
+
+internal fun fitsOriginalPhoto(pixels: Long, headroom: Long): Boolean {
+    val workingReserve = 48L * 1024 * 1024
+    // Rotation, OpenCV normalization and rendering run separately. Each peaks with two RGBA frames.
+    val bytesPerPixelAtPeak = 2L * Int.SIZE_BYTES
+    return headroom >= workingReserve && pixels in 1..(headroom - workingReserve) / bytesPerPixelAtPeak
 }

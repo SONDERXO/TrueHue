@@ -2,6 +2,7 @@ package com.example.skintonecorrection
 
 import android.graphics.BitmapFactory
 import android.net.Uri
+import androidx.core.content.FileProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.skintonecorrection.data.GlassesChoice
@@ -23,6 +24,28 @@ import java.util.Locale
 
 @RunWith(AndroidJUnit4::class)
 class Wb314JawlineDiagnosticTest {
+    @Test fun processSavedCameraCapture() = runBlocking {
+        val name = InstrumentationRegistry.getArguments().getString("wb314CameraCapture")
+        assumeTrue(name != null)
+        checkNotNull(name)
+        check(name.matches(Regex("portrait_[0-9]+\\.jpg")))
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val cameraFile = File(context.cacheDir, "camera_capture/$name")
+        check(cameraFile.isFile)
+        val uri = FileProvider.getUriForFile(context, "${context.packageName}.camera", cameraFile)
+        val repository = ImageRepository(context)
+        var result = repository.runCorrection(uri)
+        if (result.needsGlassesChoice) result = repository.runCorrection(uri, GlassesChoice.OPAQUE)
+        val report = File(checkNotNull(result.report.path))
+        report.copyTo(File(context.filesDir, "wb314_camera_capture_check.json"), overwrite = true)
+        check(result.success) { result.message }
+        val original = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        val corrected = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeFile(checkNotNull(result.input?.path), original)
+        BitmapFactory.decodeFile(checkNotNull(result.corrected?.path), corrected)
+        check(corrected.outWidth == original.outWidth && corrected.outHeight == original.outHeight)
+    }
+
     @Test fun processEdgeRepairFixtures() = runBlocking {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         assumeTrue(InstrumentationRegistry.getArguments().getString("wb314EdgeFixtures") == "true")

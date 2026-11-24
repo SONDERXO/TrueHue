@@ -1793,6 +1793,19 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_camera_full_resolution_2026_11_24": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#full-resolution-camera-capture-on-oppo",
+    "device": "OPPO A94",
+    "build": "1.0-wb314-highlight-test.9",
+    "apk_sha256": "41255bf7237fde287a3ca8eb12ab4d729b2c87f7a5fcc76ba1a8402aff8aac01",
+    "original_dimensions": [4896, 6528],
+    "previously_rejected_captures": 2,
+    "full_size_captures_completed": 2,
+    "identity_decisions": 1,
+    "colour_adjustments": 1,
+    "outside_support_changes": 0,
+    "jvm_tests_passed": 33
+  },
   "android_face_measurement_retry_2026_11_24": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md",
     "scope": "Local emulator development check on six previously used UT Austin portraits",

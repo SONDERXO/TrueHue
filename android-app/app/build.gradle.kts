@@ -65,7 +65,7 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
-                    enableFaceMeasurementRetry -> "-wb314-highlight-test.8"
+                    enableFaceMeasurementRetry -> "-wb314-highlight-test.9"
                     enableHighlightGuard -> "-wb314-highlight-test.6"
                     enableJawRepair -> "-wb314-jaw-test.1"
                     enableSoftEdge -> "-wb314-soft-edge-test.5"

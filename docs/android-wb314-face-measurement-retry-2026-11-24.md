@@ -29,4 +29,14 @@ Three reused development fixtures ran through the normal picker repository. The 
 
 The on-screen photo picker, glasses prompt, results view and Save action were also exercised with the backlit photo. The PNG saved to Downloads matched the instrumented correction byte for byte. The first automation attempt expected a seconds field in the picker timestamp. The OPPO picker displays minutes and requires a Done tap after selection, and the completed check used that flow.
 
+## Full-resolution camera capture on OPPO
+
+The user reported that the in-app camera photos were too large to correct. Both saved camera JPEGs were 4896 × 6528 with normal EXIF orientation. Their hashes matched the earlier decode-stage reports that recorded insufficient memory before face analysis. The app had budgeted 16 bytes per pixel for full-size buffers. Decoding and orientation, analysis conversion, and rendering run in sequence. Each can have two full-size RGBA buffers live at its peak.
+
+Highlight Test .9 budgets for two full-size buffers and 48 MiB of additional working memory. It records source dimensions before the memory check and retains full-resolution decoding, face analysis, mask protection, rendering and PNG creation. The original encoded-file size guard and out-of-memory handling remain active. The update used the existing OPPO app ID. All 33 Android unit tests passed and the eight provisioned model files matched .8.
+
+Both previously rejected camera JPEGs completed through the camera's FileProvider URI on the OPPO. The decoded input and generated PNG were 4896 × 6528 in both cases, with a sampling factor of one. The capture bytes matched their earlier hashes afterward. The model selected identity on one photo. The other received a colour adjustment, backed off by the existing highlight protection. The first instrumentation connection dropped over USB, and its completed report and PNGs were recovered from the phone. The second instrumentation command exited successfully. This verifies full-size handling for these camera captures. The manuscript build and expert round keep their original versions.
+
+An independent comparison of the saved PNGs found exact decoded RGB equality for the identity case. The corrected case changed 3,339,321 pixels inside application support and zero pixels outside it.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).
