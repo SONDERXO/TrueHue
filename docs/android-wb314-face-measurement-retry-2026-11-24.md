@@ -61,4 +61,12 @@ Highlight Test .12 adjusts strength for portraits that meet the existing indoor 
 
 On 25 November 2026, the OPPO A94 updated in place and verified all eight model files. The approved 4896 × 6528 photo, a near-white backlight fixture, and a well-lit portrait retained their exact input, mask and output bytes. All 35 Android unit tests passed, including tests for deeper generated shadows and the one-stop cap. The higher strengths were exercised on generated measurements. General reliability on naturally underexposed phone photos remains open.
 
+### Decision check on a new indoor portrait
+
+On 25 November 2026, a new OPPO camera capture that the researcher flagged as needing correction completed face analysis with 5,153 visible facial pixels at the 256-pixel analysis scale. Highlight Test .12 kept all five controls at identity. The decoded 4896 × 6528 output matched the input exactly. The indoor lift did not run.
+
+One local candidate, .13, tested whether near-white and moderately bright background areas could jointly supply evidence of backlighting. On the unaffected scene, the candidate weighted the fraction at luma 224 or above by 16 and the fraction from luma 192 through 223 by 4, requiring their sum to reach one for the alternate backlight branch. The face-shadow requirements and existing headroom checks stayed in place. All 36 unit tests passed. For the same captured file and glasses choice, both builds reported identity controls and matching input, mask and output file hashes. The target check failed, so the planned follow-up comparisons did not run. The .13 trial was rejected, and the OPPO was restored to .12 in place.
+
+This case shows a missed decision on a full-resolution camera input after successful face analysis. The next development check records decisions on originals before showing candidate outputs. It counts missed corrections, unnecessary edits and analysis stops separately and checks whether outputs improve portraits judged to need a change. The frozen manuscript build and development expert materials retain their recorded versions.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

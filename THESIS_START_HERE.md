@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Missed decision on a new phone portrait · 25 November 2026.** Highlight Test .12 processed the new capture and returned it unchanged. A combined backlighting rule produced the same result. The OPPO was restored to .12. [Decision check and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#decision-check-on-a-new-indoor-portrait)
+
 **Automatic indoor lift strength · 25 November 2026.** Highlight Test .12 varies the lift with shadow depth under its existing indoor-lighting rule. The approved full-resolution OPPO result matched .11 byte for byte. [Strength rule and evidence](docs/android-wb314-face-measurement-retry-2026-11-24.md#automatic-indoor-lift-strength)
 
 **Indoor portrait development check · 24 November 2026.** Highlight Test .11 increased the indoor lift by a quarter stop on the reported OPPO photo. The result stayed at original resolution and changed only within the mask. Two regression photos retained their previous outputs. [Indoor-lighting check](docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-indoor-lift)

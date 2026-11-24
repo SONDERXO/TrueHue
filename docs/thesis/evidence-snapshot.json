@@ -1793,6 +1793,22 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_mixed_backlight_decision_check_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#decision-check-on-a-new-indoor-portrait",
+    "baseline_build": "1.0-wb314-highlight-test.12",
+    "trial_build": "1.0-wb314-highlight-test.13",
+    "new_camera_captures": 1,
+    "source_dimensions": [4896, 6528],
+    "visible_facial_pixels": 5153,
+    "baseline_changed_pixels": 0,
+    "trial_matched_baseline_output": true,
+    "trial_jvm_tests_passed": 36,
+    "trial_target_check_passed": false,
+    "trial_follow_up_regressions_run": false,
+    "trial_adopted": false,
+    "device_restored_to_baseline": true,
+    "general_photo_decision_reliability_established": false
+  },
   "android_automatic_indoor_lift_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#automatic-indoor-lift-strength",
     "device": "OPPO A94",
