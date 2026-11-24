@@ -1793,6 +1793,23 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_indoor_lift_strength_2026_11_24": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-indoor-lift",
+    "device": "OPPO A94",
+    "build": "1.0-wb314-highlight-test.11",
+    "apk_sha256": "5686d49957f7d006c359d46e7287f4bfc998eaaeafc8765e683bd752c7390bcf",
+    "previous_exposure_lift_stops": 0.375,
+    "new_exposure_lift_stops": 0.625,
+    "previous_mean_luma_gain_in_support": 5.898644887551523,
+    "mean_luma_gain_in_support": 10.191103939991168,
+    "brightened_pixels": 4715105,
+    "darkened_pixels": 0,
+    "newly_saturated_pixels": 0,
+    "outside_support_changes": 0,
+    "output_dimensions": [4896, 6528],
+    "exact_oppo_regression_outputs": 2,
+    "jvm_tests_passed": 34
+  },
   "android_indoor_backlight_development_2026_11_24": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#missed-lift-under-indoor-lighting",
     "device": "OPPO A94",

@@ -1,6 +1,7 @@
 package com.example.skintonecorrection.data
 
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -10,7 +11,9 @@ class Wb314LowLightTest {
         val rgb = ByteArray(3 * levels.size) { levels[it / 3].toByte() }
         val measurement = ByteArray(levels.size) { if (it < 8) -1 else 0 }
         val alpha = DoubleArray(levels.size) { if (it < 8 || highlightsInMask && it < 8 + brightScene) 1.0 else 0.0 }
-        return Wb314LowLight.hasSevereBacklight(rgb, measurement, alpha)
+        val gain = Wb314LowLight.proposedGain(rgb, measurement, alpha)
+        if (gain != null) assertEquals(Wb314LowLight.gain, gain, 0.0)
+        return gain != null
     }
 
     @Test fun requiresStrongBacklightAndDeepFacialShadow() {
@@ -35,7 +38,9 @@ class Wb314LowLightTest {
         val rgb = ByteArray(3 * levels.size) { levels[it / 3].toByte() }
         val measurement = ByteArray(levels.size) { if (it < 8) -1 else 0 }
         val alpha = DoubleArray(levels.size) { if (it < 8) 1.0 else 0.0 }
-        return Wb314LowLight.hasSevereBacklight(rgb, measurement, alpha, enabled)
+        val gain = Wb314LowLight.proposedGain(rgb, measurement, alpha, enabled)
+        if (gain != null) assertEquals(Math.pow(2.0, 5.0 / 8.0), gain, 0.0)
+        return gain != null
     }
 
     @Test fun diffuseBacklightRequiresBroadLightingAndFaceShadows() {

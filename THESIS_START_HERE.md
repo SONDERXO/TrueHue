@@ -1,6 +1,6 @@
 # TrueHue: thesis-writing entry point
 
-**Indoor portrait development check · 24 November 2026.** Highlight Test .10 applied a small exposure lift to a new OPPO photo that the earlier build left unchanged. The result stayed at original resolution and changed only within the mask. [Indoor-lighting check](docs/android-wb314-face-measurement-retry-2026-11-24.md#missed-lift-under-indoor-lighting)
+**Indoor portrait development check · 24 November 2026.** Highlight Test .11 increased the indoor lift by a quarter stop on the reported OPPO photo. The result stayed at original resolution and changed only within the mask. Two regression photos retained their previous outputs. [Indoor-lighting check](docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-indoor-lift)
 
 **OPPO camera compatibility · 24 November 2026.** Highlight Test .9 processed two camera captures at their original 4896 × 6528 resolution after .8 rejected them during the memory check. One received a colour adjustment and the model selected no edit for the other. [Camera check](docs/android-wb314-face-measurement-retry-2026-11-24.md#full-resolution-camera-capture-on-oppo)
 

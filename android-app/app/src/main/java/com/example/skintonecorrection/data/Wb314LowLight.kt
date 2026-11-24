@@ -5,9 +5,10 @@ import kotlin.math.pow
 /** A bounded exposure-only proposal for severe backlight when WB314 selected identity. */
 internal object Wb314LowLight {
     val gain = 2.0.pow(3.0 / 8.0)
+    private val diffuseGain = 2.0.pow(5.0 / 8.0)
 
-    fun hasSevereBacklight(rgb: ByteArray, measurement: ByteArray, alpha: DoubleArray,
-                           allowDiffuseBacklight: Boolean = false): Boolean {
+    fun proposedGain(rgb: ByteArray, measurement: ByteArray, alpha: DoubleArray,
+                     allowDiffuseBacklight: Boolean = false): Double? {
         require(rgb.size == measurement.size * 3 && alpha.size == measurement.size)
         val face = IntArray(256)
         val scene = IntArray(256)
@@ -31,15 +32,15 @@ internal object Wb314LowLight {
                 if (level >= 192) diffuseBrightCount++
             }
         }
-        if (faceCount == 0 || sceneCount == 0) return false
+        if (faceCount == 0 || sceneCount == 0) return null
         val nearWhiteBackground = 16L * brightCount >= sceneCount
-        if (!nearWhiteBackground && (!allowDiffuseBacklight || 4L * diffuseBrightCount < sceneCount)) return false
+        if (!nearWhiteBackground && (!allowDiffuseBacklight || 4L * diffuseBrightCount < sceneCount)) return null
         val faceUpper = linear(percentile(face, faceCount, 75))
         val sceneHighlight = linear(percentile(scene, sceneCount, 95))
-        if (faceUpper <= 0 || 8.0 * faceUpper > sceneHighlight) return false
-        if (nearWhiteBackground) return true
+        if (faceUpper <= 0 || 8.0 * faceUpper > sceneHighlight) return null
+        if (nearWhiteBackground) return gain
         val faceLower = linear(percentile(face, faceCount, 25))
-        return faceLower > 0 && faceUpper >= 2.0 * faceLower
+        return diffuseGain.takeIf { faceLower > 0 && faceUpper >= 2.0 * faceLower }
     }
 
     private fun percentile(histogram: IntArray, count: Int, percent: Int): Int {

@@ -49,4 +49,10 @@ With the same source hash and clear-glasses choice, the latest OPPO portrait ret
 
 Four OPPO regression photos retained their earlier output and mask bytes. The original severe-backlight lift, an acceptable-lighting portrait, and both earlier full-resolution camera outputs all matched. The existing app was updated in place, and all eight model assets matched .9. This local test is limited to one reported miss and four reused regression photos. The frozen manuscript build and expert round retain their recorded versions. The .10 build adds `-Pwb314DiffuseBacklightTest=true` to the earlier picker-test flags.
 
+### Stronger indoor lift
+
+The researcher found the 3/8-stop result too subtle. Highlight Test .11 adds a quarter stop to this branch for a 5/8-stop proposal. The eligibility rule and the original near-white backlight lift remain as tested. The stronger proposal must pass the highlight and clipping checks before the edge fade. If it fails, the app checks the original 3/8-stop proposal. The standard output highlight check still runs on the final blend.
+
+On the same OPPO capture at 4896 × 6528, the average luminance lift within the mask increased from 5.90 to 10.19 encoded code levels. The output brightened 4,715,105 pixels, with zero darkened or newly saturated pixels and zero changes outside the unchanged mask. The known near-white backlight and acceptable-lighting fixtures retained their previous output and mask bytes. All 34 Android unit tests passed. The in-place OPPO test build uses the same eight model files. The evidence covers one strength change on a reported indoor case and two regression checks.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

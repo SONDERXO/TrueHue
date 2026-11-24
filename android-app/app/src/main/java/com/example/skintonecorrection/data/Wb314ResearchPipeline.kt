@@ -141,10 +141,17 @@ internal class Wb314ResearchPipeline private constructor(
         val applied = if (tonePositiveExposure) limited.copyOf().apply {
             this[1] = Wb314ExposureToning.limit(controls[1], this[1])
         } else limited
-        val lowLightLift = guardPhonePortraits && controls.all { it == 1.0 } &&
-            Wb314LowLight.hasSevereBacklight(bytes, measurement, alpha, allowDiffuseBacklight) &&
-            hasLowLightHeadroom(original, renderSupport)
-        var finalControls = if (lowLightLift) applied.copyOf().apply { this[1] = Wb314LowLight.gain } else applied
+        val proposedGain = if (guardPhonePortraits && controls.all { it == 1.0 }) {
+            Wb314LowLight.proposedGain(bytes, measurement, alpha, allowDiffuseBacklight)
+        } else null
+        val lowLightGain = when {
+            proposedGain == null -> null
+            hasLowLightHeadroom(original, renderSupport, proposedGain) -> proposedGain
+            proposedGain > Wb314LowLight.gain && hasLowLightHeadroom(original, renderSupport, Wb314LowLight.gain) ->
+                Wb314LowLight.gain
+            else -> null
+        }
+        var finalControls = if (lowLightGain == null) applied else applied.copyOf().apply { this[1] = lowLightGain }
         fun renderProposal(checkHighlights: Boolean) = render(original, renderSupport, finalControls,
             repair?.softEdge ?: softEdge, if (repair?.softEdge == null) null else support, softEdge, checkHighlights)
         val checkHighlights = guardLocalHighlights && finalControls.any { it != 1.0 }
@@ -161,17 +168,23 @@ internal class Wb314ResearchPipeline private constructor(
             output = checkNotNull(renderProposal(false))
         }
         return Result(output, features, controls, tree.leafId(features), preview, finalControls,
-            lowLightLift && highlightCheck != "kept_original", highlightCheck)
+            lowLightGain != null && highlightCheck != "kept_original", highlightCheck)
     }
 
-    private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport): Boolean {
-        val renderer = Wb314PixelRenderer(1.0, Wb314LowLight.gain, 1.0, 1.0, 1.0)
+    private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport, gain: Double): Boolean {
+        val renderer = Wb314PixelRenderer(1.0, gain, 1.0, 1.0, 1.0)
+        // For the stronger proposal, check highlights before the soft edge can attenuate the edit.
+        val stronger = gain > Wb314LowLight.gain
         val row = IntArray(original.width)
         for (y in 0 until original.height) {
             original.getPixels(row, 0, row.size, 0, y, row.size, 1)
             for (x in row.indices) {
                 val coverage = support.alphaAt(x, y)
-                if (coverage > 0 && newlyClips(row[x], renderer.render(row[x], coverage, false))) return false
+                if (coverage == 0.0) continue
+                val corrected = renderer.render(row[x], coverage, false)
+                val losesDetail = if (stronger) Wb314HighlightGuard.losesHighlight(row[x], corrected)
+                    else newlyClips(row[x], corrected)
+                if (losesDetail) return false
             }
         }
         return true
