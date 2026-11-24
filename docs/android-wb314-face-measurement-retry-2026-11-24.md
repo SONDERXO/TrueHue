@@ -83,4 +83,10 @@ The candidate missed all three original warm portraits, proposed unwanted colour
 
 A separate offline render used the researcher's labels to apply a mild cooling proposal to each of the three warm portraits. All retained their original dimensions, with zero changes outside the saved correction support and zero newly clipped channels relative to the colour-managed inputs. The mean encoded luminance change within support was 0.16 to 0.42 code levels out of 255. These are draft colour references with no researcher approval of strength. The two combined cases still require separate exposure work. The installed build and frozen study versions retain their recorded settings.
 
+### Paired cooling training
+
+A later local trial fitted a shared cooling strength with the existing renderer directly to the three provisional drafts. The two photos from the same scene stayed together, yielding two capture-group fits. All three held checks reduced mean RGB error against the drafts from 1.396–2.058 to 0.006–0.007 of 255 code levels, with no new clipped channels or changes outside the saved support at native resolution. These are reconstruction checks against authored drafts of the same person. They supply no appearance approval or cross-person performance estimate.
+
+A separate estimator learned from colour differences within each pair and used three subject-held fits for the decision screen. It missed all three requested warm edits and preserved the three colour controls. The highest held control score was above every warm-case score, so a common relaxation of the threshold would colour-shift a control before recovering a miss. No final fit or deployment followed. The OPPO stays on .12, and the frozen manuscript and development expert versions retain their recorded settings.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

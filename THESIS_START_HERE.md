@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Paired cooling training · 25 November 2026.** The learned edit reproduced the three provisional cooling drafts at native resolution. The automatic decision preserved all three colour controls and missed all three warm portraits. This development trial was not deployed. [Paired training results](docs/android-wb314-face-measurement-retry-2026-11-24.md#paired-cooling-training)
+
 **Warm-cast decision check · 25 November 2026.** A classifier tested with portraits of the same person held together missed all three researcher-confirmed warm casts and made two unwanted colour proposals. Three separate offline cooling drafts were made from the confirmed labels. [Decision screen and draft reference checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#reducing-a-confirmed-warm-cast)
 
 **Six-portrait decision baseline · 25 November 2026.** On the OPPO, build .12 brightened one of six phone portraits that the researcher marked for edits. Four stayed unchanged and one stopped at facial measurement. An offline colour proposal failed its development screen. [Decision baseline and trial](docs/android-wb314-face-measurement-retry-2026-11-24.md#six-portrait-decision-baseline-and-colour-screen)

@@ -1793,6 +1793,22 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_paired_cooling_training_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#paired-cooling-training",
+    "capture_group_amount_fits": 2,
+    "held_draft_amount_checks_passed": 3,
+    "held_amount_outside_changes": 0,
+    "held_amount_new_clipping": 0,
+    "subject_held_decision_fits": 3,
+    "warm_cases_detected": 0,
+    "warm_cases_tested": 3,
+    "colour_controls_preserved": 3,
+    "colour_controls_tested": 3,
+    "common_cutoff_relaxation_would_edit_a_control_first": true,
+    "decision_screen_passed": false,
+    "draft_strength_approved": false,
+    "deployed": false
+  },
   "android_confirmed_warm_direction_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#reducing-a-confirmed-warm-cast",
     "reviewed_warm_casts": 3,
