@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Indoor portrait development check · 24 November 2026.** Highlight Test .10 applied a small exposure lift to a new OPPO photo that the earlier build left unchanged. The result stayed at original resolution and changed only within the mask. [Indoor-lighting check](docs/android-wb314-face-measurement-retry-2026-11-24.md#missed-lift-under-indoor-lighting)
+
 **OPPO camera compatibility · 24 November 2026.** Highlight Test .9 processed two camera captures at their original 4896 × 6528 resolution after .8 rejected them during the memory check. One received a colour adjustment and the model selected no edit for the other. [Camera check](docs/android-wb314-face-measurement-retry-2026-11-24.md#full-resolution-camera-capture-on-oppo)
 
 **Colour-cast training trial · 24 November 2026.** Wider synthetic colour examples helped with warm casts in a source-held development test, but the candidate edited all 11 clean originals and made weaker cool casts worse on average. The candidate was rejected. [Training results and limits](docs/wb314-colour-cast-training-results-2026-11-24.md)

@@ -24,4 +24,25 @@ class Wb314LowLightTest {
     @Test fun highlightsInsideApplicationAreaDoNotCountAsSceneEvidence() {
         assertFalse(qualifies(58, 3, highlightsInMask = true))
     }
+
+    private fun diffuseBacklight(faceLower: Int, faceUpper: Int, litScene: Int, enabled: Boolean = true): Boolean {
+        val levels = IntArray(40) { i -> when {
+            i < 4 -> faceLower
+            i < 8 -> faceUpper
+            i < 8 + litScene -> 210
+            else -> 100
+        } }
+        val rgb = ByteArray(3 * levels.size) { levels[it / 3].toByte() }
+        val measurement = ByteArray(levels.size) { if (it < 8) -1 else 0 }
+        val alpha = DoubleArray(levels.size) { if (it < 8) 1.0 else 0.0 }
+        return Wb314LowLight.hasSevereBacklight(rgb, measurement, alpha, enabled)
+    }
+
+    @Test fun diffuseBacklightRequiresBroadLightingAndFaceShadows() {
+        assertTrue(diffuseBacklight(47, 78, 8))
+        assertFalse(diffuseBacklight(47, 78, 8, enabled = false))
+        assertFalse(diffuseBacklight(47, 78, 7))
+        assertFalse(diffuseBacklight(78, 78, 8))
+        assertFalse(diffuseBacklight(47, 92, 8))
+    }
 }

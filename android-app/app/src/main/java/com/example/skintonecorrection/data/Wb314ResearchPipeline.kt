@@ -92,7 +92,8 @@ internal class Wb314ResearchPipeline private constructor(
                 verifyLuminanceRgb: Boolean = false, repairSkinEdges: Boolean = false,
                 softenEdge: Boolean = false, repairJaw: Boolean = false,
                 tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
-                guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null): AutoResult =
+                guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
+                allowDiffuseBacklight: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -106,7 +107,8 @@ internal class Wb314ResearchPipeline private constructor(
             val correction = correctNormalized(original, rgb, rgbBytes(rgb), masks.measurement,
                 masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb,
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
-                guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement)
+                guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
+                allowDiffuseBacklight = allowDiffuseBacklight)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -118,7 +120,8 @@ internal class Wb314ResearchPipeline private constructor(
                                   repair: ResearchMaskRules.ApplicationRepair? = null,
                                   softEdge: Wb314SoftEdge? = null, tonePositiveExposure: Boolean = false,
                                   guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
-                                  minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS): Result {
+                                  minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
+                                  allowDiffuseBacklight: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -139,7 +142,7 @@ internal class Wb314ResearchPipeline private constructor(
             this[1] = Wb314ExposureToning.limit(controls[1], this[1])
         } else limited
         val lowLightLift = guardPhonePortraits && controls.all { it == 1.0 } &&
-            Wb314LowLight.hasSevereBacklight(bytes, measurement, alpha) &&
+            Wb314LowLight.hasSevereBacklight(bytes, measurement, alpha, allowDiffuseBacklight) &&
             hasLowLightHeadroom(original, renderSupport)
         var finalControls = if (lowLightLift) applied.copyOf().apply { this[1] = Wb314LowLight.gain } else applied
         fun renderProposal(checkHighlights: Boolean) = render(original, renderSupport, finalControls,

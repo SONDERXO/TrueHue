@@ -34,7 +34,9 @@ class Wb314JawlineDiagnosticTest {
         check(cameraFile.isFile)
         val uri = FileProvider.getUriForFile(context, "${context.packageName}.camera", cameraFile)
         val repository = ImageRepository(context)
-        var result = repository.runCorrection(uri)
+        val glasses = InstrumentationRegistry.getArguments().getString("wb314CameraGlasses")
+            ?.let(GlassesChoice::valueOf) ?: GlassesChoice.UNCERTAIN
+        var result = repository.runCorrection(uri, glasses)
         if (result.needsGlassesChoice) result = repository.runCorrection(uri, GlassesChoice.OPAQUE)
         val report = File(checkNotNull(result.report.path))
         report.copyTo(File(context.filesDir, "wb314_camera_capture_check.json"), overwrite = true)

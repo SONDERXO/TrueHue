@@ -39,4 +39,14 @@ Both previously rejected camera JPEGs completed through the camera's FileProvide
 
 An independent comparison of the saved PNGs found exact decoded RGB equality for the identity case. The corrected case changed 3,339,321 pixels inside application support and zero pixels outside it.
 
+## Missed lift under indoor lighting
+
+The researcher reported that a recent correction looked darker. The newest saved camera run on Highlight Test .9 showed the unchanged-results screen and had exact decoded input/output equality. An earlier colour adjustment used a different capture. It raised mean encoded luminance within the application area by 0.43 of 255 code levels while increasing the red channel and reducing the blue channel. The newest photo had a visibly shaded face and a broad bright wall. A screening calculation on the saved application mask found that 3.2% of its outside area reached luma 224, below the existing near-white scene requirement.
+
+Highlight Test .10 adds one opt-in branch of the existing low-light rule. The tree must choose identity. The three-stop separation between facial upper luminance and scene highlight luminance remains required. The alternate branch requires at least a quarter of the unaffected scene at encoded luminance 192 or above, and the face's 75th-percentile luminance must be at least one stop above its 25th percentile. It uses the existing 3/8-stop lift, render headroom check, highlight protection and skin mask. The learned controls, colour policy and frozen model remain the same.
+
+With the same source hash and clear-glasses choice, the latest OPPO portrait retained its 4896 × 6528 dimensions. Its mean encoded luminance within support increased by 5.90 of 255 code levels. Exactly 4,589,438 pixels brightened. Zero darkened, newly saturated or changed outside the mask. The source, decoded input and mask matched the earlier run. All 34 Android unit tests passed.
+
+Four OPPO regression photos retained their earlier output and mask bytes. The original severe-backlight lift, an acceptable-lighting portrait, and both earlier full-resolution camera outputs all matched. The existing app was updated in place, and all eight model assets matched .9. This local test is limited to one reported miss and four reused regression photos. The frozen manuscript build and expert round retain their recorded versions. The .10 build adds `-Pwb314DiffuseBacklightTest=true` to the earlier picker-test flags.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

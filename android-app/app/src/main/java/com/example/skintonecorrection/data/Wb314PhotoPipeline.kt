@@ -43,7 +43,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
             softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
             tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure,
-            guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts)
+            guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
+            allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {

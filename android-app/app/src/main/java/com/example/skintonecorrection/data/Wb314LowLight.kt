@@ -6,13 +6,15 @@ import kotlin.math.pow
 internal object Wb314LowLight {
     val gain = 2.0.pow(3.0 / 8.0)
 
-    fun hasSevereBacklight(rgb: ByteArray, measurement: ByteArray, alpha: DoubleArray): Boolean {
+    fun hasSevereBacklight(rgb: ByteArray, measurement: ByteArray, alpha: DoubleArray,
+                           allowDiffuseBacklight: Boolean = false): Boolean {
         require(rgb.size == measurement.size * 3 && alpha.size == measurement.size)
         val face = IntArray(256)
         val scene = IntArray(256)
         var faceCount = 0
         var sceneCount = 0
         var brightCount = 0
+        var diffuseBrightCount = 0
         for (i in measurement.indices) {
             val measured = measurement[i] != 0.toByte()
             if (!measured && alpha[i] > 0.0) continue
@@ -26,12 +28,18 @@ internal object Wb314LowLight {
                 scene[level]++
                 sceneCount++
                 if (level >= 224) brightCount++
+                if (level >= 192) diffuseBrightCount++
             }
         }
-        if (faceCount == 0 || sceneCount == 0 || 16L * brightCount < sceneCount) return false
+        if (faceCount == 0 || sceneCount == 0) return false
+        val nearWhiteBackground = 16L * brightCount >= sceneCount
+        if (!nearWhiteBackground && (!allowDiffuseBacklight || 4L * diffuseBrightCount < sceneCount)) return false
         val faceUpper = linear(percentile(face, faceCount, 75))
         val sceneHighlight = linear(percentile(scene, sceneCount, 95))
-        return faceUpper > 0 && 8.0 * faceUpper <= sceneHighlight
+        if (faceUpper <= 0 || 8.0 * faceUpper > sceneHighlight) return false
+        if (nearWhiteBackground) return true
+        val faceLower = linear(percentile(face, faceCount, 25))
+        return faceLower > 0 && faceUpper >= 2.0 * faceLower
     }
 
     private fun percentile(histogram: IntArray, count: Int, percent: Int): Int {
