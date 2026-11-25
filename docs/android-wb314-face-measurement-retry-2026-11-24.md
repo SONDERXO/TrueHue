@@ -123,4 +123,12 @@ Opt-in build .19 selects a bounded local lift when the original tree is neutral 
 
 All six emulator cases completed, and all 39 Android unit tests passed. The two reviewed development portraits gained 4.35 and 4.01 mean encoded luminance code levels out of 255 within the mask. The controlled warm variant retained its cooling and gained 4.06 levels. No pixel darkened or newly clipped relative to the same-emulator baseline outputs. There were zero pixel changes outside the saved masks. All six retained their original dimensions and mask bytes. The keep-colour, warm-only and accepted exposure-only outputs were pixel-for-pixel identical to the baseline. The two genuine portraits still received no separate colour adjustment. Build .19 is installed on the emulator for local testing. These are development examples, and the frozen thesis evidence retains its prior versions.
 
+### Colour review after the shadow lift
+
+The researcher found the .19 shadow lift satisfactory and continued to colour development. An offline screen fitted a fixed ridge rule to facial and scene yellowness measurements. It used 12 reviewed development photos across eight observed person groups. Each held group was excluded from training and scaling. Cross-collection subject overlap is unverified.
+
+The candidate proposed cooling for two of six desired cases and one of six colour-preservation controls. It missed both mixed portraits. The current rule proposed three of six desired edits and zero unwanted edits in this comparison, based on saved native decisions where available and feature replay for older cases. The candidate failed the screen, and .19 remains installed on the emulator.
+
+Two full-size offline cooling drafts were then made from the approved shadow-lift outputs and the researcher's earlier colour labels. They reduced mean red-minus-blue values by 7.38 and 7.45 code levels within support. Mean luminance changed by less than half a code level, both original dimensions were retained, and the edits introduced no new clipping or pixel changes outside the mask. These are provisional development references with unreviewed colour strength. No app update followed.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

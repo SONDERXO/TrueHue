@@ -1793,6 +1793,22 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_colour_screen_after_shadow_lift_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#colour-review-after-the-shadow-lift",
+    "development_inputs": 12,
+    "held_person_group_fits": 8,
+    "reviewed_cooling_requests": 6,
+    "colour_preservation_controls": 6,
+    "candidate_desired_proposals": 2,
+    "candidate_unwanted_proposals": 1,
+    "current_rule_desired_proposals_native_or_replay": 3,
+    "current_rule_unwanted_proposals_native_or_replay": 0,
+    "mixed_photos_missed": 2,
+    "draft_reference_renders": 2,
+    "drafts_with_outside_mask_changes": 0,
+    "drafts_with_new_clipping": 0,
+    "candidate_adopted": false
+  },
   "android_local_shadow_lift_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#local-shadow-lift",
     "emulator_candidate": "1.0-wb314-highlight-test.19",

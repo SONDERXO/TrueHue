@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Colour decision screen after the shadow lift · 25 November 2026.** An offline face-and-scene rule missed both reviewed mixed portraits and introduced one unwanted cooling proposal. Two local cooling drafts preserve the shadow-lift baseline. [Screen and reference checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#colour-review-after-the-shadow-lift)
+
 **Local shadow lift · 25 November 2026.** Build .19 brightened shadows on two reviewed portraits and on a controlled warm example. Three preservation outputs matched the baseline on the Android emulator. This is development evidence. [Shadow lift and checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#local-shadow-lift)
 
 **Mixed correction decision trace · 25 November 2026.** Android diagnostics found separate brightness and colour rejections on two real portraits. The controlled warm variant qualified for a brightness lift that was rejected by the highlight headroom check. [Trace and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#diagnostic-trace-of-mixed-correction-decisions)
