@@ -1793,6 +1793,19 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_real_portrait_exposure_followup_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#real-portrait-exposure-decision-follow-up",
+    "emulator_build": "1.0-wb314-highlight-test.20",
+    "labelled_real_portraits": 3,
+    "earlier_brightness_misses_with_lift": 1,
+    "keep_as_is_exact": 1,
+    "facial_measurement_stops": 1,
+    "candidate_facial_pixels_on_stopped_attempts": [0, 0],
+    "mean_luma_gain_in_brightened_portrait": 4.03,
+    "clip_or_outside_changes_at_comparison_tolerance": 0,
+    "model_changed": false,
+    "general_reliability_established": false
+  },
   "android_bright_colour_gate_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#cooling-limited-to-very-bright-portraits",
     "emulator_candidate": "1.0-wb314-highlight-test.20",

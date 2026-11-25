@@ -137,4 +137,10 @@ The researcher asked to keep the colour reduction gentle and apply it only to ve
 
 All 40 Android unit tests passed. Six emulator cases completed, with matching inputs, masks and original dimensions. The bright portrait kept cooling at the milder strength, reducing mean encoded red minus blue by 5.43 code levels instead of 8.77. The controlled darker portrait kept its shadow lift and received no extra cooling. Both outputs had zero new clipping or changes outside support. The other four outputs matched .19 pixel for pixel. Build .20 is installed on the emulator as a local test. These cases do not establish a universal overexposure threshold.
 
+### Real-portrait exposure decision follow-up
+
+Three labelled real originals were checked on the verified .20 emulator build. The previously missed brightness request received a local shadow lift with neutral colour controls. In common sRGB, mean encoded luminance increased by 4.03 of 255 code levels inside support. The 4032 × 3024 export had no newly clipped or darkened pixels or changes outside support at the one-code comparison tolerance. The separately labelled keep-as-is portrait was preserved exactly.
+
+The third portrait again stopped at facial measurement. Both analysis sizes returned a face box but zero candidate facial pixels at the first skin and landmark measurement condition. This is a processing stop before the correction decision. The follow-up used existing .20 settings and does not establish general brightness accuracy.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).
