@@ -38,6 +38,9 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         val faceAttempts = if (BuildConfig.WB314_HIGHLIGHT_TEST) JSONArray().also {
             report.put("face_analysis_attempts", it)
         } else null
+        val decisionTrace = if (BuildConfig.WB314_DECISION_TRACE) JSONObject().also {
+            report.put("decision_trace", it)
+        } else null
         val auto = available.predictor.correct(upright, available.generator, glasses,
             previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
             verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
@@ -46,7 +49,7 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
             allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
             allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST,
-            allowCombined = BuildConfig.WB314_COMBINED_TEST)
+            allowCombined = BuildConfig.WB314_COMBINED_TEST, decisionTrace = decisionTrace)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {

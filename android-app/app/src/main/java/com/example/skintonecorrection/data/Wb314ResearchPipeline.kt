@@ -97,7 +97,7 @@ internal class Wb314ResearchPipeline private constructor(
                 tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
                 guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
                 allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
-                allowCombined: Boolean = false): AutoResult =
+                allowCombined: Boolean = false, decisionTrace: JSONObject? = null): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -113,7 +113,7 @@ internal class Wb314ResearchPipeline private constructor(
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
                 guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
                 allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast,
-                allowCombined = allowCombined)
+                allowCombined = allowCombined, decisionTrace = decisionTrace)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -127,7 +127,7 @@ internal class Wb314ResearchPipeline private constructor(
                                   guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
                                   minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
                                   allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
-                                  allowCombined: Boolean = false): Result {
+                                  allowCombined: Boolean = false, decisionTrace: JSONObject? = null): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -147,9 +147,22 @@ internal class Wb314ResearchPipeline private constructor(
         val applied = if (tonePositiveExposure) limited.copyOf().apply {
             this[1] = Wb314ExposureToning.limit(controls[1], this[1])
         } else limited
+        val recordExposure: ((Wb314LowLight.Evidence) -> Unit)? = decisionTrace?.let { trace ->
+            { evidence ->
+                trace.put("backlight_check", evidence.reason)
+                    .put("face_pixels", evidence.facePixels).put("scene_pixels", evidence.scenePixels)
+                    .put("scene_at_least_224", evidence.nearWhitePixels)
+                    .put("scene_at_least_192", evidence.diffuseBrightPixels)
+                    .put("face_luma_25", evidence.faceLuma25).put("face_luma_75", evidence.faceLuma75)
+                    .put("scene_luma_95", evidence.sceneLuma95)
+            }
+        }
         val proposedGain = if (guardPhonePortraits && controls.all { it == 1.0 }) {
-            Wb314LowLight.proposedGain(bytes, measurement, alpha, allowDiffuseBacklight)
-        } else null
+            Wb314LowLight.proposedGain(bytes, measurement, alpha, allowDiffuseBacklight, recordExposure)
+        } else {
+            decisionTrace?.put("backlight_check", "tree_proposed_edit")
+            null
+        }
         val lowLightGain = when {
             proposedGain == null -> null
             hasLowLightHeadroom(original, renderSupport, proposedGain) -> proposedGain
@@ -160,6 +173,8 @@ internal class Wb314ResearchPipeline private constructor(
                 Wb314LowLight.gain
             else -> null
         }
+        decisionTrace?.put("backlight_proposed_gain", proposedGain)
+            ?.put("backlight_headroom_gain", lowLightGain)
         var finalControls = if (lowLightGain == null) applied else applied.copyOf().apply { this[1] = lowLightGain }
         // Preserve existing edits and let the same highlight guard check the new proposal.
         var warmCast = if (allowWarmCast && guardLocalHighlights && finalControls.all { it == 1.0 }) {
