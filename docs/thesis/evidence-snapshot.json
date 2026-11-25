@@ -1793,6 +1793,21 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_bright_colour_gate_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#cooling-limited-to-very-bright-portraits",
+    "emulator_candidate": "1.0-wb314-highlight-test.20",
+    "same_emulator_cases": 6,
+    "required_fraction_of_support": 0.0625,
+    "encoded_luminance_cutoff": 235,
+    "bright_example_milder_cooling": true,
+    "controlled_dark_example_shadow_lift_only": true,
+    "exact_other_outputs": 4,
+    "new_clipping_in_changed_cases": 0,
+    "outside_mask_changes_in_changed_cases": 0,
+    "jvm_tests_passed": 40,
+    "installed_on_emulator": true,
+    "general_reliability_established": false
+  },
   "android_colour_screen_after_shadow_lift_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#colour-review-after-the-shadow-lift",
     "development_inputs": 12,

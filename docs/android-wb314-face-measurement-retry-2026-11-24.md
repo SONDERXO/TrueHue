@@ -131,4 +131,10 @@ The candidate proposed cooling for two of six desired cases and one of six colou
 
 Two full-size offline cooling drafts were then made from the approved shadow-lift outputs and the researcher's earlier colour labels. They reduced mean red-minus-blue values by 7.38 and 7.45 code levels within support. Mean luminance changed by less than half a code level, both original dimensions were retained, and the edits introduced no new clipping or pixel changes outside the mask. These are provisional development references with unreviewed colour strength. No app update followed.
 
+### Cooling limited to very bright portraits
+
+The researcher asked to keep the colour reduction gentle and apply it only to very bright photos. Opt-in build .20 requires at least one sixteenth of the existing correction support to reach encoded luminance 235 out of 255 before it runs the optional warm-cast check. Pixels outside the support contribute no evidence. A positive warm-cast score uses the earlier 0.8048 cooling strength. The original tree, masks, shadow lift and highlight checks retain their existing rules. The build option is `-Pwb314BrightColourTest=true`.
+
+All 40 Android unit tests passed. Six emulator cases completed, with matching inputs, masks and original dimensions. The bright portrait kept cooling at the milder strength, reducing mean encoded red minus blue by 5.43 code levels instead of 8.77. The controlled darker portrait kept its shadow lift and received no extra cooling. Both outputs had zero new clipping or changes outside support. The other four outputs matched .19 pixel for pixel. Build .20 is installed on the emulator as a local test. These cases do not establish a universal overexposure threshold.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

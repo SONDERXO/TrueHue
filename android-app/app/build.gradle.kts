@@ -16,6 +16,7 @@ val wb314WarmCastTest = providers.gradleProperty("wb314WarmCastTest").map { it.t
 val wb314CombinedTest = providers.gradleProperty("wb314CombinedTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314DecisionTrace = providers.gradleProperty("wb314DecisionTrace").map { it.toBooleanStrict() }.orElse(false)
 val wb314ShadowLiftTest = providers.gradleProperty("wb314ShadowLiftTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314BrightColourTest = providers.gradleProperty("wb314BrightColourTest").map { it.toBooleanStrict() }.orElse(false)
 
 android {
     namespace = "com.example.skintonecorrection"
@@ -50,6 +51,7 @@ android {
             val enableCombined = wb314CombinedTest.get()
             val enableDecisionTrace = wb314DecisionTrace.get()
             val enableShadowLift = wb314ShadowLiftTest.get()
+            val enableBrightColour = wb314BrightColourTest.get()
             require(!enableEdgeRepair || enablePickerFixes) { "The edge test requires the picker test build." }
             require(!enableJawRepair || enableSoftEdge) { "The jaw test requires the soft-edge test build." }
             require(!enableSoftEdge || (enablePickerFixes && !enableEdgeRepair)) {
@@ -76,6 +78,9 @@ android {
             require(!enableShadowLift || (enableWarmCast && !enableCombined && !enableDecisionTrace)) {
                 "The shadow lift test uses the warm cast build without other decision experiments."
             }
+            require(!enableBrightColour || enableShadowLift) {
+                "The bright colour test requires the shadow lift test build."
+            }
             buildConfigField("boolean", "WB314_PICKER_FIXES", enablePickerFixes.toString())
             buildConfigField("boolean", "WB314_EDGE_REPAIR", enableEdgeRepair.toString())
             buildConfigField("boolean", "WB314_SOFT_EDGE", enableSoftEdge.toString())
@@ -87,6 +92,7 @@ android {
             buildConfigField("boolean", "WB314_COMBINED_TEST", enableCombined.toString())
             buildConfigField("boolean", "WB314_DECISION_TRACE", enableDecisionTrace.toString())
             buildConfigField("boolean", "WB314_SHADOW_LIFT_TEST", enableShadowLift.toString())
+            buildConfigField("boolean", "WB314_BRIGHT_COLOUR_TEST", enableBrightColour.toString())
             if (enablePickerFixes) {
                 applicationIdSuffix = when {
                     enableJawRepair -> ".pickertest.jaw"
@@ -95,6 +101,7 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
+                    enableBrightColour -> "-wb314-highlight-test.20"
                     enableShadowLift -> "-wb314-highlight-test.19"
                     enableDecisionTrace -> "-wb314-highlight-test.18"
                     enableCombined -> "-wb314-highlight-test.17"
@@ -129,6 +136,7 @@ android {
             buildConfigField("boolean", "WB314_COMBINED_TEST", "false")
             buildConfigField("boolean", "WB314_DECISION_TRACE", "false")
             buildConfigField("boolean", "WB314_SHADOW_LIFT_TEST", "false")
+            buildConfigField("boolean", "WB314_BRIGHT_COLOUR_TEST", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(

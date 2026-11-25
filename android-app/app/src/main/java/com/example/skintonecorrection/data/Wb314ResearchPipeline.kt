@@ -98,7 +98,7 @@ internal class Wb314ResearchPipeline private constructor(
                 guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
                 allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
                 allowCombined: Boolean = false, decisionTrace: JSONObject? = null,
-                allowShadowLift: Boolean = false): AutoResult =
+                allowShadowLift: Boolean = false, brightColourOnly: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -114,7 +114,8 @@ internal class Wb314ResearchPipeline private constructor(
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
                 guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
                 allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast,
-                allowCombined = allowCombined, decisionTrace = decisionTrace, allowShadowLift = allowShadowLift)
+                allowCombined = allowCombined, decisionTrace = decisionTrace, allowShadowLift = allowShadowLift,
+                brightColourOnly = brightColourOnly)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -129,7 +130,7 @@ internal class Wb314ResearchPipeline private constructor(
                                   minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
                                   allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
                                   allowCombined: Boolean = false, decisionTrace: JSONObject? = null,
-                                  allowShadowLift: Boolean = false): Result {
+                                  allowShadowLift: Boolean = false, brightColourOnly: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -182,7 +183,7 @@ internal class Wb314ResearchPipeline private constructor(
         var finalControls = if (lowLightGain == null) applied else applied.copyOf().apply { this[1] = lowLightGain }
         // Preserve existing edits and let the same highlight guard check the new proposal.
         var warmCast = if (allowWarmCast && guardLocalHighlights && finalControls.all { it == 1.0 }) {
-            Wb314WarmCast.estimate(bytes, alpha)
+            Wb314WarmCast.estimate(bytes, alpha, brightColourOnly)
         } else null
         warmCast?.controls?.let { finalControls = it }
         var protectedWarmHighlights = 0

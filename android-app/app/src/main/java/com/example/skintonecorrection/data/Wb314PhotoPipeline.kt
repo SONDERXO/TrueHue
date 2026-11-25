@@ -50,7 +50,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
             allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST,
             allowCombined = BuildConfig.WB314_COMBINED_TEST, decisionTrace = decisionTrace,
-            allowShadowLift = BuildConfig.WB314_SHADOW_LIFT_TEST)
+            allowShadowLift = BuildConfig.WB314_SHADOW_LIFT_TEST,
+            brightColourOnly = BuildConfig.WB314_BRIGHT_COLOUR_TEST)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {

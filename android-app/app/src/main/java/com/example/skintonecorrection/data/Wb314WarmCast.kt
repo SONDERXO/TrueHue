@@ -12,12 +12,16 @@ internal object Wb314WarmCast {
     private const val COOLING_STRENGTH = 1.35
     private val redGain = 0.95.pow(COOLING_STRENGTH)
     private val blueGain = 1.10.pow(COOLING_STRENGTH)
+    private const val MILD_COOLING_STRENGTH = 0.8048
+    private val mildRedGain = 0.95.pow(MILD_COOLING_STRENGTH)
+    private val mildBlueGain = 1.10.pow(MILD_COOLING_STRENGTH)
 
     data class Estimate(val score: Double, val controls: DoubleArray?)
     private data class Sample(val luma: Double, val red: Double, val green: Double, val blue: Double)
 
-    fun estimate(rgb: ByteArray, alpha: DoubleArray): Estimate? {
+    fun estimate(rgb: ByteArray, alpha: DoubleArray, brightPortraitOnly: Boolean = false): Estimate? {
         require(rgb.size == alpha.size * 3)
+        if (brightPortraitOnly && !hasOverbrightSupport(rgb, alpha)) return null
         val samples = ArrayList<Sample>()
         for (i in alpha.indices) {
             if (alpha[i] <= 0.0) continue
@@ -43,8 +47,24 @@ internal object Wb314WarmCast {
         val score = -1.285272430430584 + 0.23283101242219392 * (red / .20) -
             0.2022077898678121 * (blue / .20) + 0.426005203584889 * (contrast / .20)
         if (score <= 0.0) return Estimate(score, null)
-        val exposure = median(bright) { it.luma / luma(it.red * redGain, it.green, it.blue * blueGain) }
-        return Estimate(score, doubleArrayOf(1.0, exposure, redGain, blueGain, 1.0))
+        val selectedRed = if (brightPortraitOnly) mildRedGain else redGain
+        val selectedBlue = if (brightPortraitOnly) mildBlueGain else blueGain
+        val exposure = median(bright) { it.luma / luma(it.red * selectedRed, it.green, it.blue * selectedBlue) }
+        return Estimate(score, doubleArrayOf(1.0, exposure, selectedRed, selectedBlue, 1.0))
+    }
+
+    private fun hasOverbrightSupport(rgb: ByteArray, alpha: DoubleArray): Boolean {
+        var measured = 0
+        var bright = 0
+        for (i in alpha.indices) {
+            if (alpha[i] <= 0.0) continue
+            measured++
+            val r = rgb[3 * i].toInt() and 255
+            val g = rgb[3 * i + 1].toInt() and 255
+            val b = rgb[3 * i + 2].toInt() and 255
+            if (2126 * r + 7152 * g + 722 * b >= 235 * 10_000) bright++
+        }
+        return measured >= 256 && bright * 16 >= measured
     }
 
     private fun luma(red: Double, green: Double, blue: Double) =
