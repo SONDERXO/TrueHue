@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Warm-cast Android test · 25 November 2026.** Opt-in build .15 cooled one held warm portrait on the emulator and left two held colour controls unchanged. The OPPO baseline and frozen thesis evidence retain their recorded builds. This check covers one requested colour edit. [Android test and scope](docs/android-wb314-face-measurement-retry-2026-11-24.md#local-warm-cast-test-build)
+
 **Paired cooling training · 25 November 2026.** The learned edit reproduced the three provisional cooling drafts at native resolution. The automatic decision preserved all three colour controls and missed all three warm portraits. This development trial was not deployed. [Paired training results](docs/android-wb314-face-measurement-retry-2026-11-24.md#paired-cooling-training)
 
 **Warm-cast decision check · 25 November 2026.** A classifier tested with portraits of the same person held together missed all three researcher-confirmed warm casts and made two unwanted colour proposals. Three separate offline cooling drafts were made from the confirmed labels. [Decision screen and draft reference checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#reducing-a-confirmed-warm-cast)

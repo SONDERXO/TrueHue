@@ -44,7 +44,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
             tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure,
             guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
-            allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST)
+            allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
+            allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -67,6 +68,11 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")
             auto.correction.highlightCheck?.let { report.put("highlight_check", it) }
+            if (BuildConfig.WB314_WARM_CAST_TEST) {
+                report.put("warm_cast_applied", auto.correction.warmCastApplied)
+                    .put("warm_cast_protected_highlight_pixels", auto.correction.warmCastProtectedHighlights)
+                auto.correction.warmCastScore?.let { report.put("warm_cast_score", it) }
+            }
             auto.correction.exposurePreview?.let { decision ->
                 report.put("effective_controls", JSONArray(auto.correction.appliedControls.toList()))
                     .put("highlight_limited_gain", decision.effectiveControls[1])

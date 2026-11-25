@@ -29,7 +29,9 @@ internal class Wb314ResearchPipeline private constructor(
     data class Result(val bitmap: Bitmap, val features: DoubleArray, val controls: DoubleArray, val leaf: Int,
                       val exposurePreview: Wb314ExposureDecision? = null,
                       val appliedControls: DoubleArray = exposurePreview?.effectiveControls ?: controls,
-                      val lowLightLift: Boolean = false, val highlightCheck: String? = null)
+                      val lowLightLift: Boolean = false, val highlightCheck: String? = null,
+                      val warmCastScore: Double? = null, val warmCastApplied: Boolean = false,
+                      val warmCastProtectedHighlights: Int = 0)
     data class AutoResult(val correction: Result, val masks: ResearchMaskRules.Result, val visionSide: Int)
 
     companion object {
@@ -93,7 +95,7 @@ internal class Wb314ResearchPipeline private constructor(
                 softenEdge: Boolean = false, repairJaw: Boolean = false,
                 tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
                 guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
-                allowDiffuseBacklight: Boolean = false): AutoResult =
+                allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -108,7 +110,7 @@ internal class Wb314ResearchPipeline private constructor(
                 masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb,
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
                 guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
-                allowDiffuseBacklight = allowDiffuseBacklight)
+                allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -121,7 +123,7 @@ internal class Wb314ResearchPipeline private constructor(
                                   softEdge: Wb314SoftEdge? = null, tonePositiveExposure: Boolean = false,
                                   guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
                                   minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
-                                  allowDiffuseBacklight: Boolean = false): Result {
+                                  allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -155,8 +157,18 @@ internal class Wb314ResearchPipeline private constructor(
             else -> null
         }
         var finalControls = if (lowLightGain == null) applied else applied.copyOf().apply { this[1] = lowLightGain }
+        // Preserve existing edits and let the same highlight guard check the new proposal.
+        val warmCast = if (allowWarmCast && guardLocalHighlights && finalControls.all { it == 1.0 }) {
+            Wb314WarmCast.estimate(bytes, alpha)
+        } else null
+        warmCast?.controls?.let { finalControls = it }
+        var protectedWarmHighlights = 0
+        val preserveWarmHighlights: (() -> Unit)? = if (warmCast?.controls != null) {
+            { protectedWarmHighlights++ }
+        } else null
         fun renderProposal(checkHighlights: Boolean) = render(original, renderSupport, finalControls,
-            repair?.softEdge ?: softEdge, if (repair?.softEdge == null) null else support, softEdge, checkHighlights)
+            repair?.softEdge ?: softEdge, if (repair?.softEdge == null) null else support, softEdge,
+            checkHighlights, preserveWarmHighlights)
         val checkHighlights = guardLocalHighlights && finalControls.any { it != 1.0 }
         var highlightCheck = if (checkHighlights) "passed" else null
         var output = renderProposal(checkHighlights)
@@ -171,7 +183,8 @@ internal class Wb314ResearchPipeline private constructor(
             output = checkNotNull(renderProposal(false))
         }
         return Result(output, features, controls, tree.leafId(features), preview, finalControls,
-            lowLightGain != null && highlightCheck != "kept_original", highlightCheck)
+            lowLightGain != null && highlightCheck != "kept_original", highlightCheck,
+            warmCast?.score, warmCast?.controls != null && highlightCheck != "kept_original", protectedWarmHighlights)
     }
 
     private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport, gain: Double): Boolean {
@@ -214,7 +227,8 @@ internal class Wb314ResearchPipeline private constructor(
 
     private fun render(original: Bitmap, support: Wb314RenderSupport, controls: DoubleArray,
                        softEdge: Wb314SoftEdge?, referenceSupport: Wb314RenderSupport?,
-                       referenceFade: Wb314SoftEdge?, checkHighlights: Boolean): Bitmap? {
+                       referenceFade: Wb314SoftEdge?, checkHighlights: Boolean,
+                       onHighlightPreserved: (() -> Unit)? = null): Bitmap? {
         val width = original.width
         val height = original.height
         val renderer = Wb314PixelRenderer(controls[0], controls[1], controls[2], controls[3], controls[4])
@@ -242,8 +256,12 @@ internal class Wb314ResearchPipeline private constructor(
                             if (newlyClips(base, blended)) row[x] = base
                         }
                         if (checkHighlights && Wb314HighlightGuard.losesHighlight(input, row[x])) {
-                            result.recycle()
-                            return null
+                            if (onHighlightPreserved == null) {
+                                result.recycle()
+                                return null
+                            }
+                            row[x] = input
+                            onHighlightPreserved()
                         }
                     }
                 }

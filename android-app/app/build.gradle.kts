@@ -12,6 +12,7 @@ val wb314JawTest = providers.gradleProperty("wb314JawTest").map { it.toBooleanSt
 val wb314HighlightTest = providers.gradleProperty("wb314HighlightTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314FaceMeasurementTest = providers.gradleProperty("wb314FaceMeasurementTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314DiffuseBacklightTest = providers.gradleProperty("wb314DiffuseBacklightTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314WarmCastTest = providers.gradleProperty("wb314WarmCastTest").map { it.toBooleanStrict() }.orElse(false)
 
 android {
     namespace = "com.example.skintonecorrection"
@@ -42,6 +43,7 @@ android {
             val enableHighlightGuard = wb314HighlightTest.get()
             val enableFaceMeasurementRetry = wb314FaceMeasurementTest.get()
             val enableDiffuseBacklight = wb314DiffuseBacklightTest.get()
+            val enableWarmCast = wb314WarmCastTest.get()
             require(!enableEdgeRepair || enablePickerFixes) { "The edge test requires the picker test build." }
             require(!enableJawRepair || enableSoftEdge) { "The jaw test requires the soft-edge test build." }
             require(!enableSoftEdge || (enablePickerFixes && !enableEdgeRepair)) {
@@ -56,6 +58,9 @@ android {
             require(!enableDiffuseBacklight || enableFaceMeasurementRetry) {
                 "The diffuse backlight test requires the face measurement test build."
             }
+            require(!enableWarmCast || enableDiffuseBacklight) {
+                "The warm cast test requires the diffuse backlight test build."
+            }
             buildConfigField("boolean", "WB314_PICKER_FIXES", enablePickerFixes.toString())
             buildConfigField("boolean", "WB314_EDGE_REPAIR", enableEdgeRepair.toString())
             buildConfigField("boolean", "WB314_SOFT_EDGE", enableSoftEdge.toString())
@@ -63,6 +68,7 @@ android {
             buildConfigField("boolean", "WB314_HIGHLIGHT_TEST", enableHighlightGuard.toString())
             buildConfigField("boolean", "WB314_FACE_MEASUREMENT_TEST", enableFaceMeasurementRetry.toString())
             buildConfigField("boolean", "WB314_DIFFUSE_BACKLIGHT_TEST", enableDiffuseBacklight.toString())
+            buildConfigField("boolean", "WB314_WARM_CAST_TEST", enableWarmCast.toString())
             if (enablePickerFixes) {
                 applicationIdSuffix = when {
                     enableJawRepair -> ".pickertest.jaw"
@@ -71,6 +77,7 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
+                    enableWarmCast -> "-wb314-highlight-test.15"
                     enableDiffuseBacklight -> "-wb314-highlight-test.12"
                     enableFaceMeasurementRetry -> "-wb314-highlight-test.9"
                     enableHighlightGuard -> "-wb314-highlight-test.6"
@@ -97,6 +104,7 @@ android {
             buildConfigField("boolean", "WB314_HIGHLIGHT_TEST", "false")
             buildConfigField("boolean", "WB314_FACE_MEASUREMENT_TEST", "false")
             buildConfigField("boolean", "WB314_DIFFUSE_BACKLIGHT_TEST", "false")
+            buildConfigField("boolean", "WB314_WARM_CAST_TEST", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(

@@ -1793,6 +1793,26 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_local_warm_cast_test_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#local-warm-cast-test-build",
+    "baseline": "1.0-wb314-highlight-test.12",
+    "emulator_candidate": "1.0-wb314-highlight-test.15",
+    "usable_training_originals": 3,
+    "training_analysis_stops": 1,
+    "held_warm_corrected": 1,
+    "held_warm_tested": 1,
+    "held_colour_controls_preserved": 2,
+    "held_colour_controls_tested": 2,
+    "warm_output_dimensions": [828, 1104],
+    "warm_output_changed_pixels": 345610,
+    "outside_mask_changes": 0,
+    "new_clipping": 0,
+    "protected_highlight_pixels": 15418,
+    "jvm_tests_passed": 37,
+    "oppo_updated": false,
+    "platform_parity_established": false,
+    "general_reliability_established": false
+  },
   "android_paired_cooling_training_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#paired-cooling-training",
     "capture_group_amount_fits": 2,
