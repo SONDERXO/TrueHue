@@ -9,8 +9,9 @@ internal object Wb314WarmCast {
         val value = code / 255.0
         if (value <= 0.04045) value / 12.92 else ((value + 0.055) / 1.055).pow(2.4)
     }
-    private val redGain = 0.95.pow(0.8048)
-    private val blueGain = 1.10.pow(0.8048)
+    private const val COOLING_STRENGTH = 1.35
+    private val redGain = 0.95.pow(COOLING_STRENGTH)
+    private val blueGain = 1.10.pow(COOLING_STRENGTH)
 
     data class Estimate(val score: Double, val controls: DoubleArray?)
     private data class Sample(val luma: Double, val red: Double, val green: Double, val blue: Double)

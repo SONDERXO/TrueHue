@@ -97,4 +97,10 @@ The opt-in Android path computes the three fitted colour cues from usable pixels
 
 All 37 Android unit tests passed. In the emulator, .15 cooled the held 828 × 1104 portrait with 345,610 changed pixels, zero changes outside its saved mask and zero new clipping. The existing highlight checks preserved 15,418 pixels at their input values. Mean encoded luminance within support rose by 0.37 of 255 code levels. Both colour controls stayed pixel-for-pixel unchanged. The .12 baseline used the OPPO, and the .15 audit compared the emulator output with its own saved input. The two devices differed in some decoded input and mask pixels for the warm portrait. This check establishes the edit on the emulator and does not establish device parity or generalisation. The OPPO remained on .12 at the researcher's request to continue on the emulator.
 
+### Stronger warm-cast edit
+
+After the researcher found the .15 cooling too subtle, .16 increased the cooling strength from 0.8048 to 1.35 on the existing gain scale. The fitted decision, masks and highlight protection kept the same implementation. The cooling edit still compensates for the colour gains using the bright-face luminance estimate.
+
+On the same Android emulator, the reduction in mean encoded red minus blue within support increased from 5.43 to 8.77 code levels out of 255. Mean encoded luminance rose by 0.46 code levels from the input. The 828 × 1104 output had zero new clipping and zero changes outside the mask. The input, mask and decision scores matched .15 on all three photos. Both the keep-colour outputs matched .15 pixel for pixel. All 37 Android unit tests passed. The warm photo now serves as a development example for strength because the researcher commented on its earlier edit. The OPPO and frozen thesis build were not updated.
+
 Photo credit. D. Ghadiyaram and A. C. Bovik. [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/) (2015) and [Massive Online Crowdsourced Study of Subjective and Objective Picture Quality](https://doi.org/10.1109/TIP.2015.2500021) (2016).

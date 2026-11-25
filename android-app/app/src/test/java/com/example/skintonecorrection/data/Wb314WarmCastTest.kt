@@ -13,7 +13,7 @@ class Wb314WarmCastTest {
         }
         val estimate = checkNotNull(Wb314WarmCast.estimate(rgb, DoubleArray(256) { 1.0 }))
         val controls = checkNotNull(estimate.controls)
-        assertTrue(estimate.score > 0.0 && controls[2] < 1.0 && controls[3] > 1.0)
+        assertTrue(estimate.score > 0.0 && controls[2] < 0.95 && controls[3] > 1.10)
     }
 
     @Test fun preservesNeutralSamplesAndAbstainsWithoutEnoughSupport() {

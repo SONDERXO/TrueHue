@@ -1793,6 +1793,24 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_stronger_warm_cast_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-warm-cast-edit",
+    "baseline": "1.0-wb314-highlight-test.15",
+    "emulator_candidate": "1.0-wb314-highlight-test.16",
+    "previous_cooling_strength": 0.8048,
+    "cooling_strength": 1.35,
+    "warm_strength_development_cases": 1,
+    "same_decision_scores": 3,
+    "colour_controls_preserved": 2,
+    "previous_mean_red_minus_blue_change": -5.43,
+    "new_mean_red_minus_blue_change": -8.77,
+    "new_mean_encoded_luminance_change": 0.46,
+    "outside_mask_changes": 0,
+    "new_clipping": 0,
+    "jvm_tests_passed": 37,
+    "oppo_updated": false,
+    "general_reliability_established": false
+  },
   "android_local_warm_cast_test_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#local-warm-cast-test-build",
     "baseline": "1.0-wb314-highlight-test.12",
