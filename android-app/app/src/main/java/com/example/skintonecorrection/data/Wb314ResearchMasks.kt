@@ -7,6 +7,7 @@ import com.example.skintonecorrection.R
 import org.json.JSONArray
 import org.json.JSONObject
 import org.opencv.android.Utils
+import org.opencv.core.Core
 import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.core.Point
@@ -45,6 +46,55 @@ internal class Wb314ResearchMasks(
 
     data class Result(val faceBox: Rect, val categories: ByteArray, val visibility: ByteArray,
                       val masks: ResearchMaskRules.Result, val visionSide: Int, val minimumMeasurement: Int)
+
+    /** Confirm that just one quarter-turn has a consistent single face across both probe sizes. */
+    fun recoveryQuarterTurn(original: Bitmap): Int? {
+        val angles = listOf(90, -90)
+        val candidates = angles.toMutableList()
+        val smallBoxes = mutableMapOf<Int, Rect>()
+        for (probeSide in listOf(side, side * 2)) {
+            val small = Bitmap.createScaledBitmap(original, probeSide, probeSide, true)
+            val rgba = Mat()
+            val bgr = Mat()
+            val rotated = Mat()
+            try {
+                Utils.bitmapToMat(small, rgba)
+                Imgproc.cvtColor(rgba, bgr, Imgproc.COLOR_RGBA2BGR)
+                candidates.removeAll { angle ->
+                    Core.rotate(bgr, rotated, if (angle == 90) Core.ROTATE_90_CLOCKWISE else Core.ROTATE_90_COUNTERCLOCKWISE)
+                    val found = try {
+                        detectFace(rotated)
+                    } catch (_: PhotoProcessingException) {
+                        null
+                    }
+                    when {
+                        found == null -> true
+                        probeSide == side -> {
+                            smallBoxes[angle] = found
+                            false
+                        }
+                        else -> !agreesAtDoubleSize(checkNotNull(smallBoxes[angle]), found)
+                    }
+                }
+            } finally {
+                if (small !== original) small.recycle()
+                rgba.release()
+                bgr.release()
+                rotated.release()
+            }
+        }
+        return candidates.singleOrNull()
+    }
+
+    private fun agreesAtDoubleSize(small: Rect, large: Rect): Boolean {
+        val overlapWidth = (minOf(2 * (small.x + small.width), large.x + large.width) -
+            maxOf(2 * small.x, large.x)).coerceAtLeast(0)
+        val overlapHeight = (minOf(2 * (small.y + small.height), large.y + large.height) -
+            maxOf(2 * small.y, large.y)).coerceAtLeast(0)
+        val overlap = overlapHeight * overlapWidth
+        val union = 4 * small.width * small.height + large.width * large.height - overlap
+        return 2 * overlap >= union
+    }
 
     /** Reuse the loaded graphs on one inference thread. A missing stage fails before correction. */
     fun generate(bgr: Mat, glasses: GlassesChoice, protectUncertainBoundary: Boolean = false,

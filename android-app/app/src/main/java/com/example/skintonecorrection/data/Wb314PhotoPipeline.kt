@@ -2,6 +2,7 @@ package com.example.skintonecorrection.data
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import com.example.skintonecorrection.BuildConfig
 import org.json.JSONArray
 import org.json.JSONObject
@@ -16,7 +17,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         private const val FACEOCC_SHA = "706b236065be76c0d68a67d5497a53e153debc43894aae0ce16f0fb22eebc936"
     }
 
-    private data class Models(val predictor: Wb314ResearchPipeline, val generator: Wb314ResearchMasks)
+    private data class Models(val predictor: Wb314ResearchPipeline, val generator: Wb314ResearchMasks,
+                              val brightness: Wb314LearnedExposure?)
 
     private val models by lazy {
         val folder = File(context.filesDir, "wb314_models")
@@ -25,7 +27,11 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         require(required.all { File(folder, it).isFile }) { "WB314 research assets are missing on this device." }
         check(OpenCVLoader.initLocal()) { "The local image engine could not start." }
         val landmarker = context.assets.open(OnDevicePipeline.ASSETS + "face_landmarker.task").use { it.readBytes() }
-        Models(Wb314ResearchPipeline.load(folder, MANIFEST_SHA), Wb314ResearchMasks(context, folder, FACEOCC_SHA, landmarker))
+        val brightness = BuildConfig.WB314_PHONE_BRIGHTNESS_FIT_SHA.takeIf { it.isNotEmpty() }?.let {
+            Wb314LearnedExposure.load(File(context.filesDir, "wb314_phone_brightness.json"), it)
+        }
+        Models(Wb314ResearchPipeline.load(folder, MANIFEST_SHA),
+            Wb314ResearchMasks(context, folder, FACEOCC_SHA, landmarker), brightness)
     }
 
     fun run(upright: Bitmap, glasses: GlassesChoice, report: JSONObject): PipelineImages {
@@ -41,23 +47,71 @@ internal class Wb314PhotoPipeline(private val context: Context) {
         val decisionTrace = if (BuildConfig.WB314_DECISION_TRACE) JSONObject().also {
             report.put("decision_trace", it)
         } else null
-        val auto = available.predictor.correct(upright, available.generator, glasses,
+        fun correct(bitmap: Bitmap, attempts: JSONArray?) = available.predictor.correct(bitmap, available.generator, glasses,
             previewWidespreadExposure = pickerFixes, previewMaskBoundaryProtection = pickerFixes,
             verifyLuminanceRgb = pickerFixes, repairSkinEdges = BuildConfig.WB314_EDGE_REPAIR,
             softenEdge = BuildConfig.WB314_SOFT_EDGE, repairJaw = BuildConfig.WB314_JAW_REPAIR,
             tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure,
-            guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
+            guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = attempts,
             allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
             allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST,
             allowCombined = BuildConfig.WB314_COMBINED_TEST, decisionTrace = decisionTrace,
             allowShadowLift = BuildConfig.WB314_SHADOW_LIFT_TEST,
             brightColourOnly = BuildConfig.WB314_BRIGHT_COLOUR_TEST)
-        val corrected = auto.correction.bitmap
+        var analysisBitmap = upright
+        var turn = 0
+        val auto = try {
+            correct(upright, faceAttempts)
+        } catch (error: PhotoProcessingException) {
+            val missingBoth = faceAttempts?.length() == 2 && (0..1).all { index ->
+                faceAttempts.optJSONObject(index)?.optString("reason") == "Expected one face, found 0"
+            }
+            if (!BuildConfig.WB314_QUARTER_TURN_TEST || upright.width <= upright.height || !missingBoth) throw error
+            turn = available.generator.recoveryQuarterTurn(upright) ?: throw error
+            report.put("orientation_retry_degrees", turn)
+            val rotatedAttempts = JSONArray()
+            report.put("orientation_retry_attempts", rotatedAttempts)
+            analysisBitmap = rotate(upright, turn)
+            try {
+                correct(analysisBitmap, rotatedAttempts)
+            } catch (failure: Throwable) {
+                analysisBitmap.recycle()
+                throw failure
+            }
+        }
+        var corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
             val side = FaceOccGeometry.SIDE
+            val correction = auto.correction
+            val brightness = available.brightness
+            val edge = auto.masks.softEdge
+            var addedPixels = 0
+            if (brightness != null && edge != null && !correction.lowLightLift &&
+                correction.shadowLiftPixels == 0 && !correction.warmCastApplied &&
+                correction.appliedControls[0] == 1.0 && correction.appliedControls[1] >= 1.0 &&
+                correction.highlightCheck != "kept_original") {
+                val stops = brightness.estimate(analysisBitmap, corrected, auto.masks.alpha)
+                report.put("learned_brightness_stops", stops)
+                if (stops > 0.0) {
+                    val support = Wb314RenderSupport(corrected.width, corrected.height, auto.masks.alpha,
+                        auto.masks.protected, researchPrecision = pickerFixes)
+                    addedPixels = brightness.apply(analysisBitmap, corrected, support, edge, stops)
+                }
+            }
+            if (brightness != null) report.put("learned_brightness_pixels", addedPixels)
             val preview = IntArray(side * side) { if (auto.masks.alpha[it] > 0.0) -1 else 0xff000000.toInt() }
             mask = Bitmap.createBitmap(preview, side, side, Bitmap.Config.ARGB_8888)
+            if (turn != 0) {
+                val restoredMask = rotate(mask, -turn)
+                mask.recycle()
+                mask = restoredMask
+                analysisBitmap.recycle()
+                val restored = rotate(corrected, -turn)
+                corrected.recycle()
+                corrected = restored
+                preserveOutsideRotatedMask(upright, corrected, mask)
+            }
             val controls = auto.correction.controls
             report.put("leaf", auto.correction.leaf).put("controls", JSONArray(controls.toList()))
                 .put("picker_fixes", pickerFixes)
@@ -68,7 +122,7 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("jaw_repair", BuildConfig.WB314_JAW_REPAIR)
                 .put("edge_repair_added_pixels", auto.masks.repairedApplication?.addedPixels ?: 0)
                 .put("identity_controls", auto.correction.appliedControls.all { it == 1.0 } &&
-                    auto.correction.shadowLiftPixels == 0)
+                    auto.correction.shadowLiftPixels == 0 && addedPixels == 0)
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
                 .put("face_analysis_side", auto.visionSide)
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
@@ -95,6 +149,32 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             mask?.recycle()
             corrected.recycle()
             throw error
+        } finally {
+            if (analysisBitmap !== upright && !analysisBitmap.isRecycled) analysisBitmap.recycle()
+        }
+    }
+
+    private fun rotate(bitmap: Bitmap, degrees: Int): Bitmap =
+        Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height,
+            Matrix().apply { postRotate(degrees.toFloat()) }, false)
+
+    private fun preserveOutsideRotatedMask(original: Bitmap, corrected: Bitmap, mask: Bitmap) {
+        // Native pixels at fractional analysis boundaries can map differently after a turn.
+        // Reapply the displayed mask in the restored frame as an additional preservation check.
+        val side = mask.width
+        val support = IntArray(side * side)
+        mask.getPixels(support, 0, side, 0, 0, side, side)
+        val before = IntArray(original.width)
+        val after = IntArray(original.width)
+        val columns = IntArray(original.width) { x -> (x.toLong() * side / original.width).toInt() }
+        for (y in 0 until original.height) {
+            original.getPixels(before, 0, before.size, 0, y, before.size, 1)
+            corrected.getPixels(after, 0, after.size, 0, y, after.size, 1)
+            val row = (y.toLong() * side / original.height).toInt() * side
+            for (x in after.indices) {
+                if (support[row + columns[x]] != -1) after[x] = before[x]
+            }
+            corrected.setPixels(after, 0, after.size, 0, y, after.size, 1)
         }
     }
 }
