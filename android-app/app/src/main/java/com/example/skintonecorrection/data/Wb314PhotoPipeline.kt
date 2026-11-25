@@ -45,7 +45,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             tonePositiveExposure = tonePositiveExposure, guardPhonePortraits = tonePositiveExposure,
             guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
             allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
-            allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST)
+            allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST,
+            allowCombined = BuildConfig.WB314_COMBINED_TEST)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {

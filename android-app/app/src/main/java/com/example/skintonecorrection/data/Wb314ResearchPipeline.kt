@@ -18,6 +18,7 @@ import java.io.DataInputStream
 import java.io.File
 import java.security.DigestInputStream
 import java.security.MessageDigest
+import kotlin.math.pow
 
 /** WB314 feature extraction and rendering with masks from the same normalized input. */
 internal class Wb314ResearchPipeline private constructor(
@@ -95,7 +96,8 @@ internal class Wb314ResearchPipeline private constructor(
                 softenEdge: Boolean = false, repairJaw: Boolean = false,
                 tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
                 guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
-                allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false): AutoResult =
+                allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
+                allowCombined: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -110,7 +112,8 @@ internal class Wb314ResearchPipeline private constructor(
                 masks.alpha, masks.protected, previewWidespreadExposure, verifyLuminanceRgb,
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
                 guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
-                allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast)
+                allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast,
+                allowCombined = allowCombined)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -123,7 +126,8 @@ internal class Wb314ResearchPipeline private constructor(
                                   softEdge: Wb314SoftEdge? = null, tonePositiveExposure: Boolean = false,
                                   guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
                                   minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
-                                  allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false): Result {
+                                  allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
+                                  allowCombined: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -158,7 +162,7 @@ internal class Wb314ResearchPipeline private constructor(
         }
         var finalControls = if (lowLightGain == null) applied else applied.copyOf().apply { this[1] = lowLightGain }
         // Preserve existing edits and let the same highlight guard check the new proposal.
-        val warmCast = if (allowWarmCast && guardLocalHighlights && finalControls.all { it == 1.0 }) {
+        var warmCast = if (allowWarmCast && guardLocalHighlights && finalControls.all { it == 1.0 }) {
             Wb314WarmCast.estimate(bytes, alpha)
         } else null
         warmCast?.controls?.let { finalControls = it }
@@ -182,9 +186,27 @@ internal class Wb314ResearchPipeline private constructor(
             highlightCheck = "kept_original"
             output = checkNotNull(renderProposal(false))
         }
-        return Result(output, features, controls, tree.leafId(features), preview, finalControls,
+        var warmCastApplied = warmCast?.controls != null && highlightCheck != "kept_original"
+        if (allowCombined && checkHighlights && warmCast == null && finalControls[1] != 1.0 &&
+            finalControls[2] == 1.0 && finalControls[3] == 1.0 && finalControls[4] == 1.0) {
+            // The base edit is already guarded. Reuse its bitmap and retain it at unsafe pixels.
+            warmCast = Wb314WarmCast.estimate(bytes, alpha)
+            warmCast?.controls?.let { cooling ->
+                val combined = finalControls.copyOf().apply {
+                    this[1] *= cooling[1].pow(this[0])
+                    this[2] = cooling[2]
+                    this[3] = cooling[3]
+                }
+                output = checkNotNull(render(original, renderSupport, combined, softEdge, null, null,
+                    checkHighlights = true, onHighlightPreserved = { protectedWarmHighlights++ },
+                    acceptedOutput = checkNotNull(output)))
+                finalControls = combined
+                warmCastApplied = true
+            }
+        }
+        return Result(checkNotNull(output), features, controls, tree.leafId(features), preview, finalControls,
             lowLightGain != null && highlightCheck != "kept_original", highlightCheck,
-            warmCast?.score, warmCast?.controls != null && highlightCheck != "kept_original", protectedWarmHighlights)
+            warmCast?.score, warmCastApplied, protectedWarmHighlights)
     }
 
     private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport, gain: Double): Boolean {
@@ -228,15 +250,17 @@ internal class Wb314ResearchPipeline private constructor(
     private fun render(original: Bitmap, support: Wb314RenderSupport, controls: DoubleArray,
                        softEdge: Wb314SoftEdge?, referenceSupport: Wb314RenderSupport?,
                        referenceFade: Wb314SoftEdge?, checkHighlights: Boolean,
-                       onHighlightPreserved: (() -> Unit)? = null): Bitmap? {
+                       onHighlightPreserved: (() -> Unit)? = null, acceptedOutput: Bitmap? = null): Bitmap? {
         val width = original.width
         val height = original.height
         val renderer = Wb314PixelRenderer(controls[0], controls[1], controls[2], controls[3], controls[4])
-        val result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val result = acceptedOutput ?: Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         try {
             val row = IntArray(width)
+            val accepted = acceptedOutput?.let { IntArray(width) }
             for (y in 0 until height) {
                 original.getPixels(row, 0, width, 0, y, width, 1)
+                if (accepted != null) result.getPixels(accepted, 0, width, 0, y, width, 1)
                 for (x in row.indices) {
                     val coverage = support.alphaAt(x, y)
                     if (coverage > 0) {
@@ -255,12 +279,13 @@ internal class Wb314ResearchPipeline private constructor(
                                 referenceSupport.interpolate(referenceFade.distance, x, y))
                             if (newlyClips(base, blended)) row[x] = base
                         }
-                        if (checkHighlights && Wb314HighlightGuard.losesHighlight(input, row[x])) {
+                        if (checkHighlights && (Wb314HighlightGuard.losesHighlight(input, row[x]) ||
+                                (accepted != null && Wb314HighlightGuard.losesHighlight(accepted[x], row[x])))) {
                             if (onHighlightPreserved == null) {
                                 result.recycle()
                                 return null
                             }
-                            row[x] = input
+                            row[x] = accepted?.get(x) ?: input
                             onHighlightPreserved()
                         }
                     }

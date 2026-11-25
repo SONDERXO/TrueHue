@@ -1793,6 +1793,21 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_independent_exposure_colour_check_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#independent-exposure-and-colour-check",
+    "baseline": "1.0-wb314-highlight-test.16",
+    "emulator_candidate": "1.0-wb314-highlight-test.17",
+    "same_emulator_inputs": 4,
+    "completed": 4,
+    "exact_warm_only_and_keep_colour_outputs": 2,
+    "unwanted_colour_edits_on_exposure_control": 1,
+    "controlled_combined_case_exposure_lift_applied": false,
+    "outside_mask_changes": 0,
+    "highlight_violations": 0,
+    "jvm_tests_passed": 37,
+    "advanced": false,
+    "emulator_restored_to_baseline": true
+  },
   "android_stronger_warm_cast_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-warm-cast-edit",
     "baseline": "1.0-wb314-highlight-test.15",

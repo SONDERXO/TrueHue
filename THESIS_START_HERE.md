@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Independent exposure and colour experiment · 25 November 2026.** Build .17 added unwanted cooling to an accepted exposure-only example. The controlled warm variant still missed its brightness adjustment. The emulator was restored to .16. [Decision test and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#independent-exposure-and-colour-check)
+
 **Stronger warm-cast Android edit · 25 November 2026.** Opt-in build .16 increased cooling on the emulator after the researcher found the earlier edit too subtle. Both colour controls stayed unchanged, and the frozen thesis evidence retains its recorded versions. [Same-emulator comparison](docs/android-wb314-face-measurement-retry-2026-11-24.md#stronger-warm-cast-edit)
 
 **Warm-cast Android test · 25 November 2026.** Opt-in build .15 cooled one held warm portrait on the emulator and left two held colour controls unchanged. The OPPO baseline and frozen thesis evidence retain their recorded builds. This check covers one requested colour edit. [Android test and scope](docs/android-wb314-face-measurement-retry-2026-11-24.md#local-warm-cast-test-build)
