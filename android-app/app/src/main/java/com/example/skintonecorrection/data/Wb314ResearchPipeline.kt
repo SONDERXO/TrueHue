@@ -32,7 +32,7 @@ internal class Wb314ResearchPipeline private constructor(
                       val appliedControls: DoubleArray = exposurePreview?.effectiveControls ?: controls,
                       val lowLightLift: Boolean = false, val highlightCheck: String? = null,
                       val warmCastScore: Double? = null, val warmCastApplied: Boolean = false,
-                      val warmCastProtectedHighlights: Int = 0)
+                      val warmCastProtectedHighlights: Int = 0, val shadowLiftPixels: Int = 0)
     data class AutoResult(val correction: Result, val masks: ResearchMaskRules.Result, val visionSide: Int)
 
     companion object {
@@ -97,7 +97,8 @@ internal class Wb314ResearchPipeline private constructor(
                 tonePositiveExposure: Boolean = false, guardPhonePortraits: Boolean = false,
                 guardLocalHighlights: Boolean = false, faceAttempts: JSONArray? = null,
                 allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
-                allowCombined: Boolean = false, decisionTrace: JSONObject? = null): AutoResult =
+                allowCombined: Boolean = false, decisionTrace: JSONObject? = null,
+                allowShadowLift: Boolean = false): AutoResult =
         withNormalizedRgb(original) { rgb ->
             val bgr = Mat()
             val analysis = try {
@@ -113,7 +114,7 @@ internal class Wb314ResearchPipeline private constructor(
                 masks.repairedApplication, masks.softEdge, tonePositiveExposure, guardPhonePortraits,
                 guardLocalHighlights, minimumMeasurement = analysis.minimumMeasurement,
                 allowDiffuseBacklight = allowDiffuseBacklight, allowWarmCast = allowWarmCast,
-                allowCombined = allowCombined, decisionTrace = decisionTrace)
+                allowCombined = allowCombined, decisionTrace = decisionTrace, allowShadowLift = allowShadowLift)
             val repair = masks.repairedApplication
             val applied = if (repair == null) masks else masks.copy(alpha = repair.alpha, protected = repair.protected)
             AutoResult(correction, applied, analysis.visionSide)
@@ -127,7 +128,8 @@ internal class Wb314ResearchPipeline private constructor(
                                   guardPhonePortraits: Boolean = false, guardLocalHighlights: Boolean = false,
                                   minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS,
                                   allowDiffuseBacklight: Boolean = false, allowWarmCast: Boolean = false,
-                                  allowCombined: Boolean = false, decisionTrace: JSONObject? = null): Result {
+                                  allowCombined: Boolean = false, decisionTrace: JSONObject? = null,
+                                  allowShadowLift: Boolean = false): Result {
         require(measurement.size == PIXELS && alpha.size == PIXELS && protected.size == PIXELS)
         require(alpha.indices.all { alpha[it] in 0.0..1.0 && (!protected[it] || alpha[it] == 0.0) })
         require(alpha.any { it > 0.0 })
@@ -147,16 +149,18 @@ internal class Wb314ResearchPipeline private constructor(
         val applied = if (tonePositiveExposure) limited.copyOf().apply {
             this[1] = Wb314ExposureToning.limit(controls[1], this[1])
         } else limited
-        val recordExposure: ((Wb314LowLight.Evidence) -> Unit)? = decisionTrace?.let { trace ->
+        var exposureEvidence: Wb314LowLight.Evidence? = null
+        val recordExposure: ((Wb314LowLight.Evidence) -> Unit)? = if (allowShadowLift || decisionTrace != null) {
             { evidence ->
-                trace.put("backlight_check", evidence.reason)
-                    .put("face_pixels", evidence.facePixels).put("scene_pixels", evidence.scenePixels)
-                    .put("scene_at_least_224", evidence.nearWhitePixels)
-                    .put("scene_at_least_192", evidence.diffuseBrightPixels)
-                    .put("face_luma_25", evidence.faceLuma25).put("face_luma_75", evidence.faceLuma75)
-                    .put("scene_luma_95", evidence.sceneLuma95)
+                exposureEvidence = evidence
+                decisionTrace?.put("backlight_check", evidence.reason)
+                    ?.put("face_pixels", evidence.facePixels)?.put("scene_pixels", evidence.scenePixels)
+                    ?.put("scene_at_least_224", evidence.nearWhitePixels)
+                    ?.put("scene_at_least_192", evidence.diffuseBrightPixels)
+                    ?.put("face_luma_25", evidence.faceLuma25)?.put("face_luma_75", evidence.faceLuma75)
+                    ?.put("scene_luma_95", evidence.sceneLuma95)
             }
-        }
+        } else null
         val proposedGain = if (guardPhonePortraits && controls.all { it == 1.0 }) {
             Wb314LowLight.proposedGain(bytes, measurement, alpha, allowDiffuseBacklight, recordExposure)
         } else {
@@ -219,11 +223,45 @@ internal class Wb314ResearchPipeline private constructor(
                 warmCastApplied = true
             }
         }
-        return Result(checkNotNull(output), features, controls, tree.leafId(features), preview, finalControls,
+        val corrected = checkNotNull(output)
+        val shadow = if (allowShadowLift && lowLightGain == null) {
+            Wb314ShadowLift.select(exposureEvidence?.faceLuma25, exposureEvidence?.faceLuma75,
+                backlightBlockedByHeadroom = proposedGain != null)
+        } else null
+        val shadowPixels = if (shadow == null) 0 else applyShadowLift(original, corrected, renderSupport, softEdge, shadow)
+        return Result(corrected, features, controls, tree.leafId(features), preview, finalControls,
             lowLightGain != null && highlightCheck != "kept_original", highlightCheck,
-            warmCast?.score, warmCastApplied, protectedWarmHighlights)
+            warmCast?.score, warmCastApplied, protectedWarmHighlights, shadowPixels)
     }
 
+    private fun applyShadowLift(original: Bitmap, output: Bitmap, support: Wb314RenderSupport,
+                                softEdge: Wb314SoftEdge?, lift: Wb314ShadowLift): Int {
+        val before = IntArray(original.width)
+        val corrected = IntArray(original.width)
+        var changed = 0
+        try {
+            for (y in 0 until original.height) {
+                original.getPixels(before, 0, before.size, 0, y, before.size, 1)
+                output.getPixels(corrected, 0, corrected.size, 0, y, corrected.size, 1)
+                for (x in before.indices) {
+                    val coverage = support.alphaAt(x, y)
+                    if (coverage <= 0.0) continue
+                    val base = corrected[x]
+                    val proposed = lift.propose(before[x], base, coverage)
+                    if (base == proposed) continue
+                    val blended = if (softEdge == null) proposed
+                        else softEdge.blend(base, proposed, support.interpolate(softEdge.distance, x, y))
+                    corrected[x] = lift.keepSafe(before[x], base, blended)
+                    if (corrected[x] != base) changed++
+                }
+                output.setPixels(corrected, 0, corrected.size, 0, y, corrected.size, 1)
+            }
+        } catch (error: Throwable) {
+            output.recycle()
+            throw error
+        }
+        return changed
+    }
     private fun hasLowLightHeadroom(original: Bitmap, support: Wb314RenderSupport, gain: Double): Boolean {
         val renderer = Wb314PixelRenderer(1.0, gain, 1.0, 1.0, 1.0)
         // For the stronger proposal, check highlights before the soft edge can attenuate the edit.

@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Local shadow lift · 25 November 2026.** Build .19 brightened shadows on two reviewed portraits and on a controlled warm example. Three preservation outputs matched the baseline on the Android emulator. This is development evidence. [Shadow lift and checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#local-shadow-lift)
+
 **Mixed correction decision trace · 25 November 2026.** Android diagnostics found separate brightness and colour rejections on two real portraits. The controlled warm variant qualified for a brightness lift that was rejected by the highlight headroom check. [Trace and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#diagnostic-trace-of-mixed-correction-decisions)
 
 **Independent exposure and colour experiment · 25 November 2026.** Build .17 added unwanted cooling to an accepted exposure-only example. The controlled warm variant still missed its brightness adjustment. The emulator was restored to .16. [Decision test and limits](docs/android-wb314-face-measurement-retry-2026-11-24.md#independent-exposure-and-colour-check)

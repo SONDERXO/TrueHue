@@ -49,7 +49,8 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             guardLocalHighlights = BuildConfig.WB314_HIGHLIGHT_TEST, faceAttempts = faceAttempts,
             allowDiffuseBacklight = BuildConfig.WB314_DIFFUSE_BACKLIGHT_TEST,
             allowWarmCast = BuildConfig.WB314_WARM_CAST_TEST,
-            allowCombined = BuildConfig.WB314_COMBINED_TEST, decisionTrace = decisionTrace)
+            allowCombined = BuildConfig.WB314_COMBINED_TEST, decisionTrace = decisionTrace,
+            allowShadowLift = BuildConfig.WB314_SHADOW_LIFT_TEST)
         val corrected = auto.correction.bitmap
         var mask: Bitmap? = null
         try {
@@ -65,13 +66,17 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("low_light_lift", auto.correction.lowLightLift)
                 .put("jaw_repair", BuildConfig.WB314_JAW_REPAIR)
                 .put("edge_repair_added_pixels", auto.masks.repairedApplication?.addedPixels ?: 0)
-                .put("identity_controls", auto.correction.appliedControls.all { it == 1.0 })
+                .put("identity_controls", auto.correction.appliedControls.all { it == 1.0 } &&
+                    auto.correction.shadowLiftPixels == 0)
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
                 .put("face_analysis_side", auto.visionSide)
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
                 .put("protected_pixels_analysis", auto.masks.protected.count { it })
                 .put("status", "experimental_success").remove("failed_stage")
             auto.correction.highlightCheck?.let { report.put("highlight_check", it) }
+            if (BuildConfig.WB314_SHADOW_LIFT_TEST) {
+                report.put("shadow_lift_pixels", auto.correction.shadowLiftPixels)
+            }
             if (BuildConfig.WB314_WARM_CAST_TEST) {
                 report.put("warm_cast_applied", auto.correction.warmCastApplied)
                     .put("warm_cast_protected_highlight_pixels", auto.correction.warmCastProtectedHighlights)

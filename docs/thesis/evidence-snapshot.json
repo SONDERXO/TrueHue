@@ -1793,6 +1793,21 @@
     "final_fits": 0,
     "deployed": false
   },
+  "android_local_shadow_lift_2026_11_25": {
+    "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#local-shadow-lift",
+    "emulator_candidate": "1.0-wb314-highlight-test.19",
+    "same_emulator_cases": 6,
+    "real_development_portraits_with_shadow_lift": 2,
+    "controlled_warm_variant_with_shadow_lift": 1,
+    "preservation_outputs_exact": 3,
+    "mean_luma_gains_in_support_code_levels": [4.35, 4.01, 4.06],
+    "outside_mask_changes": 0,
+    "new_clipping_against_baseline_output": 0,
+    "darkened_pixels_against_baseline_output": 0,
+    "jvm_tests_passed": 39,
+    "installed_on_emulator": true,
+    "general_reliability_established": false
+  },
   "android_mixed_correction_trace_2026_11_25": {
     "source": "docs/android-wb314-face-measurement-retry-2026-11-24.md#diagnostic-trace-of-mixed-correction-decisions",
     "diagnostic_build": "1.0-wb314-highlight-test.18",
