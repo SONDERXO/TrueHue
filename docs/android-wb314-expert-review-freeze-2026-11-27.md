@@ -14,16 +14,22 @@ The .25 build extends the [opt-in .22 profile](android-wb314-learned-brightness-
 
 These results cover local development and emulator checks. An independent analysis of correction consistency by reference skin-tone category remains open.
 
-## Expert feedback and defense
+## Agreed wording for the final development feedback Form
+
+On 27 November 2026, the researcher agreed to add the adjustment-necessity question and use a neutral prompt in the existing optional comments field. This section records the agreed wording. Live Form placement remains unverified.
 
 Use a copy of the earlier questionnaire for the .25 packet. Retain the consent, overall quality rating, preference question and comments. Keep earlier responses attached to their original image and version.
 
-Add the same adjustment-necessity question to every pair. Where practical, ask it after showing the original and before showing the app output.
+Ask the same adjustment-necessity question for all 20 pairs, including pairs the app edited and pairs it left unchanged. Where practical, show the original alone first and ask the question before showing the comparison. If the pair is already visible, ask the reviewer to look only at the original on the left.
 
 > Looking only at the original photo, would you recommend adjusting the brightness or color of the face?
 >
 > - Yes, an adjustment would help.
 > - No, the original looks acceptable.
 > - Unsure or unable to judge.
+
+Use this prompt in the existing optional comments field:
+
+> What, if anything, would you change about the app's result? Please describe the issue you noticed.
 
 Report these judgments with reviewer counts in a separate table from the quality and preference responses. Preserve disagreements and unsure responses. The export check establishes pixel preservation. Expert judgments address whether that decision was appropriate for the reviewed photographs.
