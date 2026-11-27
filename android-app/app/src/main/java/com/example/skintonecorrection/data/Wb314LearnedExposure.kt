@@ -12,10 +12,14 @@ import kotlin.math.roundToInt
 internal class Wb314LearnedExposure private constructor(
     private val points: List<DoubleArray>, private val coefficients: DoubleArray
 ) {
-    fun estimate(original: Bitmap, accepted: Bitmap, alpha: DoubleArray): Double {
+    fun estimate(
+        original: Bitmap, accepted: Bitmap, alpha: DoubleArray,
+        existingDarkLift: Boolean = false, strongerDarkFaces: Boolean = false
+    ): Double {
         val before = areaLuma(original)
         val after = areaLuma(accepted)
         val inner = DoubleArray(PIXELS)
+        val acceptedInner = if (strongerDarkFaces) DoubleArray(PIXELS) else null
         val surround = DoubleArray(PIXELS)
         val integral = IntArray((SIDE + 1) * (SIDE + 1))
         val stride = SIDE + 1
@@ -44,7 +48,11 @@ internal class Wb314LearnedExposure private constructor(
             if (alpha[i] > 0.0) {
                 priorGain += after[i] - before[i]
                 supportCount++
-                if (nearby(x, y, 1) == 9) inner[faceCount++] = before[i]
+                if (nearby(x, y, 1) == 9) {
+                    inner[faceCount] = before[i]
+                    acceptedInner?.set(faceCount, after[i])
+                    faceCount++
+                }
             } else if (nearby(x, y, 10) > 0) {
                 surround[ringCount++] = before[i]
             }
@@ -53,8 +61,14 @@ internal class Wb314LearnedExposure private constructor(
         inner.sort(0, faceCount)
         surround.sort(0, ringCount)
         val middle = quantile(inner, faceCount, .5)
+        val upperFace = quantile(inner, faceCount, .75)
+        val extraStops = if (acceptedInner != null) {
+            acceptedInner.sort(0, faceCount)
+            darkFaceExtraStops(middle, upperFace, quantile(acceptedInner, faceCount, .5))
+        } else 0.0
+        if (existingDarkLift) return extraStops
         val values = doubleArrayOf(middle, quantile(surround, ringCount, .75) - middle,
-            quantile(inner, faceCount, .75) - quantile(inner, faceCount, .25), priorGain / supportCount)
+            upperFace - quantile(inner, faceCount, .25), priorGain / supportCount)
         val predicted = points.indices.sumOf { i ->
             val squaredDistance = values.indices.sumOf { j ->
                 val delta = (values[j] - points[i][j]) / scales[j]
@@ -62,7 +76,7 @@ internal class Wb314LearnedExposure private constructor(
             }
             exp(-.5 * squaredDistance) * coefficients[i]
         }.coerceIn(0.0, .55)
-        return if (predicted < .10) 0.0 else predicted
+        return if (predicted < .10) 0.0 else (predicted + extraStops).coerceAtMost(.85)
     }
 
     fun apply(original: Bitmap, accepted: Bitmap, support: Wb314RenderSupport,
@@ -127,6 +141,16 @@ internal class Wb314LearnedExposure private constructor(
         private val linearCodes = DoubleArray(256) { code ->
             val value = code / 255.0
             if (value <= .04045) value / 12.92 else ((value + .055) / 1.055).pow(2.4)
+        }
+
+        internal fun darkFaceExtraStops(originalMedian: Double, originalUpperQuartile: Double,
+                                        correctedMedian: Double): Double {
+            // Add strength only when most of the original facial support is dark
+            // and the existing lift still leaves the facial median in shadow.
+            val darkFace = ((85.0 - originalMedian) / 20.0).coerceIn(0.0, 1.0)
+            val shadowCoverage = ((110.0 - originalUpperQuartile) / 20.0).coerceIn(0.0, 1.0)
+            val residual = ((92.0 - correctedMedian) / 23.0).coerceIn(0.0, 1.0)
+            return .55 * darkFace * shadowCoverage * residual
         }
 
         fun load(file: File, digest: String): Wb314LearnedExposure {

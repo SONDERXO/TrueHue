@@ -1,5 +1,7 @@
 # TrueHue: thesis-writing entry point
 
+**Android .25 expert feedback freeze · 27 November 2026.** The frozen build retains guarded default correction and reduces contrast at protected jaw seams. The 20 upload pairs use the same MST-E development photos and Form order. [Build, verification, and feedback guidance](docs/android-wb314-expert-review-freeze-2026-11-27.md)
+
 **Real-portrait exposure decisions · 25 November 2026.** Emulator build .20 recovered one earlier brightness miss, preserved a keep-as-is photo and repeated one facial measurement stop. [Results and decision stages](docs/android-wb314-face-measurement-retry-2026-11-24.md#real-portrait-exposure-decision-follow-up)
 
 **Gentle cooling for very bright portraits · 25 November 2026.** Emulator build .20 applied milder cooling on the bright example and kept the darker example's shadow lift alone. Four other outputs matched .19 exactly. [Colour gate and checks](docs/android-wb314-face-measurement-retry-2026-11-24.md#cooling-limited-to-very-bright-portraits)

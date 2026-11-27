@@ -153,7 +153,11 @@ class ImageRepository internal constructor(
                 report.put("status", "failed").put("failed_stage", "save")
                     .put("reason", error.message ?: error.javaClass.simpleName)
             }
-            finally{result.input.recycle();result.mask.recycle();result.corrected.recycle()}
+            finally{
+                result.input.recycle()
+                result.mask.recycle()
+                if (result.corrected !== result.input) result.corrected.recycle()
+            }
         }
         report.put("elapsed_ms",(System.nanoTime()-started)/1e6).put("timing_scope","Includes asset initialization; not a benchmark")
         val files=JSONObject();folder.listFiles()?.forEach { file ->

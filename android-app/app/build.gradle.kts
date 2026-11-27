@@ -19,6 +19,9 @@ val wb314ShadowLiftTest = providers.gradleProperty("wb314ShadowLiftTest").map { 
 val wb314BrightColourTest = providers.gradleProperty("wb314BrightColourTest").map { it.toBooleanStrict() }.orElse(false)
 val wb314PhoneBrightnessFitSha = providers.gradleProperty("wb314PhoneBrightnessFitSha").orElse("")
 val wb314QuarterTurnTest = providers.gradleProperty("wb314QuarterTurnTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314DarkFaceStrengthTest = providers.gradleProperty("wb314DarkFaceStrengthTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314DefaultCorrectionTest = providers.gradleProperty("wb314DefaultCorrectionTest").map { it.toBooleanStrict() }.orElse(false)
+val wb314JawSeamTest = providers.gradleProperty("wb314JawSeamTest").map { it.toBooleanStrict() }.orElse(false)
 
 android {
     namespace = "com.example.skintonecorrection"
@@ -56,8 +59,14 @@ android {
             val enableBrightColour = wb314BrightColourTest.get()
             val brightnessFit = wb314PhoneBrightnessFitSha.get()
             val enableQuarterTurn = wb314QuarterTurnTest.get()
+            val enableDarkFaceStrength = wb314DarkFaceStrengthTest.get()
+            val enableDefaultCorrection = wb314DefaultCorrectionTest.get()
+            val enableJawSeam = wb314JawSeamTest.get()
             require(brightnessFit.isEmpty() || (enableBrightColour && Regex("[a-f0-9]{64}").matches(brightnessFit)))
             require(!enableQuarterTurn || brightnessFit.isNotEmpty())
+            require(!enableDarkFaceStrength || enableQuarterTurn)
+            require(!enableDefaultCorrection || enableDarkFaceStrength)
+            require(!enableJawSeam || enableDefaultCorrection)
             require(!enableEdgeRepair || enablePickerFixes) { "The edge test requires the picker test build." }
             require(!enableJawRepair || enableSoftEdge) { "The jaw test requires the soft-edge test build." }
             require(!enableSoftEdge || (enablePickerFixes && !enableEdgeRepair)) {
@@ -101,6 +110,9 @@ android {
             buildConfigField("boolean", "WB314_BRIGHT_COLOUR_TEST", enableBrightColour.toString())
             buildConfigField("String", "WB314_PHONE_BRIGHTNESS_FIT_SHA", "\"$brightnessFit\"")
             buildConfigField("boolean", "WB314_QUARTER_TURN_TEST", enableQuarterTurn.toString())
+            buildConfigField("boolean", "WB314_DARK_FACE_STRENGTH_TEST", enableDarkFaceStrength.toString())
+            buildConfigField("boolean", "WB314_DEFAULT_CORRECTION_TEST", enableDefaultCorrection.toString())
+            buildConfigField("boolean", "WB314_JAW_SEAM_TEST", enableJawSeam.toString())
             if (enablePickerFixes) {
                 applicationIdSuffix = when {
                     enableJawRepair -> ".pickertest.jaw"
@@ -109,6 +121,9 @@ android {
                     else -> ".pickertest"
                 }
                 versionNameSuffix = when {
+                    enableJawSeam -> "-wb314-highlight-test.25"
+                    enableDefaultCorrection -> "-wb314-highlight-test.24"
+                    enableDarkFaceStrength -> "-wb314-highlight-test.23"
                     enableQuarterTurn -> "-wb314-highlight-test.22"
                     brightnessFit.isNotEmpty() -> "-wb314-highlight-test.21"
                     enableBrightColour -> "-wb314-highlight-test.20"
@@ -149,6 +164,9 @@ android {
             buildConfigField("boolean", "WB314_BRIGHT_COLOUR_TEST", "false")
             buildConfigField("String", "WB314_PHONE_BRIGHTNESS_FIT_SHA", "\"\"")
             buildConfigField("boolean", "WB314_QUARTER_TURN_TEST", "false")
+            buildConfigField("boolean", "WB314_DARK_FACE_STRENGTH_TEST", "false")
+            buildConfigField("boolean", "WB314_DEFAULT_CORRECTION_TEST", "false")
+            buildConfigField("boolean", "WB314_JAW_SEAM_TEST", "false")
             // No minification yet - the codebase is a skeleton. Enable R8 later if needed.
             isMinifyEnabled = false
             proguardFiles(

@@ -7,6 +7,16 @@ import org.junit.Test
 import kotlin.math.sqrt
 
 class Wb314ExposureToningTest {
+    @Test fun extraLiftRequiresDeepShadowsAfterTheExistingEdit() {
+        val strong = Wb314LearnedExposure.darkFaceExtraStops(57.0, 78.0, 63.0)
+        val mild = Wb314LearnedExposure.darkFaceExtraStops(74.0, 95.0, 84.0)
+        assertTrue(strong > mild && mild > 0.0)
+        assertEquals(.55, strong, 0.0)
+        assertEquals(0.0, Wb314LearnedExposure.darkFaceExtraStops(70.0, 130.0, 75.0), 0.0)
+        assertEquals(0.0, Wb314LearnedExposure.darkFaceExtraStops(125.0, 160.0, 130.0), 0.0)
+        assertEquals(0.0, Wb314LearnedExposure.darkFaceExtraStops(60.0, 85.0, 95.0), 0.0)
+    }
+
     @Test fun reducesPositiveExposureInStops() {
         assertEquals(1.2968395546510096, Wb314ExposureToning.limit(sqrt(2.0), sqrt(2.0)), 1e-14)
     }

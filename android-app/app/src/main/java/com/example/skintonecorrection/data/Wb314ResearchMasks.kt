@@ -161,7 +161,7 @@ internal class Wb314ResearchMasks(
         val masks = ResearchMaskRules.build(categories, points, visibility.measurement,
             glasses, visibility.application, repairSkinEdges, softenEdge, if (repairJaw) bgr else null,
             recordMeasurement = attempt?.let { trace -> { key, count -> trace.put(key, count) } },
-            minimumMeasurement = minimumMeasurement)
+            minimumMeasurement = minimumMeasurement, smoothJawSeams = BuildConfig.WB314_JAW_SEAM_TEST)
         return Result(face, categories, visibility.measurement, masks, visionSide, minimumMeasurement)
     }
 

@@ -40,7 +40,7 @@ internal object ResearchMaskRules {
 
     data class Result(val baseline: ByteArray, val measurement: ByteArray, val alpha: DoubleArray,
                       val protected: BooleanArray, val repairedApplication: ApplicationRepair? = null,
-                      val softEdge: Wb314SoftEdge? = null)
+                      val softEdge: Wb314SoftEdge? = null, val jawSeam: Wb314JawSeam? = null)
 
     data class ApplicationRepair(val alpha: DoubleArray, val protected: BooleanArray, val addedPixels: Int,
                                  val softEdge: Wb314SoftEdge? = null)
@@ -49,7 +49,7 @@ internal object ResearchMaskRules {
               applicationVisibility: ByteArray = visible, repairSkinEdges: Boolean = false,
               softenEdge: Boolean = false, jawImage: Mat? = null,
               recordMeasurement: ((String, Int) -> Unit)? = null,
-              minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS): Result {
+              minimumMeasurement: Int = DEFAULT_MINIMUM_MEASUREMENT_PIXELS, smoothJawSeams: Boolean = false): Result {
         require(categories.size == PIXELS && categories.all { it in 0..18 })
         require(visible.size == PIXELS && visible.all { it == 0.toByte() || it == 255.toByte() })
         require(applicationVisibility.size == PIXELS && applicationVisibility.indices.all {
@@ -97,7 +97,31 @@ internal object ResearchMaskRules {
             else -> null
         }
         val softEdge = if (softenEdge) softEdge(distance, width) else null
-        return Result(binary(baseline), binary(measurement), alpha, veto, repair, softEdge)
+        val seam = if (smoothJawSeams) jawSeam(selectedWithEars, categories, neck, veto) else null
+        return Result(binary(baseline), binary(measurement), alpha, veto, repair, softEdge, seam)
+    }
+
+    private fun jawSeam(support: BooleanArray, categories: ByteArray, neck: BooleanArray,
+                        protected: BooleanArray): Wb314JawSeam? {
+        fun face(i: Int) = categories[i] == 1.toByte() || categories[i] == 10.toByte()
+        val seam = BooleanArray(PIXELS) { i ->
+            val x = i % SIDE
+            val y = i / SIDE
+            protected[i] && (face(i) || categories[i] == 14.toByte()) &&
+                x in 2 until SIDE - 2 && y in 2 until SIDE - 2 &&
+                jawOffsets.any { (dx, dy) ->
+                    val offset = dy * SIDE + dx
+                    val a = i - offset
+                    val b = i + offset
+                    support[a] && support[b] && ((face(a) && neck[b]) || (neck[a] && face(b)))
+                }
+        }
+        val seedCount = seam.count { it }
+        if (seedCount < 4) return null
+        val distance = distances(BooleanArray(PIXELS) { !seam[it] })
+        val influence = bounds(BooleanArray(PIXELS) { distance[it] <= Wb314JawSeam.radius + 1 })
+        return Wb314JawSeam(DoubleArray(PIXELS) { distance[it].toDouble() }, seedCount,
+            influence.left, influence.top, influence.right, influence.bottom)
     }
 
     private fun softEdge(distance: FloatArray, width: Int) =

@@ -87,11 +87,15 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             val brightness = available.brightness
             val edge = auto.masks.softEdge
             var addedPixels = 0
-            if (brightness != null && edge != null && !correction.lowLightLift &&
-                correction.shadowLiftPixels == 0 && !correction.warmCastApplied &&
+            val existingDarkLift = correction.lowLightLift || correction.shadowLiftPixels > 0
+            val strongerDarkFaces = BuildConfig.WB314_DARK_FACE_STRENGTH_TEST
+            if (brightness != null && edge != null && (!existingDarkLift || strongerDarkFaces) &&
+                !correction.warmCastApplied &&
                 correction.appliedControls[0] == 1.0 && correction.appliedControls[1] >= 1.0 &&
                 correction.highlightCheck != "kept_original") {
-                val stops = brightness.estimate(analysisBitmap, corrected, auto.masks.alpha)
+                val stops = brightness.estimate(
+                    analysisBitmap, corrected, auto.masks.alpha, existingDarkLift, strongerDarkFaces
+                )
                 report.put("learned_brightness_stops", stops)
                 if (stops > 0.0) {
                     val support = Wb314RenderSupport(corrected.width, corrected.height, auto.masks.alpha,
@@ -99,7 +103,46 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                     addedPixels = brightness.apply(analysisBitmap, corrected, support, edge, stops)
                 }
             }
-            if (brightness != null) report.put("learned_brightness_pixels", addedPixels)
+            var identity = correction.appliedControls.all { it == 1.0 } &&
+                correction.shadowLiftPixels == 0 && addedPixels == 0
+            var restoreOriginal = false
+            if (BuildConfig.WB314_DEFAULT_CORRECTION_TEST) {
+                val proposedDefault = identity && brightness != null && edge != null
+                if (proposedDefault) {
+                    val support = Wb314RenderSupport(corrected.width, corrected.height, auto.masks.alpha,
+                        auto.masks.protected, researchPrecision = pickerFixes)
+                    checkNotNull(brightness).apply(analysisBitmap, corrected, support, checkNotNull(edge),
+                        Wb314CandidateReview.defaultStops)
+                }
+                val seam = auto.masks.jawSeam
+                val jawTaperPixels = if (seam != null && (!identity || proposedDefault)) {
+                    val support = Wb314RenderSupport(corrected.width, corrected.height, auto.masks.alpha,
+                        auto.masks.protected, researchPrecision = pickerFixes)
+                    seam.apply(analysisBitmap, corrected, support)
+                } else 0
+                val review = Wb314CandidateReview.sample(analysisBitmap, corrected, auto.masks.alpha)
+                val rejection = if (identity && !proposedDefault) "no_safe_proposal"
+                    else review.rejection(proposedDefault)
+                restoreOriginal = rejection != null
+                identity = restoreOriginal
+                report.put("candidate_mode", if (proposedDefault) "default_exposure" else "model")
+                    .put("candidate_review", rejection ?: "accepted")
+                    .put("candidate_review_face_samples", review.face)
+                    .put("candidate_review_changed_samples", review.changed)
+                    .put("candidate_review_new_clipping_samples", review.newClipping)
+                if (BuildConfig.WB314_JAW_SEAM_TEST) {
+                    report.put("jaw_seam_seed_pixels", seam?.seedCount ?: 0)
+                        .put("jaw_seam_tapered_pixels", if (restoreOriginal) 0 else jawTaperPixels)
+                }
+                if (proposedDefault && !restoreOriginal) {
+                    report.put("default_exposure_stops", Wb314CandidateReview.defaultStops)
+                }
+                if (restoreOriginal) {
+                    corrected.recycle()
+                    corrected = upright
+                }
+            }
+            if (brightness != null) report.put("learned_brightness_pixels", if (restoreOriginal) 0 else addedPixels)
             val preview = IntArray(side * side) { if (auto.masks.alpha[it] > 0.0) -1 else 0xff000000.toInt() }
             mask = Bitmap.createBitmap(preview, side, side, Bitmap.Config.ARGB_8888)
             if (turn != 0) {
@@ -107,10 +150,12 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 mask.recycle()
                 mask = restoredMask
                 analysisBitmap.recycle()
-                val restored = rotate(corrected, -turn)
-                corrected.recycle()
-                corrected = restored
-                preserveOutsideRotatedMask(upright, corrected, mask)
+                if (!restoreOriginal) {
+                    val restored = rotate(corrected, -turn)
+                    corrected.recycle()
+                    corrected = restored
+                    preserveOutsideRotatedMask(upright, corrected, mask)
+                }
             }
             val controls = auto.correction.controls
             report.put("leaf", auto.correction.leaf).put("controls", JSONArray(controls.toList()))
@@ -118,11 +163,10 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("edge_repair", BuildConfig.WB314_EDGE_REPAIR)
                 .put("soft_edge", BuildConfig.WB314_SOFT_EDGE)
                 .put("positive_exposure_toned", tonePositiveExposure)
-                .put("low_light_lift", auto.correction.lowLightLift)
+                .put("low_light_lift", auto.correction.lowLightLift && !restoreOriginal)
                 .put("jaw_repair", BuildConfig.WB314_JAW_REPAIR)
                 .put("edge_repair_added_pixels", auto.masks.repairedApplication?.addedPixels ?: 0)
-                .put("identity_controls", auto.correction.appliedControls.all { it == 1.0 } &&
-                    auto.correction.shadowLiftPixels == 0 && addedPixels == 0)
+                .put("identity_controls", identity)
                 .put("analysis_dimensions", JSONArray(listOf(side, side)))
                 .put("face_analysis_side", auto.visionSide)
                 .put("output_dimensions", JSONArray(listOf(corrected.width, corrected.height)))
@@ -130,15 +174,17 @@ internal class Wb314PhotoPipeline(private val context: Context) {
                 .put("status", "experimental_success").remove("failed_stage")
             auto.correction.highlightCheck?.let { report.put("highlight_check", it) }
             if (BuildConfig.WB314_SHADOW_LIFT_TEST) {
-                report.put("shadow_lift_pixels", auto.correction.shadowLiftPixels)
+                report.put("shadow_lift_pixels", if (restoreOriginal) 0 else auto.correction.shadowLiftPixels)
             }
             if (BuildConfig.WB314_WARM_CAST_TEST) {
-                report.put("warm_cast_applied", auto.correction.warmCastApplied)
+                report.put("warm_cast_applied", auto.correction.warmCastApplied && !restoreOriginal)
                     .put("warm_cast_protected_highlight_pixels", auto.correction.warmCastProtectedHighlights)
                 auto.correction.warmCastScore?.let { report.put("warm_cast_score", it) }
             }
             auto.correction.exposurePreview?.let { decision ->
-                report.put("effective_controls", JSONArray(auto.correction.appliedControls.toList()))
+                val effective = if (restoreOriginal) List(controls.size) { 1.0 }
+                    else auto.correction.appliedControls.toList()
+                report.put("effective_controls", JSONArray(effective))
                     .put("highlight_limited_gain", decision.effectiveControls[1])
                     .put("exposure_limit_method", decision.method)
                     .put("eligible_face_pixels", decision.eligiblePixels)
@@ -147,7 +193,7 @@ internal class Wb314PhotoPipeline(private val context: Context) {
             return PipelineImages(upright, mask, corrected)
         } catch (error: Throwable) {
             mask?.recycle()
-            corrected.recycle()
+            if (corrected !== upright) corrected.recycle()
             throw error
         } finally {
             if (analysisBitmap !== upright && !analysisBitmap.isRecycled) analysisBitmap.recycle()
